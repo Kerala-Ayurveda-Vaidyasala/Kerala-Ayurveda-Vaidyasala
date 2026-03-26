@@ -45,16 +45,12 @@ a{color:inherit}
 .shelf-wrap::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 8%,rgba(255,244,225,.24),transparent 26%),linear-gradient(180deg,rgba(255,255,255,.08),transparent 34%)}
 .shelf-wrap::after{content:'';position:absolute;left:.9rem;right:.9rem;bottom:1rem;height:22px;border-radius:4px;background:linear-gradient(180deg,#9b6b40 0%,#744723 48%,#4e2d16 100%);box-shadow:0 14px 18px rgba(0,0,0,.18), inset 0 2px 0 rgba(255,255,255,.12)}
 .books{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1rem;align-items:end;perspective:1400px;position:relative;z-index:1}
-.book{display:flex;align-items:flex-end;justify-content:center;min-height:250px;padding:1rem .8rem 1.35rem;border-radius:10px 10px 4px 4px;color:#fdf8f0;text-decoration:none;position:relative;overflow:visible;transform-style:preserve-3d;transform-origin:bottom center;box-shadow:0 16px 28px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.12), inset -18px 0 24px rgba(0,0,0,.08);transition:transform .38s cubic-bezier(.22,.61,.36,1), box-shadow .38s ease, filter .38s ease;border:1px solid rgba(255,255,255,.08);filter:saturate(.94)}
-.book:hover{transform:translateY(-14px) rotateX(-8deg) rotateY(-10deg) scale(1.035);box-shadow:24px 30px 40px rgba(0,0,0,.24), 0 12px 20px rgba(0,0,0,.18);filter:saturate(1.03) brightness(1.04)}
-.book::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.06) 16%,transparent 30%,transparent 70%,rgba(0,0,0,.08) 100%),repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 14px);pointer-events:none}
-.book::after{content:'';position:absolute;top:7px;right:-10px;bottom:5px;width:14px;border-radius:0 8px 8px 0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.96) 0 7px,rgba(236,225,205,.96) 7px 8px),linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(241,229,209,.94) 52%,rgba(223,206,183,.94) 100%);transform-origin:left center;transform:rotateY(58deg);box-shadow:2px 0 8px rgba(0,0,0,.14)}
-.book .spine-lines{position:absolute;left:14px;top:18px;bottom:20px;width:16px;pointer-events:none;transform:translateZ(8px)}
-.book .spine-lines::before,.book .spine-lines::after{content:'';position:absolute;top:0;bottom:0;width:2px;border-radius:2px;background:rgba(255,255,255,.16)}
-.book .spine-lines::after{left:10px;background:rgba(255,255,255,.08)}
-.book .title{writing-mode:vertical-rl;transform:rotate(180deg) translateZ(18px);font-family:'Palatino Linotype',Palatino,serif;letter-spacing:.13em;text-transform:uppercase;font-size:.93rem;line-height:1.22;text-align:center;text-shadow:0 1px 0 rgba(0,0,0,.12);position:relative;z-index:2}
-.book .shine{position:absolute;top:10px;left:28px;width:24%;bottom:34px;border-radius:18px;background:linear-gradient(90deg,rgba(255,255,255,.10),rgba(255,255,255,.02) 48%,transparent 100%);transform:skewY(-8deg) translateZ(10px);pointer-events:none;mix-blend-mode:screen;opacity:.9}
-.book .book-shadow{position:absolute;left:6%;right:6%;bottom:9px;height:18px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(23,11,4,.34),transparent 72%);filter:blur(6px);pointer-events:none}
+.book{display:flex;align-items:flex-end;justify-content:center;min-height:250px;padding:1rem .75rem 1.15rem;border-radius:10px 10px 4px 4px;color:#fdf8f0;text-decoration:none;position:relative;transform-style:preserve-3d;transform-origin:bottom center;box-shadow:0 14px 24px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.1);transition:transform .38s cubic-bezier(.22,.61,.36,1), box-shadow .38s ease, filter .38s ease;border:1px solid rgba(255,255,255,.08);filter:saturate(.94)}
+.book:hover{transform:translateY(-12px) rotateX(-8deg) rotateY(-10deg) scale(1.03);box-shadow:22px 28px 34px rgba(0,0,0,.22), 0 10px 18px rgba(0,0,0,.16);filter:saturate(1.02) brightness(1.03)}
+.book::before{content:'';position:absolute;left:11px;top:14px;bottom:18px;width:2px;background:rgba(255,255,255,.22);box-shadow:10px 0 0 rgba(255,255,255,.06)}
+.book::after{content:'';position:absolute;top:6px;right:-10px;bottom:4px;width:14px;border-radius:0 7px 7px 0;background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(241,229,209,.92) 52%,rgba(223,206,183,.92) 100%);transform-origin:left center;transform:rotateY(58deg);box-shadow:2px 0 8px rgba(0,0,0,.12)}
+.book span{writing-mode:vertical-rl;transform:rotate(180deg) translateZ(18px);font-family:'Palatino Linotype',Palatino,serif;letter-spacing:.13em;text-transform:uppercase;font-size:.93rem;line-height:1.22;text-align:center;text-shadow:0 1px 0 rgba(0,0,0,.12)}
+.book small{position:absolute;left:50%;bottom:.72rem;transform:translateX(-50%) translateZ(14px);writing-mode:horizontal-tb;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(253,248,240,.82)}
 .book:nth-child(odd){animation:bookFloat 5.6s ease-in-out infinite}
 .book:nth-child(even){animation:bookFloat 6.6s ease-in-out infinite .4s}
 .book:nth-child(1){transform:rotateZ(-1.6deg)}
@@ -79,17 +75,17 @@ a{color:inherit}
 .article-card .kicker{display:inline-block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}.article-card h3{margin:.1rem 0 .45rem;font-weight:400;font-size:1.12rem;color:var(--ink)}.article-card p{margin:0;color:#486050;font-size:.94rem}.article-card .status{display:block;margin-top:.7rem;color:#5f7364;font-size:.8rem;font-style:italic}
 .footer{padding:2.2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem}.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
 @media (max-width:980px){.books{grid-template-columns:repeat(3,minmax(0,1fr))}.article-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.hero{padding-top:3.25rem}.topbar-inner{padding:.9rem 1rem}.brand strong{font-size:.93rem}.brand span{font-size:.66rem}.books{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.shelf-wrap{padding:1.5rem .9rem 2.3rem}.book{min-height:180px!important;padding:.8rem .55rem 1rem}.book::after{right:-8px;width:11px}.book .title{font-size:.78rem}.article-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.hero{padding-top:3.25rem}.topbar-inner{padding:.9rem 1rem}.brand strong{font-size:.93rem}.brand span{font-size:.66rem}.books{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.shelf-wrap{padding:1.5rem .9rem 2.3rem}.book{min-height:180px!important;padding:.8rem .55rem 1rem}.book::after{right:-8px;width:11px}.book span{font-size:.78rem}.article-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="topbar-inner">
-    <a class="brand" href="index-updated.html">
+    <a class="brand" href="index.html">
       <strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong>
       <span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span>
     </a>
-    <a class="back-link" href="index-updated.html#insight-library-home">← Back to Main Site</a>
+    <a class="back-link" href="index.html">← Back to Main Site</a>
   </div>
 </header>
 <section class="hero">
@@ -115,12 +111,12 @@ a{color:inherit}
     </div>
   </section>
   <section class="shelf-wrap">
-    <div class="books" id="bookshelf"><a class="book b1" href="basics.html" data-search="basics of ayurveda foundations, first principles, and the language through which ayurveda understands life and health."><span class="spine-lines"></span><span class="shine"></span><span class="title">Basics of Ayurveda</span><span class="book-shadow"></span></a>
-<a class="book b2" href="lifestyle.html" data-search="lifestyle & daily living dinacharya, ritucharya, food rhythm, sleep, and the ordinary habits that quietly shape health."><span class="spine-lines"></span><span class="shine"></span><span class="title">Lifestyle & Daily Living</span><span class="book-shadow"></span></a>
-<a class="book b3" href="mind.html" data-search="mind & mental health a calmer reading room for the ayurvedic understanding of mind, emotion, temperament, and balance."><span class="spine-lines"></span><span class="shine"></span><span class="title">Mind & Mental Health</span><span class="book-shadow"></span></a>
-<a class="book b4" href="diseases.html" data-search="disease understanding condition-based reading that explains patterns, causes, and ayurvedic ways of interpreting disturbance."><span class="spine-lines"></span><span class="shine"></span><span class="title">Disease Understanding</span><span class="book-shadow"></span></a>
-<a class="book b5" href="herbs.html" data-search="herbs & medicines individual herbs, classical formulations, and the role they play in traditional practice."><span class="spine-lines"></span><span class="shine"></span><span class="title">Herbs & Medicines</span><span class="book-shadow"></span></a>
-<a class="book b6" href="advanced.html" data-search="advanced concepts srotas, samprapti, dhatu, ojas, and other deeper concepts for more serious readers."><span class="spine-lines"></span><span class="shine"></span><span class="title">Advanced Concepts</span><span class="book-shadow"></span></a></div>
+    <div class="books" id="bookshelf"><a class="book b1" href="basics.html" data-search="basics of ayurveda foundations, first principles, and the language through which ayurveda understands life and health."><span>Basics of Ayurveda</span><small>Open shelf</small></a>
+<a class="book b2" href="lifestyle.html" data-search="lifestyle & daily living dinacharya, ritucharya, food rhythm, sleep, and the ordinary habits that quietly shape health."><span>Lifestyle & Daily Living</span><small>Open shelf</small></a>
+<a class="book b3" href="mind.html" data-search="mind & mental health a calmer reading room for the ayurvedic understanding of mind, emotion, temperament, and balance."><span>Mind & Mental Health</span><small>Open shelf</small></a>
+<a class="book b4" href="diseases.html" data-search="disease understanding condition-based reading that explains patterns, causes, and ayurvedic ways of interpreting disturbance."><span>Disease Understanding</span><small>Open shelf</small></a>
+<a class="book b5" href="herbs.html" data-search="herbs & medicines individual herbs, classical formulations, and the role they play in traditional practice."><span>Herbs & Medicines</span><small>Open shelf</small></a>
+<a class="book b6" href="advanced.html" data-search="advanced concepts srotas, samprapti, dhatu, ojas, and other deeper concepts for more serious readers."><span>Advanced Concepts</span><small>Open shelf</small></a></div>
   </section>
   <section class="section-panel">
     <div class="section-head">
