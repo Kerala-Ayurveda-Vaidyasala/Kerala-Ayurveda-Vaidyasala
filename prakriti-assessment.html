@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Prakriti | Kerala Ayurveda Vaidyasala</title>
+<meta name="description" content="A guided Ayurvedic Prakriti self-assessment to explore your likely constitutional pattern through Vata, Pitta, and Kapha tendencies.">
+<style>
+:root{
+  --bg:#f4ecdf;
+  --paper:#fbf7ef;
+  --paper-2:#fffdf8;
+  --ink:#1c2f24;
+  --muted:#5f7364;
+  --gold:#a8820a;
+  --gold-soft:#e6d7b6;
+  --green:#2f5a44;
+  --line:#e3d3bb;
+  --shadow:0 14px 35px rgba(20,35,28,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(circle at top, rgba(168,130,10,.07), transparent 22%),
+    linear-gradient(180deg,#f8f1e7 0%, #f4ecdf 100%);
+  color:var(--ink);
+  line-height:1.75;
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,33,25,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(168,130,10,.18);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{
+  text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.1rem;
+}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;transition:.25s ease;
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.04)}
+.hero{
+  padding:4.8rem 1.25rem 2.6rem;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid rgba(168,130,10,.12);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;opacity:.08;
+  background:
+    linear-gradient(transparent 95%, rgba(28,47,36,.10) 95%),
+    radial-gradient(circle at 18% 15%, rgba(168,130,10,.28), transparent 22%),
+    radial-gradient(circle at 84% 18%, rgba(47,90,68,.18), transparent 20%);
+  background-size:100% 42px, auto, auto;
+}
+.hero-inner,.wrap{max-width:1120px;margin:0 auto;position:relative}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-size:.78rem;letter-spacing:.22em;
+  text-transform:uppercase;font-style:italic;margin-bottom:.85rem
+}
+.hero h1{
+  margin:.2rem 0 .9rem;
+  font-weight:400;
+  font-size:clamp(2.25rem, 4.8vw, 4.2rem);
+  line-height:1.06;
+}
+.hero p.lead{
+  max-width:860px;margin:0;color:#35503f;font-size:1.04rem
+}
+.hero-notes{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;margin-top:1.6rem
+}
+.note-card{
+  background:rgba(255,252,246,.88);
+  border:1px solid rgba(168,130,10,.18);
+  border-radius:20px;padding:1rem 1.1rem;box-shadow:var(--shadow)
+}
+.note-card h3{margin:0 0 .4rem;font-weight:400;font-size:1.08rem}
+.note-card p,.note-card li{color:#41584c}
+.note-card ul{margin:.3rem 0 0 1.15rem;padding:0}
+section{padding:2.1rem 1.25rem}
+.tBar{display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem}
+.tBar::before{content:'';display:block;width:34px;height:1px;background:#a8820a;flex-shrink:0}
+.tBar::after{content:'';flex:1;height:1px;background:linear-gradient(to right,#e2cc70,transparent)}
+.tBarD{width:5px;height:5px;border-radius:50%;background:#a8820a;flex-shrink:0}
+.sTitle{font-size:clamp(1.45rem,2.9vw,2.3rem);font-weight:400;line-height:1.18;margin:0 0 .55rem}
+.sLead{max-width:820px;color:#4f6457}
+.manuscript{
+  background:linear-gradient(180deg,var(--paper-2),var(--paper));
+  border:1px solid var(--line);
+  border-radius:30px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.manuscript-head{
+  padding:1.35rem 1.3rem 1.05rem;
+  border-bottom:1px solid rgba(168,130,10,.12);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(168,130,10,.06), transparent 30%),
+    linear-gradient(180deg,#fffaf2 0%, #fbf7ef 100%);
+}
+.manuscript-head h2{margin:0 0 .35rem;font-weight:400;font-size:1.3rem}
+.manuscript-head p{margin:0;color:#53695c}
+.form-body{padding:1.2rem}
+.q-card{
+  background:rgba(255,255,255,.55);
+  border:1px solid #eadbc7;
+  border-radius:22px;
+  padding:1rem;
+  margin-bottom:1rem;
+}
+.q-meta{
+  display:flex;align-items:center;gap:.8rem;margin-bottom:.45rem;flex-wrap:wrap
+}
+.q-num{
+  min-width:34px;height:34px;border-radius:999px;background:rgba(168,130,10,.11);
+  color:#6e5200;display:grid;place-items:center;font-size:.92rem
+}
+.q-tag{
+  font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#8a6b11;font-style:italic
+}
+.q-card h3{margin:.1rem 0 .65rem;font-weight:400;font-size:1.15rem;line-height:1.35}
+.options{display:grid;grid-template-columns:1fr;gap:.8rem}
+.opt{
+  display:block;cursor:pointer;border:1px solid #e5d6c1;border-radius:18px;
+  background:linear-gradient(180deg,#fffefb,#faf5eb);
+  padding:.85rem .95rem;transition:.2s ease;position:relative
+}
+.opt:hover{transform:translateY(-1px);border-color:#d2bc87;box-shadow:0 10px 18px rgba(28,47,36,.04)}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .opt-top{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.18rem
+}
+.opt .dosha{
+  color:#6f5400;font-size:.75rem;letter-spacing:.13em;text-transform:uppercase
+}
+.opt .tick{
+  width:20px;height:20px;border-radius:50%;border:1px solid #cdb387;background:#fff;flex-shrink:0;
+  box-shadow:inset 0 0 0 3px #fff;
+}
+.opt strong{display:block;font-weight:400;font-size:1rem;color:#203429}
+.opt span.desc{display:block;color:#53695c;font-size:.93rem;line-height:1.65}
+.opt input:checked + .opt-box{
+  outline:2px solid rgba(168,130,10,.55);
+  border-radius:14px;
+}
+.opt input:checked + .opt-box .tick{
+  background:var(--gold);
+  border-color:var(--gold);
+}
+.actions{
+  display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;justify-content:center;
+  padding:1.1rem 1.2rem 1.45rem;
+}
+.btn{
+  appearance:none;border:none;cursor:pointer;text-decoration:none;
+  padding:.9rem 1.15rem;border-radius:999px;font-family:inherit;font-size:.95rem;letter-spacing:.04em;
+  transition:.25s ease;
+}
+.btn-primary{
+  background:linear-gradient(180deg,#234634,#183126);
+  color:#fff;border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 16px 30px rgba(24,49,38,.18);
+}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-secondary{
+  background:#fff8ee;color:#30483b;border:1px solid rgba(168,130,10,.22)
+}
+.inline-note{text-align:center;color:#597063;font-size:.92rem}
+
+.results{
+  margin-top:1.5rem;
+  display:none;
+}
+.results.show{display:block}
+.result-card{
+  background:linear-gradient(180deg,#fffefb,#fbf7ef);
+  border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden
+}
+.result-head{
+  padding:1.3rem 1.2rem 1rem;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(168,130,10,.07), transparent 30%),
+    linear-gradient(180deg,#fffaf2 0%, #fbf7ef 100%);
+  border-bottom:1px solid rgba(168,130,10,.12)
+}
+.result-head .eyebrow{margin-bottom:.55rem}
+.result-head h2{margin:0 0 .35rem;font-weight:400;font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.18}
+.result-head p{margin:0;color:#4c6255}
+.result-body{padding:1.2rem}
+.primary-badge{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.45rem .8rem;border-radius:999px;background:rgba(168,130,10,.11);
+  color:#6d5100;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase
+}
+.score-wrap{margin-top:1rem;display:grid;gap:.8rem}
+.score-row{display:grid;grid-template-columns:86px 1fr 52px;gap:.8rem;align-items:center}
+.score-label{font-size:.96rem;color:#274434}
+.bar{
+  height:14px;border-radius:999px;background:#efe4d2;overflow:hidden;position:relative
+}
+.fill{height:100%;border-radius:999px}
+.fill.vata{background:linear-gradient(90deg,#6f8e7b,#2f5a44)}
+.fill.pitta{background:linear-gradient(90deg,#cf8f48,#a34820)}
+.fill.kapha{background:linear-gradient(90deg,#8ea46a,#55733c)}
+.score-num{font-size:.92rem;color:#5b6f63;text-align:right}
+.result-grid{
+  margin-top:1.2rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem
+}
+.panel{
+  border:1px solid #e6d9c7;border-radius:22px;background:rgba(255,255,255,.56);padding:1rem
+}
+.panel h3{margin:0 0 .45rem;font-weight:400;font-size:1.1rem}
+.panel p{margin:.15rem 0;color:#465c50}
+.panel ul{margin:.25rem 0 0 1.1rem;padding:0}
+.panel li{color:#465c50}
+.dual-panels{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.mini-card{
+  border:1px solid #e6d9c7;border-radius:20px;background:linear-gradient(180deg,#fffefb,#faf6ee);padding:1rem
+}
+.mini-card h4{margin:0 0 .3rem;font-weight:400;font-size:1.05rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.75rem}
+.soft-tag{
+  padding:.4rem .7rem;border-radius:999px;background:rgba(47,90,68,.08);
+  border:1px solid rgba(47,90,68,.12);font-size:.86rem;color:#355145
+}
+.footer-note{
+  margin-top:1rem;padding:1rem 1.05rem;border-left:3px solid rgba(168,130,10,.46);
+  background:rgba(168,130,10,.06);border-radius:0 16px 16px 0;color:#496054
+}
+.legend-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem
+}
+.legend-card{
+  background:linear-gradient(180deg,#fffefb,#faf6ee);
+  border:1px solid #e6d9c7;border-radius:20px;padding:1rem
+}
+.legend-card h3{margin:0 0 .3rem;font-weight:400}
+.legend-card p{margin:0;color:#4e6458}
+.legend-card ul{margin:.45rem 0 0 1.05rem;padding:0}
+.legend-card li{color:#4e6458}
+@media (max-width:900px){
+  .hero-notes,.result-grid,.dual-panels,.legend-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .topbar-inner{padding:.9rem 1rem}
+  .hero{padding:4.2rem 1rem 2.25rem}
+  section{padding:1.6rem 1rem}
+  .form-body{padding:1rem}
+  .actions{padding:1rem}
+  .score-row{grid-template-columns:70px 1fr 42px}
+}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <strong>Kerala Ayurveda Vaidyasala</strong>
+        <span>Changaramkulam • Since 1945</span>
+      </a>
+      <a class="back-link" href="index.html">← Back to Main Site</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Guided Self-Observation</span>
+      <h1>Know Your Prakriti</h1>
+      <p class="lead">A calm Ayurvedic self-assessment designed to help visitors explore their likely constitutional pattern through <strong>Vata</strong>, <strong>Pitta</strong>, and <strong>Kapha</strong>. This is not a random internet quiz; it is a structured reflection based on long-term tendencies of body, mind, digestion, climate preference, and behavior.</p>
+
+      <div class="hero-notes">
+        <div class="note-card">
+          <h3>Before you begin</h3>
+          <ul>
+            <li>Answer according to your <strong>natural long-term tendency</strong>, not temporary illness or recent stress.</li>
+            <li>Most people are <strong>dual-doshic</strong>. The result therefore shows the <strong>top two</strong> Doshas rather than forcing a single type.</li>
+            <li>This is a guided educational tool. A true classical assessment is always best refined through a direct clinical consultation.</li>
+          </ul>
+        </div>
+        <div class="note-card">
+          <h3>How the result works</h3>
+          <p>Each answer carries a Vata, Pitta, or Kapha score. At the end, the page calculates your dominant pattern and presents:</p>
+          <ul>
+            <li>your top two Doshas</li>
+            <li>score bars for all three</li>
+            <li>strengths and tendencies</li>
+            <li>supportive lifestyle orientation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="tBar"><span class="tBarD"></span></div>
+      <h2 class="sTitle">Quick constitutional guide</h2>
+      <p class="sLead">This small guide helps users understand the language used inside the assessment. The final result below will combine these qualities into a likely constitutional pattern.</p>
+
+      <div class="legend-grid">
+        <div class="legend-card">
+          <h3>Vata</h3>
+          <p>The principle of movement, communication, impulse, variability, sensitivity, and lightness.</p>
+          <ul>
+            <li>Dry, cold, light, subtle, mobile, clear</li>
+            <li>Irregular appetite and sleep are common tendencies</li>
+            <li>Quick grasp, quick change, quick imagination</li>
+          </ul>
+        </div>
+        <div class="legend-card">
+          <h3>Pitta</h3>
+          <p>The principle of digestion, transformation, precision, sharpness, heat, and vision.</p>
+          <ul>
+            <li>Hot, sharp, light, liquid, spreading, slightly oily</li>
+            <li>Strong appetite and intensity are common tendencies</li>
+            <li>Logical, driven, exacting, often highly organized</li>
+          </ul>
+        </div>
+        <div class="legend-card">
+          <h3>Kapha</h3>
+          <p>The principle of structure, lubrication, endurance, steadiness, memory, and emotional holding power.</p>
+          <ul>
+            <li>Heavy, slow, cool, oily, smooth, dense, stable</li>
+            <li>Slow but steady digestion is common</li>
+            <li>Excellent retention, patience, and long-term endurance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="manuscript">
+        <div class="manuscript-head">
+          <span class="eyebrow">Assessment</span>
+          <h2>Prakriti reflection form</h2>
+          <p>Select the option that feels most true for you across most of your life. Choose only one option in each question.</p>
+        </div>
+
+        <form id="prakritiForm">
+          <div class="form-body">
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">1</span><span class="q-tag">Body frame</span></div>
+              <h3>Which body build feels most natural to you?</h3>
+              <div class="options">
+                <label class="opt">
+                  <input type="radio" name="q1" value="vata">
+                  <div class="opt-box">
+                    <div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div>
+                    <strong>Lean, light, or difficult to gain weight</strong>
+                    <span class="desc">Often narrow-framed, delicate, or changeable in weight.</span>
+                  </div>
+                </label>
+                <label class="opt">
+                  <input type="radio" name="q1" value="pitta">
+                  <div class="opt-box">
+                    <div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div>
+                    <strong>Medium build with moderate musculature</strong>
+                    <span class="desc">Usually proportionate, defined, and metabolically active.</span>
+                  </div>
+                </label>
+                <label class="opt">
+                  <input type="radio" name="q1" value="kapha">
+                  <div class="opt-box">
+                    <div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div>
+                    <strong>Broad, sturdy, or gains weight easily</strong>
+                    <span class="desc">Naturally substantial, well-padded, or strongly built.</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">2</span><span class="q-tag">Skin & temperature</span></div>
+              <h3>How does your skin and body-temperature tendency usually feel?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q2" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Dry, cooler, easily loses moisture</strong><span class="desc">Hands or feet may feel cold; dryness is common.</span></div></label>
+                <label class="opt"><input type="radio" name="q2" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Warm, soft, often sensitive or reactive</strong><span class="desc">Can flush, redden, or feel heated more easily.</span></div></label>
+                <label class="opt"><input type="radio" name="q2" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Smooth, cool, slightly oily, well-lubricated</strong><span class="desc">Usually soft, calm, and less easily irritated.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">3</span><span class="q-tag">Appetite & digestion</span></div>
+              <h3>Which appetite pattern fits you best?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q3" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Irregular</strong><span class="desc">Sometimes very hungry, sometimes not; bloating or unpredictability may occur.</span></div></label>
+                <label class="opt"><input type="radio" name="q3" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Strong and sharp</strong><span class="desc">I feel distinctly hungry and dislike skipping meals.</span></div></label>
+                <label class="opt"><input type="radio" name="q3" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Slow but steady</strong><span class="desc">Hunger comes slowly; I can easily skip or delay meals.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">4</span><span class="q-tag">Elimination</span></div>
+              <h3>How are your bowel habits naturally?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q4" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Tends toward dryness or constipation</strong><span class="desc">Variable timing, dryness, or incomplete feeling can occur.</span></div></label>
+                <label class="opt"><input type="radio" name="q4" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Regular but can become loose or burning</strong><span class="desc">Usually timely and strong, but heat may be noticeable.</span></div></label>
+                <label class="opt"><input type="radio" name="q4" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Regular, slow, and well-formed</strong><span class="desc">Generally stable and heavier in quality.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">5</span><span class="q-tag">Sleep</span></div>
+              <h3>Which sleep pattern sounds most like you?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q5" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Light, easily disturbed, or variable</strong><span class="desc">May wake easily or sleep irregularly.</span></div></label>
+                <label class="opt"><input type="radio" name="q5" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Moderate but disturbed by heat or mental activity</strong><span class="desc">Usually decent sleep, unless overdriven or overheated.</span></div></label>
+                <label class="opt"><input type="radio" name="q5" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Deep, heavy, and long</strong><span class="desc">Once asleep, I usually stay asleep and may enjoy extra sleep.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">6</span><span class="q-tag">Energy pattern</span></div>
+              <h3>How does your energy usually move through the day?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q6" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Quick bursts, then drop-offs</strong><span class="desc">I start fast but may not sustain for long.</span></div></label>
+                <label class="opt"><input type="radio" name="q6" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Focused, driven, purposeful</strong><span class="desc">I can maintain strong output when engaged.</span></div></label>
+                <label class="opt"><input type="radio" name="q6" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Slow to start, but steady and durable</strong><span class="desc">Once moving, I can continue calmly for a long time.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">7</span><span class="q-tag">Learning style</span></div>
+              <h3>How do you usually learn and remember?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q7" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Grasps quickly, forgets quickly</strong><span class="desc">Fast understanding, but retention may fluctuate.</span></div></label>
+                <label class="opt"><input type="radio" name="q7" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Grasps quickly and remembers well</strong><span class="desc">Learns efficiently with clear comprehension.</span></div></label>
+                <label class="opt"><input type="radio" name="q7" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Grasps slowly, rarely forgets</strong><span class="desc">Takes time, but retention is deep and lasting.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">8</span><span class="q-tag">Mental style</span></div>
+              <h3>Which mental tendency feels most natural to you?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q8" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Creative, imaginative, idea-driven</strong><span class="desc">My mind is full of movement, patterns, and new possibilities.</span></div></label>
+                <label class="opt"><input type="radio" name="q8" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Logical, strategic, precise</strong><span class="desc">I naturally analyze, organize, and improve things.</span></div></label>
+                <label class="opt"><input type="radio" name="q8" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Peaceful, steady, patient</strong><span class="desc">I tend to remain calm, tolerant, and emotionally grounded.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">9</span><span class="q-tag">Stress response</span></div>
+              <h3>Under stress, which response appears first?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q9" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Worry, fear, scatteredness</strong><span class="desc">I feel overwhelmed, uncertain, or mentally ungrounded.</span></div></label>
+                <label class="opt"><input type="radio" name="q9" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Anger, irritation, control</strong><span class="desc">I become critical, intense, impatient, or combative.</span></div></label>
+                <label class="opt"><input type="radio" name="q9" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Withdrawal, heaviness, shutdown</strong><span class="desc">I go inward, become passive, or hide from the pressure.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">10</span><span class="q-tag">Climate preference</span></div>
+              <h3>Which climate tends to trouble you most?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q10" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Cold, dry, windy weather</strong><span class="desc">I feel easily affected by coldness, dryness, and exposure.</span></div></label>
+                <label class="opt"><input type="radio" name="q10" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Heat, sun, and intensity</strong><span class="desc">I do not tolerate overheating well.</span></div></label>
+                <label class="opt"><input type="radio" name="q10" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Damp, cold, heavy weather</strong><span class="desc">Humidity and sluggish climates weigh me down.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">11</span><span class="q-tag">Money & material habits</span></div>
+              <h3>Which tendency feels more natural in relation to money or possessions?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q11" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>Impulsive or spontaneous spending</strong><span class="desc">I may spend based on mood, movement, or inspiration.</span></div></label>
+                <label class="opt"><input type="radio" name="q11" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>Spending for quality, function, or status</strong><span class="desc">I prefer purposeful, efficient, or superior things.</span></div></label>
+                <label class="opt"><input type="radio" name="q11" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>Saving, holding, and storing</strong><span class="desc">I naturally preserve resources and accumulate steadily.</span></div></label>
+              </div>
+            </div>
+
+            <div class="q-card">
+              <div class="q-meta"><span class="q-num">12</span><span class="q-tag">Movement & routine</span></div>
+              <h3>Which statement best describes your relationship with routine?</h3>
+              <div class="options">
+                <label class="opt"><input type="radio" name="q12" value="vata"><div class="opt-box"><div class="opt-top"><span class="dosha">Vata</span><span class="tick"></span></div><strong>I need routine the most, but may struggle to maintain it</strong><span class="desc">Consistency helps me deeply, even if I drift away from it.</span></div></label>
+                <label class="opt"><input type="radio" name="q12" value="pitta"><div class="opt-box"><div class="opt-top"><span class="dosha">Pitta</span><span class="tick"></span></div><strong>I like organized structure and goals</strong><span class="desc">I tend to create order, systems, and disciplined plans.</span></div></label>
+                <label class="opt"><input type="radio" name="q12" value="kapha"><div class="opt-box"><div class="opt-top"><span class="dosha">Kapha</span><span class="tick"></span></div><strong>I stay in routines easily, but may become too comfortable</strong><span class="desc">Stability comes naturally, though stimulation may be needed.</span></div></label>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">See My Constitution</button>
+            <button class="btn btn-secondary" type="reset" id="resetBtn">Clear My Answers</button>
+          </div>
+          <div class="inline-note">Most people are not single-dosha. This assessment is designed to reveal your two strongest constitutional tendencies.</div>
+        </form>
+      </div>
+
+      <div class="results" id="results">
+        <div class="result-card">
+          <div class="result-head">
+            <span class="eyebrow">Your Reflection</span>
+            <h2 id="resultTitle">Your likely constitution</h2>
+            <p id="resultSubtitle"></p>
+          </div>
+          <div class="result-body">
+            <span class="primary-badge" id="primaryBadge">Prakriti Pattern</span>
+
+            <div class="score-wrap">
+              <div class="score-row"><div class="score-label">Vata</div><div class="bar"><div id="barVata" class="fill vata" style="width:0%"></div></div><div id="numVata" class="score-num">0</div></div>
+              <div class="score-row"><div class="score-label">Pitta</div><div class="bar"><div id="barPitta" class="fill pitta" style="width:0%"></div></div><div id="numPitta" class="score-num">0</div></div>
+              <div class="score-row"><div class="score-label">Kapha</div><div class="bar"><div id="barKapha" class="fill kapha" style="width:0%"></div></div><div id="numKapha" class="score-num">0</div></div>
+            </div>
+
+            <div class="result-grid">
+              <div class="panel">
+                <h3>Pattern reflection</h3>
+                <p id="patternReflection"></p>
+                <div class="tag-row" id="resultTags"></div>
+              </div>
+              <div class="panel">
+                <h3>Reading the scores</h3>
+                <p id="scoreReading"></p>
+                <p><strong>Important:</strong> this reflects likely <em>Prakriti tendency</em>, not necessarily your current <em>Vikriti imbalance</em>.</p>
+              </div>
+            </div>
+
+            <div class="dual-panels">
+              <div class="mini-card">
+                <h4>Strengths often seen in this pattern</h4>
+                <ul id="strengthList"></ul>
+              </div>
+              <div class="mini-card">
+                <h4>Common tendencies under imbalance</h4>
+                <ul id="tendencyList"></ul>
+              </div>
+            </div>
+
+            <div class="dual-panels">
+              <div class="mini-card">
+                <h4>Helpful lifestyle orientation</h4>
+                <ul id="supportList"></ul>
+              </div>
+              <div class="mini-card">
+                <h4>Constitution note</h4>
+                <p id="constitutionNote"></p>
+              </div>
+            </div>
+
+            <div class="footer-note">
+              This tool is meant as a gentle educational guide. For a more accurate classical reading of <strong>Prakriti</strong> and the distinction between constitutional type and present imbalance, direct consultation is always more reliable.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script>
+const DOSHA_INFO = {
+  vata: {
+    name: "Vata",
+    tags: ["movement", "creativity", "sensitivity", "variability"],
+    summary: "Vata is the principle of movement, communication, quickness, subtlety, and variability. It often shows as a light frame, irregular digestion, a quick mind, sensitivity to change, and a deep need for grounding rhythm.",
+    strengths: ["creative thinking and pattern-seeing", "adaptability and responsiveness", "spontaneity, imagination, and intuition"],
+    tendencies: ["anxiety, restlessness, or scatteredness", "dryness, constipation, or irregular appetite", "light sleep, overstimulation, and depletion"],
+    support: ["warmth, oiliness, and regular routine", "steady meals and predictable sleep timing", "grounding practices, less excess stimulation"]
+  },
+  pitta: {
+    name: "Pitta",
+    tags: ["digestion", "intelligence", "drive", "precision"],
+    summary: "Pitta is the principle of transformation, digestion, vision, sharpness, and organized intensity. It often appears as strong appetite, warmth, clarity, strategic thinking, and a tendency to overheat when life becomes excessive.",
+    strengths: ["focus, leadership, and decisiveness", "clear thinking and good discrimination", "strong digestion and purposeful energy"],
+    tendencies: ["irritability, anger, or harsh self-pressure", "burning, heat, acidity, or inflammatory patterns", "overwork, competitiveness, and impatience"],
+    support: ["moderation, cooling, and gentleness", "timely meals without skipping", "non-competitive relaxation and emotional softening"]
+  },
+  kapha: {
+    name: "Kapha",
+    tags: ["stability", "endurance", "lubrication", "memory"],
+    summary: "Kapha is the principle of structure, cohesion, lubrication, endurance, and emotional holding power. It often shows as a sturdy build, calm temperament, slower digestion, strong memory, and deep reserves of steadiness.",
+    strengths: ["patience, loyalty, and emotional stability", "physical endurance and resilience", "excellent long-term retention and grounding presence"],
+    tendencies: ["heaviness, lethargy, or oversleeping", "congestion, slowness, or weight gain tendency", "attachment, withdrawal, or getting stuck"],
+    support: ["stimulation, movement, and lightness", "vigorous exercise and earlier rising", "variety, circulation, and warmth"]
+  }
+};
+
+const COMBO_INFO = {
+  "vata-pitta": {
+    title: "Vata–Pitta Constitution",
+    reflection: "Your responses suggest a constitution that combines the creativity and rapid movement of Vata with the drive, sharpness, and intensity of Pitta. This can create a high-output, high-initiative pattern with quick insight and strong ambition.",
+    note: "This combination often performs brilliantly, but may push harder than its reserves comfortably allow. Rhythm and moderation become especially important.",
+    strengths: ["creative intelligence with strategic sharpness", "fast learning and strong initiative", "vision, expression, and purposeful action"],
+    tendencies: ["burnout from pushing too hard", "irregularity mixed with heat or acidity", "stress showing as anxiety, frustration, or overthinking"],
+    support: ["cooling structure without rigidity", "steady nourishment and enough rest", "creative work balanced with recovery time"]
+  },
+  "pitta-vata": {
+    title: "Pitta–Vata Constitution",
+    reflection: "Your responses suggest a constitution led by Pitta but strongly colored by Vata. This often brings clarity, organization, analytical strength, and a fast-moving mind that notices flaws and possibilities quickly.",
+    note: "Because Pitta leads and Vata follows closely, the person may feel both driven and internally overactive. Cooling and calming the pace matters.",
+    strengths: ["sharp intellect with agile thought", "initiative, precision, and innovation", "clear decision-making and fast comprehension"],
+    tendencies: ["mental overdrive, impatience, or irritability", "acidity with irregular sleep or digestion", "tension from pressure and internal speed"],
+    support: ["moderation, cooling meals, and mental quietness", "gentle rhythm that protects the nervous system", "spaces that reduce over-stimulation and competition"]
+  },
+  "pitta-kapha": {
+    title: "Pitta–Kapha Constitution",
+    reflection: "Your responses suggest a constitution that combines Pitta’s leadership, intensity, and direction with Kapha’s endurance, solidity, and staying power. This is often a powerful and reliable combination.",
+    note: "This pattern can carry great physical and professional strength, but may become stubborn, congested, or inflammatory when balance is lost.",
+    strengths: ["strong stamina with goal-oriented focus", "leadership backed by steadiness", "good retention, execution, and follow-through"],
+    tendencies: ["inflammatory weight gain or heat trapped in a heavy body", "stubbornness, intensity, or possessiveness", "skin, metabolic, or congestion-related disturbances"],
+    support: ["lightness without depletion", "regular movement and cooling moderation", "leaving space between effort and recovery"]
+  },
+  "kapha-pitta": {
+    title: "Kapha–Pitta Constitution",
+    reflection: "Your responses suggest a constitution led by Kapha with strong Pitta support. This often produces a stable, substantial person with impressive endurance and a practical, organizing intelligence.",
+    note: "Because Kapha leads, steadiness is strong; because Pitta follows, purpose and drive remain active. The main challenge is heaviness mixed with internal heat.",
+    strengths: ["reliable endurance and practical strength", "good memory with purposeful execution", "calm authority and sustained effort"],
+    tendencies: ["slowness giving way to frustration or irritability", "congestion mixed with heat or inflammation", "attachment to comfort alongside control tendencies"],
+    support: ["regular stimulation and lighter food quality", "cooling outlets for ambition", "avoiding emotional and physical stagnation"]
+  },
+  "vata-kapha": {
+    title: "Vata–Kapha Constitution",
+    reflection: "Your responses suggest a constitution that combines Vata’s creativity and sensitivity with Kapha’s softness, steadiness, and emotional depth. This often creates a gentle, artistic, and deeply feeling pattern.",
+    note: "Both Vata and Kapha carry coldness, so this constitution often struggles when rhythm, circulation, and internal warmth are poor.",
+    strengths: ["creativity with emotional gentleness", "soft presence, empathy, and imagination", "capacity for both vision and loyalty"],
+    tendencies: ["feeling stuck, frozen, or indecisive", "poor circulation, coldness, congestion, or anxiety", "withdrawal alternating with sensitivity overload"],
+    support: ["warmth, movement, and emotional grounding", "steady routine without dullness", "gentle activation that keeps both mind and body moving"]
+  },
+  "kapha-vata": {
+    title: "Kapha–Vata Constitution",
+    reflection: "Your responses suggest a constitution led by Kapha but clearly influenced by Vata. This can create a person who appears calm or soft externally yet internally carries sensitivity, imagination, and changeable mental movement.",
+    note: "This pattern often benefits from warmth, circulation, and rhythmic activation. Too much comfort can increase Kapha, while too much change can destabilize Vata.",
+    strengths: ["gentle steadiness with creativity", "strong emotional memory and perceptiveness", "capacity for depth, sensitivity, and loyalty"],
+    tendencies: ["heaviness mixed with anxiety or indecision", "coldness, sluggishness, or poor circulation", "withdrawal, stuckness, or irregular digestion under stress"],
+    support: ["warming routine and regular movement", "lighter nourishment without deprivation", "creative expression grounded in structure"]
+  },
+  "tridoshic": {
+    title: "Near Tri-doshic Tendency",
+    reflection: "Your three scores sit close together, suggesting a relatively balanced constitutional spread across Vata, Pitta, and Kapha. This does not mean “no tendencies,” but it does suggest a more mixed and nuanced pattern.",
+    note: "Near-tridoshic constitutions may be adaptable, but when imbalance occurs, the pattern can feel more complex because more than one Dosha may shift at once.",
+    strengths: ["adaptability across multiple modes of functioning", "balanced potential in body and mind", "greater resilience when living in good rhythm"],
+    tendencies: ["mixed symptoms when routine breaks down", "different imbalances emerging in different contexts", "confusion if one expects a single-dosha explanation"],
+    support: ["seasonal awareness and consistent self-observation", "protecting digestion and sleep rhythm", "responding early to subtle shifts before they compound"]
+  }
+};
+
+function getComboKey(sorted) {
+  const a = sorted[0].key;
+  const b = sorted[1].key;
+  const c = sorted[2].key;
+  if (sorted[0].score - sorted[2].score <= 2) return "tridoshic";
+  return `${a}-${b}`;
+}
+
+function setList(id, arr){
+  const ul = document.getElementById(id);
+  ul.innerHTML = "";
+  arr.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    ul.appendChild(li);
+  });
+}
+
+document.getElementById("prakritiForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const totalQuestions = 12;
+  const scores = { vata: 0, pitta: 0, kapha: 0 };
+
+  for(let i=1;i<=totalQuestions;i++){
+    const chosen = document.querySelector(`input[name="q${i}"]:checked`);
+    if(!chosen){
+      alert(`Please answer question ${i} before viewing the result.`);
+      return;
+    }
+    scores[chosen.value] += 1;
+  }
+
+  const sorted = Object.entries(scores)
+    .map(([key, score]) => ({ key, score, name: DOSHA_INFO[key].name }))
+    .sort((a,b) => b.score - a.score);
+
+  const comboKey = getComboKey(sorted);
+  const combo = COMBO_INFO[comboKey];
+  const total = totalQuestions;
+  const maxScore = sorted[0].score || 1;
+
+  const titleEl = document.getElementById("resultTitle");
+  const subEl = document.getElementById("resultSubtitle");
+  const badgeEl = document.getElementById("primaryBadge");
+  const reflectionEl = document.getElementById("patternReflection");
+  const readingEl = document.getElementById("scoreReading");
+  const noteEl = document.getElementById("constitutionNote");
+  const tagWrap = document.getElementById("resultTags");
+
+  titleEl.textContent = combo.title;
+  subEl.textContent = comboKey === "tridoshic"
+    ? "Your responses are distributed closely across all three Doshas, suggesting a relatively balanced but nuanced constitutional pattern."
+    : `Primary influence: ${sorted[0].name} • Secondary influence: ${sorted[1].name} • Background influence: ${sorted[2].name}`;
+  badgeEl.textContent = comboKey === "tridoshic" ? "Near tri-doshic tendency" : `${sorted[0].name} – ${sorted[1].name}`;
+  reflectionEl.textContent = combo.reflection;
+  readingEl.textContent = `Your highest score is ${sorted[0].name} (${sorted[0].score}/${total}), followed by ${sorted[1].name} (${sorted[1].score}/${total}), with ${sorted[2].name} in the background (${sorted[2].score}/${total}).`;
+  noteEl.textContent = combo.note;
+
+  tagWrap.innerHTML = "";
+  const combinedTags = [...DOSHA_INFO[sorted[0].key].tags.slice(0,2), ...DOSHA_INFO[sorted[1].key].tags.slice(0,2)];
+  [...new Set(combinedTags)].forEach(tag => {
+    const span = document.createElement("span");
+    span.className = "soft-tag";
+    span.textContent = tag;
+    tagWrap.appendChild(span);
+  });
+
+  document.getElementById("numVata").textContent = `${scores.vata}/${total}`;
+  document.getElementById("numPitta").textContent = `${scores.pitta}/${total}`;
+  document.getElementById("numKapha").textContent = `${scores.kapha}/${total}`;
+
+  document.getElementById("barVata").style.width = `${(scores.vata / total) * 100}%`;
+  document.getElementById("barPitta").style.width = `${(scores.pitta / total) * 100}%`;
+  document.getElementById("barKapha").style.width = `${(scores.kapha / total) * 100}%`;
+
+  setList("strengthList", combo.strengths);
+  setList("tendencyList", combo.tendencies);
+  setList("supportList", combo.support);
+
+  const resultBox = document.getElementById("results");
+  resultBox.classList.add("show");
+  resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  const resultBox = document.getElementById("results");
+  resultBox.classList.remove("show");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+</body>
+</html>
