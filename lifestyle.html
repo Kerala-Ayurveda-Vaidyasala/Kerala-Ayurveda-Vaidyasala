@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lifestyle & Daily Living | Insight Library</title>
+<meta name="description" content="Daily rhythms, seasonal guidance, and practical habits presented in a calm, readable format inside the Insight Library.">
+
+<style>
+:root{
+  --bg:#f4ecdf;
+  --paper:#fbf7ef;
+  --paper-2:#fffdf8;
+  --ink:#1c2f24;
+  --muted:#617464;
+  --gold:#a8820a;
+  --gold-soft:#e7d6b5;
+  --line:#e3d3bb;
+  --green:#2f5a44;
+  --deep:#182e22;
+  --shadow:0 16px 34px rgba(24,46,34,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--ink);
+  line-height:1.82;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168,130,10,.09), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(47,90,68,.08), transparent 18%),
+    linear-gradient(180deg,#f7f0e6 0%, #f4ecdf 24%, #f2e8da 100%);
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,33,25,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,130,10,.18)
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.brand{text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;transition:.25s ease
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.05)}
+
+.hero{
+  padding:4.8rem 1.25rem 2.8rem;
+  border-bottom:1px solid rgba(168,130,10,.1);
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(circle at 16% 18%, rgba(168,130,10,.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(47,90,68,.12), transparent 24%),
+    linear-gradient(180deg,#f8f1e7 0%, #f3e9da 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(28,47,36,.035) 39px 40px),
+    linear-gradient(90deg, transparent, rgba(168,130,10,.05), transparent);
+}
+.hero::after{
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(900px,92%);height:1px;background:linear-gradient(90deg, transparent, rgba(168,130,10,.55), transparent);
+}
+.hero-inner{max-width:1180px;margin:0 auto;position:relative}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-size:.76rem;letter-spacing:.26em;
+  text-transform:uppercase;font-style:italic;margin-bottom:.9rem
+}
+.hero h1{margin:.15rem 0 .7rem;font-weight:400;font-size:clamp(2.2rem,4vw,4rem);line-height:1.06}
+.hero p.lead{max-width:860px;margin:0;color:#3f5647;font-size:1.05rem}
+.hero-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.meta-pill{
+  background:rgba(255,253,248,.84);
+  border:1px solid rgba(168,130,10,.16);
+  padding:.74rem 1rem;border-radius:999px;color:#51685a;font-size:.88rem;
+  box-shadow:0 8px 18px rgba(24,46,34,.04)
+}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.search-panel,.section-panel,.topic-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(251,247,239,.96));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.search-panel{padding:1.15rem;border-radius:24px;margin:-1.1rem auto 1.1rem;position:relative;z-index:2}
+.search-top{display:flex;gap:.9rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.searchbox{flex:1 1 340px;position:relative}
+.searchbox input{
+  width:100%;padding:1rem 1rem 1rem 2.95rem;border-radius:15px;border:1px solid #dbc8ad;
+  background:#fff;color:var(--ink);font:inherit;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.search-note{color:var(--muted);font-size:.92rem}
+
+.topic-strip{
+  padding:1rem 1rem .9rem;border-radius:22px;margin-bottom:1.4rem;
+}
+.topic-strip h3{
+  margin:0 0 .75rem;font-size:.9rem;font-weight:400;color:var(--gold);
+  letter-spacing:.16em;text-transform:uppercase
+}
+.topic-links{display:flex;gap:.65rem;flex-wrap:wrap}
+.topic-links a{
+  text-decoration:none;
+  padding:.55rem .85rem;border-radius:999px;
+  border:1px solid #e4d3bb;background:#fff;
+  color:#42584a;font-size:.9rem;transition:.2s ease;
+}
+.topic-links a:hover{transform:translateY(-2px);border-color:#caa55c;color:var(--deep);box-shadow:0 8px 16px rgba(24,46,34,.06)}
+
+.section-panel{padding:1.55rem 1.35rem;border-radius:28px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.section-head h2{margin:0;font-weight:400;font-size:1.65rem}
+.section-head p{margin:.2rem 0 0;color:#5a7161;max-width:760px}
+
+.article-list{display:grid;gap:1.35rem}
+.article{
+  background:
+    linear-gradient(180deg,rgba(168,130,10,.045),transparent 120px),
+    #fff;
+  border:1px solid #eadcc9;border-radius:26px;overflow:hidden;box-shadow:0 12px 24px rgba(24,46,34,.05);
+  position:relative;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.article:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px rgba(24,46,34,.07);
+}
+.article::before{
+  content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;
+  background:linear-gradient(180deg,#caa55c,#7f9b87);
+  opacity:.8;
+}
+.article::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:-14px;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.28), transparent);
+}
+.article:last-child::after{display:none}
+.article details{display:block}
+.article details[open]{
+  background:
+    radial-gradient(circle at 12% 10%, rgba(168,130,10,.08), transparent 22%),
+    linear-gradient(180deg,rgba(168,130,10,.08),rgba(168,130,10,.025) 28%,transparent 70%),
+    linear-gradient(180deg,#fffefb,#fff);
+  box-shadow:inset 0 0 0 1px rgba(168,130,10,.06);
+}
+.article summary{
+  list-style:none;cursor:pointer;padding:1.22rem 1.15rem 1.02rem 1.35rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem
+}
+.article summary::-webkit-details-marker{display:none}
+.summary-copy{max-width:900px}
+.kicker{
+  display:inline-block;font-size:.71rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.38rem;padding:.28rem .55rem;border-radius:999px;background:rgba(168,130,10,.08);border:1px solid rgba(168,130,10,.12)
+}
+.summary-copy h3{margin:.1rem 0 .38rem;font-weight:400;font-size:1.26rem;color:var(--ink)}
+.summary-copy p{margin:0;color:#4b6253;font-size:.96rem}
+.chevron{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:1px solid #e5d4bb;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1.02rem;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  background:#fff;box-shadow:0 6px 14px rgba(24,46,34,.04)
+}
+details[open] .chevron{transform:rotate(180deg);background:rgba(168,130,10,.08);box-shadow:none}
+details[open] summary{
+  border-bottom:1px solid rgba(168,130,10,.14);
+  background:
+    linear-gradient(180deg,rgba(255,248,236,.92),rgba(255,255,255,0)),
+    repeating-linear-gradient(90deg, transparent 0 36px, rgba(168,130,10,.018) 36px 37px);
+}
+details[open] .summary-copy h3{
+  font-size:1.42rem;
+}
+details[open] .summary-copy p{
+  color:#415b4c;
+}
+.article-body{
+  padding:1.05rem 1.2rem 1.3rem 1.4rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;
+  position:relative;
+}
+.article-body::before{
+  content:"";position:absolute;left:1.02rem;top:.35rem;bottom:.7rem;width:3px;border-radius:4px;
+  background:linear-gradient(180deg,rgba(168,130,10,.55),rgba(127,155,135,.5));
+  opacity:.7;
+}
+.body-block{
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.96),rgba(251,247,238,.96)),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(28,47,36,.028) 34px 35px);
+  border:1px solid #eadbc4;border-radius:20px;padding:1.08rem 1.08rem 1rem 1.12rem;
+  box-shadow:0 10px 18px rgba(24,46,34,.025);
+  position:relative;
+}
+.body-block::before{
+  content:"";position:absolute;left:16px;right:16px;top:0;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.26), transparent);
+}
+.body-block h4{
+  margin:0 0 .7rem;font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;position:relative;padding-bottom:.4rem
+}
+.body-block h4::after{
+  content:"";position:absolute;left:0;bottom:0;width:64px;height:1px;
+  background:linear-gradient(90deg, rgba(168,130,10,.6), transparent);
+}
+.body-block p{margin:0;color:#385243}
+.body-block.full p:first-of-type::first-letter{
+  float:left;font-size:2.8rem;line-height:.86;padding-right:.16rem;margin-top:.08rem;
+  color:#2f5a44;font-family:'Palatino Linotype', Georgia, serif;
+}
+.body-block ul{margin:.2rem 0 0 1.15rem;padding:0}
+.body-block li{margin:.22rem 0;color:#385243}
+.body-block.full{grid-column:1/-1}
+.article-end{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:center;gap:.85rem;
+  margin-top:.25rem;padding:.25rem 0 .25rem;
+  color:#8a7a58;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.article-end::before,.article-end::after{
+  content:"";height:1px;flex:1;max-width:150px;
+  background:linear-gradient(90deg,transparent,rgba(168,130,10,.42),transparent);
+}
+.article-end span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(168,130,10,.22);
+  background:linear-gradient(180deg,rgba(255,252,246,.96),rgba(249,241,225,.92));
+  font-size:.74rem;letter-spacing:0;color:var(--gold);
+}
+
+.no-results{display:none;padding:1rem 0 .1rem;color:#7a877f;font-style:italic}
+.footer{padding:2.2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:800px){
+  .article-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.3rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}.brand span{font-size:.66rem}
+  .search-panel{margin-top:-.8rem}
+  .article summary{padding:1rem 1rem .9rem 1.15rem}
+  .article-body{padding:0 1rem 1rem 1.15rem}
+  .section-panel{padding:1.2rem 1rem}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index_insight_updated.html"><strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong><span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span></a>
+    <a class="back-link" href="insight-library.html">← Back to Insight Library</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Insight Library Shelf</span>
+    <h1>Lifestyle &amp; Daily Living</h1>
+    <p class="lead">Foundational Ayurvedic ideas presented in a calm, readable format. Open any topic below to read within the same page.</p>
+    <div class="hero-meta">
+      <div class="meta-pill">Expandable reading format</div>
+      <div class="meta-pill">Foundational concepts</div>
+      <div class="meta-pill">Single-page category reading</div>
+    </div>
+  </div>
+</section>
+<main class="page-wrap">
+  <section class="search-panel">
+    <div class="search-top">
+      <div class="searchbox"><span class="icon">⌕</span><input id="articleSearch" type="search" placeholder="Search topics within Lifestyle & Daily Living..."></div>
+      <div class="search-note">Open any topic to read it here. No separate article pages needed.</div>
+    </div>
+  </section>
+
+  <section class="topic-strip">
+    <h3>Quick Topic Access</h3>
+    <div class="topic-links">
+      <a href="#dinacharya">Dinacharya</a>
+      <a href="#ritucharya">Ritucharya</a>
+      <a href="#sleep">Sleep &amp; Rest</a>
+      <a href="#food-timing">Food Timing</a>
+      <a href="#water-habits">Water &amp; Thirst</a>
+      <a href="#routine">Consistency</a>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="section-head">
+      <div>
+        <h2>Topics on this Shelf</h2>
+        <p>This shelf now presents fuller, carefully structured lifestyle articles based on the material you provided, preserving depth while improving flow, headings, and readability.</p>
+      </div>
+    </div>
+    <div class="no-results" id="noResults">No topics match that search.</div>
+    <div class="article-list" id="articleList">
+
+      <article id="dinacharya" class="article" data-search="dinacharya daily routine brahmamuhurta tongue scraping oil pulling abhyanga exercise pranayama meditation dosha cycles ratricharya">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Daily Rhythm</span>
+              <h3>Dinacharya: The Ayurvedic Art of Daily Routine</h3>
+              <p>A full introduction to how daily rhythm protects Agni, prevents Ama, and stabilizes body and mind.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In the modern world, we pride ourselves on being “24/7.” We eat late, sleep late, and work at all hours. Ayurveda, however, teaches that health is impossible without rhythm. <strong>Dinacharya</strong> — from <em>Dina</em> (day) and <em>Acharya</em> (to follow) — is a daily self-care ritual designed to maintain the balance of the Doshas, strengthen immunity, and clear the mind before the day even begins.</p>
+              <p>At its heart, Dinacharya is not about complexity; it is about alignment. When daily life follows natural cycles, the body no longer has to fight its own timing.</p>
+            </section>
+            <section class="body-block">
+              <h4>Why Routine Matters</h4>
+              <p>Our bodies are governed by circadian rhythms. Every organ has a time when it is most active and a time when it needs to rest. By following Dinacharya, you stop fighting against nature and start flowing with it.</p>
+              <p>The primary goals of routine are to prevent the accumulation of <strong>Ama</strong> and to ensure that <strong>Agni</strong> remains strong and predictable.</p>
+            </section>
+            <section class="body-block full">
+              <h4>The Ideal Ayurvedic Morning Routine</h4>
+              <p>To get the most out of your day, Ayurveda suggests beginning before sunrise.</p>
+              <ul>
+                <li><strong>1. Wake in Brahmamuhurta:</strong> roughly 45 to 90 minutes before sunrise (about 5:00–6:00 AM). Vata is dominant in the atmosphere then, making it a naturally light, clear, and peaceful time suited for meditation and intention-setting.</li>
+                <li><strong>2. Purification of the senses:</strong> splash the face with cool water; scrape the tongue to remove the white coating of Ama; and practice <em>Gandusha</em> (oil pulling) using warm sesame or coconut oil for 5–10 minutes.</li>
+                <li><strong>3. Evacuation:</strong> a glass of warm water on waking stimulates the bowels. Ayurveda emphasizes daily morning elimination to prevent toxins from being reabsorbed.</li>
+                <li><strong>4. Self-massage (Abhyanga):</strong> warm oil massage calms the nervous system, improves circulation, and nourishes the skin. Sesame is often preferred for Vata, Coconut or Sunflower for Pitta, and Mustard or Almond for Kapha.</li>
+                <li><strong>5. Movement and stillness:</strong> gentle yoga, a brisk walk, Pranayama, and meditation support both bodily channels and the mind.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Aligning Your Day with the Doshas</h4>
+              <p>The day is divided into repeating four-hour Dosha cycles. Understanding them helps time activity more wisely:</p>
+              <div class="compare-matrix" aria-label="Dosha cycles of the day">
+                <div class="matrix-head">
+                  <div>Time</div>
+                  <div>Dominant Dosha</div>
+                  <div>Quality of the Period</div>
+                  <div>Best Focus</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="feature">6:00 AM – 10:00 AM</div>
+                  <div>Kapha</div>
+                  <div>Heavy, stable, slow</div>
+                  <div>Exercise, activation, shaking off lethargy</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="feature">10:00 AM – 2:00 PM</div>
+                  <div>Pitta</div>
+                  <div>Sharp, digestive, transformative</div>
+                  <div>Largest meal of the day; focused work</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="feature">2:00 PM – 6:00 PM</div>
+                  <div>Vata</div>
+                  <div>Creative, mobile, mentally active</div>
+                  <div>Communication, learning, problem-solving</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="feature">6:00 PM – 10:00 PM</div>
+                  <div>Kapha</div>
+                  <div>Settling, slowing, grounding</div>
+                  <div>Light dinner, winding down, reducing screens</div>
+                </div>
+              </div>
+            </section>
+            <section class="body-block full">
+              <h4>Ratricharya: The Evening Routine</h4>
+              <p>To ensure deep, restorative sleep, the day should end calmly.</p>
+              <ul>
+                <li><strong>Early, light dinner:</strong> ideally before 7:00 PM so the body can focus on healing during sleep rather than heavy digestion.</li>
+                <li><strong>Night support:</strong> some practitioners use Triphala at night to support digestion and detoxification.</li>
+                <li><strong>Sleep by 10:00 PM:</strong> sleeping during the Kapha period helps ensure heavier, deeper sleep. If you stay awake past 10:00 PM, you enter the second Pitta phase and may get a “second wind.”</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion: Small Steps, Big Changes</h4>
+              <p>You do not need to adopt all of Dinacharya at once. Start with scraping the tongue and drinking warm water. As these become natural, add the next layer. Over time, routine becomes less of a discipline and more of a support structure for health.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="ritucharya" class="article" data-search="ritucharya seasonal healing six seasons chaya prakopa prashama winter spring summer monsoon autumn doshas">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Seasonal Living</span>
+              <h3>Ritucharya: The Art of Seasonal Healing</h3>
+              <p>How Ayurveda teaches us to adapt diet, lifestyle, and therapies as the seasons change.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Have you noticed how your appetite changes in winter, or why you feel more sluggish when the spring rains arrive? Ayurveda teaches that these are not coincidences. As the seasons change in the macrocosm, the internal microcosm of the body also shifts. <strong>Ritucharya</strong> is the science of aligning diet, lifestyle, and cleansing practices with seasonal change.</p>
+            </section>
+            <section class="body-block">
+              <h4>The Seasonal Cycle of the Doshas</h4>
+              <p>The relationship between season and Dosha follows a predictable three-stage cycle:</p>
+              <ul>
+                <li><strong>Chaya (Accumulation):</strong> the Dosha begins to build.</li>
+                <li><strong>Prakopa (Aggravation):</strong> the Dosha peaks and symptoms appear.</li>
+                <li><strong>Prashama (Pacification):</strong> the Dosha naturally settles again.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>The Seasonal Guide</h4>
+              <ul>
+                <li><strong>Hemanta &amp; Shishira (Mid-Nov to Mid-March):</strong> in winter the cold closes the pores and keeps internal heat inside, making Agni very strong. Favor warm soups, root vegetables, whole grains, ghee, and nourishing foods. Stay warm and active; sesame oil is often used for Abhyanga. The goal is to prevent Vata from becoming too cold and dry.</li>
+                <li><strong>Vasanta (Mid-March to Mid-May):</strong> as spring arrives, Kapha that “froze” during winter begins to melt, leading to allergies, congestion, and heaviness. Shift to lighter, bitter, and astringent foods; reduce dairy and sweets; and increase exercise. This is classically seen as a useful season for clearing excess Kapha.</li>
+                <li><strong>Grishma (Mid-May to Mid-July):</strong> intense summer heat drains energy and begins to accumulate Pitta. Favor cooling, hydrating foods such as sweet fruits, coconut water, cilantro, and avoid excessive heat, spice, salt, and sourness.</li>
+                <li><strong>Varsha (Mid-July to Mid-September):</strong> monsoon weakens Agni and can disturb all three Doshas, especially Vata. Stick to cooked, easily digestible foods with warming spices. This season is traditionally associated with therapies that protect digestion and ground Vata.</li>
+                <li><strong>Sharad (Mid-September to Mid-November):</strong> after the rains, returning sun causes accumulated Pitta to “boil over.” Skin rashes, heat, and acidity can worsen. Cooling but light foods, bitters, calm evenings, and gentle moonlit settling practices are preferred.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Why Seasonal Consultation Matters</h4>
+              <p>A diet that suits you in January may not suit you in April. Ayurveda therefore sees health protocols as dynamic. Seasonal adjustments may include cleansing, shifts in herbal support, and changes in food quality depending on constitution and climate.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion: Living in Harmony</h4>
+              <p>Ritucharya reminds us that we are not separate from nature; we are part of it. When we eat with the season and live in respectful relationship to climate and environment, balance becomes easier to maintain throughout the year.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="sleep" class="article" data-search="nidra sleep recovery sattva rajas tamas vata pitta kapha insomnia bedtime left-side sleeping digital detox">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Rest & Recovery</span>
+              <h3>Nidra: The Ayurvedic Science of Sleep and Recovery</h3>
+              <p>Why sleep is not a luxury in Ayurveda, but one of the pillars of maintenance, repair, and mental clarity.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In our hyper-connected world, sleep is often treated as a luxury or an inconvenience. Ayurveda sees it very differently. <strong>Nidra</strong> is one of the great supports of life — a period when tissues repair, the mind digests the day’s experiences, and the body performs deep maintenance work.</p>
+            </section>
+            <section class="body-block">
+              <h4>Why We Sleep: The Gunas of the Mind</h4>
+              <p>Ayurveda explains sleep using the three mental qualities: <strong>Sattva</strong> (clarity), <strong>Rajas</strong> (activity), and <strong>Tamas</strong> (dullness/stability). As the Rajasic activity of the day exhausts the mind and senses, Tamas naturally increases, allowing consciousness to withdraw and rest. Lack of sleep depletes Sattva, leaving the person foggy, irritable, and ungrounded.</p>
+            </section>
+            <section class="body-block full">
+              <h4>The Three Types of Sleep Imbalance</h4>
+              <div class="compare-dual">
+                <div class="compare-panel">
+                  <h5>Vata / Pitta / Kapha Patterns</h5>
+                  <ul>
+                    <li><strong>Vata-related sleep:</strong> difficulty falling asleep, waking between 2:00 AM and 6:00 AM, feeling wired but tired.</li>
+                    <li><strong>Pitta-related sleep:</strong> falling asleep easily but waking around midnight feeling hot or mentally active.</li>
+                    <li><strong>Kapha-related sleep:</strong> sleeping too much, difficulty waking, long-lasting grogginess.</li>
+                  </ul>
+                </div>
+                <div class="compare-panel">
+                  <h5>Underlying Feel</h5>
+                  <ul>
+                    <li><strong>Vata:</strong> too much movement, anxiety, coldness, instability.</li>
+                    <li><strong>Pitta:</strong> excess heat, intensity, planning mind, inner sharpness.</li>
+                    <li><strong>Kapha:</strong> heaviness, stagnation, sluggishness, inertia.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section class="body-block full">
+              <h4>The Golden Rules for Ayurvedic Rest</h4>
+              <ul>
+                <li><strong>1. The 10:00 PM deadline:</strong> from 10:00 PM to 2:00 AM Pitta predominates. If you are asleep, its transformative energy is used for internal repair. If you stay awake, it becomes a “second wind.”</li>
+                <li><strong>2. Left-side sleeping:</strong> often recommended because it may support lymphatic drainage, digestion, and more natural positioning of abdominal organs.</li>
+                <li><strong>3. The digital detox:</strong> screens are highly Rajasic and overstimulating. Ayurveda encourages stopping screen use at least one hour before bed.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical Rituals for Deep Sleep</h4>
+              <ul>
+                <li><strong>Pada-Abhyanga:</strong> massaging the soles with warm sesame oil or ghee before bed.</li>
+                <li><strong>Ashwagandha milk:</strong> warm milk (or suitable alternative) with Ashwagandha, nutmeg, and cardamom.</li>
+                <li><strong>Brahmi oil:</strong> a few drops applied to the crown to cool the mind and settle the nervous system.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion: Rest is a Sacred Act</h4>
+              <p>True healing does not happen in exhaustion. Restoring natural sleep rhythm is not just about comfort — it is about returning the body to a state where repair is possible. Ayurveda therefore treats disturbed sleep not merely as a bad habit, but as a signal of deeper imbalance.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="food-timing" class="article" data-search="food timing digestive rhythm lunch is king agni three meal rhythm breakfast lunch dinner inter meal gaps ginger shatapada">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Digestive Rhythm</span>
+              <h3>Food Timing &amp; Digestive Rhythm: The Ayurvedic Clock</h3>
+              <p>Why Ayurveda cares not only about what we eat, but when we eat it.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Modern nutrition often emphasizes calories and macronutrients. Ayurveda introduces another vital factor: the biological clock. Digestive strength is not a constant flame. It rises and falls in rhythm with the sun. When we eat against this natural rhythm, Ama is produced regardless of how “healthy” the ingredients may be.</p>
+            </section>
+            <section class="body-block">
+              <h4>The Sun and Your Internal Fire</h4>
+              <p>Ayurveda teaches that internal Agni mirrors the sun in the outer world:</p>
+              <ul>
+                <li><strong>Sunrise:</strong> Agni is just waking up.</li>
+                <li><strong>Noon:</strong> Agni is strongest.</li>
+                <li><strong>Sunset:</strong> Agni begins to fade.</li>
+              </ul>
+              <p>This is why lunch is traditionally considered the “main event” of the day.</p>
+            </section>
+            <section class="body-block full">
+              <h4>The Three-Meal Rhythm</h4>
+              <ul>
+                <li><strong>Breakfast (7:00 AM – 9:00 AM):</strong> digestion is not yet fully awake, especially in Kapha time. Keep breakfast warm and light — for example, stewed fruit, warm oatmeal, or a light grain-based meal.</li>
+                <li><strong>Lunch (12:00 PM – 1:30 PM):</strong> this is the strongest digestive window. Ayurveda advises making lunch the largest and most complex meal. Eat until about 75% full, leaving room for digestive movement.</li>
+                <li><strong>Dinner (6:00 PM – 7:30 PM):</strong> as the sun sets, Agni quiets down. Dinner should therefore be lighter and smaller than lunch — soups, steamed vegetables, or easy-to-digest lentils are often appropriate. Ideally finish at least three hours before bed.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>The Importance of Inter-Meal Gaps</h4>
+              <p>One of the biggest causes of digestive trouble today is constant snacking or grazing. Ayurveda generally advises leaving 4 to 6 hours between meals so the previous meal is fully processed. This gap allows the body’s own “sweeping” mechanisms to clear the tract before the next intake.</p>
+            </section>
+            <section class="body-block">
+              <h4>Clinical Indicators: Are You Eating in Rhythm?</h4>
+              <ul>
+                <li><strong>Good rhythm:</strong> true hunger before meals, waking with a clear tongue, steady energy after lunch.</li>
+                <li><strong>Poor rhythm:</strong> waking without appetite, feeling heavy or sleepy after lunch, acid reflux at night.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Simple Rituals for Better Rhythm</h4>
+              <ul>
+                <li><strong>The Ginger Spark:</strong> a thin slice of fresh ginger with rock salt and a drop of lime before lunch may kindle appetite in some people.</li>
+                <li><strong>Post-meal walk (Shatapada):</strong> about 100 steps after meals to support digestion.</li>
+                <li><strong>Avoid iced water:</strong> cold water can suppress digestive fire. Warm water is preferred.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion: It’s Not Just What, But When</h4>
+              <p>By shifting the heaviest meal to midday and lightening the evening load, many digestive complaints can improve without drastic dietary overhauls. In Ayurveda, timing is not a small detail — it is part of the medicine.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="water-habits" class="article" data-search="water thirst drinking habits warm water cold water hydration meal timing ushapan medicated waters doshas">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Daily Habit</span>
+              <h3>Water, Thirst, and Drinking Habits: The Ayurvedic Perspective</h3>
+              <p>Hydration is important — but Ayurveda asks us to think about how, when, and at what temperature we drink.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Modern wellness culture often says: “Hydrate, hydrate, hydrate.” Ayurveda agrees that water is essential, but adds an important refinement: how, when, and what temperature you drink matters as much as quantity. Like any medicine, water must be used intelligently if it is to support rather than suppress metabolism.</p>
+            </section>
+            <section class="body-block">
+              <h4>The Golden Rule: Respect Your Thirst</h4>
+              <p>Ayurveda works with the idea of <em>Vega</em> — natural urges. Just as we should not suppress the urge to sleep or eliminate, we should neither force water when the body does not want it nor ignore real thirst.</p>
+              <ul>
+                <li><strong>Forcing water:</strong> may drown Agni, leading to sluggishness, water retention, and heaviness.</li>
+                <li><strong>Ignoring thirst:</strong> can aggravate Vata, causing dryness, constipation, and depletion.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>The Power of Temperature</h4>
+              <p>One of Ayurveda’s strongest recommendations is to avoid ice-cold water. If digestion is like a fire, pouring cold water on it suppresses its activity. Warm or room-temperature water is generally preferred because it supports circulation, lymphatic movement, and the kindling of Agni.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Timing Water Around Meals</h4>
+              <div class="compare-dual">
+                <div class="compare-panel">
+                  <h5>Timing</h5>
+                  <ul>
+                    <li>Before a meal</li>
+                    <li>During a meal</li>
+                    <li>After a meal</li>
+                  </ul>
+                </div>
+                <div class="compare-panel">
+                  <h5>Ayurvedic Effect</h5>
+                  <ul>
+                    <li>May thin digestive juices; over time may weaken or reduce appetite.</li>
+                    <li>Best taken as small sips of warm water to aid processing.</li>
+                    <li>Large amounts immediately after food may slow digestion and contribute to Ama.</li>
+                  </ul>
+                </div>
+              </div>
+              <p><strong>Clinic tip:</strong> wait about 45 to 60 minutes after a meal before drinking a full glass of water.</p>
+            </section>
+            <section class="body-block">
+              <h4>How to Drink: Sip, Don’t Chug</h4>
+              <p>When large volumes are swallowed quickly, the body may not assimilate the water effectively. Slow sipping while seated allows water to mix with saliva and enter the system more gently.</p>
+            </section>
+            <section class="body-block">
+              <h4>Medicated Waters</h4>
+              <ul>
+                <li><strong>For Vata:</strong> warm water infused with ginger or fennel.</li>
+                <li><strong>For Pitta:</strong> water infused with coriander, rose, or mint at room temperature.</li>
+                <li><strong>For Kapha:</strong> hot water prepared with dry ginger and black pepper.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>The First Drink of the Day: Ushapan</h4>
+              <p>One of the most valued habits in Dinacharya is a glass of warm water first thing in the morning. It helps cleanse the gastrointestinal tract, stimulate the kidneys, and encourage proper elimination before the day begins.</p>
+              <p>In Ayurveda, hydration is about assimilation rather than liters alone. By drinking warm water in measured sips and honoring natural thirst, one supports Agni and keeps the internal channels functioning more clearly.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="routine" class="article" data-search="consistency power of routine abhyasa habit change anchor 80 20 rule ojas discipline self-love">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Long-term Balance</span>
+              <h3>Consistency and the Power of Routine</h3>
+              <p>Why lasting transformation in Ayurveda depends more on steady practice than on dramatic short-term effort.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>We live in a quick-fix culture that looks for a magic pill or a three-day detox to undo years of imbalance. Ayurveda offers a very different message: healing is sustained through <strong>consistency</strong>. In classical language, this ongoing steady practice is linked with <em>Sathmya</em> and <em>Abhyasa</em> — adaptation through healthy habits repeated over time.</p>
+            </section>
+            <section class="body-block">
+              <h4>Why the Body Craves Predictability</h4>
+              <p>Internal organs, hormones, digestion, and the nervous system all follow rhythms. When routine is chaotic — variable sleep, variable meals, irregular activity — the body remains in a high-Vata state of instability.</p>
+              <ul>
+                <li><strong>Agni:</strong> works best when it “expects” fuel at predictable times.</li>
+                <li><strong>Nervous system:</strong> routine signals safety and lowers internal stress.</li>
+                <li><strong>Cellular memory:</strong> repeated healthy behavior gradually becomes the new baseline.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>The Rule of Abhyasa</h4>
+              <p>Patanjali described Abhyasa as practice done for a long time, without interruption, and with dedication. In clinical life, someone who follows half the protocol consistently often improves more than someone who follows everything perfectly for only a few days.</p>
+            </section>
+            <section class="body-block full">
+              <h4>How to Build a Sustainable Routine</h4>
+              <ul>
+                <li><strong>Step 1: Start with one anchor.</strong> Choose one stable habit — such as waking at the same time or eating lunch consistently.</li>
+                <li><strong>Step 2: Use the 80/20 rule.</strong> Ayurveda values balance, not perfection. If you are steady most of the time, the body develops resilience.</li>
+                <li><strong>Step 3: Respect seasonal shifts.</strong> Consistency does not mean sameness every single day of the year. Rhythm stays; details may change with season.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Why Small Habits Matter</h4>
+              <p>What seems small in one day becomes transformative across months and years.</p>
+              <ul>
+                <li>Daily tongue scraping removes recurring layers of Ama from the system.</li>
+                <li>Sipping warm water supports metabolism hour after hour.</li>
+                <li>A brief evening meditation creates cumulative nervous system repair.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion: Discipline as Self-Love</h4>
+              <p>In Ayurveda, routine is not a prison — it is a foundation. It frees the mind from chaos and gives the body a stable environment in which healing can occur. The point is not harsh discipline, but intelligent repetition. The smallest consistent act often becomes the turning point.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+    </div></div>
+  </section>
+</main>
+<footer class="footer"><strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>Basics of Ayurveda · Insight Library category</footer>
+<script>
+const search = document.getElementById('articleSearch');
+const articles = [...document.querySelectorAll('.article')];
+const noResults = document.getElementById('noResults');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let shown = 0;
+  articles.forEach(card => {
+    const hit = card.dataset.search.includes(q);
+    card.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  });
+  noResults.style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>

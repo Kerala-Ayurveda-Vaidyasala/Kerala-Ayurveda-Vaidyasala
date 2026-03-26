@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herbs & Medicines | Insight Library</title>
+<meta name="description" content="A calm, thoughtful introduction to important Ayurvedic herbs and medicine concepts, presented in a readable format inside the Insight Library.">
+
+<style>
+:root{
+  --bg:#f4ecdf;
+  --paper:#fbf7ef;
+  --paper-2:#fffdf8;
+  --ink:#1c2f24;
+  --muted:#617464;
+  --gold:#a8820a;
+  --gold-soft:#e7d6b5;
+  --line:#e3d3bb;
+  --green:#2f5a44;
+  --deep:#182e22;
+  --shadow:0 16px 34px rgba(24,46,34,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--ink);
+  line-height:1.82;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168,130,10,.09), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(47,90,68,.08), transparent 18%),
+    linear-gradient(180deg,#f7f0e6 0%, #f4ecdf 24%, #f2e8da 100%);
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,33,25,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,130,10,.18)
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.brand{text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;transition:.25s ease
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.05)}
+
+.hero{
+  padding:4.8rem 1.25rem 2.8rem;
+  border-bottom:1px solid rgba(168,130,10,.1);
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(circle at 16% 18%, rgba(168,130,10,.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(47,90,68,.12), transparent 24%),
+    linear-gradient(180deg,#f8f1e7 0%, #f3e9da 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(28,47,36,.035) 39px 40px),
+    linear-gradient(90deg, transparent, rgba(168,130,10,.05), transparent);
+}
+.hero::after{
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(900px,92%);height:1px;background:linear-gradient(90deg, transparent, rgba(168,130,10,.55), transparent);
+}
+.hero-inner{max-width:1180px;margin:0 auto;position:relative}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-size:.76rem;letter-spacing:.26em;
+  text-transform:uppercase;font-style:italic;margin-bottom:.9rem
+}
+.hero h1{margin:.15rem 0 .7rem;font-weight:400;font-size:clamp(2.2rem,4vw,4rem);line-height:1.06}
+.hero p.lead{max-width:860px;margin:0;color:#3f5647;font-size:1.05rem}
+.hero-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.meta-pill{
+  background:rgba(255,253,248,.84);
+  border:1px solid rgba(168,130,10,.16);
+  padding:.74rem 1rem;border-radius:999px;color:#51685a;font-size:.88rem;
+  box-shadow:0 8px 18px rgba(24,46,34,.04)
+}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.search-panel,.section-panel,.topic-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(251,247,239,.96));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.search-panel{padding:1.15rem;border-radius:24px;margin:-1.1rem auto 1.1rem;position:relative;z-index:2}
+.search-top{display:flex;gap:.9rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.searchbox{flex:1 1 340px;position:relative}
+.searchbox input{
+  width:100%;padding:1rem 1rem 1rem 2.95rem;border-radius:15px;border:1px solid #dbc8ad;
+  background:#fff;color:var(--ink);font:inherit;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.search-note{color:var(--muted);font-size:.92rem}
+
+.topic-strip{
+  padding:1rem 1rem .9rem;border-radius:22px;margin-bottom:1.4rem;
+}
+.topic-strip h3{
+  margin:0 0 .75rem;font-size:.9rem;font-weight:400;color:var(--gold);
+  letter-spacing:.16em;text-transform:uppercase
+}
+.topic-links{display:flex;gap:.65rem;flex-wrap:wrap}
+.topic-links a{
+  text-decoration:none;
+  padding:.55rem .85rem;border-radius:999px;
+  border:1px solid #e4d3bb;background:#fff;
+  color:#42584a;font-size:.9rem;transition:.2s ease;
+}
+.topic-links a:hover{transform:translateY(-2px);border-color:#caa55c;color:var(--deep);box-shadow:0 8px 16px rgba(24,46,34,.06)}
+
+.section-panel{padding:1.55rem 1.35rem;border-radius:28px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.section-head h2{margin:0;font-weight:400;font-size:1.65rem}
+.section-head p{margin:.2rem 0 0;color:#5a7161;max-width:760px}
+
+.article-list{display:grid;gap:1.35rem}
+.article{
+  background:
+    linear-gradient(180deg,rgba(168,130,10,.045),transparent 120px),
+    #fff;
+  border:1px solid #eadcc9;border-radius:26px;overflow:hidden;box-shadow:0 12px 24px rgba(24,46,34,.05);
+  position:relative;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.article:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px rgba(24,46,34,.07);
+}
+.article::before{
+  content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;
+  background:linear-gradient(180deg,#caa55c,#7f9b87);
+  opacity:.8;
+}
+.article::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:-14px;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.28), transparent);
+}
+.article:last-child::after{display:none}
+.article details{display:block}
+.article details[open]{
+  background:
+    radial-gradient(circle at 12% 10%, rgba(168,130,10,.08), transparent 22%),
+    linear-gradient(180deg,rgba(168,130,10,.08),rgba(168,130,10,.025) 28%,transparent 70%),
+    linear-gradient(180deg,#fffefb,#fff);
+  box-shadow:inset 0 0 0 1px rgba(168,130,10,.06);
+}
+.article summary{
+  list-style:none;cursor:pointer;padding:1.22rem 1.15rem 1.02rem 1.35rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem
+}
+.article summary::-webkit-details-marker{display:none}
+.summary-copy{max-width:900px}
+.kicker{
+  display:inline-block;font-size:.71rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.38rem;padding:.28rem .55rem;border-radius:999px;background:rgba(168,130,10,.08);border:1px solid rgba(168,130,10,.12)
+}
+.summary-copy h3{margin:.1rem 0 .38rem;font-weight:400;font-size:1.26rem;color:var(--ink)}
+.summary-copy p{margin:0;color:#4b6253;font-size:.96rem}
+.chevron{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:1px solid #e5d4bb;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1.02rem;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  background:#fff;box-shadow:0 6px 14px rgba(24,46,34,.04)
+}
+details[open] .chevron{transform:rotate(180deg);background:rgba(168,130,10,.08);box-shadow:none}
+details[open] summary{
+  border-bottom:1px solid rgba(168,130,10,.14);
+  background:
+    linear-gradient(180deg,rgba(255,248,236,.92),rgba(255,255,255,0)),
+    repeating-linear-gradient(90deg, transparent 0 36px, rgba(168,130,10,.018) 36px 37px);
+}
+details[open] .summary-copy h3{
+  font-size:1.42rem;
+}
+details[open] .summary-copy p{
+  color:#415b4c;
+}
+.article-body{
+  padding:1.05rem 1.2rem 1.3rem 1.4rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;
+  position:relative;
+}
+.article-body::before{
+  content:"";position:absolute;left:1.02rem;top:.35rem;bottom:.7rem;width:3px;border-radius:4px;
+  background:linear-gradient(180deg,rgba(168,130,10,.55),rgba(127,155,135,.5));
+  opacity:.7;
+}
+.body-block{
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.96),rgba(251,247,238,.96)),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(28,47,36,.028) 34px 35px);
+  border:1px solid #eadbc4;border-radius:20px;padding:1.08rem 1.08rem 1rem 1.12rem;
+  box-shadow:0 10px 18px rgba(24,46,34,.025);
+  position:relative;
+}
+.body-block::before{
+  content:"";position:absolute;left:16px;right:16px;top:0;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.26), transparent);
+}
+.body-block h4{
+  margin:0 0 .7rem;font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;position:relative;padding-bottom:.4rem
+}
+.body-block h4::after{
+  content:"";position:absolute;left:0;bottom:0;width:64px;height:1px;
+  background:linear-gradient(90deg, rgba(168,130,10,.6), transparent);
+}
+.body-block p{margin:0;color:#385243}
+.body-block.full p:first-of-type::first-letter{
+  float:left;font-size:2.8rem;line-height:.86;padding-right:.16rem;margin-top:.08rem;
+  color:#2f5a44;font-family:'Palatino Linotype', Georgia, serif;
+}
+.body-block ul{margin:.2rem 0 0 1.15rem;padding:0}
+.body-block li{margin:.22rem 0;color:#385243}
+.body-block.full{grid-column:1/-1}
+.article-end{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:center;gap:.85rem;
+  margin-top:.25rem;padding:.25rem 0 .25rem;
+  color:#8a7a58;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.article-end::before,.article-end::after{
+  content:"";height:1px;flex:1;max-width:150px;
+  background:linear-gradient(90deg,transparent,rgba(168,130,10,.42),transparent);
+}
+.article-end span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(168,130,10,.22);
+  background:linear-gradient(180deg,rgba(255,252,246,.96),rgba(249,241,225,.92));
+  font-size:.74rem;letter-spacing:0;color:var(--gold);
+}
+
+.no-results{display:none;padding:1rem 0 .1rem;color:#7a877f;font-style:italic}
+.footer{padding:2.2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:800px){
+  .article-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.3rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}.brand span{font-size:.66rem}
+  .search-panel{margin-top:-.8rem}
+  .article summary{padding:1rem 1rem .9rem 1.15rem}
+  .article-body{padding:0 1rem 1rem 1.15rem}
+  .section-panel{padding:1.2rem 1rem}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index_insight_updated.html"><strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong><span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span></a>
+    <a class="back-link" href="insight-library.html">← Back to Insight Library</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Insight Library Shelf</span>
+    <h1>Herbs &amp; Medicines</h1>
+    <p class="lead">Foundational Ayurvedic ideas presented in a calm, readable format. Open any topic below to read within the same page.</p>
+    <div class="hero-meta">
+      <div class="meta-pill">Expandable reading format</div>
+      <div class="meta-pill">Foundational concepts</div>
+      <div class="meta-pill">Single-page category reading</div>
+    </div>
+  </div>
+</section>
+<main class="page-wrap">
+  <section class="search-panel">
+    <div class="search-top">
+      <div class="searchbox"><span class="icon">⌕</span><input id="articleSearch" type="search" placeholder="Search topics within Herbs & Medicines..."></div>
+      <div class="search-note">Open any topic to read it here. No separate article pages needed.</div>
+    </div>
+  </section>
+
+  <section class="topic-strip">
+    <h3>Quick Topic Access</h3>
+    <div class="topic-links">
+      <a href="#guduchi">Guduchi</a>
+      <a href="#ashwagandha">Ashwagandha</a>
+      <a href="#triphala">Triphala</a>
+      <a href="#dashamoola">Dashamoola</a>
+      <a href="#ghrita-taila">Ghrita &amp; Taila</a>
+      <a href="#medicine-thinking">How Ayurveda Thinks About Medicines</a>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="section-head">
+      <div>
+        <h2>Topics on this Shelf</h2>
+        <p>This shelf now presents fuller, carefully structured herbs and medicines articles based on the material you provided, preserving depth while improving flow, headings, and readability.</p>
+      </div>
+    </div>
+    <div class="no-results" id="noResults">No topics match that search.</div>
+    <div class="article-list" id="articleList">
+
+      <article id="ashwagandha" class="article" data-search="ashwagandha amukkuram winter cherry indian ginseng vata kapha pitta stress sleep muscles nervous system">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Vitalizer</span>
+              <h3>Ashwagandha</h3>
+              <p>The “strength of a horse” herb — deeply valued for restoration, resilience, nervous system support, and recovery from depletion.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Ashwagandha (अश्वगन्धा) &nbsp; <strong>English:</strong> Winter Cherry / Indian Ginseng &nbsp; <strong>Malayalam:</strong> Amukkuram (അമുക്കുരം)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Bitter, Pungent, Sweet</li>
+                <li><strong>Virya (potency):</strong> Heating</li>
+                <li><strong>Dosha effect:</strong> Balances Vata and Kapha; may increase Pitta in excess</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Ashwagandha is often called the “strength of a horse,” reflecting its reputation as one of Ayurveda’s great restorative herbs. It is especially valued for the nervous system, depleted vitality, poor sleep, post-illness recovery, and conditions in which the person feels worn down, unsteady, or weakened by long-term strain.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>In practical clinical use, Ashwagandha is often remembered for reducing the stress burden, improving sleep quality, and strengthening muscles and general resilience. In your clinic material, it is specifically highlighted for exhaustion, anxiety, and recovery from long-term illness.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="brahmi" class="article" data-search="brahmi bacopa water hyssop memory focus intelligence adhd student memory loss pitta tridoshic cooling">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Brain Tonic</span>
+              <h3>Brahmi</h3>
+              <p>A classical Medhya herb valued for memory, focus, emotional cooling, and mental steadiness.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Brahmi (ब्राह्मी) &nbsp; <strong>English:</strong> Water Hyssop / Bacopa &nbsp; <strong>Malayalam:</strong> Brahmi (ബ്രഹ്മി)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Bitter, Astringent</li>
+                <li><strong>Virya (potency):</strong> Cooling</li>
+                <li><strong>Dosha effect:</strong> Balances all three Doshas, especially Pitta</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Named after Brahma, the creator, Brahmi holds a highly respected place among herbs that support the mind. Because it is cooling, it is especially useful where the mind feels “heated” — angry, overdriven, irritable, or mentally exhausted. Ayurveda values it as a herb that supports memory, concentration, intelligence, and steadiness without harsh stimulation.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>In your clinic material, Brahmi is remembered for ADHD, student focus, and protection against age-related memory decline. Its broader Ayurvedic role includes supporting a calm but alert mind and helping cool excess Pitta in the mental field.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="triphala" class="article" data-search="triphala three fruits amalaki bibhitaki haritaki ama internal cleanser eye wash antioxidant gentle laxative tridoshic">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Classical Formula</span>
+              <h3>Triphala</h3>
+              <p>The famous “three fruits” formula — regulating, cleansing, and supporting the digestive tract without harsh depletion.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Note:</strong> Triphala is a formula consisting of three fruits: <strong>Amalaki</strong>, <strong>Bibhitaki</strong>, and <strong>Haritaki</strong>.</p>
+              <p><strong>Sanskrit:</strong> Triphala (त्रिफला) &nbsp; <strong>English:</strong> Three Fruits &nbsp; <strong>Malayalam:</strong> Thriphala (ത്രിഫല)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Contains five of the six tastes (everything except salty)</li>
+                <li><strong>Virya (potency):</strong> Neutral</li>
+                <li><strong>Dosha effect:</strong> Completely balances Vata, Pitta, and Kapha</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Triphala is perhaps the best-known Ayurvedic formula in the world. Its primary role is to help clear <strong>Ama</strong> from the digestive tract without weakening the system. This is one reason it is so valued: it can regulate and cleanse while remaining relatively gentle.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your material highlights Triphala as a gentle laxative, powerful antioxidant, and even a substance traditionally used as an eye wash to improve vision. Ayurveda values it not only for bowel regularity, but for long-term support of digestion, cleansing, and balanced elimination.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="turmeric" class="article" data-search="turmeric haridra manjal anti inflammatory blood purifier skin joints respiratory golden milk tridoshic heating">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Natural Healer</span>
+              <h3>Turmeric (Haridra)</h3>
+              <p>Far more than a kitchen spice — a classical herb of purification, anti-inflammatory support, and deeper tissue protection.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Haridra (हरिद्रा) &nbsp; <strong>English:</strong> Turmeric &nbsp; <strong>Malayalam:</strong> Manjal (മഞ്ഞൾ)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Bitter, Pungent</li>
+                <li><strong>Virya (potency):</strong> Heating</li>
+                <li><strong>Dosha effect:</strong> Balances all three Doshas; cleanses the blood and liver</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>In Ayurveda, Turmeric is not reduced to “one active chemical.” It is treated as a powerful herb of purification, inflammation control, and blood support. Because it helps cleanse and regulate, it is often remembered in contexts where deeper tissue heat, blood impurity, or inflammatory tendency are involved.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your material highlights its use in skin conditions, joint pain, and respiratory immunity. It is also noted as a key ingredient in Ayurvedic “Golden Milk,” where it supports healing and restoration during sleep.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="shatavari" class="article" data-search="shatavari satavari female protector hormones lactation pcos menopause ulcers pitta vata kapha cooling">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Female Protector</span>
+              <h3>Shatavari</h3>
+              <p>A nourishing Rasayana especially valued for female reproductive health, hormonal balance, and cooling internal support.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Shatavari (शतावरी) &nbsp; <strong>English:</strong> Wild Asparagus &nbsp; <strong>Malayalam:</strong> Shathavari / Satavari (ശതാവരി)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Sweet, Bitter</li>
+                <li><strong>Virya (potency):</strong> Cooling</li>
+                <li><strong>Dosha effect:</strong> Balances Vata and Pitta; may increase Kapha</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>The name Shatavari is often poetically understood as “she who possesses a hundred husbands,” referring to its deep association with female vitality and reproductive resilience. Ayurveda values it as a nourishing Rasayana that supports the reproductive system, cools excess internal heat, and soothes delicate tissues.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your clinic notes highlight Shatavari for PCOS, menopause symptoms, lactation support, and gastric ulcers. Its cooling and nourishing nature also makes it useful in patterns where dryness, heat, depletion, or tissue irritation coexist.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="guduchi" class="article" data-search="guduchi amrita chittamruthu immunity chronic fevers skin allergies autoimmune recovery liver blood tridoshic">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Great Protector</span>
+              <h3>Guduchi (Amrita)</h3>
+              <p>The “nectar of immortality” herb — broad, intelligent, and deeply respected for resilience, detoxification, and immune support.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Guduchi (गुडूची) / Amrita &nbsp; <strong>English:</strong> Heart-leaved Moonseed / Tinospora &nbsp; <strong>Malayalam:</strong> Chittamruthu (ചിറ്റമൃത്)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Bitter, Pungent, Astringent</li>
+                <li><strong>Virya (potency):</strong> Heating, yet uniquely balances Pitta</li>
+                <li><strong>Dosha effect:</strong> Tridoshic — balances Vata, Pitta, and Kapha</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Known as <strong>Amrita</strong>, the nectar of immortality, Guduchi is remembered as one of Ayurveda’s premier herbs for the immune system. Its importance lies in the fact that it helps cleanse and support without depleting the person. It is often seen as a gentle but effective detoxifier that preserves strength.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your clinic material highlights Guduchi in chronic fevers, skin allergies, and support during autoimmune recovery. It is also remembered for cleansing the liver and blood while helping the body recover from chronic internal burden.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="nimba" class="article" data-search="nimba neem aryaveppu purifier antimicrobial skin acne psoriasis eczema blood sugar pitta kapha cooling">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Natural Purifier</span>
+              <h3>Nimba (Neem)</h3>
+              <p>A deeply cooling purifier — especially valued for inflammatory skin conditions, microbial burden, and excess internal heat.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Nimba (निम्बा) &nbsp; <strong>English:</strong> Neem / Margosa &nbsp; <strong>Malayalam:</strong> Aryaveppu (അര്യവേപ്പ്)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Bitter, Astringent</li>
+                <li><strong>Virya (potency):</strong> Cooling</li>
+                <li><strong>Dosha effect:</strong> Balances Pitta and Kapha; increases Vata in excess</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Neem is often regarded as one of Ayurveda’s strongest natural purifiers. It is remembered as a powerful <em>Krimighna</em> — an anti-microbial herb — and because of its strong cooling effect, it is often chosen where heat, inflammation, infection tendency, or blood impurity are prominent.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your material emphasizes Neem in acne, psoriasis, eczema, liver heat, and healthy blood sugar support. Its role is especially strong where the pattern is hot, irritated, inflamed, or toxic.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="shunti" class="article" data-search="shunti chukku dry ginger universal medicine agni ama gas bloating nausea kapha vata respiratory congestion">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Universal Medicine</span>
+              <h3>Shunti (Dry Ginger)</h3>
+              <p>A classic Agni-kindling herb valued for digestion, Ama reduction, and keeping Kapha-related heaviness from accumulating.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Shunti (शुण्ठी) &nbsp; <strong>English:</strong> Dry Ginger &nbsp; <strong>Malayalam:</strong> Chukku (ചുക്ക്)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Pungent</li>
+                <li><strong>Virya (potency):</strong> Heating</li>
+                <li><strong>Dosha effect:</strong> Balances Kapha and Vata; may increase Pitta in excess</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Dry ginger is often called <strong>Vishvabheshaja</strong> — the universal medicine. Its reputation comes from its broad usefulness in digestive and Kapha-related disorders. Ayurveda values it as a herb that kindles Agni, helps digest Ama, and clears stagnation.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your clinic notes highlight Shunti for gas, bloating, nausea, and the prevention of respiratory congestion. Chukku Vellam — dry ginger water — is mentioned as a simple but important traditional support for metabolic and respiratory balance in Kerala.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="vasa" class="article" data-search="vasa vasaka adalodakam respiratory healer bronchodilator expectorant asthma bronchitis cough bleeding kapha pitta">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Respiratory Healer</span>
+              <h3>Vasa (Vasaka)</h3>
+              <p>A major herb of the respiratory system, remembered for loosening thick mucus, easing breath, and supporting bleeding control.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Vasaka (वास) &nbsp; <strong>English:</strong> Malabar Nut &nbsp; <strong>Malayalam:</strong> Adalodakam (ആടലോടകം)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Bitter, Astringent</li>
+                <li><strong>Virya (potency):</strong> Cooling</li>
+                <li><strong>Dosha effect:</strong> Balances Kapha and Pitta</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Vasa is remembered as one of Ayurveda’s most important respiratory herbs. It acts as a bronchodilator and expectorant, helping to loosen and move thick mucus from the airways. Its cooling nature also makes it useful in heated respiratory conditions.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your material identifies Vasa as a primary herb in asthma, bronchitis, and chronic cough. It is also described as <em>Raktastambhana</em>, meaning it helps stop internal bleeding, such as bleeding gums or heavy menstrual flow.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="amalaki" class="article" data-search="amalaki amla nellikka rejuvenator vitamin c hyperacidity hair vision immunity pitta cooling chyavanprash">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Rejuvenator</span>
+              <h3>Amalaki</h3>
+              <p>The cooling rejuvenator — deeply valued for long-term vitality, immunity, vision, hair, and Pitta balance.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Names and identity</h4>
+              <p><strong>Sanskrit:</strong> Amalaki (आमलकी) / Dhatri &nbsp; <strong>English:</strong> Indian Gooseberry / Amla &nbsp; <strong>Malayalam:</strong> Nellikka (നെല്ലിക്ക)</p>
+            </section>
+            <section class="body-block">
+              <h4>Ayurvedic properties</h4>
+              <ul>
+                <li><strong>Rasa (taste):</strong> Five tastes — primarily Sour, then Sweet, Bitter, Pungent, and Astringent</li>
+                <li><strong>Virya (potency):</strong> Cooling</li>
+                <li><strong>Dosha effect:</strong> Primarily balances Pitta; one of the rare sour fruits that is cooling</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Clinical understanding</h4>
+              <p>Amalaki is perhaps one of Ayurveda’s most celebrated Rasayana herbs. It is remembered not only for nutritional richness — including Vitamin C — but also for its cooling, rejuvenating, and long-term tissue-supporting qualities.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Common uses</h4>
+              <p>Your material highlights Amalaki for hair growth, improved vision, long-term immunity, and hyperacidity or burning conditions. It is also noted as the base of the famous Chyavanprash, one of Ayurveda’s best-known rejuvenative preparations.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="medicine-thinking" class="article" data-search="ayurvedic pharmacy rasa virya vipaka solar energy earth intelligence herbs not chemicals dosha balance formulation intelligence">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Wider Perspective</span>
+              <h3>The Ayurvedic Pharmacy: Nature’s Healing Intelligence</h3>
+              <p>Why Ayurveda does not think of herbs as isolated chemicals, but as intelligent natural forces chosen through Rasa, Virya, and Vipaka.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In Ayurveda, herbs are not just chemicals. They are concentrated “solar energy” and “earth intelligence.” The pharmacy of Ayurveda is based on understanding how a plant behaves in the body through its <strong>Rasa</strong> (taste), <strong>Virya</strong> (potency), and <strong>Vipaka</strong> (post-digestive effect), as well as its broader action on the Doshas and tissues.</p>
+            </section>
+            <section class="body-block">
+              <h4>How herbs are selected</h4>
+              <p>Selection is not random. Herbs are chosen according to the specific Dosha and pattern of the patient. The same herb may be wonderful in one context and less suitable in another. This is why Ayurveda values formulation intelligence and patient-specific reasoning.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Why this matters</h4>
+              <p>This approach prevents herbal treatment from becoming simplistic. Instead of asking only, “What herb is good for this disease?” Ayurveda asks, “What quality is needed? What is in excess? What needs cooling, warming, clearing, grounding, nourishing, or protecting?” In this way, the Ayurvedic pharmacy becomes a living system of intelligent matching between nature and the person.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+    </div></div>
+  </section>
+</main>
+<footer class="footer"><strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>Basics of Ayurveda · Insight Library category</footer>
+<script>
+const search = document.getElementById('articleSearch');
+const articles = [...document.querySelectorAll('.article')];
+const noResults = document.getElementById('noResults');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let shown = 0;
+  articles.forEach(card => {
+    const hit = card.dataset.search.includes(q);
+    card.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  });
+  noResults.style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghritams | Kerala Ayurveda Vaidyasala</title>
+<meta name="description" content="Classical Ghritams prepared in-house at Kerala Ayurveda Vaidyasala, Changaramkulam.">
+<style>
+
+:root{
+  --bg:#f6ede0;
+  --paper:#fdf8f0;
+  --ink:#182e22;
+  --muted:#5d7263;
+  --gold:#a8820a;
+  --gold-soft:#e7d9b5;
+  --line:#e8d8c2;
+  --green:#2a5038;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(24,46,34,.96);
+  border-bottom:1px solid rgba(168,130,10,.18);
+  backdrop-filter:blur(10px);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{
+  text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem;
+}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;
+  transition:.25s ease;
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.04)}
+
+.hero{
+  padding:4.5rem 1.25rem 2.25rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(168,130,10,.08), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(42,80,56,.08), transparent 30%),
+    linear-gradient(180deg, #f8f0e6 0%, #f6ede0 100%);
+  border-bottom:1px solid rgba(168,130,10,.12);
+}
+.hero-inner{max-width:1180px;margin:0 auto}
+.eyebrow{display:inline-block;color:var(--gold);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-style:italic;margin-bottom:.85rem}
+.hero h1{margin:.2rem 0 .8rem;font-weight:400;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08}
+.hero p.lead{max-width:800px;margin:0;color:#35503f;font-size:1.03rem}
+.quick-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;
+  margin-top:2rem;max-width:820px;
+}
+.stat{
+  background:rgba(253,248,240,.82);border:1px solid rgba(168,130,10,.18);
+  padding:1rem 1rem .9rem;border-radius:16px;
+}
+.stat strong{display:block;font-size:1.4rem;font-weight:400;color:var(--green)}
+.stat span{display:block;color:var(--muted);font-size:.88rem}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.toolbar{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;
+  padding:1.1rem;margin-bottom:1.4rem;box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.toolbar-top{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.searchbox{flex:1 1 320px;position:relative}
+.searchbox input{
+  width:100%;padding:.95rem 1rem .95rem 2.85rem;border-radius:14px;border:1px solid #dbc8ad;
+  background:#fff;font:inherit;color:var(--ink);outline:none;
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.toolbar-note{color:var(--muted);font-size:.92rem}
+.letter-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+.letter-chip, .clear-chip{
+  border:1px solid #dbc8ad;background:#fff;color:var(--ink);border-radius:999px;
+  padding:.45rem .78rem;font:inherit;font-size:.83rem;cursor:pointer;transition:.2s ease;
+}
+.letter-chip:hover, .clear-chip:hover, .letter-chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+.clear-chip{color:var(--gold)}
+
+.grid{display:grid;gap:1rem}
+.medicine-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.medicine-card details{display:block}
+.medicine-card details[open]{background:linear-gradient(180deg,rgba(168,130,10,.03),transparent 34%), var(--paper)}
+.medicine-card summary{
+  list-style:none;cursor:pointer;padding:1.25rem 1.25rem 1.15rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+}
+.medicine-card summary::-webkit-details-marker{display:none}
+.summary-text h2{margin:0 0 .4rem;font-weight:400;font-size:1.33rem;color:var(--ink)}
+.summary-text p{margin:0;color:#45614f;font-size:.98rem;max-width:860px}
+.summary-tag{
+  flex-shrink:0;border:1px solid rgba(168,130,10,.28);color:var(--gold);
+  border-radius:999px;padding:.45rem .78rem;font-size:.78rem;letter-spacing:.04em;margin-top:.1rem;
+}
+.medicine-body{
+  padding:0 1.25rem 1.35rem;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;
+}
+.detail-block{
+  background:#fff;border:1px solid #eee1cf;border-radius:16px;padding:1rem 1rem .9rem;
+}
+.detail-block h3{margin:0 0 .6rem;font-size:.93rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.detail-block p{margin:0;color:#35503f}
+.detail-block ul{margin:.2rem 0 0 1rem;padding:0}
+.detail-block li{margin:.15rem 0;color:#35503f}
+.detail-block:first-child{grid-column:1/-1}
+
+.note{
+  margin-top:2rem;padding:1rem 1.15rem;border-radius:16px;
+  background:rgba(42,80,56,.06);border:1px solid rgba(42,80,56,.12);color:#315040;
+}
+.no-results{display:none;text-align:center;padding:2rem 1rem;color:#6a7d70}
+
+.footer{
+  padding:2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem
+}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:900px){
+  .quick-stats{grid-template-columns:1fr}
+  .medicine-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.25rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}
+  .brand span{font-size:.66rem}
+  .medicine-card summary{flex-direction:column}
+}
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong>
+        <span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span>
+      </a>
+      <a class="back-link" href="index.html#preparations">← Back to Main Site</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">In-House Preparations</span>
+      <h1>Ghritams Prepared In-House</h1>
+      <p class="lead">Our Ghritams are prepared in the classical Ayurvedic tradition as medicated ghee formulations designed for deep nourishment, tissue support, and targeted therapeutic use. Each entry below presents a clear traditional overview in the same elegant, easy-to-browse format used across our preparation catalogue.</p>
+    </div>
+  </section>
+
+  <main class="page-wrap">
+    <section class="toolbar">
+      <div class="toolbar-top">
+        <div class="searchbox">
+          <span class="icon">⌕</span>
+          <input id="medicineSearch" type="search" placeholder="Search Ghritam name, use, action, or ingredient...">
+        </div>
+        <div class="toolbar-note">Tap any medicine card to open its full details.</div>
+      </div>
+      <div class="letter-row">
+        <button type="button" class="clear-chip" id="showAll">Show all</button>
+        <button type="button" class="letter-chip" data-letter="B">B</button>
+<button type="button" class="letter-chip" data-letter="D">D</button>
+<button type="button" class="letter-chip" data-letter="G">G</button>
+<button type="button" class="letter-chip" data-letter="I">I</button>
+<button type="button" class="letter-chip" data-letter="M">M</button>
+<button type="button" class="letter-chip" data-letter="S">S</button>
+<button type="button" class="letter-chip" data-letter="T">T</button>
+<button type="button" class="letter-chip" data-letter="V">V</button>
+      </div>
+    </section>
+
+    <section class="grid" id="medicineGrid">
+      
+    <article class="medicine-card" data-letter="B" data-search="brahmi ghritam brahmi ghritam is a classical ayurvedic formulation belonging to the category of ghrita (medicated ghee). it is one of the most important medhya rasayana (nootropic rejuvenators) used for enhancing brain function, memory, and nervous system health. prepared using go ghrita (cow’s ghee) as the base, this formulation is uniquely capable of delivering active herbal constituents across the blood–brain barrier, ensuring deep nourishment of the central nervous system. brahmi ghritam is especially valued for balancing vata and pitta in the mind, making it effective in conditions ranging from stress and memory issues to complex neurological disorders. memory loss and reduced concentration
+• learning difficulties and cognitive fatigue
+• anxiety, stress, and mental exhaustion
+• insomnia and disturbed sleep
+• apasmara (epilepsy) – supportive use
+• unmada (mental disturbances) – supportive care
+• adhd and developmental delays in children
+• speech delay and articulation issues
+• age-related cognitive decline (dementia support)
+• general brain tonic for students and professionals medhya (enhances intellect and cognition)
+• smritivardhaka (improves memory and recall)
+• rasayana (rejuvenates nervous tissue)
+• manas shamak (calms the mind)
+• nidrajanana (promotes healthy sleep)
+• vata–pitta shamana (balances mental doshas)
+• ojovardhaka (enhances vitality and resilience)
+• srotoshodhana (clears channels of the brain and nerves) brahmi (bacopa monnieri) – primary nootropic; enhances memory and neuronal function
+• vacha (acorus calamus) – improves speech, clears mental fog, and enhances channel clarity
+• shankhapushpi (convolvulus pluricaulis) – calms the mind and reduces stress
+• kushtha (saussurea lappa) – supports vata balance and nervous system stability
+• trikatu (ginger, black pepper, long pepper) – enhances digestion and bioavailability
+• go ghrita (cow ghee) – nourishes brain tissues (majja dhatu) and carries herbs deep into the system brahmi ghritam is intended for internal use only.
+it is usually administered in small quantities, often with warm milk or warm water, depending on the condition and physician’s advice. because it is a potent neuro-nourishing formulation, dosage and duration should ideally be guided by an ayurvedic practitioner." id="brahmi-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Brahmi Ghritam</h2>
+            <p>Brahmi Ghritam is a classical Ayurvedic formulation belonging to the category of Ghrita (medicated ghee). It is one of the most important Medhya Rasayana (nootropic rejuvenators) used for enhancing brain function, memory, and nervous system health. Prepared using Go Ghrita (cow’s ghee) as the base, this formulation is uniquely capable of delivering active herbal constituents across the blood–brain barrier, ensuring deep nourishment of the central nervous system. Brahmi Ghritam is especially valued for balancing Vata and Pitta in the mind, making it effective in conditions ranging from stress and memory issues to complex neurological disorders.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Brahmi Ghritam is a classical Ayurvedic formulation belonging to the category of Ghrita (medicated ghee). It is one of the most important Medhya Rasayana (nootropic rejuvenators) used for enhancing brain function, memory, and nervous system health. Prepared using Go Ghrita (cow’s ghee) as the base, this formulation is uniquely capable of delivering active herbal constituents across the blood–brain barrier, ensuring deep nourishment of the central nervous system. Brahmi Ghritam is especially valued for balancing Vata and Pitta in the mind, making it effective in conditions ranging from stress and memory issues to complex neurological disorders.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Memory loss and reduced concentration
+• Learning difficulties and cognitive fatigue
+• Anxiety, stress, and mental exhaustion
+• Insomnia and disturbed sleep
+• Apasmara (epilepsy) – supportive use
+• Unmada (mental disturbances) – supportive care
+• ADHD and developmental delays in children
+• Speech delay and articulation issues
+• Age-related cognitive decline (dementia support)
+• General brain tonic for students and professionals</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Medhya (enhances intellect and cognition)
+• Smritivardhaka (improves memory and recall)
+• Rasayana (rejuvenates nervous tissue)
+• Manas shamak (calms the mind)
+• Nidrajanana (promotes healthy sleep)
+• Vata–Pitta shamana (balances mental doshas)
+• Ojovardhaka (enhances vitality and resilience)
+• Srotoshodhana (clears channels of the brain and nerves)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Brahmi (Bacopa monnieri) – Primary nootropic; enhances memory and neuronal function
+• Vacha (Acorus calamus) – Improves speech, clears mental fog, and enhances channel clarity
+• Shankhapushpi (Convolvulus pluricaulis) – Calms the mind and reduces stress
+• Kushtha (Saussurea lappa) – Supports Vata balance and nervous system stability
+• Trikatu (Ginger, Black Pepper, Long Pepper) – Enhances digestion and bioavailability
+• Go Ghrita (Cow Ghee) – Nourishes brain tissues (Majja Dhatu) and carries herbs deep into the system</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>Brahmi Ghritam is intended for internal use only.
+It is usually administered in small quantities, often with warm milk or warm water, depending on the condition and physician’s advice.</li>
+<li>Because it is a potent neuro-nourishing formulation, dosage and duration should ideally be guided by an Ayurvedic practitioner.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="D" data-search="dadimadi ghritam dadimadi ghritam is a classical ayurvedic formulation belonging to the category of ghrita (medicated ghee). it is named after its primary ingredient dadima (pomegranate), which is renowned for its role in digestive strengthening and blood nourishment. this formulation is widely used as a deepana (digestive stimulant) and raktaprasadana (blood-enriching) medicine. what makes it unique is its ability to simultaneously correct digestive weakness (agni mandya) and improve blood quality, making it highly useful in vata–pitta disorders involving digestion and circulation. dadimadi ghritam is especially valued in conditions where poor digestion leads to anemia, weakness, and systemic imbalance. pandu (anemia and low hemoglobin)
+• agnimandya (chronic digestive weakness)
+• grahani (malabsorption syndrome / ibs)
+• aruchi (loss of appetite and tastelessness)
+• gulma (abdominal masses, bloating, vata-related lumps)
+• pliha roga (splenic disorders)
+• female infertility – supportive use
+• prenatal care for maternal nourishment (under supervision)
+• kasa and shwasa (cough and respiratory weakness linked to poor digestion)
+• general debility associated with poor nutrient absorption deepana (stimulates digestive fire – agni)
+• pachana (digests ama/toxic metabolites)
+• raktaprasadana (improves blood quality)
+• vatanulomana (regulates downward movement of vata)
+• grahani balya (strengthens intestinal absorption)
+• balya (provides strength and nourishment)
+• rasayana (rejuvenative support)
+• srotoshodhana (clears channels, especially digestive and circulatory) dadima (punica granatum – pomegranate) – enhances digestion, improves taste, and nourishes blood
+• dhanyaka (coriandrum sativum – coriander) – cooling digestive and supports assimilation
+• chitraka (plumbago zeylanica) – strong digestive stimulant that clears ama
+• shunthi (zingiber officinale – dry ginger) – enhances metabolism and digestion
+• pippali (piper longum) – bio-enhancer that improves absorption and tissue penetration
+• go ghrita (cow ghee) – nourishes tissues and carries active principles deep into the body dadimadi ghritam is intended for internal use only.
+it is typically administered with warm water or warm milk, depending on the condition and physician’s guidance. due to its dual action on digestion and blood nourishment, it is best used under ayurvedic supervision, especially in conditions like anemia, pregnancy, and chronic digestive disorders." id="dadimadi-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Dadimadi Ghritam</h2>
+            <p>Dadimadi Ghritam is a classical Ayurvedic formulation belonging to the category of Ghrita (medicated ghee). It is named after its primary ingredient Dadima (Pomegranate), which is renowned for its role in digestive strengthening and blood nourishment. This formulation is widely used as a Deepana (digestive stimulant) and Raktaprasadana (blood-enriching) medicine. What makes it unique is its ability to simultaneously correct digestive weakness (Agni Mandya) and improve blood quality, making it highly useful in Vata–Pitta disorders involving digestion and circulation. Dadimadi Ghritam is especially valued in conditions where poor digestion leads to anemia, weakness, and systemic imbalance.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Dadimadi Ghritam is a classical Ayurvedic formulation belonging to the category of Ghrita (medicated ghee). It is named after its primary ingredient Dadima (Pomegranate), which is renowned for its role in digestive strengthening and blood nourishment. This formulation is widely used as a Deepana (digestive stimulant) and Raktaprasadana (blood-enriching) medicine. What makes it unique is its ability to simultaneously correct digestive weakness (Agni Mandya) and improve blood quality, making it highly useful in Vata–Pitta disorders involving digestion and circulation. Dadimadi Ghritam is especially valued in conditions where poor digestion leads to anemia, weakness, and systemic imbalance.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Pandu (anemia and low hemoglobin)
+• Agnimandya (chronic digestive weakness)
+• Grahani (malabsorption syndrome / IBS)
+• Aruchi (loss of appetite and tastelessness)
+• Gulma (abdominal masses, bloating, Vata-related lumps)
+• Pliha roga (splenic disorders)
+• Female infertility – supportive use
+• Prenatal care for maternal nourishment (under supervision)
+• Kasa and Shwasa (cough and respiratory weakness linked to poor digestion)
+• General debility associated with poor nutrient absorption</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Deepana (stimulates digestive fire – Agni)
+• Pachana (digests Ama/toxic metabolites)
+• Raktaprasadana (improves blood quality)
+• Vatanulomana (regulates downward movement of Vata)
+• Grahani balya (strengthens intestinal absorption)
+• Balya (provides strength and nourishment)
+• Rasayana (rejuvenative support)
+• Srotoshodhana (clears channels, especially digestive and circulatory)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Dadima (Punica granatum – Pomegranate) – Enhances digestion, improves taste, and nourishes blood
+• Dhanyaka (Coriandrum sativum – Coriander) – Cooling digestive and supports assimilation
+• Chitraka (Plumbago zeylanica) – Strong digestive stimulant that clears Ama
+• Shunthi (Zingiber officinale – Dry Ginger) – Enhances metabolism and digestion
+• Pippali (Piper longum) – Bio-enhancer that improves absorption and tissue penetration
+• Go Ghrita (Cow Ghee) – Nourishes tissues and carries active principles deep into the body</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>Dadimadi Ghritam is intended for internal use only.
+It is typically administered with warm water or warm milk, depending on the condition and physician’s guidance.</li>
+<li>Due to its dual action on digestion and blood nourishment, it is best used under Ayurvedic supervision, especially in conditions like anemia, pregnancy, and chronic digestive disorders.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="G" data-search="guggulu tiktaka ghritam guggulu tiktaka ghritam is a classical ayurvedic formulation belonging to the category of ghrita (medicated ghee). it combines the powerful resin guggulu (commiphora mukul) with a group of tikta (bitter) herbs, creating a formulation designed for deep tissue detoxification and chronic inflammatory disorders. this medicine is widely used as a kleda-hara (removes pathological moisture/toxins) and vata-hara (pacifies vata) formulation. it is especially valued for its ability to penetrate into deeper tissues such as asthi (bone) and majja (bone marrow), making it highly effective in chronic, stubborn diseases involving joints, skin, and metabolism. kushta (chronic skin diseases – psoriasis, eczema, leucoderma)
+• non-healing ulcers and wounds
+• amavata (rheumatoid arthritis)
+• vatarakta (gout)
+• cervical &amp; lumbar spondylosis
+• intervertebral disc issues and nerve compression
+• nadi vrana (sinus tracts, fistula-in-ano)
+• gulma / arbuda (cysts, lipomas, glandular swellings)
+• medoroga (obesity and lipid disorders)
+• asthi &amp; majja disorders (bone weakness, degeneration) kleda-hara (removes pathological moisture and secretions)
+• amapachana (digests deep-seated toxins)
+• vatahara (pacifies vata in joints and nerves)
+• lekhana (scraping action on fat and blockages)
+• raktaprasadana (purifies blood and lymph)
+• shothahara (reduces inflammation and swelling)
+• srotoshodhana (clears channels at deep tissue level)
+• asthi–majja poshaka (nourishes bone and marrow) shuddha guggulu (commiphora mukul) – anti-inflammatory, detoxifying, and channel-clearing resin
+• pancha tikta group (neem, guduchi, vasa, patola, kantakari) – bitter herbs that purify blood and reduce inflammation
+• tiktaka gana (patha, vidanga, ativisha, etc.) – enhance liver function and remove kleda (morbid moisture)
+• manjistha (rubia cordifolia) – improves circulation and purifies blood/lymph
+• go ghrita (cow ghee) – enables deep tissue delivery while preventing vata aggravation guggulu tiktaka ghritam is intended for internal use only.
+it is usually administered with warm water or milk, depending on the condition and physician’s advice. because it is a deep-acting detox and tissue-level formulation, proper dosage and duration are essential and should be guided by an ayurvedic practitioner." id="guggulu-tiktaka-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Guggulu Tiktaka Ghritam</h2>
+            <p>Guggulu Tiktaka Ghritam is a classical Ayurvedic formulation belonging to the category of Ghrita (medicated ghee). It combines the powerful resin Guggulu (Commiphora mukul) with a group of Tikta (bitter) herbs, creating a formulation designed for deep tissue detoxification and chronic inflammatory disorders. This medicine is widely used as a Kleda-hara (removes pathological moisture/toxins) and Vata-hara (pacifies Vata) formulation. It is especially valued for its ability to penetrate into deeper tissues such as Asthi (bone) and Majja (bone marrow), making it highly effective in chronic, stubborn diseases involving joints, skin, and metabolism.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Guggulu Tiktaka Ghritam is a classical Ayurvedic formulation belonging to the category of Ghrita (medicated ghee). It combines the powerful resin Guggulu (Commiphora mukul) with a group of Tikta (bitter) herbs, creating a formulation designed for deep tissue detoxification and chronic inflammatory disorders. This medicine is widely used as a Kleda-hara (removes pathological moisture/toxins) and Vata-hara (pacifies Vata) formulation. It is especially valued for its ability to penetrate into deeper tissues such as Asthi (bone) and Majja (bone marrow), making it highly effective in chronic, stubborn diseases involving joints, skin, and metabolism.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kushta (chronic skin diseases – psoriasis, eczema, leucoderma)
+• Non-healing ulcers and wounds
+• Amavata (Rheumatoid arthritis)
+• Vatarakta (Gout)
+• Cervical &amp; lumbar spondylosis
+• Intervertebral disc issues and nerve compression
+• Nadi vrana (sinus tracts, fistula-in-ano)
+• Gulma / Arbuda (cysts, lipomas, glandular swellings)
+• Medoroga (obesity and lipid disorders)
+• Asthi &amp; Majja disorders (bone weakness, degeneration)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kleda-hara (removes pathological moisture and secretions)
+• Amapachana (digests deep-seated toxins)
+• Vatahara (pacifies Vata in joints and nerves)
+• Lekhana (scraping action on fat and blockages)
+• Raktaprasadana (purifies blood and lymph)
+• Shothahara (reduces inflammation and swelling)
+• Srotoshodhana (clears channels at deep tissue level)
+• Asthi–Majja poshaka (nourishes bone and marrow)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Shuddha Guggulu (Commiphora mukul) – Anti-inflammatory, detoxifying, and channel-clearing resin
+• Pancha Tikta Group (Neem, Guduchi, Vasa, Patola, Kantakari) – Bitter herbs that purify blood and reduce inflammation
+• Tiktaka Gana (Patha, Vidanga, Ativisha, etc.) – Enhance liver function and remove Kleda (morbid moisture)
+• Manjistha (Rubia cordifolia) – Improves circulation and purifies blood/lymph
+• Go Ghrita (Cow Ghee) – Enables deep tissue delivery while preventing Vata aggravation</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>Guggulu Tiktaka Ghritam is intended for internal use only.
+It is usually administered with warm water or milk, depending on the condition and physician’s advice.</li>
+<li>Because it is a deep-acting detox and tissue-level formulation, proper dosage and duration are essential and should be guided by an Ayurvedic practitioner.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="I" data-search="indukantham ghritam indukantham ghritam is a classical ayurvedic medicated ghee (ghrita) renowned for its role in immunity building, digestive correction, and vata balancing. the name reflects its effect—“indu” (moon-like calmness) + “kantha” (radiance)—symbolizing restoration of strength and vitality. it is considered a powerful balya (strength-promoting) and rasayana (rejuvenative) formulation, especially valued in kerala ayurveda for its vata-anulomana action—ensuring proper downward movement of vata, which is the root of many chronic disorders. recurrent infections and low immunity (especially in children)
+• chronic gastritis and peptic ulcers
+• abdominal bloating, gas, and vata-gulma
+• emaciation and post-illness weakness
+• intermittent and chronic fevers (vishamajwara)
+• lower back pain and sciatica
+• degenerative joint disorders
+• intestinal colic and spasmodic abdominal pain balya – improves strength and vitality
+• rasayana – rejuvenates tissues and boosts immunity
+• vata anulomana – regulates downward movement of vata
+• deepana–pachana – enhances digestion and metabolizes toxins
+• brimhana – promotes healthy weight gain and nourishment
+• shothahara – reduces inflammation
+• grahani-balancing – strengthens intestinal function
+• ojas vardhaka – enhances immunity and resistance dashamoola (ten roots) – strong anti-inflammatory, vata-pacifying group supporting joints, nerves, and digestion
+• panchakola (pippali, pippalimoola, chavya, chitraka, shunti) – stimulates agni and clears deep-seated ama
+• saindhava lavana (rock salt) – improves absorption and helps the medicine penetrate deeper tissues
+• go ghrita (cow ghee) – nourishes tissues, supports brain and immunity, and acts as a carrier (yogavahi) indukantham ghritam is unique among ghritams because:
+👉 it is both nourishing (brimhana) and digestive (deepana)
+👉 works in conditions where weak digestion + low immunity coexist
+👉 especially useful in children, post-illness recovery, and chronic vata disorders intended for internal use only
+• usually taken with warm water or milk, depending on condition
+• dosage must be individualized by an ayurvedic physician 💡 in simple terms:
+👉 “if the body is weak, digestion is poor, and immunity is low — indukantham ghritam is one of the best foundational medicines.”" id="indukantham-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Indukantham Ghritam</h2>
+            <p>Indukantham Ghritam is a classical Ayurvedic medicated ghee (Ghrita) renowned for its role in immunity building, digestive correction, and Vata balancing. The name reflects its effect—“Indu” (moon-like calmness) + “Kantha” (radiance)—symbolizing restoration of strength and vitality. It is considered a powerful Balya (strength-promoting) and Rasayana (rejuvenative) formulation, especially valued in Kerala Ayurveda for its Vata-Anulomana action—ensuring proper downward movement of Vata, which is the root of many chronic disorders.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Indukantham Ghritam is a classical Ayurvedic medicated ghee (Ghrita) renowned for its role in immunity building, digestive correction, and Vata balancing. The name reflects its effect—“Indu” (moon-like calmness) + “Kantha” (radiance)—symbolizing restoration of strength and vitality. It is considered a powerful Balya (strength-promoting) and Rasayana (rejuvenative) formulation, especially valued in Kerala Ayurveda for its Vata-Anulomana action—ensuring proper downward movement of Vata, which is the root of many chronic disorders.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Recurrent infections and low immunity (especially in children)
+• Chronic gastritis and peptic ulcers
+• Abdominal bloating, gas, and Vata-gulma
+• Emaciation and post-illness weakness
+• Intermittent and chronic fevers (Vishamajwara)
+• Lower back pain and sciatica
+• Degenerative joint disorders
+• Intestinal colic and spasmodic abdominal pain</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Balya – improves strength and vitality
+• Rasayana – rejuvenates tissues and boosts immunity
+• Vata Anulomana – regulates downward movement of Vata
+• Deepana–Pachana – enhances digestion and metabolizes toxins
+• Brimhana – promotes healthy weight gain and nourishment
+• Shothahara – reduces inflammation
+• Grahani-balancing – strengthens intestinal function
+• Ojas vardhaka – enhances immunity and resistance</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Dashamoola (Ten Roots) – Strong anti-inflammatory, Vata-pacifying group supporting joints, nerves, and digestion
+• Panchakola (Pippali, Pippalimoola, Chavya, Chitraka, Shunti) – Stimulates Agni and clears deep-seated Ama
+• Saindhava Lavana (Rock Salt) – Improves absorption and helps the medicine penetrate deeper tissues
+• Go Ghrita (Cow Ghee) – Nourishes tissues, supports brain and immunity, and acts as a carrier (Yogavahi)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Clinical Insight</h3>
+            <ul>
+              <li>Indukantham Ghritam is unique among Ghritams because:
+👉 It is both nourishing (Brimhana) and digestive (Deepana)
+👉 Works in conditions where weak digestion + low immunity coexist
+👉 Especially useful in children, post-illness recovery, and chronic Vata disorders</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>Intended for internal use only
+• Usually taken with warm water or milk, depending on condition
+• Dosage must be individualized by an Ayurvedic physician</li>
+<li>💡 In simple terms:
+👉 “If the body is weak, digestion is poor, and immunity is low — Indukantham Ghritam is one of the best foundational medicines.”</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="M" data-search="maha kalyanaka ghritam maha kalyanaka ghritam is an advanced and highly potent ayurvedic medicated ghee (ghrita) designed for deep neurological and psychiatric healing. it is an enhanced version of kalyanaka ghritam, enriched with additional herbs to provide stronger action on the mind (manas) and nervous system. this formulation is especially valued for its ability to stabilize “sattva” (mental clarity and balance), making it one of the most important classical remedies for chronic psychological disturbances and developmental disorders. psychosis and schizophrenia (unmada)
+• epilepsy and seizure disorders (apasmara)
+• autism spectrum disorders and developmental delay
+• anxiety, depression, and chronic emotional instability
+• memory impairment and cognitive decline
+• infertility related to stress or hormonal imbalance
+• chronic toxicity affecting mental clarity (gara visha) medhya – enhances intellect, memory, and cognition 🧠
+• manasadoshahara – clears mental imbalances
+• hridya – nourishes the heart and emotional center ❤️
+• rasayana – rejuvenates brain and nervous tissues
+• vata-pitta shamana – balances neurological and emotional disturbances
+• sattva stabilizer – improves mental clarity and emotional resilience
+• visha-hara – detoxifies chronic accumulated toxins affecting the mind turmeric &amp; daruharidra (rajani &amp; sariva group) – anti-inflammatory, detoxifying, and channel-clearing for both body and mind
+• triphala (amalaki, bibhitaki, haritaki) – systemic detoxification and gut-brain axis support
+• vishala (citrullus colocynthis) – helps eliminate deep-seated dosha accumulation
+• eladi gana (cardamom group) – aromatic herbs that enhance sensory clarity and mental perception
+• medhya herbs (brahmi, shankhapushpi, etc.) – direct neuroprotective and calming effects
+• go ghrita (cow ghee) – the critical carrier that delivers herbs across the blood-brain barrier, nourishing higher centers this is not just a brain tonic—it is a deep psychoneuro-endocrine regulator: works on the gut–brain–hormonal axis
+👉 addresses root causes, not just symptoms
+👉 especially useful when mental disorders + digestive imbalance coexist
+👉 acts slowly but profoundly at a tissue (dhatu) level brahmi ghritam → mild–moderate cognitive &amp; stress disorders
+• kalyanaka ghritam → moderate psychiatric &amp; emotional disorders
+• maha kalyanaka ghritam → severe, chronic, deep-seated mental disorders strictly for internal use under physician guidance
+• dose, timing, and anupana (vehicle like milk/warm water) must be individualized
+• often used as part of comprehensive therapies (like panchakarma, counseling, lifestyle correction) 💡 in simple terms:
+👉 “when the mind itself is disturbed at a deep level — this medicine works to rebuild clarity, stability, and inner balance from the root.”" id="maha-kalyanaka-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Maha Kalyanaka Ghritam</h2>
+            <p>Maha Kalyanaka Ghritam is an advanced and highly potent Ayurvedic medicated ghee (Ghrita) designed for deep neurological and psychiatric healing. It is an enhanced version of Kalyanaka Ghritam, enriched with additional herbs to provide stronger action on the mind (Manas) and nervous system. This formulation is especially valued for its ability to stabilize “Sattva” (mental clarity and balance), making it one of the most important classical remedies for chronic psychological disturbances and developmental disorders.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Maha Kalyanaka Ghritam is an advanced and highly potent Ayurvedic medicated ghee (Ghrita) designed for deep neurological and psychiatric healing. It is an enhanced version of Kalyanaka Ghritam, enriched with additional herbs to provide stronger action on the mind (Manas) and nervous system. This formulation is especially valued for its ability to stabilize “Sattva” (mental clarity and balance), making it one of the most important classical remedies for chronic psychological disturbances and developmental disorders.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Psychosis and schizophrenia (Unmada)
+• Epilepsy and seizure disorders (Apasmara)
+• Autism spectrum disorders and developmental delay
+• Anxiety, depression, and chronic emotional instability
+• Memory impairment and cognitive decline
+• Infertility related to stress or hormonal imbalance
+• Chronic toxicity affecting mental clarity (Gara Visha)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Medhya – enhances intellect, memory, and cognition 🧠
+• Manasadoshahara – clears mental imbalances
+• Hridya – nourishes the heart and emotional center ❤️
+• Rasayana – rejuvenates brain and nervous tissues
+• Vata-Pitta Shamana – balances neurological and emotional disturbances
+• Sattva Stabilizer – improves mental clarity and emotional resilience
+• Visha-hara – detoxifies chronic accumulated toxins affecting the mind</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Turmeric &amp; Daruharidra (Rajani &amp; Sariva group) – Anti-inflammatory, detoxifying, and channel-clearing for both body and mind
+• Triphala (Amalaki, Bibhitaki, Haritaki) – Systemic detoxification and gut-brain axis support
+• Vishala (Citrullus colocynthis) – Helps eliminate deep-seated Dosha accumulation
+• Eladi Gana (Cardamom group) – Aromatic herbs that enhance sensory clarity and mental perception
+• Medhya Herbs (Brahmi, Shankhapushpi, etc.) – Direct neuroprotective and calming effects
+• Go Ghrita (Cow Ghee) – The critical carrier that delivers herbs across the blood-brain barrier, nourishing higher centers</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Clinical Insight</h3>
+            <ul>
+              <li>This is not just a brain tonic—it is a deep psychoneuro-endocrine regulator:</li>
+<li>Works on the gut–brain–hormonal axis
+👉 Addresses root causes, not just symptoms
+👉 Especially useful when mental disorders + digestive imbalance coexist
+👉 Acts slowly but profoundly at a tissue (Dhatu) level</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Comparison Insight</h3>
+            <ul>
+              <li>Brahmi Ghritam → Mild–moderate cognitive &amp; stress disorders
+• Kalyanaka Ghritam → Moderate psychiatric &amp; emotional disorders
+• Maha Kalyanaka Ghritam → Severe, chronic, deep-seated mental disorders</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>Strictly for internal use under physician guidance
+• Dose, timing, and Anupana (vehicle like milk/warm water) must be individualized
+• Often used as part of comprehensive therapies (like Panchakarma, counseling, lifestyle correction)</li>
+<li>💡 In simple terms:
+👉 “When the mind itself is disturbed at a deep level — this medicine works to rebuild clarity, stability, and inner balance from the root.”</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="S" data-search="sukumaram ghritam sukumaram ghritam is a classical ayurvedic medicated ghee (ghrita) specially designed for the female reproductive system and lower abdominal health. the term “sukumara” means gentle or delicate, reflecting its mild yet deeply effective action, making it suitable even for sensitive individuals. it is widely regarded as a premier vata-anulomana and yonirogahara formulation—working on the apana vata axis, which governs menstruation, fertility, bowel movement, and pelvic organ function. female infertility (vandhyatva)
+• pcos and hormonal imbalance
+• irregular menstruation and dysmenorrhea
+• ovarian cysts and uterine fibroids (gulma)
+• chronic constipation and bloating
+• hernia (supportive management)
+• pelvic pain and lower abdominal discomfort
+• perimenopausal metabolic imbalance vata anulomana – regulates apana vata (key for menstruation &amp; fertility)
+• yonirogahara – supports uterine and ovarian health 🌸
+• brimhana – nourishes reproductive tissues (shukra/artava dhatu)
+• mridu virechana – gentle laxative action
+• deepana–pachana – improves digestion without aggravation
+• shothahara – reduces inflammation in pelvic organs
+• rasayana – rejuvenates reproductive and digestive systems punarnava (boerhavia diffusa) – reduces inflammation, edema, and congestion in pelvic organs
+• dashamoola (ten roots) – deep vata pacification and anti-inflammatory support
+• vidari &amp; ashwagandha – nourishing rasayana herbs that enhance fertility and vitality
+• eranda (castor root) – ensures proper downward movement of vata (anulomana)
+• payas (milk) – cooling and nourishing medium
+• go ghrita (cow ghee) – enhances absorption and delivers herbs to deep tissues sukumaram ghritam is unique because: it works at the intersection of digestion + hormones + reproductive health
+👉 corrects apana vata dysfunction, which is the root of many gynecological disorders
+👉 useful when constipation + menstrual issues + hormonal imbalance coexist
+👉 gentle enough for long-term use under supervision for internal use only under physician guidance
+• dose depends on agni (digestion), prakriti, and condition
+• often combined with diet, lifestyle correction, and panchakarma 💡 in simple terms:
+👉 “when the root problem lies in the lower abdomen—digestion, hormones, and fertility—sukumaram ghritam gently corrects everything from the foundation.”" id="sukumaram-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Sukumaram Ghritam</h2>
+            <p>Sukumaram Ghritam is a classical Ayurvedic medicated ghee (Ghrita) specially designed for the female reproductive system and lower abdominal health. The term “Sukumara” means gentle or delicate, reflecting its mild yet deeply effective action, making it suitable even for sensitive individuals. It is widely regarded as a premier Vata-Anulomana and Yonirogahara formulation—working on the Apana Vata axis, which governs menstruation, fertility, bowel movement, and pelvic organ function.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Sukumaram Ghritam is a classical Ayurvedic medicated ghee (Ghrita) specially designed for the female reproductive system and lower abdominal health. The term “Sukumara” means gentle or delicate, reflecting its mild yet deeply effective action, making it suitable even for sensitive individuals. It is widely regarded as a premier Vata-Anulomana and Yonirogahara formulation—working on the Apana Vata axis, which governs menstruation, fertility, bowel movement, and pelvic organ function.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Female infertility (Vandhyatva)
+• PCOS and hormonal imbalance
+• Irregular menstruation and dysmenorrhea
+• Ovarian cysts and uterine fibroids (Gulma)
+• Chronic constipation and bloating
+• Hernia (supportive management)
+• Pelvic pain and lower abdominal discomfort
+• Perimenopausal metabolic imbalance</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Vata Anulomana – regulates Apana Vata (key for menstruation &amp; fertility)
+• Yonirogahara – supports uterine and ovarian health 🌸
+• Brimhana – nourishes reproductive tissues (Shukra/Artava Dhatu)
+• Mridu Virechana – gentle laxative action
+• Deepana–Pachana – improves digestion without aggravation
+• Shothahara – reduces inflammation in pelvic organs
+• Rasayana – rejuvenates reproductive and digestive systems</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Punarnava (Boerhavia diffusa) – Reduces inflammation, edema, and congestion in pelvic organs
+• Dashamoola (Ten Roots) – Deep Vata pacification and anti-inflammatory support
+• Vidari &amp; Ashwagandha – Nourishing Rasayana herbs that enhance fertility and vitality
+• Eranda (Castor root) – Ensures proper downward movement of Vata (Anulomana)
+• Payas (Milk) – Cooling and nourishing medium
+• Go Ghrita (Cow Ghee) – Enhances absorption and delivers herbs to deep tissues</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Clinical Insight</h3>
+            <ul>
+              <li>Sukumaram Ghritam is unique because:</li>
+<li>It works at the intersection of digestion + hormones + reproductive health
+👉 Corrects Apana Vata dysfunction, which is the root of many gynecological disorders
+👉 Useful when constipation + menstrual issues + hormonal imbalance coexist
+👉 Gentle enough for long-term use under supervision</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>For internal use only under physician guidance
+• Dose depends on Agni (digestion), Prakriti, and condition
+• Often combined with diet, lifestyle correction, and Panchakarma</li>
+<li>💡 In simple terms:
+👉 “When the root problem lies in the lower abdomen—digestion, hormones, and fertility—Sukumaram Ghritam gently corrects everything from the foundation.”</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="T" data-search="thiktakam ghritam thiktakam ghritam is a classical ayurvedic medicated ghee (ghrita) centered around the “tikta” (bitter) group of herbs. it is one of the most important formulations for cooling systemic heat, purifying blood, and treating inflammatory conditions, especially of the skin and liver. in kerala ayurveda, it is widely used as a preparatory medicine for snehapana (internal oleation) before detox therapies like virechana—making it a foundational remedy in pitta-dominant disorders. inflammatory skin diseases (eczema, dermatitis, psoriasis)
+• hyperacidity and gastritis (amlapitta)
+• liver disorders and jaundice (kamala)
+• non-healing ulcers and abscesses
+• bleeding disorders (raktapitta)
+• chronic fevers with internal heat
+• pitta-type psychiatric disturbances (anger, agitation) pitta-hara – strongly reduces excess heat 🔥
+• raktaprasadana – purifies and cools the blood
+• kushtaghna – effective in skin diseases
+• virechana-purva snehana – prepares body for detox
+• deepana–pachana (mild) – supports digestion without aggravation
+• vrana-ropana – promotes wound healing
+• yakrit-uttejaka – stimulates liver function patola (pointed gourd) – blood purifier and digestive support
+• nimba (neem) – powerful antimicrobial and anti-inflammatory
+• katuki (picrorhiza kurroa) – strong liver detoxifier and bile regulator
+• trayamana (gentiana kurroo) – clears abdominal channel obstructions
+• daruharidra (tree turmeric) – deep anti-inflammatory and skin healer
+• go ghrita (cow ghee) – balances dryness of bitter herbs and carries them deep into tissues thiktakam ghritam is especially important because: it addresses “heat at the root level” (pitta in rakta &amp; liver)
+👉 works in conditions where skin + liver + digestion are interconnected
+👉 often used before detox because it mobilizes deep toxins (ama + pitta)
+👉 unlike oils, it reaches deeper dhatus via ghee-based delivery strictly for internal use under supervision
+• dose varies based on agni, disease stage, and detox plan
+• commonly used in snehapana protocols before virechana 💡 in simple terms:
+👉 “when the body is overheated from within—affecting skin, liver, and blood—thiktakam ghritam cools, cleanses, and resets the system at its root.”" id="thiktakam-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Thiktakam Ghritam</h2>
+            <p>Thiktakam Ghritam is a classical Ayurvedic medicated ghee (Ghrita) centered around the “Tikta” (bitter) group of herbs. It is one of the most important formulations for cooling systemic heat, purifying blood, and treating inflammatory conditions, especially of the skin and liver. In Kerala Ayurveda, it is widely used as a preparatory medicine for Snehapana (internal oleation) before detox therapies like Virechana—making it a foundational remedy in Pitta-dominant disorders.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Thiktakam Ghritam is a classical Ayurvedic medicated ghee (Ghrita) centered around the “Tikta” (bitter) group of herbs. It is one of the most important formulations for cooling systemic heat, purifying blood, and treating inflammatory conditions, especially of the skin and liver. In Kerala Ayurveda, it is widely used as a preparatory medicine for Snehapana (internal oleation) before detox therapies like Virechana—making it a foundational remedy in Pitta-dominant disorders.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Inflammatory skin diseases (eczema, dermatitis, psoriasis)
+• Hyperacidity and gastritis (Amlapitta)
+• Liver disorders and jaundice (Kamala)
+• Non-healing ulcers and abscesses
+• Bleeding disorders (Raktapitta)
+• Chronic fevers with internal heat
+• Pitta-type psychiatric disturbances (anger, agitation)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Pitta-hara – strongly reduces excess heat 🔥
+• Raktaprasadana – purifies and cools the blood
+• Kushtaghna – effective in skin diseases
+• Virechana-purva Snehana – prepares body for detox
+• Deepana–Pachana (mild) – supports digestion without aggravation
+• Vrana-ropana – promotes wound healing
+• Yakrit-uttejaka – stimulates liver function</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Patola (Pointed Gourd) – Blood purifier and digestive support
+• Nimba (Neem) – Powerful antimicrobial and anti-inflammatory
+• Katuki (Picrorhiza kurroa) – Strong liver detoxifier and bile regulator
+• Trayamana (Gentiana kurroo) – Clears abdominal channel obstructions
+• Daruharidra (Tree Turmeric) – Deep anti-inflammatory and skin healer
+• Go Ghrita (Cow Ghee) – Balances dryness of bitter herbs and carries them deep into tissues</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Clinical Insight</h3>
+            <ul>
+              <li>Thiktakam Ghritam is especially important because:</li>
+<li>It addresses “heat at the root level” (Pitta in Rakta &amp; liver)
+👉 Works in conditions where skin + liver + digestion are interconnected
+👉 Often used before detox because it mobilizes deep toxins (Ama + Pitta)
+👉 Unlike oils, it reaches deeper Dhatus via ghee-based delivery</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>Strictly for internal use under supervision
+• Dose varies based on Agni, disease stage, and detox plan
+• Commonly used in Snehapana protocols before Virechana</li>
+<li>💡 In simple terms:
+👉 “When the body is overheated from within—affecting skin, liver, and blood—Thiktakam Ghritam cools, cleanses, and resets the system at its root.”</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="V" data-search="vidaryadi ghritam vidaryadi ghritam is a classical ayurvedic medicated ghee (ghrita) known for its deep nourishing, strengthening, and rejuvenating effects. centered around vidari, it belongs to the brimhana (tissue-building) group of medicines, making it ideal for restoring strength, weight, and vitality. it is especially valued for balancing vata and pitta, while gently supporting the lungs, reproductive system, and overall tissue regeneration. emaciation and unhealthy weight loss (karshya)
+• chronic dry cough and respiratory weakness
+• post-illness recovery (tb, chronic fevers, long debility)
+• postnatal recovery and lactation support
+• general weakness and fatigue
+• body aches and vata-related pains (angamarda)
+• abdominal bloating (vata-gulma)
+• cardiac weakness (as supportive tonic) brimhana – promotes tissue growth and weight gain 💪
+• balya – enhances strength and stamina
+• rasayana – rejuvenates all dhatus (tissues)
+• vata-pitta shamana – calms dryness and heat imbalance
+• kasa-shwasa hara – supports lungs and relieves cough
+• stanyajanana – promotes breast milk production
+• hridya – nourishes and supports heart function ❤️ vidari (pueraria tuberosa) – the main rejuvenator; promotes weight gain, immunity, and fertility
+• panchapanchamoola – deeply strengthening root groups with anti-inflammatory effects
+• ashwagandha (withania somnifera) – builds muscle, reduces stress, and enhances endurance
+• gokshura (tribulus terrestris) – supports urinary and reproductive health
+• jivanti (leptadenia reticulata) – promotes vitality, vision, and longevity
+• go ghrita (cow ghee) – enhances absorption and delivers nourishment to deep tissues vidaryadi ghritam is particularly useful when: there is depletion (dhatu kshaya) rather than excess
+👉 conditions involve dryness + weakness + weight loss
+👉 the patient has low immunity + chronic fatigue
+👉 recovery requires building tissues, not just correcting symptoms for internal use under physician supervision
+• best suited when agni is adequate or supported (otherwise digestion must be corrected first)
+• often given with milk for enhanced nourishing effect 💡 in simple terms:
+👉 “when the body is depleted, dry, and weak—vidaryadi ghritam rebuilds strength, weight, and vitality from the deepest tissue level.”" id="vidaryadi-ghritam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Vidaryadi Ghritam</h2>
+            <p>Vidaryadi Ghritam is a classical Ayurvedic medicated ghee (Ghrita) known for its deep nourishing, strengthening, and rejuvenating effects. Centered around Vidari, it belongs to the Brimhana (tissue-building) group of medicines, making it ideal for restoring strength, weight, and vitality. It is especially valued for balancing Vata and Pitta, while gently supporting the lungs, reproductive system, and overall tissue regeneration.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Vidaryadi Ghritam is a classical Ayurvedic medicated ghee (Ghrita) known for its deep nourishing, strengthening, and rejuvenating effects. Centered around Vidari, it belongs to the Brimhana (tissue-building) group of medicines, making it ideal for restoring strength, weight, and vitality. It is especially valued for balancing Vata and Pitta, while gently supporting the lungs, reproductive system, and overall tissue regeneration.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Emaciation and unhealthy weight loss (Karshya)
+• Chronic dry cough and respiratory weakness
+• Post-illness recovery (TB, chronic fevers, long debility)
+• Postnatal recovery and lactation support
+• General weakness and fatigue
+• Body aches and Vata-related pains (Angamarda)
+• Abdominal bloating (Vata-Gulma)
+• Cardiac weakness (as supportive tonic)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Brimhana – promotes tissue growth and weight gain 💪
+• Balya – enhances strength and stamina
+• Rasayana – rejuvenates all Dhatus (tissues)
+• Vata-Pitta Shamana – calms dryness and heat imbalance
+• Kasa-Shwasa Hara – supports lungs and relieves cough
+• Stanyajanana – promotes breast milk production
+• Hridya – nourishes and supports heart function ❤️</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Vidari (Pueraria tuberosa) – The main rejuvenator; promotes weight gain, immunity, and fertility
+• Panchapanchamoola – Deeply strengthening root groups with anti-inflammatory effects
+• Ashwagandha (Withania somnifera) – Builds muscle, reduces stress, and enhances endurance
+• Gokshura (Tribulus terrestris) – Supports urinary and reproductive health
+• Jivanti (Leptadenia reticulata) – Promotes vitality, vision, and longevity
+• Go Ghrita (Cow Ghee) – Enhances absorption and delivers nourishment to deep tissues</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Clinical Insight</h3>
+            <ul>
+              <li>Vidaryadi Ghritam is particularly useful when:</li>
+<li>There is depletion (Dhatu Kshaya) rather than excess
+👉 Conditions involve dryness + weakness + weight loss
+👉 The patient has low immunity + chronic fatigue
+👉 Recovery requires building tissues, not just correcting symptoms</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <ul>
+              <li>For internal use under physician supervision
+• Best suited when Agni is adequate or supported (otherwise digestion must be corrected first)
+• Often given with milk for enhanced nourishing effect</li>
+<li>💡 In simple terms:
+👉 “When the body is depleted, dry, and weak—Vidaryadi Ghritam rebuilds strength, weight, and vitality from the deepest tissue level.”</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    </section>
+
+    <div class="no-results" id="noResults">No medicines matched your search.</div>
+
+    <div class="note">These descriptions are presented for educational and informational purposes based on traditional Ayurvedic usage. Ghritam formulations should be selected and used only under qualified professional guidance.</div>
+  </main>
+
+  <footer class="footer">
+    <strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>
+    Traditional Ayurvedic care and in-house medicine preparation.
+  </footer>
+
+<script>
+const searchInput = document.getElementById('medicineSearch');
+const cards = Array.from(document.querySelectorAll('.medicine-card'));
+const chips = Array.from(document.querySelectorAll('.letter-chip'));
+const showAll = document.getElementById('showAll');
+const noResults = document.getElementById('noResults');
+let activeLetter = '';
+
+function filterCards() {
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  cards.forEach(card => {
+    const matchesText = !q || card.dataset.search.includes(q);
+    const matchesLetter = !activeLetter || card.dataset.letter === activeLetter;
+    const show = matchesText && matchesLetter;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  noResults.style.display = visible ? 'none' : 'block';
+}
+
+searchInput.addEventListener('input', filterCards);
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    const val = chip.dataset.letter;
+    activeLetter = (activeLetter === val) ? '' : val;
+    chips.forEach(c => c.classList.toggle('active', c.dataset.letter === activeLetter));
+    filterCards();
+  });
+});
+showAll.addEventListener('click', () => {
+  activeLetter = '';
+  chips.forEach(c => c.classList.remove('active'));
+  searchInput.value = '';
+  filterCards();
+});
+</script>
+</body>
+</html>

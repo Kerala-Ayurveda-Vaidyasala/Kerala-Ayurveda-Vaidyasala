@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gulikas | Kerala Ayurveda Vaidyasala</title>
+<meta name="description" content="Classical Gulika formulations prepared in-house at Kerala Ayurveda Vaidyasala, Changaramkulam.">
+<style>
+:root{
+  --bg:#f6ede0;
+  --paper:#fdf8f0;
+  --ink:#182e22;
+  --muted:#5d7263;
+  --gold:#a8820a;
+  --gold-soft:#e7d9b5;
+  --line:#e8d8c2;
+  --green:#2a5038;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(24,46,34,.96);
+  border-bottom:1px solid rgba(168,130,10,.18);
+  backdrop-filter:blur(10px);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{
+  text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem;
+}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;
+  transition:.25s ease;
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.04)}
+
+.hero{
+  padding:4.5rem 1.25rem 2.25rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(168,130,10,.08), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(42,80,56,.08), transparent 30%),
+    linear-gradient(180deg, #f8f0e6 0%, #f6ede0 100%);
+  border-bottom:1px solid rgba(168,130,10,.12);
+}
+.hero-inner{max-width:1180px;margin:0 auto}
+.eyebrow{display:inline-block;color:var(--gold);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-style:italic;margin-bottom:.85rem}
+.hero h1{margin:.2rem 0 .8rem;font-weight:400;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08}
+.hero p.lead{max-width:800px;margin:0;color:#35503f;font-size:1.03rem}
+.quick-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;
+  margin-top:2rem;max-width:820px;
+}
+.stat{
+  background:rgba(253,248,240,.82);border:1px solid rgba(168,130,10,.18);
+  padding:1rem 1rem .9rem;border-radius:16px;
+}
+.stat strong{display:block;font-size:1.4rem;font-weight:400;color:var(--ink)}
+.stat span{display:block;margin-top:.2rem;color:#5f7465;font-size:.9rem}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.toolbar{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;
+  padding:1.1rem;margin-bottom:1.4rem;box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.toolbar-top{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.searchbox{flex:1 1 320px;position:relative}
+.searchbox input{
+  width:100%;padding:.95rem 1rem .95rem 2.85rem;border-radius:14px;border:1px solid #dbc8ad;
+  background:#fff;font:inherit;color:var(--ink);outline:none;
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.toolbar-note{color:var(--muted);font-size:.92rem}
+.letter-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+.letter-chip, .clear-chip{
+  border:1px solid #dbc8ad;background:#fff;color:var(--ink);border-radius:999px;
+  padding:.45rem .78rem;font:inherit;font-size:.83rem;cursor:pointer;transition:.2s ease;
+}
+.letter-chip:hover, .clear-chip:hover, .letter-chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+.clear-chip{color:var(--gold)}
+
+.listing{max-width:1180px;margin:1.4rem auto 0;padding:0 1.25rem 2rem}
+.grid{display:grid;gap:1rem}
+.medicine-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.medicine-card details{display:block}
+.medicine-card details[open]{background:linear-gradient(180deg,rgba(168,130,10,.03),transparent 34%), var(--paper)}
+.medicine-card summary{
+  list-style:none;cursor:pointer;padding:1.25rem 1.25rem 1.15rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+}
+.medicine-card summary::-webkit-details-marker{display:none}
+.summary-text h2{margin:0 0 .4rem;font-weight:400;font-size:1.33rem;color:var(--ink)}
+.summary-text p{margin:0;color:#45614f;font-size:.98rem;max-width:860px}
+.summary-tag{
+  flex-shrink:0;border:1px solid rgba(168,130,10,.28);color:var(--gold);
+  border-radius:999px;padding:.45rem .78rem;font-size:.78rem;letter-spacing:.04em;margin-top:.1rem;
+}
+.medicine-body{
+  padding:0 1.25rem 1.35rem;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;
+}
+.detail-block{
+  background:#fff;border:1px solid #eee1cf;border-radius:16px;padding:1rem 1rem .9rem;
+}
+.detail-block h3{margin:0 0 .6rem;font-size:.93rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.detail-block p{margin:0;color:#35503f}
+.detail-block ul{margin:.2rem 0 0 1rem;padding:0}
+.detail-block li{margin:.15rem 0;color:#35503f}
+.detail-block:first-child{grid-column:1/-1}
+
+.note{
+  margin-top:2rem;padding:1rem 1.15rem;border-radius:16px;
+  background:rgba(42,80,56,.06);border:1px solid rgba(42,80,56,.12);color:#315040;
+}
+.no-results{display:none;text-align:center;padding:2rem 1rem;color:#6a7d70}
+
+.footer{
+  padding:2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem
+}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:900px){
+  .quick-stats{grid-template-columns:1fr}
+  .medicine-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.25rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}
+  .brand span{font-size:.66rem}
+  .medicine-card summary{flex-direction:column}
+}
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong>
+        <span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span>
+      </a>
+      <a class="back-link" href="index.html#preparations">← Back to Main Site</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">In-House Preparations</span>
+      <h1>Gulikas</h1>
+      <p class="lead">Classical Ayurvedic tablets and pills prepared in-house in the traditional manner. Each formulation below is presented with a short description, common traditional uses, Ayurvedic actions, and key ingredients.</p>
+    </div>
+  </section>
+
+  <main class="page-wrap">
+    <section class="toolbar">
+      <div class="toolbar-top">
+        <div class="searchbox">
+          <span class="icon">⌕</span>
+          <input id="medicineSearch" type="search" placeholder="Search Gulika name, use, action, or ingredient...">
+        </div>
+        <div class="toolbar-note">Tap any medicine card to open its full details.</div>
+      </div>
+      <div class="letter-row">
+        <button type="button" class="clear-chip" id="showAll">Show all</button>
+        <button class="letter-chip" type="button" data-letter="C">C</button>
+<button class="letter-chip" type="button" data-letter="D">D</button>
+<button class="letter-chip" type="button" data-letter="G">G</button>
+<button class="letter-chip" type="button" data-letter="H">H</button>
+<button class="letter-chip" type="button" data-letter="K">K</button>
+<button class="letter-chip" type="button" data-letter="M">M</button>
+<button class="letter-chip" type="button" data-letter="S">S</button>
+<button class="letter-chip" type="button" data-letter="V">V</button>
+<button class="letter-chip" type="button" data-letter="Y">Y</button>
+      </div>
+    </section>
+
+    <section class="grid" id="medicineGrid">
+    <div class="grid">
+      
+    <article class="medicine-card" data-letter="C" data-search="chandraprabha gulika chandraprabha gulika is a classical ayurvedic herbo-mineral formulation widely used in disorders affecting the urinary system, reproductive system, and metabolism. the name chandraprabha literally means “moon-like radiance,” symbolizing its ability to restore vitality, strength, and balance within the body. the formulation helps regulate the functioning of the mutravaha srotas (urinary channels), supports reproductive health, and assists in maintaining proper metabolic balance. mutrakrichra (difficulty or pain during urination) mutraghata (obstruction or retention of urine) ashmari (urinary calculi) prameha (metabolic disorders including diabetes) shweta pradara (abnormal vaginal discharge) artava dushti (menstrual irregularities) klaibya and shukra kshaya associated with reproductive weakness katishoola and sandhishoola (pain in lower back and joints) conditions associated with imbalance of urinary and reproductive channels mutrala (supports proper urinary flow) vata–kapha shamana (helps balance aggravated vata and kapha) deepana (supports digestive fire) pachana (helps digest accumulated ama) balya (supports strength and vitality of tissues) rasayana (supports rejuvenation and overall vitality) shilajit – traditionally used to support strength, vitality, and proper functioning of urinary and reproductive systems. guggulu (commiphora mukul) – traditionally used in inflammatory conditions and disorders involving obstruction of channels. loha bhasma – traditionally used to support strength of body tissues and metabolic balance. triphala (haritaki, bibhitaki, amalaki) – traditionally used to support digestion, cleansing of channels, and tissue nourishment. karpoora (cinnamomum camphora) – traditionally used to balance pitta and support proper functioning of urinary channels." id="chandraprabha-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Chandraprabha Gulika</h2>
+            <p>Chandraprabha Gulika is a classical Ayurvedic herbo-mineral formulation widely used in disorders affecting the urinary system, reproductive system, and metabolism. The name Chandraprabha literally means “moon-like radiance,” symbolizing its ability to restore vitality, strength, and balance within the body. The formulation helps regulate the functioning of the mutravaha srotas (urinary channels), supports reproductive health, and assists in maintaining proper metabolic balance.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Chandraprabha Gulika is a classical Ayurvedic herbo-mineral formulation widely used in disorders affecting the urinary system, reproductive system, and metabolism. The name Chandraprabha literally means “moon-like radiance,” symbolizing its ability to restore vitality, strength, and balance within the body. The formulation helps regulate the functioning of the mutravaha srotas (urinary channels), supports reproductive health, and assists in maintaining proper metabolic balance.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Mutrakrichra (difficulty or pain during urination)</li>
+<li>Mutraghata (obstruction or retention of urine)</li>
+<li>Ashmari (urinary calculi)</li>
+<li>Prameha (metabolic disorders including diabetes)</li>
+<li>Shweta pradara (abnormal vaginal discharge)</li>
+<li>Artava dushti (menstrual irregularities)</li>
+<li>Klaibya and Shukra kshaya associated with reproductive weakness</li>
+<li>Katishoola and Sandhishoola (pain in lower back and joints)</li>
+<li>Conditions associated with imbalance of urinary and reproductive channels</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Mutrala (supports proper urinary flow)</li>
+<li>Vata–Kapha shamana (helps balance aggravated Vata and Kapha)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Balya (supports strength and vitality of tissues)</li>
+<li>Rasayana (supports rejuvenation and overall vitality)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Shilajit – Traditionally used to support strength, vitality, and proper functioning of urinary and reproductive systems.</li>
+<li>Guggulu (Commiphora mukul) – Traditionally used in inflammatory conditions and disorders involving obstruction of channels.</li>
+<li>Loha Bhasma – Traditionally used to support strength of body tissues and metabolic balance.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used to support digestion, cleansing of channels, and tissue nourishment.</li>
+<li>Karpoora (Cinnamomum camphora) – Traditionally used to balance Pitta and support proper functioning of urinary channels.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="C" data-search="chukkumthippalyadi gulika chukkumthippalyadi gulika is a classical ayurvedic formulation widely used in conditions associated with fever, respiratory disturbances, and digestive imbalance. prepared according to traditional kerala ayurvedic practice, the formulation helps balance vata and kapha, clear accumulated kapha from the respiratory passages, and support restoration of digestive fire during febrile conditions. it is commonly indicated in the later stages of fever where respiratory congestion, weakness, and digestive disturbances are present. jwara (various types of fever) kasa (cough) shwasa (difficulty in breathing) peenasa (nasal congestion and discharge) agnimandya (impaired digestive fire) aruchi (loss of appetite during illness) body ache and fatigue associated with fever respiratory congestion in children jwarahara (traditionally used in fever conditions) kapha–vata shamana (helps balance aggravated kapha and vata) kaphahara (helps clear accumulated kapha from respiratory passages) deepana (supports digestive fire) pachana (helps digest accumulated ama) supports respiratory comfort and recovery during febrile conditions chukku / shunti (zingiber officinale) – traditionally used to stimulate digestive fire and reduce kapha accumulation. thippali / pippali (piper longum) – traditionally used to support respiratory health and enhance digestive function. jeeraka (cuminum cyminum) – traditionally used to support digestion and relieve abdominal discomfort. kirathatikta (swertia chirata / andrographis paniculata) – traditionally used in fever and pitta-related disturbances. rudraksha (elaeocarpus ganitrus) – traditionally used to support respiratory and systemic balance. vacha (acorus calamus) – traditionally used in kapha-related respiratory disturbances." id="chukkumthippalyadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Chukkumthippalyadi Gulika</h2>
+            <p>Chukkumthippalyadi Gulika is a classical Ayurvedic formulation widely used in conditions associated with fever, respiratory disturbances, and digestive imbalance. Prepared according to traditional Kerala Ayurvedic practice, the formulation helps balance Vata and Kapha, clear accumulated Kapha from the respiratory passages, and support restoration of digestive fire during febrile conditions. It is commonly indicated in the later stages of fever where respiratory congestion, weakness, and digestive disturbances are present.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Chukkumthippalyadi Gulika is a classical Ayurvedic formulation widely used in conditions associated with fever, respiratory disturbances, and digestive imbalance. Prepared according to traditional Kerala Ayurvedic practice, the formulation helps balance Vata and Kapha, clear accumulated Kapha from the respiratory passages, and support restoration of digestive fire during febrile conditions. It is commonly indicated in the later stages of fever where respiratory congestion, weakness, and digestive disturbances are present.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Jwara (various types of fever)</li>
+<li>Kasa (cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Peenasa (nasal congestion and discharge)</li>
+<li>Agnimandya (impaired digestive fire)</li>
+<li>Aruchi (loss of appetite during illness)</li>
+<li>Body ache and fatigue associated with fever</li>
+<li>Respiratory congestion in children</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Jwarahara (traditionally used in fever conditions)</li>
+<li>Kapha–Vata shamana (helps balance aggravated Kapha and Vata)</li>
+<li>Kaphahara (helps clear accumulated Kapha from respiratory passages)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Supports respiratory comfort and recovery during febrile conditions</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Chukku / Shunti (Zingiber officinale) – Traditionally used to stimulate digestive fire and reduce Kapha accumulation.</li>
+<li>Thippali / Pippali (Piper longum) – Traditionally used to support respiratory health and enhance digestive function.</li>
+<li>Jeeraka (Cuminum cyminum) – Traditionally used to support digestion and relieve abdominal discomfort.</li>
+<li>Kirathatikta (Swertia chirata / Andrographis paniculata) – Traditionally used in fever and Pitta-related disturbances.</li>
+<li>Rudraksha (Elaeocarpus ganitrus) – Traditionally used to support respiratory and systemic balance.</li>
+<li>Vacha (Acorus calamus) – Traditionally used in Kapha-related respiratory disturbances.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="D" data-search="dhanwantharam gulika dhanwantharam gulika is a classical ayurvedic formulation traditionally used in disorders affecting the digestive system, respiratory system, and nervous system. the formulation is named after lord dhanwantari, the divine physician in ayurveda, and is valued for supporting balance of vata and kapha, particularly in conditions involving disturbance of prana vayu and samana vayu. it is commonly indicated in digestive disturbances, respiratory discomfort, and certain conditions affecting pregnancy and postnatal recovery. anaha and adhmana (abdominal bloating and distension) udgara and excessive gas formation aruchi and agnimandya (loss of appetite and impaired digestive fire) kasa (cough) and shwasa (difficulty in breathing) hikka (hiccups) chardi (nausea and vomiting) giddiness and discomfort associated with vata imbalance digestive disturbances during pregnancy weakness and digestive imbalance during postnatal recovery vata–kapha shamana (helps balance aggravated vata and kapha) deepana (stimulates digestive fire) pachana (helps digest accumulated ama) vatanulomana (supports proper movement of vata in the abdomen) kaphahara (helps clear kapha from respiratory passages) balya (supports strength and vitality during recovery) ela (elettaria cardamomum) – traditionally used to balance vata and kapha and support digestion. viswa / shunti (zingiber officinale) – traditionally used to stimulate digestive fire and relieve abdominal discomfort. jeeraka (cuminum cyminum) – traditionally used to enhance digestion and relieve abdominal distension. kirathatikta (swertia chirata / andrographis paniculata) – traditionally used in fever and digestive disturbances. karpoora (cinnamomum camphora) – traditionally used to support respiratory comfort and balance pitta." id="dhanwantharam-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Dhanwantharam Gulika</h2>
+            <p>Dhanwantharam Gulika is a classical Ayurvedic formulation traditionally used in disorders affecting the digestive system, respiratory system, and nervous system. The formulation is named after Lord Dhanwantari, the divine physician in Ayurveda, and is valued for supporting balance of Vata and Kapha, particularly in conditions involving disturbance of Prana Vayu and Samana Vayu. It is commonly indicated in digestive disturbances, respiratory discomfort, and certain conditions affecting pregnancy and postnatal recovery.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Dhanwantharam Gulika is a classical Ayurvedic formulation traditionally used in disorders affecting the digestive system, respiratory system, and nervous system. The formulation is named after Lord Dhanwantari, the divine physician in Ayurveda, and is valued for supporting balance of Vata and Kapha, particularly in conditions involving disturbance of Prana Vayu and Samana Vayu. It is commonly indicated in digestive disturbances, respiratory discomfort, and certain conditions affecting pregnancy and postnatal recovery.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Anaha and Adhmana (abdominal bloating and distension)</li>
+<li>Udgara and excessive gas formation</li>
+<li>Aruchi and Agnimandya (loss of appetite and impaired digestive fire)</li>
+<li>Kasa (cough) and Shwasa (difficulty in breathing)</li>
+<li>Hikka (hiccups)</li>
+<li>Chardi (nausea and vomiting)</li>
+<li>Giddiness and discomfort associated with Vata imbalance</li>
+<li>Digestive disturbances during pregnancy</li>
+<li>Weakness and digestive imbalance during postnatal recovery</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Vata–Kapha shamana (helps balance aggravated Vata and Kapha)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Vatanulomana (supports proper movement of Vata in the abdomen)</li>
+<li>Kaphahara (helps clear Kapha from respiratory passages)</li>
+<li>Balya (supports strength and vitality during recovery)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Ela (Elettaria cardamomum) – Traditionally used to balance Vata and Kapha and support digestion.</li>
+<li>Viswa / Shunti (Zingiber officinale) – Traditionally used to stimulate digestive fire and relieve abdominal discomfort.</li>
+<li>Jeeraka (Cuminum cyminum) – Traditionally used to enhance digestion and relieve abdominal distension.</li>
+<li>Kirathatikta (Swertia chirata / Andrographis paniculata) – Traditionally used in fever and digestive disturbances.</li>
+<li>Karpoora (Cinnamomum camphora) – Traditionally used to support respiratory comfort and balance Pitta.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="D" data-search="dashangam gulika dashangam gulika is a classical ayurvedic formulation traditionally used in conditions associated with toxicity, allergic reactions, and skin disturbances. the name dashangam refers to the ten principal ingredients used in the preparation. it is commonly described as an agada yoga, meaning a formulation used in conditions related to various types of toxins, insect bites, and allergic manifestations. the formulation helps balance kapha and vata, supports purification of channels, and relieves discomfort associated with toxic or allergic conditions. keeta visha (insect bites and stings) vrischika visha (scorpion stings) allergic skin eruptions and itching sheetapitta and udarda (urticarial skin conditions) kandu (itching) and skin irritation chronic skin disorders associated with kapha–pitta imbalance swelling and discomfort following insect bites conditions associated with toxic or allergic reactions agada (traditionally used in toxic conditions) kapha–vata shamana (helps balance aggravated kapha and vata) kandughna (helps relieve itching) shothahara (helps reduce swelling) deepana (supports digestive fire) pachana (helps digest accumulated ama) vacha (acorus calamus) – traditionally used in kapha-related disorders and toxic conditions. hingu (ferula asafoetida) – traditionally used to support digestion and relieve abdominal discomfort. vidanga (embelia ribes) – traditionally used to cleanse channels and support metabolic balance. saindhava (rock salt) – traditionally used to support digestion and channel cleansing. gajapippali (piper chaba / scindapsus officinalis) – traditionally used in kapha-related conditions. pata (cissampelos pareira) – traditionally used in toxic and inflammatory conditions. ativisha (aconitum heterophyllum) – traditionally used in fever and digestive disturbances. shunti (zingiber officinale) – traditionally used to stimulate digestive fire and clear ama. pippali (piper longum) – traditionally used to support respiratory and digestive function. maricha (piper nigrum) – traditionally used to clear kapha and support digestion." id="dashangam-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Dashangam Gulika</h2>
+            <p>Dashangam Gulika is a classical Ayurvedic formulation traditionally used in conditions associated with toxicity, allergic reactions, and skin disturbances. The name Dashangam refers to the ten principal ingredients used in the preparation. It is commonly described as an Agada yoga, meaning a formulation used in conditions related to various types of toxins, insect bites, and allergic manifestations. The formulation helps balance Kapha and Vata, supports purification of channels, and relieves discomfort associated with toxic or allergic conditions.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Dashangam Gulika is a classical Ayurvedic formulation traditionally used in conditions associated with toxicity, allergic reactions, and skin disturbances. The name Dashangam refers to the ten principal ingredients used in the preparation. It is commonly described as an Agada yoga, meaning a formulation used in conditions related to various types of toxins, insect bites, and allergic manifestations. The formulation helps balance Kapha and Vata, supports purification of channels, and relieves discomfort associated with toxic or allergic conditions.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Keeta visha (insect bites and stings)</li>
+<li>Vrischika visha (scorpion stings)</li>
+<li>Allergic skin eruptions and itching</li>
+<li>Sheetapitta and Udarda (urticarial skin conditions)</li>
+<li>Kandu (itching) and skin irritation</li>
+<li>Chronic skin disorders associated with Kapha–Pitta imbalance</li>
+<li>Swelling and discomfort following insect bites</li>
+<li>Conditions associated with toxic or allergic reactions</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Agada (traditionally used in toxic conditions)</li>
+<li>Kapha–Vata shamana (helps balance aggravated Kapha and Vata)</li>
+<li>Kandughna (helps relieve itching)</li>
+<li>Shothahara (helps reduce swelling)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Vacha (Acorus calamus) – Traditionally used in Kapha-related disorders and toxic conditions.</li>
+<li>Hingu (Ferula asafoetida) – Traditionally used to support digestion and relieve abdominal discomfort.</li>
+<li>Vidanga (Embelia ribes) – Traditionally used to cleanse channels and support metabolic balance.</li>
+<li>Saindhava (Rock salt) – Traditionally used to support digestion and channel cleansing.</li>
+<li>Gajapippali (Piper chaba / Scindapsus officinalis) – Traditionally used in Kapha-related conditions.</li>
+<li>Pata (Cissampelos pareira) – Traditionally used in toxic and inflammatory conditions.</li>
+<li>Ativisha (Aconitum heterophyllum) – Traditionally used in fever and digestive disturbances.</li>
+<li>Shunti (Zingiber officinale) – Traditionally used to stimulate digestive fire and clear Ama.</li>
+<li>Pippali (Piper longum) – Traditionally used to support respiratory and digestive function.</li>
+<li>Maricha (Piper nigrum) – Traditionally used to clear Kapha and support digestion.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="G" data-search="grahanyantakam gulika grahanyantakam gulika is a classical ayurvedic formulation traditionally used in disorders of the digestive system, especially conditions involving impairment of agni (digestive fire) and disturbance of intestinal function. the formulation is particularly valued in conditions described as grahani, where digestion and absorption become irregular. it helps stabilize digestive activity, balance pitta, and support proper functioning of the annavaha and purishavaha srotas (digestive and intestinal channels). grahani (chronic digestive disorder with irregular bowel function) atisara (persistent diarrhea) agnimandya (impaired digestive fire) amlapitta (acidic digestive disturbances) aruchi (loss of appetite) udara discomfort and abdominal burning sensation krimi (intestinal parasites) nausea associated with pitta aggravation grahi (helps regulate and stabilize bowel movements) deepana (supports digestive fire) pachana (helps digest accumulated ama) pittashamana (helps pacify aggravated pitta) balya (supports strength of digestive organs) supports restoration of proper digestive and intestinal balance mukta shukti bhasma – traditionally used to balance pitta and support digestive comfort. pravala bhasma – traditionally used for its cooling and pitta-pacifying properties. shankha bhasma – traditionally used to support digestion and relieve abdominal discomfort. guduchi satva (tinospora cordifolia) – traditionally used to support metabolic balance and digestion. shuddha parada and shuddha gandhaka – used in classical preparations to enhance the potency and action of the formulation." id="grahanyantakam-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Grahanyantakam Gulika</h2>
+            <p>Grahanyantakam Gulika is a classical Ayurvedic formulation traditionally used in disorders of the digestive system, especially conditions involving impairment of Agni (digestive fire) and disturbance of intestinal function. The formulation is particularly valued in conditions described as Grahani, where digestion and absorption become irregular. It helps stabilize digestive activity, balance Pitta, and support proper functioning of the annavaha and purishavaha srotas (digestive and intestinal channels).</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Grahanyantakam Gulika is a classical Ayurvedic formulation traditionally used in disorders of the digestive system, especially conditions involving impairment of Agni (digestive fire) and disturbance of intestinal function. The formulation is particularly valued in conditions described as Grahani, where digestion and absorption become irregular. It helps stabilize digestive activity, balance Pitta, and support proper functioning of the annavaha and purishavaha srotas (digestive and intestinal channels).</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Grahani (chronic digestive disorder with irregular bowel function)</li>
+<li>Atisara (persistent diarrhea)</li>
+<li>Agnimandya (impaired digestive fire)</li>
+<li>Amlapitta (acidic digestive disturbances)</li>
+<li>Aruchi (loss of appetite)</li>
+<li>Udara discomfort and abdominal burning sensation</li>
+<li>Krimi (intestinal parasites)</li>
+<li>Nausea associated with Pitta aggravation</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Grahi (helps regulate and stabilize bowel movements)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Pittashamana (helps pacify aggravated Pitta)</li>
+<li>Balya (supports strength of digestive organs)</li>
+<li>Supports restoration of proper digestive and intestinal balance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Mukta Shukti Bhasma – Traditionally used to balance Pitta and support digestive comfort.</li>
+<li>Pravala Bhasma – Traditionally used for its cooling and Pitta-pacifying properties.</li>
+<li>Shankha Bhasma – Traditionally used to support digestion and relieve abdominal discomfort.</li>
+<li>Guduchi Satva (Tinospora cordifolia) – Traditionally used to support metabolic balance and digestion.</li>
+<li>Shuddha Parada and Shuddha Gandhaka – Used in classical preparations to enhance the potency and action of the formulation.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="G" data-search="gopichandanadi gulika gopichandanadi gulika is a classical ayurvedic formulation traditionally used in pediatric conditions, particularly those involving fever, respiratory disturbances, and digestive imbalance. the formulation is valued in traditional kerala ayurvedic practice for its gentle yet effective action in children. it helps balance kapha and vata, supports respiratory comfort, and assists in restoring digestive balance during febrile illnesses in children. bala jwara (fever in children) kasa (cough) in children shwasa (difficulty in breathing) peenasa (nasal congestion and discharge) agnimandya (impaired digestive fire) aruchi (loss of appetite during illness) digestive discomfort and abdominal gas in children certain nervous disturbances occurring during febrile conditions jwarahara (traditionally used in fever conditions) kapha–vata shamana (helps balance aggravated kapha and vata) kaphahara (helps clear kapha from respiratory passages) deepana (supports digestive fire) pachana (helps digest accumulated ama) supports balance of respiratory and digestive functions in children gopichandana (santalum album) – traditionally used for its cooling and pitta-pacifying properties. karpooravalli (coleus amboinicus) – traditionally used in respiratory discomfort and cough. trikatu (shunti, maricha, pippali) – traditionally used to stimulate digestion and clear kapha. vacha (acorus calamus) – traditionally used in kapha-related disorders and certain nervous disturbances. amalaki (emblica officinalis) – traditionally used to support digestion and tissue nourishment. haritaki (terminalia chebula) – traditionally used to support digestive balance and cleansing of channels. ushira (vetiveria zizanioides) – traditionally used for cooling and pitta balance." id="gopichandanadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Gopichandanadi Gulika</h2>
+            <p>Gopichandanadi Gulika is a classical Ayurvedic formulation traditionally used in pediatric conditions, particularly those involving fever, respiratory disturbances, and digestive imbalance. The formulation is valued in traditional Kerala Ayurvedic practice for its gentle yet effective action in children. It helps balance Kapha and Vata, supports respiratory comfort, and assists in restoring digestive balance during febrile illnesses in children.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Gopichandanadi Gulika is a classical Ayurvedic formulation traditionally used in pediatric conditions, particularly those involving fever, respiratory disturbances, and digestive imbalance. The formulation is valued in traditional Kerala Ayurvedic practice for its gentle yet effective action in children. It helps balance Kapha and Vata, supports respiratory comfort, and assists in restoring digestive balance during febrile illnesses in children.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Bala jwara (fever in children)</li>
+<li>Kasa (cough) in children</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Peenasa (nasal congestion and discharge)</li>
+<li>Agnimandya (impaired digestive fire)</li>
+<li>Aruchi (loss of appetite during illness)</li>
+<li>Digestive discomfort and abdominal gas in children</li>
+<li>Certain nervous disturbances occurring during febrile conditions</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Jwarahara (traditionally used in fever conditions)</li>
+<li>Kapha–Vata shamana (helps balance aggravated Kapha and Vata)</li>
+<li>Kaphahara (helps clear Kapha from respiratory passages)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Supports balance of respiratory and digestive functions in children</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Gopichandana (Santalum album) – Traditionally used for its cooling and Pitta-pacifying properties.</li>
+<li>Karpooravalli (Coleus amboinicus) – Traditionally used in respiratory discomfort and cough.</li>
+<li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to stimulate digestion and clear Kapha.</li>
+<li>Vacha (Acorus calamus) – Traditionally used in Kapha-related disorders and certain nervous disturbances.</li>
+<li>Amalaki (Emblica officinalis) – Traditionally used to support digestion and tissue nourishment.</li>
+<li>Haritaki (Terminalia chebula) – Traditionally used to support digestive balance and cleansing of channels.</li>
+<li>Ushira (Vetiveria zizanioides) – Traditionally used for cooling and Pitta balance.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="G" data-search="gorochanadi gulika gorochanadi gulika is a classical ayurvedic formulation traditionally used in conditions involving respiratory disturbances, febrile disorders, and certain nervous system imbalances. the preparation is described in traditional kerala ayurvedic practice and includes a combination of herbal and mineral ingredients prepared according to rasashastra principles. it is generally administered in small doses and is valued for its action in balancing vata and kapha, supporting respiratory comfort, and assisting the body during febrile conditions. kasa (cough) shwasa (difficulty in breathing) peenasa and kapha accumulation in respiratory passages jwara (various types of fever) weakness, giddiness, and discomfort during febrile conditions nervous disturbances associated with vata imbalance agnimandya (impaired digestive fire) digestive discomfort such as abdominal bloating recurrent febrile and respiratory conditions in children jwarahara (traditionally used in fever conditions) kapha–vata shamana (helps balance aggravated kapha and vata) kaphahara (helps clear kapha from respiratory passages) deepana (supports digestive fire) pachana (helps digest accumulated ama) supports balance of respiratory and nervous system functions gorochana – traditionally used in conditions involving kapha accumulation and febrile disturbances. swarna bhasma – traditionally used to support vitality and systemic balance. naga bhasma – traditionally used in certain chronic disorders and to support metabolic balance. pravala bhasma – traditionally used for its cooling and pitta-balancing properties. vacha (acorus calamus) – traditionally used in kapha-related disorders and nervous disturbances. chandana (santalum album) – traditionally used for cooling and pitta balance. jeeraka (cuminum cyminum) – traditionally used to support digestion. shunti (zingiber officinale) – traditionally used to stimulate digestive fire. pippali (piper longum) – traditionally used to support respiratory and digestive functions." id="gorochanadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Gorochanadi Gulika</h2>
+            <p>Gorochanadi Gulika is a classical Ayurvedic formulation traditionally used in conditions involving respiratory disturbances, febrile disorders, and certain nervous system imbalances. The preparation is described in traditional Kerala Ayurvedic practice and includes a combination of herbal and mineral ingredients prepared according to Rasashastra principles. It is generally administered in small doses and is valued for its action in balancing Vata and Kapha, supporting respiratory comfort, and assisting the body during febrile conditions.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Gorochanadi Gulika is a classical Ayurvedic formulation traditionally used in conditions involving respiratory disturbances, febrile disorders, and certain nervous system imbalances. The preparation is described in traditional Kerala Ayurvedic practice and includes a combination of herbal and mineral ingredients prepared according to Rasashastra principles. It is generally administered in small doses and is valued for its action in balancing Vata and Kapha, supporting respiratory comfort, and assisting the body during febrile conditions.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kasa (cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Peenasa and Kapha accumulation in respiratory passages</li>
+<li>Jwara (various types of fever)</li>
+<li>Weakness, giddiness, and discomfort during febrile conditions</li>
+<li>Nervous disturbances associated with Vata imbalance</li>
+<li>Agnimandya (impaired digestive fire)</li>
+<li>Digestive discomfort such as abdominal bloating</li>
+<li>Recurrent febrile and respiratory conditions in children</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Jwarahara (traditionally used in fever conditions)</li>
+<li>Kapha–Vata shamana (helps balance aggravated Kapha and Vata)</li>
+<li>Kaphahara (helps clear Kapha from respiratory passages)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Supports balance of respiratory and nervous system functions</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Gorochana – Traditionally used in conditions involving Kapha accumulation and febrile disturbances.</li>
+<li>Swarna Bhasma – Traditionally used to support vitality and systemic balance.</li>
+<li>Naga Bhasma – Traditionally used in certain chronic disorders and to support metabolic balance.</li>
+<li>Pravala Bhasma – Traditionally used for its cooling and Pitta-balancing properties.</li>
+<li>Vacha (Acorus calamus) – Traditionally used in Kapha-related disorders and nervous disturbances.</li>
+<li>Chandana (Santalum album) – Traditionally used for cooling and Pitta balance.</li>
+<li>Jeeraka (Cuminum cyminum) – Traditionally used to support digestion.</li>
+<li>Shunti (Zingiber officinale) – Traditionally used to stimulate digestive fire.</li>
+<li>Pippali (Piper longum) – Traditionally used to support respiratory and digestive functions.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="H" data-search="hinguvachadi gulika hinguvachadi gulika is a classical ayurvedic formulation traditionally used in disorders related to digestive disturbances and abdominal discomfort. the formulation is particularly valued in conditions involving vata and kapha imbalance in the gastrointestinal tract, where symptoms such as gas formation, bloating, and abdominal pain are present. it helps stimulate agni (digestive fire), supports proper movement of vata in the abdomen, and aids in restoring digestive balance. agnimandya (impaired digestive fire) adhmana and anaha (abdominal distension and gas accumulation) shoola (abdominal pain and colicky discomfort) aruchi (loss of appetite) vibandha (difficulty in bowel evacuation) udara discomfort and heaviness in the abdomen pain in flanks and sacral region associated with vata imbalance kasa and shwasa associated with kapha accumulation deepana (stimulates digestive fire) pachana (helps digest accumulated ama) vatanulomana (supports proper downward movement of vata) kapha–vata shamana (helps balance aggravated kapha and vata) shoolahara (helps relieve abdominal pain) supports restoration of digestive and metabolic balance hingu (ferula asafoetida) – traditionally used to relieve abdominal gas and support digestive function. vacha (acorus calamus) – traditionally used in kapha-related digestive disturbances and abdominal distension. vijaya / haritaki (terminalia chebula) – traditionally used to support bowel regulation and digestive balance. dadima (punica granatum) – traditionally used to support digestion and intestinal strength. dhanyaka (coriandrum sativum) – traditionally used to relieve abdominal discomfort and support digestion. trikatu (shunti, maricha, pippali) – traditionally used to stimulate digestive fire and clear accumulated ama." id="hinguvachadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Hinguvachadi Gulika</h2>
+            <p>Hinguvachadi Gulika is a classical Ayurvedic formulation traditionally used in disorders related to digestive disturbances and abdominal discomfort. The formulation is particularly valued in conditions involving Vata and Kapha imbalance in the gastrointestinal tract, where symptoms such as gas formation, bloating, and abdominal pain are present. It helps stimulate Agni (digestive fire), supports proper movement of Vata in the abdomen, and aids in restoring digestive balance.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Hinguvachadi Gulika is a classical Ayurvedic formulation traditionally used in disorders related to digestive disturbances and abdominal discomfort. The formulation is particularly valued in conditions involving Vata and Kapha imbalance in the gastrointestinal tract, where symptoms such as gas formation, bloating, and abdominal pain are present. It helps stimulate Agni (digestive fire), supports proper movement of Vata in the abdomen, and aids in restoring digestive balance.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Agnimandya (impaired digestive fire)</li>
+<li>Adhmana and Anaha (abdominal distension and gas accumulation)</li>
+<li>Shoola (abdominal pain and colicky discomfort)</li>
+<li>Aruchi (loss of appetite)</li>
+<li>Vibandha (difficulty in bowel evacuation)</li>
+<li>Udara discomfort and heaviness in the abdomen</li>
+<li>Pain in flanks and sacral region associated with Vata imbalance</li>
+<li>Kasa and Shwasa associated with Kapha accumulation</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Vatanulomana (supports proper downward movement of Vata)</li>
+<li>Kapha–Vata shamana (helps balance aggravated Kapha and Vata)</li>
+<li>Shoolahara (helps relieve abdominal pain)</li>
+<li>Supports restoration of digestive and metabolic balance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Hingu (Ferula asafoetida) – Traditionally used to relieve abdominal gas and support digestive function.</li>
+<li>Vacha (Acorus calamus) – Traditionally used in Kapha-related digestive disturbances and abdominal distension.</li>
+<li>Vijaya / Haritaki (Terminalia chebula) – Traditionally used to support bowel regulation and digestive balance.</li>
+<li>Dadima (Punica granatum) – Traditionally used to support digestion and intestinal strength.</li>
+<li>Dhanyaka (Coriandrum sativum) – Traditionally used to relieve abdominal discomfort and support digestion.</li>
+<li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to stimulate digestive fire and clear accumulated Ama.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="K" data-search="kaisora guggulu kaisora guggulu is a classical ayurvedic formulation traditionally used in disorders involving vitiation of rakta (blood) and aggravated pitta and vata. the formulation is widely valued in conditions associated with inflammation, skin disturbances, and joint discomfort. it helps cleanse the channels, support proper metabolism, and restore balance in conditions where ama and vitiated rakta play a significant role. vatarakta (joint disorders associated with vitiated rakta) chronic skin disorders such as kushta and kandu visarpa and inflammatory skin eruptions sandhishoola and joint discomfort associated with vata imbalance vrana (chronic wounds and ulcers) conditions associated with rakta dushti general weakness and tissue depletion associated with chronic inflammatory conditions raktashodhana (supports purification of vitiated rakta) vata–pitta shamana (helps balance aggravated vata and pitta) shothahara (helps reduce swelling and inflammatory conditions) ama pachana (helps digest accumulated ama) rasayana (supports rejuvenation and tissue nourishment) supports restoration of proper metabolic balance guggulu (commiphora mukul) – traditionally used to cleanse channels and support balance in vata-related joint conditions. guduchi (tinospora cordifolia) – traditionally used in conditions involving pitta and rakta disturbances. triphala (haritaki, bibhitaki, amalaki) – traditionally used to support digestion, channel cleansing, and tissue nourishment. trikatu (shunti, maricha, pippali) – traditionally used to stimulate digestive fire and enhance absorption of the formulation." id="kaisora-guggulu">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Kaisora Guggulu</h2>
+            <p>Kaisora Guggulu is a classical Ayurvedic formulation traditionally used in disorders involving vitiation of Rakta (blood) and aggravated Pitta and Vata. The formulation is widely valued in conditions associated with inflammation, skin disturbances, and joint discomfort. It helps cleanse the channels, support proper metabolism, and restore balance in conditions where Ama and vitiated Rakta play a significant role.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Kaisora Guggulu is a classical Ayurvedic formulation traditionally used in disorders involving vitiation of Rakta (blood) and aggravated Pitta and Vata. The formulation is widely valued in conditions associated with inflammation, skin disturbances, and joint discomfort. It helps cleanse the channels, support proper metabolism, and restore balance in conditions where Ama and vitiated Rakta play a significant role.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Vatarakta (joint disorders associated with vitiated Rakta)</li>
+<li>Chronic skin disorders such as Kushta and Kandu</li>
+<li>Visarpa and inflammatory skin eruptions</li>
+<li>Sandhishoola and joint discomfort associated with Vata imbalance</li>
+<li>Vrana (chronic wounds and ulcers)</li>
+<li>Conditions associated with Rakta dushti</li>
+<li>General weakness and tissue depletion associated with chronic inflammatory conditions</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Raktashodhana (supports purification of vitiated Rakta)</li>
+<li>Vata–Pitta shamana (helps balance aggravated Vata and Pitta)</li>
+<li>Shothahara (helps reduce swelling and inflammatory conditions)</li>
+<li>Ama pachana (helps digest accumulated Ama)</li>
+<li>Rasayana (supports rejuvenation and tissue nourishment)</li>
+<li>Supports restoration of proper metabolic balance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Guggulu (Commiphora mukul) – Traditionally used to cleanse channels and support balance in Vata-related joint conditions.</li>
+<li>Guduchi (Tinospora cordifolia) – Traditionally used in conditions involving Pitta and Rakta disturbances.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used to support digestion, channel cleansing, and tissue nourishment.</li>
+<li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to stimulate digestive fire and enhance absorption of the formulation.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="K" data-search="kankayana gudika kankayana gudika is a classical ayurvedic formulation traditionally used in disorders affecting the lower digestive tract, particularly conditions associated with arsha (piles) and impaired digestion. the formulation helps balance vata and kapha in the abdominal and pelvic region, stimulates agni (digestive fire), and supports proper bowel function. it is commonly used in conditions where chronic digestive disturbances lead to the development of piles and abdominal discomfort. arsha (piles), particularly non-bleeding type gulma (abdominal lumps or gaseous abdominal masses) agnimandya (impaired digestive fire) adhmana and anaha (abdominal distension and gas accumulation) vibandha (difficulty in bowel evacuation) krimi (intestinal worms) pandu associated with digestive weakness udara discomfort and heaviness in the abdomen arshoghna (traditionally used in piles) deepana (stimulates digestive fire) pachana (helps digest accumulated ama) vatanulomana (supports proper downward movement of vata) kapha–vata shamana (helps balance aggravated kapha and vata) supports restoration of digestive and intestinal balance haritaki (terminalia chebula) – traditionally used to support bowel regularity and digestive balance. chitraka (plumbago zeylanica) – traditionally used to stimulate digestive fire and clear ama. hingu (ferula asafoetida) – traditionally used to relieve abdominal gas and discomfort. trikatu (shunti, maricha, pippali) – traditionally used to enhance digestion and metabolic activity. yavakshara – traditionally used to support digestive processes and relieve abdominal discomfort." id="kankayana-gudika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Kankayana Gudika</h2>
+            <p>Kankayana Gudika is a classical Ayurvedic formulation traditionally used in disorders affecting the lower digestive tract, particularly conditions associated with Arsha (piles) and impaired digestion. The formulation helps balance Vata and Kapha in the abdominal and pelvic region, stimulates Agni (digestive fire), and supports proper bowel function. It is commonly used in conditions where chronic digestive disturbances lead to the development of piles and abdominal discomfort.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Kankayana Gudika is a classical Ayurvedic formulation traditionally used in disorders affecting the lower digestive tract, particularly conditions associated with Arsha (piles) and impaired digestion. The formulation helps balance Vata and Kapha in the abdominal and pelvic region, stimulates Agni (digestive fire), and supports proper bowel function. It is commonly used in conditions where chronic digestive disturbances lead to the development of piles and abdominal discomfort.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Arsha (piles), particularly non-bleeding type</li>
+<li>Gulma (abdominal lumps or gaseous abdominal masses)</li>
+<li>Agnimandya (impaired digestive fire)</li>
+<li>Adhmana and Anaha (abdominal distension and gas accumulation)</li>
+<li>Vibandha (difficulty in bowel evacuation)</li>
+<li>Krimi (intestinal worms)</li>
+<li>Pandu associated with digestive weakness</li>
+<li>Udara discomfort and heaviness in the abdomen</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Arshoghna (traditionally used in piles)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Vatanulomana (supports proper downward movement of Vata)</li>
+<li>Kapha–Vata shamana (helps balance aggravated Kapha and Vata)</li>
+<li>Supports restoration of digestive and intestinal balance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Haritaki (Terminalia chebula) – Traditionally used to support bowel regularity and digestive balance.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally used to stimulate digestive fire and clear Ama.</li>
+<li>Hingu (Ferula asafoetida) – Traditionally used to relieve abdominal gas and discomfort.</li>
+<li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to enhance digestion and metabolic activity.</li>
+<li>Yavakshara – Traditionally used to support digestive processes and relieve abdominal discomfort.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="K" data-search="kachuradi vatu kachuradi vatu is a classical ayurvedic formulation traditionally used for external application in disorders affecting the head region. the formulation is widely valued for its cooling, soothing, and balancing effects on pitta and vata. it is commonly applied over the forehead or scalp in conditions involving headache, burning sensations of the head, and disturbances associated with mental strain or heat in the head region. shirashoola (headache) ardhavabhedaka (one-sided headache) giddiness and discomfort associated with pitta aggravation burning sensation in the head and eyes mental strain and restlessness disturbances affecting clarity of mind supportive care in certain pediatric nervous disturbances pittashamana (helps pacify aggravated pitta) vata shamana (helps balance aggravated vata in the head region) shoolahara (helps relieve headache and discomfort) daha shamana (helps reduce burning sensations) manah prasādana (supports calmness and clarity of mind) kachura / shati (curcuma zedoaria) – traditionally used to relieve head discomfort and support balance of pitta. devadaru (cedrus deodara) – traditionally used in vata-related pain and stiffness. bala (sida cordifolia) – traditionally used to support strength and balance of vata. musta (cyperus rotundus) – traditionally used to balance pitta and support systemic cooling. ushira (vetiveria zizanioides) – traditionally used for cooling and soothing effects. chandana (santalum album) – traditionally used to reduce heat and burning sensations. amalaki (emblica officinalis) – traditionally used to support tissue nourishment and pitta balance. yashtimadhu (glycyrrhiza glabra) – traditionally used for soothing and balancing properties." id="kachuradi-vatu">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Kachuradi Vatu</h2>
+            <p>Kachuradi Vatu is a classical Ayurvedic formulation traditionally used for external application in disorders affecting the head region. The formulation is widely valued for its cooling, soothing, and balancing effects on Pitta and Vata. It is commonly applied over the forehead or scalp in conditions involving headache, burning sensations of the head, and disturbances associated with mental strain or heat in the head region.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Kachuradi Vatu is a classical Ayurvedic formulation traditionally used for external application in disorders affecting the head region. The formulation is widely valued for its cooling, soothing, and balancing effects on Pitta and Vata. It is commonly applied over the forehead or scalp in conditions involving headache, burning sensations of the head, and disturbances associated with mental strain or heat in the head region.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Shirashoola (headache)</li>
+<li>Ardhavabhedaka (one-sided headache)</li>
+<li>Giddiness and discomfort associated with Pitta aggravation</li>
+<li>Burning sensation in the head and eyes</li>
+<li>Mental strain and restlessness</li>
+<li>Disturbances affecting clarity of mind</li>
+<li>Supportive care in certain pediatric nervous disturbances</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Pittashamana (helps pacify aggravated Pitta)</li>
+<li>Vata shamana (helps balance aggravated Vata in the head region)</li>
+<li>Shoolahara (helps relieve headache and discomfort)</li>
+<li>Daha shamana (helps reduce burning sensations)</li>
+<li>Manah prasādana (supports calmness and clarity of mind)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Kachura / Shati (Curcuma zedoaria) – Traditionally used to relieve head discomfort and support balance of Pitta.</li>
+<li>Devadaru (Cedrus deodara) – Traditionally used in Vata-related pain and stiffness.</li>
+<li>Bala (Sida cordifolia) – Traditionally used to support strength and balance of Vata.</li>
+<li>Musta (Cyperus rotundus) – Traditionally used to balance Pitta and support systemic cooling.</li>
+<li>Ushira (Vetiveria zizanioides) – Traditionally used for cooling and soothing effects.</li>
+<li>Chandana (Santalum album) – Traditionally used to reduce heat and burning sensations.</li>
+<li>Amalaki (Emblica officinalis) – Traditionally used to support tissue nourishment and Pitta balance.</li>
+<li>Yashtimadhu (Glycyrrhiza glabra) – Traditionally used for soothing and balancing properties.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="M" data-search="mahayogaraja guggulu mahayogaraja guggulu is a classical ayurvedic formulation traditionally used in chronic vata disorders, particularly those affecting the joints, muscles, and nervous system. it is considered an advanced preparation related to yogaraja guggulu and is prepared using a combination of herbal ingredients and mineral preparations according to rasashastra principles. the formulation helps balance vata, supports proper metabolism, and assists in conditions involving joint stiffness, nervous disturbances, and chronic musculoskeletal discomfort. sandhivata (joint disorders associated with vata) amavata (joint disorders associated with ama) vatarakta (joint disorders involving vitiated rakta) gridhrasi (pain radiating from lower back to legs) pakshaghata and other vata-related nervous disturbances kampavata (tremors associated with vata imbalance) artava dushti and menstrual discomfort klaibya and shukra dushti associated with reproductive weakness gulma (abdominal lumps or gaseous masses) kasa and shwasa associated with kapha–vata imbalance vata shamana (helps pacify aggravated vata) ama pachana (helps digest accumulated ama) shothahara (helps reduce swelling and inflammatory conditions) deepana (stimulates digestive fire) pachana (supports metabolic balance) rasayana (supports rejuvenation and tissue strength) shuddha guggulu (commiphora mukul) – traditionally used to cleanse channels and support joint health. triphala (haritaki, bibhitaki, amalaki) – traditionally used for digestion, cleansing, and tissue nourishment. trikatu (shunti, maricha, pippali) – traditionally used to stimulate digestive fire and enhance absorption. vidanga (embelia ribes) – traditionally used to support metabolic balance and channel cleansing. chitraka (plumbago zeylanica) – traditionally used to kindle digestive fire and clear ama. hingu (ferula asafoetida) – traditionally used to relieve abdominal gas and support digestion. bhasmas such as swarna, rajata, lauha, naga, vanga, and abhraka – traditionally included to enhance the potency and rejuvenative effects of the formulation." id="mahayogaraja-guggulu">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Mahayogaraja Guggulu</h2>
+            <p>Mahayogaraja Guggulu is a classical Ayurvedic formulation traditionally used in chronic Vata disorders, particularly those affecting the joints, muscles, and nervous system. It is considered an advanced preparation related to Yogaraja Guggulu and is prepared using a combination of herbal ingredients and mineral preparations according to Rasashastra principles. The formulation helps balance Vata, supports proper metabolism, and assists in conditions involving joint stiffness, nervous disturbances, and chronic musculoskeletal discomfort.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Mahayogaraja Guggulu is a classical Ayurvedic formulation traditionally used in chronic Vata disorders, particularly those affecting the joints, muscles, and nervous system. It is considered an advanced preparation related to Yogaraja Guggulu and is prepared using a combination of herbal ingredients and mineral preparations according to Rasashastra principles. The formulation helps balance Vata, supports proper metabolism, and assists in conditions involving joint stiffness, nervous disturbances, and chronic musculoskeletal discomfort.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Sandhivata (joint disorders associated with Vata)</li>
+<li>Amavata (joint disorders associated with Ama)</li>
+<li>Vatarakta (joint disorders involving vitiated Rakta)</li>
+<li>Gridhrasi (pain radiating from lower back to legs)</li>
+<li>Pakshaghata and other Vata-related nervous disturbances</li>
+<li>Kampavata (tremors associated with Vata imbalance)</li>
+<li>Artava dushti and menstrual discomfort</li>
+<li>Klaibya and Shukra dushti associated with reproductive weakness</li>
+<li>Gulma (abdominal lumps or gaseous masses)</li>
+<li>Kasa and Shwasa associated with Kapha–Vata imbalance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Vata shamana (helps pacify aggravated Vata)</li>
+<li>Ama pachana (helps digest accumulated Ama)</li>
+<li>Shothahara (helps reduce swelling and inflammatory conditions)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports metabolic balance)</li>
+<li>Rasayana (supports rejuvenation and tissue strength)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Shuddha Guggulu (Commiphora mukul) – Traditionally used to cleanse channels and support joint health.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used for digestion, cleansing, and tissue nourishment.</li>
+<li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to stimulate digestive fire and enhance absorption.</li>
+<li>Vidanga (Embelia ribes) – Traditionally used to support metabolic balance and channel cleansing.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally used to kindle digestive fire and clear Ama.</li>
+<li>Hingu (Ferula asafoetida) – Traditionally used to relieve abdominal gas and support digestion.</li>
+<li>Bhasmas such as Swarna, Rajata, Lauha, Naga, Vanga, and Abhraka – Traditionally included to enhance the potency and rejuvenative effects of the formulation.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="M" data-search="marma gulika marma gulika is a classical ayurvedic formulation traditionally used in conditions involving injury, trauma, and disturbances affecting vital structures of the body known as marmas. the formulation is unique in that it may be used internally as a tablet and externally as a paste, depending on the condition. it is valued in traditional practice for supporting recovery from injuries, balancing vata disturbances caused by trauma, and assisting in restoration of normal functioning of vital organs and tissues. abhighata (injuries due to trauma or falls) marmabhighata (injury affecting vital points of the body) vrana (wounds and tissue injury) shotha (swelling and localized inflammation) sandhishoola and general body pain associated with vata aggravation giddiness and faintness associated with vata disturbance shirashoola (headache) mutrakrichra (painful urination) conditions affecting urinary channels vata shamana (helps pacify aggravated vata caused by injury) shothahara (helps reduce swelling and localized inflammation) vedanasthapana (helps relieve pain) vrana ropana (supports healing of wounds and injured tissues) balya (supports strength and recovery of tissues) supports restoration of balance in vital structures (marma) chandana (santalum album) – traditionally used for cooling and pitta-pacifying effects. guduchi (tinospora cordifolia) – traditionally used in conditions involving pitta and rakta disturbances. yashtimadhu (glycyrrhiza glabra) – traditionally used for soothing and tissue-supporting properties. shatavari (asparagus racemosus) – traditionally used to nourish tissues and support systemic balance. gokshura (tribulus terrestris) – traditionally used to support urinary channels and tissue strength." id="marma-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Marma Gulika</h2>
+            <p>Marma Gulika is a classical Ayurvedic formulation traditionally used in conditions involving injury, trauma, and disturbances affecting vital structures of the body known as Marmas. The formulation is unique in that it may be used internally as a tablet and externally as a paste, depending on the condition. It is valued in traditional practice for supporting recovery from injuries, balancing Vata disturbances caused by trauma, and assisting in restoration of normal functioning of vital organs and tissues.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Marma Gulika is a classical Ayurvedic formulation traditionally used in conditions involving injury, trauma, and disturbances affecting vital structures of the body known as Marmas. The formulation is unique in that it may be used internally as a tablet and externally as a paste, depending on the condition. It is valued in traditional practice for supporting recovery from injuries, balancing Vata disturbances caused by trauma, and assisting in restoration of normal functioning of vital organs and tissues.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Abhighata (injuries due to trauma or falls)</li>
+<li>Marmabhighata (injury affecting vital points of the body)</li>
+<li>Vrana (wounds and tissue injury)</li>
+<li>Shotha (swelling and localized inflammation)</li>
+<li>Sandhishoola and general body pain associated with Vata aggravation</li>
+<li>Giddiness and faintness associated with Vata disturbance</li>
+<li>Shirashoola (headache)</li>
+<li>Mutrakrichra (painful urination)</li>
+<li>Conditions affecting urinary channels</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Vata shamana (helps pacify aggravated Vata caused by injury)</li>
+<li>Shothahara (helps reduce swelling and localized inflammation)</li>
+<li>Vedanasthapana (helps relieve pain)</li>
+<li>Vrana ropana (supports healing of wounds and injured tissues)</li>
+<li>Balya (supports strength and recovery of tissues)</li>
+<li>Supports restoration of balance in vital structures (Marma)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Chandana (Santalum album) – Traditionally used for cooling and Pitta-pacifying effects.</li>
+<li>Guduchi (Tinospora cordifolia) – Traditionally used in conditions involving Pitta and Rakta disturbances.</li>
+<li>Yashtimadhu (Glycyrrhiza glabra) – Traditionally used for soothing and tissue-supporting properties.</li>
+<li>Shatavari (Asparagus racemosus) – Traditionally used to nourish tissues and support systemic balance.</li>
+<li>Gokshura (Tribulus terrestris) – Traditionally used to support urinary channels and tissue strength.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="M" data-search="manasamitram gulika manasamitram gulika is a classical ayurvedic formulation traditionally used in conditions affecting the mind and nervous system. the name manasamitram means “friend of the mind,” indicating its role in supporting mental balance and clarity. the formulation is widely valued in traditional practice for helping maintain equilibrium of the mind (manas) and balancing vata and pitta disturbances affecting the nervous system. it is commonly used to support mental calmness, proper sleep, and cognitive functions. manasika vikaras (disturbances of the mind) chinta, bhaya, and mental restlessness nidranasha (disturbance of sleep) smriti and medha kshaya (decline in memory and intellect) unmada and apasmara related conditions mental fatigue and lack of concentration certain nervous disturbances in children psychosomatic disturbances associated with imbalance of mind and body medhya (supports intellect and cognitive functions) manas shamana (helps calm disturbances of the mind) nidra janana (supports natural sleep) vata–pitta shamana (helps balance aggravated vata and pitta affecting the nervous system) rasayana (supports rejuvenation and nourishment of nervous tissues) supports mental clarity and emotional balance brahmi (bacopa monnieri) – traditionally used to support memory, intellect, and mental clarity. shankhapushpi (convolvulus pluricaulis) – traditionally used to calm the mind and support cognitive balance. ashwagandha (withania somnifera) – traditionally used to nourish nervous tissues and support strength and calmness. jatamansi (nardostachys jatamansi) – traditionally used to promote mental calmness and support sleep. swarna bhasma – traditionally included in certain preparations to enhance rejuvenative and strengthening effects. rare preparations such as double coconut (in some traditional formulations) – used to support nourishment of tissues and balance of the mind." id="manasamitram-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Manasamitram Gulika</h2>
+            <p>Manasamitram Gulika is a classical Ayurvedic formulation traditionally used in conditions affecting the mind and nervous system. The name Manasamitram means “friend of the mind,” indicating its role in supporting mental balance and clarity. The formulation is widely valued in traditional practice for helping maintain equilibrium of the mind (Manas) and balancing Vata and Pitta disturbances affecting the nervous system. It is commonly used to support mental calmness, proper sleep, and cognitive functions.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Manasamitram Gulika is a classical Ayurvedic formulation traditionally used in conditions affecting the mind and nervous system. The name Manasamitram means “friend of the mind,” indicating its role in supporting mental balance and clarity. The formulation is widely valued in traditional practice for helping maintain equilibrium of the mind (Manas) and balancing Vata and Pitta disturbances affecting the nervous system. It is commonly used to support mental calmness, proper sleep, and cognitive functions.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Manasika vikaras (disturbances of the mind)</li>
+<li>Chinta, Bhaya, and mental restlessness</li>
+<li>Nidranasha (disturbance of sleep)</li>
+<li>Smriti and Medha kshaya (decline in memory and intellect)</li>
+<li>Unmada and Apasmara related conditions</li>
+<li>Mental fatigue and lack of concentration</li>
+<li>Certain nervous disturbances in children</li>
+<li>Psychosomatic disturbances associated with imbalance of mind and body</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Medhya (supports intellect and cognitive functions)</li>
+<li>Manas shamana (helps calm disturbances of the mind)</li>
+<li>Nidra janana (supports natural sleep)</li>
+<li>Vata–Pitta shamana (helps balance aggravated Vata and Pitta affecting the nervous system)</li>
+<li>Rasayana (supports rejuvenation and nourishment of nervous tissues)</li>
+<li>Supports mental clarity and emotional balance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Brahmi (Bacopa monnieri) – Traditionally used to support memory, intellect, and mental clarity.</li>
+<li>Shankhapushpi (Convolvulus pluricaulis) – Traditionally used to calm the mind and support cognitive balance.</li>
+<li>Ashwagandha (Withania somnifera) – Traditionally used to nourish nervous tissues and support strength and calmness.</li>
+<li>Jatamansi (Nardostachys jatamansi) – Traditionally used to promote mental calmness and support sleep.</li>
+<li>Swarna Bhasma – Traditionally included in certain preparations to enhance rejuvenative and strengthening effects.</li>
+<li>Rare preparations such as double coconut (in some traditional formulations) – Used to support nourishment of tissues and balance of the mind.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="M" data-search="mukkadi gulika mukkadi gulika is a classical ayurvedic formulation traditionally used in conditions involving fever, respiratory disturbances, and pitta-related disorders. it is widely used in traditional kerala ayurvedic practice and is valued for its cooling and balancing effects on pitta and kapha, particularly in febrile conditions accompanied by thirst, burning sensations, and respiratory discomfort. the formulation also supports digestive balance and helps restore systemic equilibrium during illness. jwara (various types of fever) kasa (cough) and shwasa (difficulty in breathing) peenasa (nasal congestion and kapha accumulation) daha and trishna (burning sensation and excessive thirst) chardi (vomiting) associated with pitta aggravation netra daha and redness of eyes agnimandya (impaired digestive fire) giddiness and faintness associated with pitta imbalance certain disturbances affecting the mind during febrile conditions jwarahara (traditionally used in fever conditions) pittashamana (helps pacify aggravated pitta) kaphahara (helps clear kapha from respiratory passages) deepana (supports digestive fire) pachana (helps digest accumulated ama) daha shamana (helps reduce burning sensations and internal heat) triphala (haritaki, bibhitaki, amalaki) – traditionally used to support digestion, cleansing of channels, and tissue balance. musta (cyperus rotundus) – traditionally used in fever and digestive disturbances. chandana (santalum album) – traditionally used for cooling and pitta-pacifying effects. ushira (vetiveria zizanioides) – traditionally used to reduce internal heat and thirst. kachura (curcuma zedoaria) – traditionally used in respiratory and digestive disturbances. jatamansi (nardostachys jatamansi) – traditionally used to support calmness and balance of the nervous system." id="mukkadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Mukkadi Gulika</h2>
+            <p>Mukkadi Gulika is a classical Ayurvedic formulation traditionally used in conditions involving fever, respiratory disturbances, and Pitta-related disorders. It is widely used in traditional Kerala Ayurvedic practice and is valued for its cooling and balancing effects on Pitta and Kapha, particularly in febrile conditions accompanied by thirst, burning sensations, and respiratory discomfort. The formulation also supports digestive balance and helps restore systemic equilibrium during illness.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Mukkadi Gulika is a classical Ayurvedic formulation traditionally used in conditions involving fever, respiratory disturbances, and Pitta-related disorders. It is widely used in traditional Kerala Ayurvedic practice and is valued for its cooling and balancing effects on Pitta and Kapha, particularly in febrile conditions accompanied by thirst, burning sensations, and respiratory discomfort. The formulation also supports digestive balance and helps restore systemic equilibrium during illness.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Jwara (various types of fever)</li>
+<li>Kasa (cough) and Shwasa (difficulty in breathing)</li>
+<li>Peenasa (nasal congestion and Kapha accumulation)</li>
+<li>Daha and Trishna (burning sensation and excessive thirst)</li>
+<li>Chardi (vomiting) associated with Pitta aggravation</li>
+<li>Netra daha and redness of eyes</li>
+<li>Agnimandya (impaired digestive fire)</li>
+<li>Giddiness and faintness associated with Pitta imbalance</li>
+<li>Certain disturbances affecting the mind during febrile conditions</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Jwarahara (traditionally used in fever conditions)</li>
+<li>Pittashamana (helps pacify aggravated Pitta)</li>
+<li>Kaphahara (helps clear Kapha from respiratory passages)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Daha shamana (helps reduce burning sensations and internal heat)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used to support digestion, cleansing of channels, and tissue balance.</li>
+<li>Musta (Cyperus rotundus) – Traditionally used in fever and digestive disturbances.</li>
+<li>Chandana (Santalum album) – Traditionally used for cooling and Pitta-pacifying effects.</li>
+<li>Ushira (Vetiveria zizanioides) – Traditionally used to reduce internal heat and thirst.</li>
+<li>Kachura (Curcuma zedoaria) – Traditionally used in respiratory and digestive disturbances.</li>
+<li>Jatamansi (Nardostachys jatamansi) – Traditionally used to support calmness and balance of the nervous system.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="S" data-search="swasanantham gulika swasanantham gulika is a classical ayurvedic herbo-mineral formulation traditionally used in disorders affecting the respiratory system. the name swasanantham signifies restoration of comfortable breathing. the formulation is valued for balancing kapha and vata in the respiratory channels, helping clear accumulated kapha and supporting proper functioning of the pranavaha srotas (respiratory pathways). it is commonly used in conditions involving cough, breathlessness, and respiratory congestion. shwasa (difficulty in breathing) kasa (cough) kapha accumulation in the respiratory passages peenasa (nasal congestion and discharge) chest congestion and heaviness in the chest wheezing and discomfort associated with vata–kapha imbalance throat irritation and respiratory discomfort recurrent respiratory disturbances kapha–vata shamana (helps balance aggravated kapha and vata) kaphahara (helps clear accumulated kapha from respiratory passages) shwasahara (supports comfortable breathing) deepana (supports digestive fire) pachana (helps digest accumulated ama) supports proper functioning of respiratory channels shuddha hingula – traditionally used in certain chronic respiratory conditions when properly purified and processed. shuddha vatsanabha – traditionally used in vata–kapha disorders and respiratory disturbances after purification. karpoora (cinnamomum camphora) – traditionally used to support respiratory comfort and balance kapha. triphala (haritaki, bibhitaki, amalaki) – traditionally used to support cleansing of channels and digestive balance. trikatu (shunti, maricha, pippali) – traditionally used to stimulate digestive fire and help clear kapha accumulation." id="swasanantham-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Swasanantham Gulika</h2>
+            <p>Swasanantham Gulika is a classical Ayurvedic herbo-mineral formulation traditionally used in disorders affecting the respiratory system. The name Swasanantham signifies restoration of comfortable breathing. The formulation is valued for balancing Kapha and Vata in the respiratory channels, helping clear accumulated Kapha and supporting proper functioning of the pranavaha srotas (respiratory pathways). It is commonly used in conditions involving cough, breathlessness, and respiratory congestion.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Swasanantham Gulika is a classical Ayurvedic herbo-mineral formulation traditionally used in disorders affecting the respiratory system. The name Swasanantham signifies restoration of comfortable breathing. The formulation is valued for balancing Kapha and Vata in the respiratory channels, helping clear accumulated Kapha and supporting proper functioning of the pranavaha srotas (respiratory pathways). It is commonly used in conditions involving cough, breathlessness, and respiratory congestion.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Shwasa (difficulty in breathing)</li>
+<li>Kasa (cough)</li>
+<li>Kapha accumulation in the respiratory passages</li>
+<li>Peenasa (nasal congestion and discharge)</li>
+<li>Chest congestion and heaviness in the chest</li>
+<li>Wheezing and discomfort associated with Vata–Kapha imbalance</li>
+<li>Throat irritation and respiratory discomfort</li>
+<li>Recurrent respiratory disturbances</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kapha–Vata shamana (helps balance aggravated Kapha and Vata)</li>
+<li>Kaphahara (helps clear accumulated Kapha from respiratory passages)</li>
+<li>Shwasahara (supports comfortable breathing)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Supports proper functioning of respiratory channels</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Shuddha Hingula – Traditionally used in certain chronic respiratory conditions when properly purified and processed.</li>
+<li>Shuddha Vatsanabha – Traditionally used in Vata–Kapha disorders and respiratory disturbances after purification.</li>
+<li>Karpoora (Cinnamomum camphora) – Traditionally used to support respiratory comfort and balance Kapha.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used to support cleansing of channels and digestive balance.</li>
+<li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to stimulate digestive fire and help clear Kapha accumulation.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="S" data-search="suvarnamukthadi gulika suvarnamukthadi gulika is a classical ayurvedic herbo-mineral formulation traditionally used in conditions involving fever, nervous disturbances, and sensory impairment. the formulation contains carefully processed mineral preparations along with herbal ingredients and is valued for its ability to balance tridosha while supporting vitality and systemic balance. it is commonly used in conditions where severe fever and associated weakness disturb the nervous and sensory functions. jwara (severe and chronic febrile conditions) weakness and fatigue associated with fever apasmara and nervous disturbances giddiness and faintness associated with vata imbalance netra bala kshaya (diminished vision) karna related sensory disturbances kasa and shwasa (cough and difficulty in breathing) adhmana and abdominal discomfort associated with vata disturbance mental fatigue and lack of clarity of mind jwarahara (traditionally used in febrile conditions) tridosha shamana (helps balance vata, pitta, and kapha) medhya (supports clarity of mind and nervous balance) rasayana (supports rejuvenation and vitality) deepana (supports digestive fire) pachana (helps digest accumulated ama) suvarna bhasma – traditionally used for rejuvenation and support of vitality. mukta bhasma – traditionally used for cooling and pitta balance. rajata bhasma – traditionally used to support nervous system balance. triphala (haritaki, bibhitaki, amalaki) – traditionally used for cleansing of channels and tissue nourishment. bilva (aegle marmelos) – traditionally used to support digestive balance. nimba (azadirachta indica) – traditionally used in conditions involving pitta and rakta disturbances. draksha (vitis vinifera) – traditionally used to support strength and nourishment of tissues. vacha (acorus calamus) – traditionally used in kapha-related disturbances and nervous imbalance. pippali (piper longum) – traditionally used to support respiratory and digestive functions." id="suvarnamukthadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Suvarnamukthadi Gulika</h2>
+            <p>Suvarnamukthadi Gulika is a classical Ayurvedic herbo-mineral formulation traditionally used in conditions involving fever, nervous disturbances, and sensory impairment. The formulation contains carefully processed mineral preparations along with herbal ingredients and is valued for its ability to balance Tridosha while supporting vitality and systemic balance. It is commonly used in conditions where severe fever and associated weakness disturb the nervous and sensory functions.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Suvarnamukthadi Gulika is a classical Ayurvedic herbo-mineral formulation traditionally used in conditions involving fever, nervous disturbances, and sensory impairment. The formulation contains carefully processed mineral preparations along with herbal ingredients and is valued for its ability to balance Tridosha while supporting vitality and systemic balance. It is commonly used in conditions where severe fever and associated weakness disturb the nervous and sensory functions.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Jwara (severe and chronic febrile conditions)</li>
+<li>Weakness and fatigue associated with fever</li>
+<li>Apasmara and nervous disturbances</li>
+<li>Giddiness and faintness associated with Vata imbalance</li>
+<li>Netra bala kshaya (diminished vision)</li>
+<li>Karna related sensory disturbances</li>
+<li>Kasa and Shwasa (cough and difficulty in breathing)</li>
+<li>Adhmana and abdominal discomfort associated with Vata disturbance</li>
+<li>Mental fatigue and lack of clarity of mind</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Jwarahara (traditionally used in febrile conditions)</li>
+<li>Tridosha shamana (helps balance Vata, Pitta, and Kapha)</li>
+<li>Medhya (supports clarity of mind and nervous balance)</li>
+<li>Rasayana (supports rejuvenation and vitality)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Suvarna Bhasma – Traditionally used for rejuvenation and support of vitality.</li>
+<li>Mukta Bhasma – Traditionally used for cooling and Pitta balance.</li>
+<li>Rajata Bhasma – Traditionally used to support nervous system balance.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used for cleansing of channels and tissue nourishment.</li>
+<li>Bilva (Aegle marmelos) – Traditionally used to support digestive balance.</li>
+<li>Nimba (Azadirachta indica) – Traditionally used in conditions involving Pitta and Rakta disturbances.</li>
+<li>Draksha (Vitis vinifera) – Traditionally used to support strength and nourishment of tissues.</li>
+<li>Vacha (Acorus calamus) – Traditionally used in Kapha-related disturbances and nervous imbalance.</li>
+<li>Pippali (Piper longum) – Traditionally used to support respiratory and digestive functions.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="V" data-search="vettumaran gulika vettumaran gulika is a classical ayurvedic formulation traditionally used in conditions involving fever, digestive disturbances, and respiratory discomfort. the formulation is widely used in traditional kerala ayurvedic practice and is valued for its ability to balance vata and kapha, support proper digestive function, and assist the body during febrile conditions. it is particularly indicated in conditions where fever is accompanied by abdominal discomfort, respiratory congestion, and systemic weakness. jwara (various types of fever) abdominal colic and shoola adhmana and anaha (abdominal distension and gas accumulation) kasa (cough) shwasa (difficulty in breathing) kapha accumulation in respiratory passages painful swelling of glands mutrakrichra (painful urination) digestive disturbances associated with vata–kapha imbalance jwarahara (traditionally used in febrile conditions) vata–kapha shamana (helps balance aggravated vata and kapha) deepana (stimulates digestive fire) pachana (helps digest accumulated ama) shoolahara (helps relieve abdominal pain) kaphahara (helps clear kapha from respiratory passages) ponnumtharam (purified tankana / borax) – traditionally used to support respiratory comfort and reduce kapha accumulation. shuddha hingula – traditionally used in certain chronic febrile conditions after proper purification. maricha (piper nigrum) – traditionally used to stimulate digestion and clear kapha from respiratory passages. ajamoda (trachyspermum roxburghianum) – traditionally used to relieve abdominal discomfort and gas accumulation. shunti (zingiber officinale) – traditionally used to stimulate digestive fire and support respiratory function." id="vettumaran-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Vettumaran Gulika</h2>
+            <p>Vettumaran Gulika is a classical Ayurvedic formulation traditionally used in conditions involving fever, digestive disturbances, and respiratory discomfort. The formulation is widely used in traditional Kerala Ayurvedic practice and is valued for its ability to balance Vata and Kapha, support proper digestive function, and assist the body during febrile conditions. It is particularly indicated in conditions where fever is accompanied by abdominal discomfort, respiratory congestion, and systemic weakness.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Vettumaran Gulika is a classical Ayurvedic formulation traditionally used in conditions involving fever, digestive disturbances, and respiratory discomfort. The formulation is widely used in traditional Kerala Ayurvedic practice and is valued for its ability to balance Vata and Kapha, support proper digestive function, and assist the body during febrile conditions. It is particularly indicated in conditions where fever is accompanied by abdominal discomfort, respiratory congestion, and systemic weakness.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Jwara (various types of fever)</li>
+<li>Abdominal colic and Shoola</li>
+<li>Adhmana and Anaha (abdominal distension and gas accumulation)</li>
+<li>Kasa (cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Kapha accumulation in respiratory passages</li>
+<li>Painful swelling of glands</li>
+<li>Mutrakrichra (painful urination)</li>
+<li>Digestive disturbances associated with Vata–Kapha imbalance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Jwarahara (traditionally used in febrile conditions)</li>
+<li>Vata–Kapha shamana (helps balance aggravated Vata and Kapha)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Shoolahara (helps relieve abdominal pain)</li>
+<li>Kaphahara (helps clear Kapha from respiratory passages)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Ponnumtharam (Purified Tankana / Borax) – Traditionally used to support respiratory comfort and reduce Kapha accumulation.</li>
+<li>Shuddha Hingula – Traditionally used in certain chronic febrile conditions after proper purification.</li>
+<li>Maricha (Piper nigrum) – Traditionally used to stimulate digestion and clear Kapha from respiratory passages.</li>
+<li>Ajamoda (Trachyspermum roxburghianum) – Traditionally used to relieve abdominal discomfort and gas accumulation.</li>
+<li>Shunti (Zingiber officinale) – Traditionally used to stimulate digestive fire and support respiratory function.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="V" data-search="vilwadi gulika vilwadi gulika is a classical ayurvedic formulation traditionally used in conditions associated with toxicity, digestive disturbances, and febrile disorders. it is widely described in ayurvedic vishachikitsa (toxicology) and is valued for its ability to neutralize various forms of visha (toxins) affecting the body. the formulation helps balance kapha and pitta, supports digestive function, and assists in clearing toxic accumulations from the body. keeta visha (toxicity due to insect bites and stings) vrischika visha (scorpion stings) gara visha (toxicity from contaminated food or substances) chardi (vomiting) associated with toxic ingestion atisara (diarrhea) associated with digestive disturbances adhmana and anaha (abdominal distension and gas accumulation) jwara associated with toxic conditions skin eruptions and inflammatory swellings certain disturbances of the mind associated with toxic imbalance agada (traditionally used in toxic conditions) kapha–pitta shamana (helps balance aggravated kapha and pitta) deepana (stimulates digestive fire) pachana (helps digest accumulated ama) vishaghna (supports neutralization of toxins) shothahara (helps reduce swelling and inflammatory conditions) bilva (aegle marmelos) – traditionally used to support digestion and balance vata and kapha. tulasi (ocimum sanctum) – traditionally used in kapha-related respiratory and systemic disturbances. karanja (pongamia pinnata) – traditionally used in skin disorders and conditions involving toxins. trikatu (shunti, maricha, pippali) – traditionally used to stimulate digestive fire and clear kapha. triphala (haritaki, bibhitaki, amalaki) – traditionally used for cleansing of channels and tissue balance." id="vilwadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Vilwadi Gulika</h2>
+            <p>Vilwadi Gulika is a classical Ayurvedic formulation traditionally used in conditions associated with toxicity, digestive disturbances, and febrile disorders. It is widely described in Ayurvedic Vishachikitsa (toxicology) and is valued for its ability to neutralize various forms of visha (toxins) affecting the body. The formulation helps balance Kapha and Pitta, supports digestive function, and assists in clearing toxic accumulations from the body.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Vilwadi Gulika is a classical Ayurvedic formulation traditionally used in conditions associated with toxicity, digestive disturbances, and febrile disorders. It is widely described in Ayurvedic Vishachikitsa (toxicology) and is valued for its ability to neutralize various forms of visha (toxins) affecting the body. The formulation helps balance Kapha and Pitta, supports digestive function, and assists in clearing toxic accumulations from the body.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Keeta visha (toxicity due to insect bites and stings)</li>
+<li>Vrischika visha (scorpion stings)</li>
+<li>Gara visha (toxicity from contaminated food or substances)</li>
+<li>Chardi (vomiting) associated with toxic ingestion</li>
+<li>Atisara (diarrhea) associated with digestive disturbances</li>
+<li>Adhmana and Anaha (abdominal distension and gas accumulation)</li>
+<li>Jwara associated with toxic conditions</li>
+<li>Skin eruptions and inflammatory swellings</li>
+<li>Certain disturbances of the mind associated with toxic imbalance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Agada (traditionally used in toxic conditions)</li>
+<li>Kapha–Pitta shamana (helps balance aggravated Kapha and Pitta)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Vishaghna (supports neutralization of toxins)</li>
+<li>Shothahara (helps reduce swelling and inflammatory conditions)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Bilva (Aegle marmelos) – Traditionally used to support digestion and balance Vata and Kapha.</li>
+<li>Tulasi (Ocimum sanctum) – Traditionally used in Kapha-related respiratory and systemic disturbances.</li>
+<li>Karanja (Pongamia pinnata) – Traditionally used in skin disorders and conditions involving toxins.</li>
+<li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to stimulate digestive fire and clear Kapha.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used for cleansing of channels and tissue balance.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="V" data-search="vayu gulika (kasthuryadi gulika) vayu gulika, also known as kasthuryadi gulika, is a classical ayurvedic formulation traditionally used in disorders involving vata imbalance, particularly affecting the respiratory and digestive systems. the formulation helps balance vata and kapha, supports proper functioning of the pranavaha srotas (respiratory channels) and annavaha srotas (digestive channels), and assists in relieving discomfort associated with respiratory congestion, digestive disturbances, and febrile conditions. kasa (cough) shwasa (difficulty in breathing) peenasa (nasal congestion and discharge) hikka (hiccups) adhmana and anaha (abdominal distension and gas accumulation) shoola (abdominal colic) agnimandya (impaired digestive fire) jwara (febrile conditions) giddiness and tremors associated with vata disturbance vata–kapha shamana (helps balance aggravated vata and kapha) kaphahara (helps clear kapha from respiratory passages) deepana (stimulates digestive fire) pachana (helps digest accumulated ama) shwasahara (supports comfortable breathing) vatanulomana (supports proper movement of vata in the abdomen) trikatu (shunti, maricha, pippali) – traditionally used to stimulate digestive fire and clear kapha accumulation. kirathatikta (swertia chirata) – traditionally used in febrile and digestive disturbances. shuddha vatsanabha – traditionally used in vata–kapha disorders after proper purification. ela (elettaria cardamomum) – traditionally used to support digestion and balance kapha. lavanga (syzygium aromaticum) – traditionally used to relieve abdominal discomfort and support respiratory balance. abhraka bhasma – traditionally used in certain formulations to support strength and balance of tissues." id="vayu-gulika-kasthuryadi-gulika">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Vayu Gulika (Kasthuryadi Gulika)</h2>
+            <p>Vayu Gulika, also known as Kasthuryadi Gulika, is a classical Ayurvedic formulation traditionally used in disorders involving Vata imbalance, particularly affecting the respiratory and digestive systems. The formulation helps balance Vata and Kapha, supports proper functioning of the pranavaha srotas (respiratory channels) and annavaha srotas (digestive channels), and assists in relieving discomfort associated with respiratory congestion, digestive disturbances, and febrile conditions.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Vayu Gulika, also known as Kasthuryadi Gulika, is a classical Ayurvedic formulation traditionally used in disorders involving Vata imbalance, particularly affecting the respiratory and digestive systems. The formulation helps balance Vata and Kapha, supports proper functioning of the pranavaha srotas (respiratory channels) and annavaha srotas (digestive channels), and assists in relieving discomfort associated with respiratory congestion, digestive disturbances, and febrile conditions.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kasa (cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Peenasa (nasal congestion and discharge)</li>
+<li>Hikka (hiccups)</li>
+<li>Adhmana and Anaha (abdominal distension and gas accumulation)</li>
+<li>Shoola (abdominal colic)</li>
+<li>Agnimandya (impaired digestive fire)</li>
+<li>Jwara (febrile conditions)</li>
+<li>Giddiness and tremors associated with Vata disturbance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Vata–Kapha shamana (helps balance aggravated Vata and Kapha)</li>
+<li>Kaphahara (helps clear Kapha from respiratory passages)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (helps digest accumulated Ama)</li>
+<li>Shwasahara (supports comfortable breathing)</li>
+<li>Vatanulomana (supports proper movement of Vata in the abdomen)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Trikatu (Shunti, Maricha, Pippali) – Traditionally used to stimulate digestive fire and clear Kapha accumulation.</li>
+<li>Kirathatikta (Swertia chirata) – Traditionally used in febrile and digestive disturbances.</li>
+<li>Shuddha Vatsanabha – Traditionally used in Vata–Kapha disorders after proper purification.</li>
+<li>Ela (Elettaria cardamomum) – Traditionally used to support digestion and balance Kapha.</li>
+<li>Lavanga (Syzygium aromaticum) – Traditionally used to relieve abdominal discomfort and support respiratory balance.</li>
+<li>Abhraka Bhasma – Traditionally used in certain formulations to support strength and balance of tissues.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="Y" data-search="yogaraja guggulu yogaraja guggulu is a classical ayurvedic formulation traditionally used in disorders involving vata imbalance, particularly those affecting the joints, muscles, and nervous system. the formulation is widely valued for supporting joint mobility, relieving stiffness, and promoting proper metabolic balance. it helps clear ama from the body, supports digestive fire, and assists in restoring normal functioning of the musculoskeletal and nervous systems. sandhivata (joint disorders associated with vata) amavata (joint disorders associated with ama) vatarakta (joint disorders involving vitiated rakta) gridhrasi (pain radiating from lower back to legs) pakshaghata and other vata-related nervous disturbances shoola and stiffness in muscles and joints arsha and bhagandara associated with digestive disturbances adhmana and anaha (abdominal distension and gas accumulation) vata shamana (helps pacify aggravated vata) ama pachana (helps digest accumulated ama) shothahara (helps reduce swelling) deepana (stimulates digestive fire) pachana (supports metabolic balance) balya (supports strength of joints and tissues) shuddha guggulu (commiphora mukul) – traditionally used to cleanse channels and support joint health. triphala (haritaki, bibhitaki, amalaki) – traditionally used to support digestion and cleansing of channels. rasna (pluchea lanceolata) – traditionally used to pacify vata in joints and muscles. chitraka (plumbago zeylanica) – traditionally used to stimulate digestive fire and clear ama. pippali (piper longum) – traditionally used to support digestion and respiratory balance. shunti (zingiber officinale) – traditionally used to enhance digestive fire and circulation. saindhava lavana (rock salt) – traditionally used to support digestion and tissue balance." id="yogaraja-guggulu">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Yogaraja Guggulu</h2>
+            <p>Yogaraja Guggulu is a classical Ayurvedic formulation traditionally used in disorders involving Vata imbalance, particularly those affecting the joints, muscles, and nervous system. The formulation is widely valued for supporting joint mobility, relieving stiffness, and promoting proper metabolic balance. It helps clear Ama from the body, supports digestive fire, and assists in restoring normal functioning of the musculoskeletal and nervous systems.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Yogaraja Guggulu is a classical Ayurvedic formulation traditionally used in disorders involving Vata imbalance, particularly those affecting the joints, muscles, and nervous system. The formulation is widely valued for supporting joint mobility, relieving stiffness, and promoting proper metabolic balance. It helps clear Ama from the body, supports digestive fire, and assists in restoring normal functioning of the musculoskeletal and nervous systems.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Sandhivata (joint disorders associated with Vata)</li>
+<li>Amavata (joint disorders associated with Ama)</li>
+<li>Vatarakta (joint disorders involving vitiated Rakta)</li>
+<li>Gridhrasi (pain radiating from lower back to legs)</li>
+<li>Pakshaghata and other Vata-related nervous disturbances</li>
+<li>Shoola and stiffness in muscles and joints</li>
+<li>Arsha and Bhagandara associated with digestive disturbances</li>
+<li>Adhmana and Anaha (abdominal distension and gas accumulation)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Vata shamana (helps pacify aggravated Vata)</li>
+<li>Ama pachana (helps digest accumulated Ama)</li>
+<li>Shothahara (helps reduce swelling)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports metabolic balance)</li>
+<li>Balya (supports strength of joints and tissues)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Shuddha Guggulu (Commiphora mukul) – Traditionally used to cleanse channels and support joint health.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – Traditionally used to support digestion and cleansing of channels.</li>
+<li>Rasna (Pluchea lanceolata) – Traditionally used to pacify Vata in joints and muscles.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally used to stimulate digestive fire and clear Ama.</li>
+<li>Pippali (Piper longum) – Traditionally used to support digestion and respiratory balance.</li>
+<li>Shunti (Zingiber officinale) – Traditionally used to enhance digestive fire and circulation.</li>
+<li>Saindhava Lavana (Rock Salt) – Traditionally used to support digestion and tissue balance.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    
+    </div>
+
+    <div class="no-results" id="noResults">No medicines matched your search.</div>
+
+    <div class="note">
+      These descriptions are presented for educational and informational purposes based on traditional Ayurvedic usage. Medicines should be selected and used only under qualified professional guidance.
+    </div>
+  
+  </main>
+
+  <footer class="footer">
+    <strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>
+    Traditional Ayurvedic care and in-house medicine preparation.
+  </footer>
+
+<script>
+const searchInput = document.getElementById('medicineSearch');
+const cards = Array.from(document.querySelectorAll('.medicine-card'));
+const chips = Array.from(document.querySelectorAll('.letter-chip'));
+const showAll = document.getElementById('showAll');
+const noResults = document.getElementById('noResults');
+let activeLetter = '';
+
+function filterCards() {
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  cards.forEach(card => {
+    const matchesText = !q || card.dataset.search.includes(q);
+    const matchesLetter = !activeLetter || card.dataset.letter === activeLetter;
+    const show = matchesText && matchesLetter;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  noResults.style.display = visible ? 'none' : 'block';
+}
+
+searchInput.addEventListener('input', filterCards);
+
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    const val = chip.dataset.letter;
+    activeLetter = (activeLetter === val) ? '' : val;
+    chips.forEach(c => c.classList.toggle('active', c.dataset.letter === activeLetter));
+    filterCards();
+  });
+});
+
+showAll.addEventListener('click', () => {
+  activeLetter = '';
+  chips.forEach(c => c.classList.remove('active'));
+  searchInput.value = '';
+  filterCards();
+});
+</script>
+</body>
+</html>

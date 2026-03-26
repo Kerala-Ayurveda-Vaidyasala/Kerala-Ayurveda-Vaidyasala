@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arishta &amp; Asavas | Kerala Ayurveda Vaidyasala</title>
+<meta name="description" content="Classical Arishta and Asava formulations prepared in-house at Kerala Ayurveda Vaidyasala, Changaramkulam.">
+<style>
+
+
+:root{
+  --bg:#f6ede0;
+  --paper:#fdf8f0;
+  --ink:#182e22;
+  --muted:#5d7263;
+  --gold:#a8820a;
+  --gold-soft:#e7d9b5;
+  --line:#e8d8c2;
+  --green:#2a5038;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(24,46,34,.96);
+  border-bottom:1px solid rgba(168,130,10,.18);
+  backdrop-filter:blur(10px);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{
+  text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem;
+}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;
+  transition:.25s ease;
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.04)}
+
+.hero{
+  padding:4.5rem 1.25rem 2.25rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(168,130,10,.08), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(42,80,56,.08), transparent 30%),
+    linear-gradient(180deg, #f8f0e6 0%, #f6ede0 100%);
+  border-bottom:1px solid rgba(168,130,10,.12);
+}
+.hero-inner{max-width:1180px;margin:0 auto}
+.eyebrow{display:inline-block;color:var(--gold);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-style:italic;margin-bottom:.85rem}
+.hero h1{margin:.2rem 0 .8rem;font-weight:400;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08}
+.hero p.lead{max-width:800px;margin:0;color:#35503f;font-size:1.03rem}
+.quick-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;
+  margin-top:2rem;max-width:820px;
+}
+.stat{
+  background:rgba(253,248,240,.82);border:1px solid rgba(168,130,10,.18);
+  padding:1rem 1rem .9rem;border-radius:16px;
+}
+.stat strong{display:block;font-size:1.4rem;font-weight:400;color:var(--green)}
+.stat span{display:block;color:var(--muted);font-size:.88rem}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.toolbar{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;
+  padding:1.1rem;margin-bottom:1.4rem;box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.toolbar-top{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.searchbox{flex:1 1 320px;position:relative}
+.searchbox input{
+  width:100%;padding:.95rem 1rem .95rem 2.85rem;border-radius:14px;border:1px solid #dbc8ad;
+  background:#fff;font:inherit;color:var(--ink);outline:none;
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.toolbar-note{color:var(--muted);font-size:.92rem}
+.letter-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+.letter-chip, .clear-chip{
+  border:1px solid #dbc8ad;background:#fff;color:var(--ink);border-radius:999px;
+  padding:.45rem .78rem;font:inherit;font-size:.83rem;cursor:pointer;transition:.2s ease;
+}
+.letter-chip:hover, .clear-chip:hover, .letter-chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+.clear-chip{color:var(--gold)}
+
+.grid{display:grid;gap:1rem}
+.medicine-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.medicine-card details{display:block}
+.medicine-card details[open]{background:linear-gradient(180deg,rgba(168,130,10,.03),transparent 34%), var(--paper)}
+.medicine-card summary{
+  list-style:none;cursor:pointer;padding:1.25rem 1.25rem 1.15rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+}
+.medicine-card summary::-webkit-details-marker{display:none}
+.summary-text h2{margin:0 0 .4rem;font-weight:400;font-size:1.33rem;color:var(--ink)}
+.summary-text p{margin:0;color:#45614f;font-size:.98rem;max-width:860px}
+.summary-tag{
+  flex-shrink:0;border:1px solid rgba(168,130,10,.28);color:var(--gold);
+  border-radius:999px;padding:.45rem .78rem;font-size:.78rem;letter-spacing:.04em;margin-top:.1rem;
+}
+.medicine-body{
+  padding:0 1.25rem 1.35rem;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;
+}
+.detail-block{
+  background:#fff;border:1px solid #eee1cf;border-radius:16px;padding:1rem 1rem .9rem;
+}
+.detail-block h3{margin:0 0 .6rem;font-size:.93rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.detail-block p{margin:0;color:#35503f}
+.detail-block ul{margin:.2rem 0 0 1rem;padding:0}
+.detail-block li{margin:.15rem 0;color:#35503f}
+.detail-block:first-child{grid-column:1/-1}
+
+.note{
+  margin-top:2rem;padding:1rem 1.15rem;border-radius:16px;
+  background:rgba(42,80,56,.06);border:1px solid rgba(42,80,56,.12);color:#315040;
+}
+.no-results{display:none;text-align:center;padding:2rem 1rem;color:#6a7d70}
+
+.footer{
+  padding:2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem
+}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:900px){
+  .quick-stats{grid-template-columns:1fr}
+  .medicine-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.25rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}
+  .brand span{font-size:.66rem}
+  .medicine-card summary{flex-direction:column}
+}
+
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong>
+        <span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span>
+      </a>
+      <a class="back-link" href="index.html#preparations">← Back to Main Site</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">In-House Preparations</span>
+      <h1>Arishta &amp; Asavas Prepared In-House</h1>
+      <p class="lead">Our Arishta and Asava formulations are prepared in the classical Ayurvedic tradition as naturally fermented preparations. Each entry below presents a clear traditional overview of its uses, actions, key ingredients, and important note in the same easy-to-browse format used across our preparation catalogue.</p>
+    </div>
+  </section>
+
+  <main class="page-wrap">
+    <section class="toolbar">
+      <div class="toolbar-top">
+        <div class="searchbox">
+          <span class="icon">⌕</span>
+          <input id="medicineSearch" type="search" placeholder="Search Arishta / Asava name, use, action, or ingredient...">
+        </div>
+        <div class="toolbar-note">Tap any medicine card to open its full details.</div>
+      </div>
+      <div class="letter-row">
+        <button type="button" class="clear-chip" id="showAll">Show all</button>
+        <button type="button" class="letter-chip" data-letter="A">A</button>
+        <button type="button" class="letter-chip" data-letter="B">B</button>
+        <button type="button" class="letter-chip" data-letter="C">C</button>
+        <button type="button" class="letter-chip" data-letter="D">D</button>
+        <button type="button" class="letter-chip" data-letter="J">J</button>
+        <button type="button" class="letter-chip" data-letter="K">K</button>
+        <button type="button" class="letter-chip" data-letter="L">L</button>
+        <button type="button" class="letter-chip" data-letter="M">M</button>
+        <button type="button" class="letter-chip" data-letter="T">T</button>
+      </div>
+    </section>
+
+    <section class="grid" id="medicineGrid">
+      
+    <article class="medicine-card" data-letter="A" data-search="amrutharishtam amrutharishtam is a classical ayurvedic formulation belonging to the category of arishta, which are fermented herbal preparations. the formulation derives its name from amrutha (guduchi – tinospora cordifolia), the principal ingredient traditionally valued for its role in supporting immunity and maintaining balance in the body. jwara (various types of fever) vishama jwara (intermittent or recurrent fevers) jwara following infections or prolonged illness agnimandya (reduced digestive fire) during or after fever pandu (conditions associated with pallor and weakness) enlargement or functional disturbance of liver and spleen amavata conditions associated with ama accumulation weakness following febrile illness jvarahara (supports management of fever conditions) rasayana (supports rejuvenation and vitality) deepana (stimulates digestive fire) pachana (supports digestion of ama) kapha-pitta shamana (helps balance kapha and pitta) raktaprasadana (supports the health and quality of blood) balya (supports recovery and strength after illness) amrutha / guduchi (tinospora cordifolia) – the principal ingredient traditionally used for supporting immunity and balancing all three doshas. dashamoola – the classical group of ten roots used in ayurvedic formulations for balancing vata and supporting systemic health. jeeraka (cuminum cyminum) – included to support digestion and metabolism. parpata (fumaria indica / related species) – traditionally used in formulations intended for fever and pitta-related disorders. saptaparna (alstonia scholaris) – traditionally included in formulations used in fever conditions. trikatu – the classical combination of sunthi (dry ginger), maricha (black pepper), and pippali (long pepper) used to stimulate digestive fire and enhance metabolism. guda (jaggery) – used as the fermenting medium in the preparation of arishta. amrutharishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation in fever conditions, digestive weakness, and during recovery from prolonged illness." id="amrutharishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Amrutharishtam</h2>
+            <p>Amrutharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are fermented herbal preparations. The formulation derives its name from Amrutha (Guduchi – Tinospora cordifolia), the principal ingredient traditionally valued for its role in supporting immunity and maintaining balance in the body.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Amrutharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are fermented herbal preparations. The formulation derives its name from Amrutha (Guduchi – Tinospora cordifolia), the principal ingredient traditionally valued for its role in supporting immunity and maintaining balance in the body.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Jwara (various types of fever)</li>
+<li>Vishama jwara (intermittent or recurrent fevers)</li>
+<li>Jwara following infections or prolonged illness</li>
+<li>Agnimandya (reduced digestive fire) during or after fever</li>
+<li>Pandu (conditions associated with pallor and weakness)</li>
+<li>Enlargement or functional disturbance of liver and spleen</li>
+<li>Amavata conditions associated with Ama accumulation</li>
+<li>Weakness following febrile illness</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Jvarahara (supports management of fever conditions)</li>
+<li>Rasayana (supports rejuvenation and vitality)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Kapha-pitta shamana (helps balance Kapha and Pitta)</li>
+<li>Raktaprasadana (supports the health and quality of blood)</li>
+<li>Balya (supports recovery and strength after illness)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Amrutha / Guduchi (Tinospora cordifolia) – The principal ingredient traditionally used for supporting immunity and balancing all three doshas.</li>
+<li>Dashamoola – The classical group of ten roots used in Ayurvedic formulations for balancing Vata and supporting systemic health.</li>
+<li>Jeeraka (Cuminum cyminum) – Included to support digestion and metabolism.</li>
+<li>Parpata (Fumaria indica / related species) – Traditionally used in formulations intended for fever and Pitta-related disorders.</li>
+<li>Saptaparna (Alstonia scholaris) – Traditionally included in formulations used in fever conditions.</li>
+<li>Trikatu – The classical combination of Sunthi (Dry Ginger), Maricha (Black Pepper), and Pippali (Long Pepper) used to stimulate digestive fire and enhance metabolism.</li>
+<li>Guda (Jaggery) – Used as the fermenting medium in the preparation of Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Amrutharishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation in fever conditions, digestive weakness, and during recovery from prolonged illness.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="A" data-search="abhayarishtam abhayarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from abhaya (haritaki – terminalia chebula), the principal ingredient traditionally valued for supporting digestive health and proper elimination. arsha (piles / hemorrhoids) vibandha (chronic constipation) bhagandara (fistula-in-ano) – supportive use parikartika (anal fissure) – supportive care anaha (abdominal bloating and gaseous distension) agnimandya (reduced digestive fire) gulma (abdominal masses or distension associated with vata imbalance) yakrit and pleeha related functional disturbances (liver and spleen conditions) mutrakricchra (difficulty in urination) mridu virechana (supports gentle bowel evacuation) deepana (stimulates digestive fire) pachana (supports digestion of ama) vata shamana (helps pacify vata in the lower digestive tract) arsha-hara (traditionally used in piles) anulomana (supports proper downward movement of vata and bowel function) abhaya / haritaki (terminalia chebula) – the principal ingredient traditionally used for supporting digestion and proper elimination. vidanga (embelia ribes) – traditionally included in digestive formulations for supporting intestinal health. mridvika (vitis vinifera – raisins) – added for mild laxative and nourishing properties. madhu (honey) – used in the fermentation process and to support absorption. gokshura (tribulus terrestris) – traditionally used to support urinary and systemic health. trivrit (operculina turpethum) – included for its purgative properties in digestive formulations. chitraka (plumbago zeylanica) – used to stimulate digestive fire and improve metabolism. guda (jaggery) – serves as the fermenting medium in the preparation of arishta. abhayarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for digestive balance, bowel regularity, and anorectal conditions associated with vata imbalance." id="abhayarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Abhayarishtam</h2>
+            <p>Abhayarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Abhaya (Haritaki – Terminalia chebula), the principal ingredient traditionally valued for supporting digestive health and proper elimination.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Abhayarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Abhaya (Haritaki – Terminalia chebula), the principal ingredient traditionally valued for supporting digestive health and proper elimination.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Arsha (piles / hemorrhoids)</li>
+<li>Vibandha (chronic constipation)</li>
+<li>Bhagandara (fistula-in-ano) – supportive use</li>
+<li>Parikartika (anal fissure) – supportive care</li>
+<li>Anaha (abdominal bloating and gaseous distension)</li>
+<li>Agnimandya (reduced digestive fire)</li>
+<li>Gulma (abdominal masses or distension associated with Vata imbalance)</li>
+<li>Yakrit and Pleeha related functional disturbances (liver and spleen conditions)</li>
+<li>Mutrakricchra (difficulty in urination)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Mridu virechana (supports gentle bowel evacuation)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Vata shamana (helps pacify Vata in the lower digestive tract)</li>
+<li>Arsha-hara (traditionally used in piles)</li>
+<li>Anulomana (supports proper downward movement of Vata and bowel function)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Abhaya / Haritaki (Terminalia chebula) – The principal ingredient traditionally used for supporting digestion and proper elimination.</li>
+<li>Vidanga (Embelia ribes) – Traditionally included in digestive formulations for supporting intestinal health.</li>
+<li>Mridvika (Vitis vinifera – raisins) – Added for mild laxative and nourishing properties.</li>
+<li>Madhu (Honey) – Used in the fermentation process and to support absorption.</li>
+<li>Gokshura (Tribulus terrestris) – Traditionally used to support urinary and systemic health.</li>
+<li>Trivrit (Operculina turpethum) – Included for its purgative properties in digestive formulations.</li>
+<li>Chitraka (Plumbago zeylanica) – Used to stimulate digestive fire and improve metabolism.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Abhayarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for digestive balance, bowel regularity, and anorectal conditions associated with Vata imbalance.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="A" data-search="ashokarishtam ashokarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from ashoka (saraca asoca), the bark of the ashoka tree that is traditionally valued in ayurveda for supporting female reproductive health. artava dushti (menstrual irregularities) asrigdara (excessive menstrual bleeding) kashtartava (painful menstruation) shweta pradara (leucorrhoea) conditions affecting uterine health artava kshaya or irregular menstrual cycles raktapitta-related bleeding tendencies weakness associated with menstrual disorders artava janana (supports healthy menstrual function) pittashamana (helps pacify aggravated pitta) kapha shamana (helps balance kapha) raktaprasadana (supports healthy blood quality) balya (supports strength and nourishment of tissues) stambhana (helps regulate excessive bleeding) yonishodhana (supports the health of female reproductive organs) ashoka (saraca asoca) – the principal ingredient traditionally used to support uterine health and regulate menstrual flow. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. musta (cyperus rotundus) – included for supporting digestion and metabolic balance. amalaki (emblica officinalis) – traditionally used as a rejuvenative ingredient supporting overall health. haritaki (terminalia chebula) and bibhitaki (terminalia bellirica) – included as part of the triphala group to support digestive and eliminative functions. jeeraka (cumin) – added to aid digestion and metabolism. daruharidra (berberis aristata) – traditionally included in formulations used for supporting blood and tissue health. ashokarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for maintaining menstrual balance and promoting overall health of the female reproductive system." id="ashokarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Ashokarishtam</h2>
+            <p>Ashokarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Ashoka (Saraca asoca), the bark of the Ashoka tree that is traditionally valued in Ayurveda for supporting female reproductive health.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Ashokarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Ashoka (Saraca asoca), the bark of the Ashoka tree that is traditionally valued in Ayurveda for supporting female reproductive health.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Artava dushti (menstrual irregularities)</li>
+<li>Asrigdara (excessive menstrual bleeding)</li>
+<li>Kashtartava (painful menstruation)</li>
+<li>Shweta pradara (leucorrhoea)</li>
+<li>Conditions affecting uterine health</li>
+<li>Artava kshaya or irregular menstrual cycles</li>
+<li>Raktapitta-related bleeding tendencies</li>
+<li>Weakness associated with menstrual disorders</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Artava janana (supports healthy menstrual function)</li>
+<li>Pittashamana (helps pacify aggravated Pitta)</li>
+<li>Kapha shamana (helps balance Kapha)</li>
+<li>Raktaprasadana (supports healthy blood quality)</li>
+<li>Balya (supports strength and nourishment of tissues)</li>
+<li>Stambhana (helps regulate excessive bleeding)</li>
+<li>Yonishodhana (supports the health of female reproductive organs)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Ashoka (Saraca asoca) – The principal ingredient traditionally used to support uterine health and regulate menstrual flow.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Musta (Cyperus rotundus) – Included for supporting digestion and metabolic balance.</li>
+<li>Amalaki (Emblica officinalis) – Traditionally used as a rejuvenative ingredient supporting overall health.</li>
+<li>Haritaki (Terminalia chebula) and Bibhitaki (Terminalia bellirica) – Included as part of the Triphala group to support digestive and eliminative functions.</li>
+<li>Jeeraka (Cumin) – Added to aid digestion and metabolism.</li>
+<li>Daruharidra (Berberis aristata) – Traditionally included in formulations used for supporting blood and tissue health.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Ashokarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for maintaining menstrual balance and promoting overall health of the female reproductive system.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="A" data-search="aragvadharishtam aragvadharishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from aragvadha (cassia fistula), a plant traditionally valued in ayurveda for its role in supporting detoxification and maintaining healthy skin. kushtha (various skin disorders) kandu (itching of the skin) pama and dadru-type skin lesions visarpa-like inflammatory skin conditions vrana and dushta vrana (chronic or non-healing wounds) – supportive use raktadushti conditions affecting skin quality mutrakricchra (painful or difficult urination) vibandha (constipation associated with toxin accumulation) urticaria-like skin irritation kushtha-hara (traditionally used in skin disorders) raktaprasadana (supports purification and quality of blood) mridu virechana (supports gentle bowel evacuation) kapha-pitta shamana (helps balance kapha and pitta doshas) kandu-hara (supports relief from itching) pachana (supports digestion of ama) shothahara (supports reduction of inflammatory swelling) aragvadha (cassia fistula) – the principal ingredient traditionally used for supporting skin health and gentle elimination. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. vidanga (embelia ribes) – traditionally included in digestive formulations for supporting intestinal health. amalaki (emblica officinalis) – a rejuvenative ingredient used to support overall health and tissue nourishment. haritaki (terminalia chebula) and bibhitaki (terminalia bellirica) – included as part of the triphala group to support digestion and elimination. nishoth / trivrit (operculina turpethum) – traditionally included for its purgative properties. aragvadharishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for skin health, blood purification, and conditions associated with kapha–pitta imbalance and toxin accumulation." id="aragvadharishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Aragvadharishtam</h2>
+            <p>Aragvadharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Aragvadha (Cassia fistula), a plant traditionally valued in Ayurveda for its role in supporting detoxification and maintaining healthy skin.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Aragvadharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Aragvadha (Cassia fistula), a plant traditionally valued in Ayurveda for its role in supporting detoxification and maintaining healthy skin.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Kushtha (various skin disorders)</li>
+<li>Kandu (itching of the skin)</li>
+<li>Pama and Dadru-type skin lesions</li>
+<li>Visarpa-like inflammatory skin conditions</li>
+<li>Vrana and Dushta vrana (chronic or non-healing wounds) – supportive use</li>
+<li>Raktadushti conditions affecting skin quality</li>
+<li>Mutrakricchra (painful or difficult urination)</li>
+<li>Vibandha (constipation associated with toxin accumulation)</li>
+<li>Urticaria-like skin irritation</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Kushtha-hara (traditionally used in skin disorders)</li>
+<li>Raktaprasadana (supports purification and quality of blood)</li>
+<li>Mridu virechana (supports gentle bowel evacuation)</li>
+<li>Kapha-pitta shamana (helps balance Kapha and Pitta doshas)</li>
+<li>Kandu-hara (supports relief from itching)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Shothahara (supports reduction of inflammatory swelling)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Aragvadha (Cassia fistula) – The principal ingredient traditionally used for supporting skin health and gentle elimination.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Vidanga (Embelia ribes) – Traditionally included in digestive formulations for supporting intestinal health.</li>
+<li>Amalaki (Emblica officinalis) – A rejuvenative ingredient used to support overall health and tissue nourishment.</li>
+<li>Haritaki (Terminalia chebula) and Bibhitaki (Terminalia bellirica) – Included as part of the Triphala group to support digestion and elimination.</li>
+<li>Nishoth / Trivrit (Operculina turpethum) – Traditionally included for its purgative properties.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Aragvadharishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for skin health, blood purification, and conditions associated with Kapha–Pitta imbalance and toxin accumulation.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="A" data-search="aswagandharishtam aswagandharishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from ashwagandha (withania somnifera), the principal ingredient traditionally valued for its role in strengthening the body and supporting the nervous system. vata-related nervous disorders general debility and fatigue manasika kshobha (mental stress and emotional disturbances) nidranasha (difficulty in sleep) smriti and medha support (memory and cognitive functions) daurbalya (physical weakness) recovery from long-term illness shukra kshaya conditions affecting reproductive vitality sandhigata vata and musculoskeletal discomfort balya (supports physical strength and vitality) rasayana (supports rejuvenation and nourishment of tissues) vata shamana (helps pacify aggravated vata) medhya (supports cognitive function and mental clarity) nidrajanana (supports healthy sleep) brimhana (supports nourishment and tissue building) shukra vardhaka (supports reproductive vitality) ashwagandha (withania somnifera) – the principal ingredient traditionally used to strengthen nerves, muscles, and overall vitality. musali (chlorophytum borivilianum) – traditionally used as a rejuvenative herb supporting strength and reproductive health. manjistha (rubia cordifolia) – included for supporting blood health and tissue nourishment. haritaki (terminalia chebula) – traditionally used to support digestion and elimination. daruharidra (berberis aristata) – included in formulations supporting tissue health and metabolic balance. yashtimadhu (glycyrrhiza glabra) – traditionally used for its soothing and nourishing properties. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. aswagandharishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for strengthening the nervous system, improving vitality, and managing conditions associated with vata imbalance." id="aswagandharishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Aswagandharishtam</h2>
+            <p>Aswagandharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Ashwagandha (Withania somnifera), the principal ingredient traditionally valued for its role in strengthening the body and supporting the nervous system.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Aswagandharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Ashwagandha (Withania somnifera), the principal ingredient traditionally valued for its role in strengthening the body and supporting the nervous system.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Vata-related nervous disorders</li>
+<li>General debility and fatigue</li>
+<li>Manasika kshobha (mental stress and emotional disturbances)</li>
+<li>Nidranasha (difficulty in sleep)</li>
+<li>Smriti and medha support (memory and cognitive functions)</li>
+<li>Daurbalya (physical weakness)</li>
+<li>Recovery from long-term illness</li>
+<li>Shukra kshaya conditions affecting reproductive vitality</li>
+<li>Sandhigata Vata and musculoskeletal discomfort</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Balya (supports physical strength and vitality)</li>
+<li>Rasayana (supports rejuvenation and nourishment of tissues)</li>
+<li>Vata shamana (helps pacify aggravated Vata)</li>
+<li>Medhya (supports cognitive function and mental clarity)</li>
+<li>Nidrajanana (supports healthy sleep)</li>
+<li>Brimhana (supports nourishment and tissue building)</li>
+<li>Shukra vardhaka (supports reproductive vitality)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Ashwagandha (Withania somnifera) – The principal ingredient traditionally used to strengthen nerves, muscles, and overall vitality.</li>
+<li>Musali (Chlorophytum borivilianum) – Traditionally used as a rejuvenative herb supporting strength and reproductive health.</li>
+<li>Manjistha (Rubia cordifolia) – Included for supporting blood health and tissue nourishment.</li>
+<li>Haritaki (Terminalia chebula) – Traditionally used to support digestion and elimination.</li>
+<li>Daruharidra (Berberis aristata) – Included in formulations supporting tissue health and metabolic balance.</li>
+<li>Yashtimadhu (Glycyrrhiza glabra) – Traditionally used for its soothing and nourishing properties.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Aswagandharishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for strengthening the nervous system, improving vitality, and managing conditions associated with Vata imbalance.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="B" data-search="balarishtam balarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from bala (sida cordifolia), a herb traditionally valued for its role in strengthening the body and supporting the musculoskeletal and nervous systems. vata-related neuromuscular disorders general debility and physical weakness paralysis and facial palsy – supportive care sandhivata and musculoskeletal discomfort growth support in children with physical weakness mamsa kshaya (muscle wasting conditions) fatigue after prolonged illness backache and joint discomfort respiratory weakness associated with low vitality balya (supports physical strength and vitality) brimhana (supports nourishment and tissue building) vata shamana (helps pacify aggravated vata) rasayana (supports rejuvenation and tissue nourishment) mamsa dhatu vardhaka (supports healthy muscle tissue) asthi dhatu support (supports bone health) deepana and pachana (supports digestion and metabolism) bala (sida cordifolia) – the principal ingredient traditionally used for strengthening nerves, muscles, and bones. ashwagandha (withania somnifera) – traditionally used for supporting vitality, stamina, and tissue nourishment. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. kshira vidari (ipomoea mauritiana) – a nourishing tuber traditionally used as a rejuvenative herb. eranda (ricinus communis) – traditionally used for supporting vata balance and joint comfort. rasna (pluchea lanceolata) – traditionally included in formulations supporting joint health and mobility. ela (cardamom) and lavanga (clove) – aromatic spices added to support digestion and improve palatability. balarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for strengthening the musculoskeletal system, improving vitality, and managing conditions associated with vata imbalance." id="balarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Balarishtam</h2>
+            <p>Balarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Bala (Sida cordifolia), a herb traditionally valued for its role in strengthening the body and supporting the musculoskeletal and nervous systems.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Balarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Bala (Sida cordifolia), a herb traditionally valued for its role in strengthening the body and supporting the musculoskeletal and nervous systems.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Vata-related neuromuscular disorders</li>
+<li>General debility and physical weakness</li>
+<li>Paralysis and facial palsy – supportive care</li>
+<li>Sandhivata and musculoskeletal discomfort</li>
+<li>Growth support in children with physical weakness</li>
+<li>Mamsa kshaya (muscle wasting conditions)</li>
+<li>Fatigue after prolonged illness</li>
+<li>Backache and joint discomfort</li>
+<li>Respiratory weakness associated with low vitality</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Balya (supports physical strength and vitality)</li>
+<li>Brimhana (supports nourishment and tissue building)</li>
+<li>Vata shamana (helps pacify aggravated Vata)</li>
+<li>Rasayana (supports rejuvenation and tissue nourishment)</li>
+<li>Mamsa dhatu vardhaka (supports healthy muscle tissue)</li>
+<li>Asthi dhatu support (supports bone health)</li>
+<li>Deepana and pachana (supports digestion and metabolism)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Bala (Sida cordifolia) – The principal ingredient traditionally used for strengthening nerves, muscles, and bones.</li>
+<li>Ashwagandha (Withania somnifera) – Traditionally used for supporting vitality, stamina, and tissue nourishment.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li>
+<li>Kshira Vidari (Ipomoea mauritiana) – A nourishing tuber traditionally used as a rejuvenative herb.</li>
+<li>Eranda (Ricinus communis) – Traditionally used for supporting Vata balance and joint comfort.</li>
+<li>Rasna (Pluchea lanceolata) – Traditionally included in formulations supporting joint health and mobility.</li>
+<li>Ela (Cardamom) and Lavanga (Clove) – Aromatic spices added to support digestion and improve palatability.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Balarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for strengthening the musculoskeletal system, improving vitality, and managing conditions associated with Vata imbalance.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="C" data-search="chavikasavam (chavyasavam) chavyasavam is a classical ayurvedic formulation belonging to the category of asava, which are naturally fermented herbal preparations prepared without prior decoction. the formulation derives its name from chavya (piper chaba), the principal ingredient traditionally valued for its role in stimulating digestion and relieving abdominal discomfort. shoola (abdominal pain and colic) aruchi (loss of appetite and tastelessness) ajirna (indigestion and dyspepsia) anaha (abdominal bloating and gas) gulma (abdominal lumps or gas accumulations) arsha (hemorrhoids) – supportive use bhagandara (fistula-in-ano) – supportive digestive management krimi (intestinal worm infestations) kapha accumulation affecting digestion ama-related digestive disturbances deepana (stimulates digestive fire) pachana (supports digestion of ama) shoolahara (supports relief from abdominal pain) vatanulomana (supports proper downward movement of vata) krimighna (traditionally used against intestinal parasites) kaphahara (helps reduce kapha accumulation in the digestive system) anulomana (supports healthy bowel movement) chavya (piper chaba) – the principal ingredient traditionally used to stimulate digestion and relieve abdominal discomfort. chitraka (plumbago zeylanica) – traditionally included to support digestive fire and metabolism. triphala (haritaki, bibhitaki, amalaki) – a classical combination used to support digestion, detoxification, and bowel regulation. trikatu (shunthi, maricha, pippali) – a combination of pungent herbs traditionally used to enhance metabolism and digestion. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in asava preparations. vidanga (embelia ribes) – traditionally used in digestive formulations supporting intestinal health. guda (jaggery) – serves as the fermenting medium in the preparation of the asava. chavyasavam is administered internally as a fermented liquid preparation (asava) in ayurvedic practice. it is traditionally used as a supportive formulation for improving digestion, relieving abdominal discomfort, and managing conditions associated with ama accumulation and vata imbalance in the gastrointestinal system." id="chavikasavam-chavyasavam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Chavikasavam (Chavyasavam)</h2>
+            <p>Chavyasavam is a classical Ayurvedic formulation belonging to the category of Asava, which are naturally fermented herbal preparations prepared without prior decoction. The formulation derives its name from Chavya (Piper chaba), the principal ingredient traditionally valued for its role in stimulating digestion and relieving abdominal discomfort.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Chavyasavam is a classical Ayurvedic formulation belonging to the category of Asava, which are naturally fermented herbal preparations prepared without prior decoction. The formulation derives its name from Chavya (Piper chaba), the principal ingredient traditionally valued for its role in stimulating digestion and relieving abdominal discomfort.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Shoola (abdominal pain and colic)</li>
+<li>Aruchi (loss of appetite and tastelessness)</li>
+<li>Ajirna (indigestion and dyspepsia)</li>
+<li>Anaha (abdominal bloating and gas)</li>
+<li>Gulma (abdominal lumps or gas accumulations)</li>
+<li>Arsha (hemorrhoids) – supportive use</li>
+<li>Bhagandara (fistula-in-ano) – supportive digestive management</li>
+<li>Krimi (intestinal worm infestations)</li>
+<li>Kapha accumulation affecting digestion</li>
+<li>Ama-related digestive disturbances</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Shoolahara (supports relief from abdominal pain)</li>
+<li>Vatanulomana (supports proper downward movement of Vata)</li>
+<li>Krimighna (traditionally used against intestinal parasites)</li>
+<li>Kaphahara (helps reduce Kapha accumulation in the digestive system)</li>
+<li>Anulomana (supports healthy bowel movement)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Chavya (Piper chaba) – The principal ingredient traditionally used to stimulate digestion and relieve abdominal discomfort.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally included to support digestive fire and metabolism.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – A classical combination used to support digestion, detoxification, and bowel regulation.</li>
+<li>Trikatu (Shunthi, Maricha, Pippali) – A combination of pungent herbs traditionally used to enhance metabolism and digestion.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Asava preparations.</li>
+<li>Vidanga (Embelia ribes) – Traditionally used in digestive formulations supporting intestinal health.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Asava.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Chavyasavam is administered internally as a fermented liquid preparation (Asava) in Ayurvedic practice. It is traditionally used as a supportive formulation for improving digestion, relieving abdominal discomfort, and managing conditions associated with Ama accumulation and Vata imbalance in the gastrointestinal system.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="D" data-search="dashamoolarishtam dashamoolarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from dashamoola, a traditional group of ten medicinal roots widely used in ayurveda for supporting systemic balance and reducing vata-related disturbances. general debility and weakness postnatal care and recovery after childbirth vata-related musculoskeletal discomfort sandhivata and joint stiffness backache and sciatica-like symptoms respiratory weakness and chronic cough – supportive use digestive disturbances such as loss of appetite and indigestion nervous system weakness and fatigue recovery after prolonged illness vata shamana (helps pacify aggravated vata) balya (supports physical strength and vitality) rasayana (supports rejuvenation and nourishment of tissues) deepana and pachana (supports digestion and metabolism) shothahara (supports reduction of inflammatory swelling) brimhana (supports tissue nourishment and restoration) pranavaha srotas support (supports respiratory health) dashamoola (group of ten roots) – a classical group of roots traditionally used for balancing vata and supporting systemic health. chitraka (plumbago zeylanica) – traditionally used to stimulate digestion and metabolism. pushkaramoola (inula racemosa) – traditionally included in formulations supporting respiratory health. guduchi (tinospora cordifolia) – a well-known rejuvenative herb used to support immunity and vitality. ashwagandha (withania somnifera) – traditionally used to support strength, stamina, and nervous system health. shatavari (asparagus racemosus) – a nourishing herb traditionally used to support reproductive and systemic health. triphala (haritaki, bibhitaki, amalaki) – a classical combination supporting digestion and elimination. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. dashamoolarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for improving vitality, aiding recovery, balancing vata, and promoting overall systemic health." id="dashamoolarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Dashamoolarishtam</h2>
+            <p>Dashamoolarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Dashamoola, a traditional group of ten medicinal roots widely used in Ayurveda for supporting systemic balance and reducing Vata-related disturbances.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Dashamoolarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Dashamoola, a traditional group of ten medicinal roots widely used in Ayurveda for supporting systemic balance and reducing Vata-related disturbances.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>General debility and weakness</li>
+<li>Postnatal care and recovery after childbirth</li>
+<li>Vata-related musculoskeletal discomfort</li>
+<li>Sandhivata and joint stiffness</li>
+<li>Backache and sciatica-like symptoms</li>
+<li>Respiratory weakness and chronic cough – supportive use</li>
+<li>Digestive disturbances such as loss of appetite and indigestion</li>
+<li>Nervous system weakness and fatigue</li>
+<li>Recovery after prolonged illness</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Vata shamana (helps pacify aggravated Vata)</li>
+<li>Balya (supports physical strength and vitality)</li>
+<li>Rasayana (supports rejuvenation and nourishment of tissues)</li>
+<li>Deepana and Pachana (supports digestion and metabolism)</li>
+<li>Shothahara (supports reduction of inflammatory swelling)</li>
+<li>Brimhana (supports tissue nourishment and restoration)</li>
+<li>Pranavaha srotas support (supports respiratory health)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Dashamoola (Group of Ten Roots) – A classical group of roots traditionally used for balancing Vata and supporting systemic health.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally used to stimulate digestion and metabolism.</li>
+<li>Pushkaramoola (Inula racemosa) – Traditionally included in formulations supporting respiratory health.</li>
+<li>Guduchi (Tinospora cordifolia) – A well-known rejuvenative herb used to support immunity and vitality.</li>
+<li>Ashwagandha (Withania somnifera) – Traditionally used to support strength, stamina, and nervous system health.</li>
+<li>Shatavari (Asparagus racemosus) – A nourishing herb traditionally used to support reproductive and systemic health.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – A classical combination supporting digestion and elimination.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Dashamoolarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for improving vitality, aiding recovery, balancing Vata, and promoting overall systemic health.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="J" data-search="jeerakarishtam jeerakarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from jeeraka (cuminum cyminum – cumin seeds), the principal ingredient traditionally valued for its digestive and carminative properties. postnatal digestive support after childbirth ajirna (indigestion) and mandagni (low digestive fire) anaha (abdominal bloating and flatulence) grahani (digestive irregularities including ibs-like symptoms) atisara (chronic diarrhea) – supportive use aruchi (loss of appetite) postpartum abdominal discomfort digestive weakness associated with vata imbalance respiratory congestion associated with kapha accumulation deepana (stimulates digestive fire) pachana (supports digestion of ama) vatanulomana (supports proper downward movement of vata) grahi (supports bowel regulation and absorption) kaphahara (helps reduce kapha accumulation) balya (supports strength and recovery after weakness) agni vardhaka (supports improvement of digestive metabolism) jeeraka (cuminum cyminum) – the principal ingredient traditionally used to stimulate digestion and relieve abdominal gas. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. sunthi (zingiber officinale) – dry ginger traditionally used to support digestion and metabolism. yavani (trachyspermum ammi) – ajwain seeds traditionally used for relieving abdominal colic and digestive discomfort. trijata (cinnamon, cardamom, malabathrum) – aromatic spices traditionally used to improve digestion and enhance bioavailability. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. jeerakarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for improving digestion, managing abdominal discomfort, and aiding recovery and digestive balance during the postnatal period." id="jeerakarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Jeerakarishtam</h2>
+            <p>Jeerakarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Jeeraka (Cuminum cyminum – cumin seeds), the principal ingredient traditionally valued for its digestive and carminative properties.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Jeerakarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Jeeraka (Cuminum cyminum – cumin seeds), the principal ingredient traditionally valued for its digestive and carminative properties.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Postnatal digestive support after childbirth</li>
+<li>Ajirna (indigestion) and Mandagni (low digestive fire)</li>
+<li>Anaha (abdominal bloating and flatulence)</li>
+<li>Grahani (digestive irregularities including IBS-like symptoms)</li>
+<li>Atisara (chronic diarrhea) – supportive use</li>
+<li>Aruchi (loss of appetite)</li>
+<li>Postpartum abdominal discomfort</li>
+<li>Digestive weakness associated with Vata imbalance</li>
+<li>Respiratory congestion associated with Kapha accumulation</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Vatanulomana (supports proper downward movement of Vata)</li>
+<li>Grahi (supports bowel regulation and absorption)</li>
+<li>Kaphahara (helps reduce Kapha accumulation)</li>
+<li>Balya (supports strength and recovery after weakness)</li>
+<li>Agni vardhaka (supports improvement of digestive metabolism)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Jeeraka (Cuminum cyminum) – The principal ingredient traditionally used to stimulate digestion and relieve abdominal gas.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Sunthi (Zingiber officinale) – Dry ginger traditionally used to support digestion and metabolism.</li>
+<li>Yavani (Trachyspermum ammi) – Ajwain seeds traditionally used for relieving abdominal colic and digestive discomfort.</li>
+<li>Trijata (Cinnamon, Cardamom, Malabathrum) – Aromatic spices traditionally used to improve digestion and enhance bioavailability.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Jeerakarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for improving digestion, managing abdominal discomfort, and aiding recovery and digestive balance during the postnatal period.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="K" data-search="kutajarishtam kutajarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from kutaja (holarrhena antidysenterica), a medicinal plant traditionally valued in ayurveda for its role in supporting intestinal health and regulating bowel movements. atisara (acute or chronic diarrhea) pravahika (dysentery with mucus or blood in stool) grahani disorders (digestive irregularities including ibs-like conditions) intestinal infections and microbial imbalance krimi (intestinal worm infestations) digestive weakness following gastrointestinal illness fever associated with digestive disturbances inflammatory conditions affecting the intestinal lining – supportive use atisarahara (traditionally used in diarrhea conditions) grahi (supports regulation of bowel movements and absorption) krimighna (traditionally used against intestinal parasites) deepana (supports digestive fire) pachana (supports digestion of ama) pittahara and kaphahara (supports balance of pitta and kapha in the intestines) shothahara (supports reduction of inflammatory swelling) kutaja (holarrhena antidysenterica) – the principal ingredient traditionally used for supporting intestinal health and regulating bowel movements. mridvika (vitis vinifera) – raisins traditionally included to provide nourishment and mild digestive support. madhuka (madhuca indica) – traditionally used to support cooling and balance within the formulation. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. kutajarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for maintaining intestinal health, regulating bowel function, and managing digestive disturbances associated with diarrhea and dysentery-like conditions." id="kutajarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Kutajarishtam</h2>
+            <p>Kutajarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Kutaja (Holarrhena antidysenterica), a medicinal plant traditionally valued in Ayurveda for its role in supporting intestinal health and regulating bowel movements.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Kutajarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Kutaja (Holarrhena antidysenterica), a medicinal plant traditionally valued in Ayurveda for its role in supporting intestinal health and regulating bowel movements.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Atisara (acute or chronic diarrhea)</li>
+<li>Pravahika (dysentery with mucus or blood in stool)</li>
+<li>Grahani disorders (digestive irregularities including IBS-like conditions)</li>
+<li>Intestinal infections and microbial imbalance</li>
+<li>Krimi (intestinal worm infestations)</li>
+<li>Digestive weakness following gastrointestinal illness</li>
+<li>Fever associated with digestive disturbances</li>
+<li>Inflammatory conditions affecting the intestinal lining – supportive use</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Atisarahara (traditionally used in diarrhea conditions)</li>
+<li>Grahi (supports regulation of bowel movements and absorption)</li>
+<li>Krimighna (traditionally used against intestinal parasites)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Pittahara and Kaphahara (supports balance of Pitta and Kapha in the intestines)</li>
+<li>Shothahara (supports reduction of inflammatory swelling)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Kutaja (Holarrhena antidysenterica) – The principal ingredient traditionally used for supporting intestinal health and regulating bowel movements.</li>
+<li>Mridvika (Vitis vinifera) – Raisins traditionally included to provide nourishment and mild digestive support.</li>
+<li>Madhuka (Madhuca indica) – Traditionally used to support cooling and balance within the formulation.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Kutajarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for maintaining intestinal health, regulating bowel function, and managing digestive disturbances associated with diarrhea and dysentery-like conditions.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="K" data-search="khadirarishtam khadirarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from khadira (acacia catechu), a medicinal plant traditionally valued in ayurveda for supporting skin health and blood purification (rakta prasadana). kushtha (various chronic skin disorders) kandu (persistent itching of the skin) pama, dadru and other skin eruptions acne, boils, and recurrent skin infections raktadushti conditions affecting skin quality allergic skin reactions and urticaria supportive management of vitiligo-like conditions worm infestations associated with skin disturbances general skin detoxification and improvement of complexion kushtaghna (traditionally used in skin disorders) raktaprasadana (supports purification and quality of blood) kandughna (supports relief from itching) pittahara and kaphahara (supports balance of pitta and kapha) krimighna (traditionally used against parasites and microbes) shothahara (supports reduction of inflammatory swelling) twachya (supports skin health) khadira (acacia catechu) – the principal ingredient traditionally used for supporting skin health and blood purification. devadaru (cedrus deodara) – traditionally used to support reduction of inflammation and balance vata in skin conditions. triphala (haritaki, bibhitaki, amalaki) – a classical combination used to support digestion, detoxification, and liver health. daruharidra (berberis aristata) – traditionally used in formulations supporting skin and metabolic balance. bakuchi (psoralea corylifolia) – traditionally included in formulations supporting skin pigmentation and health. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. guda (jaggery) and madhu (honey) – serve as the fermenting medium and carrier in the formulation. khadirarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for maintaining skin health, purifying the blood, and managing conditions associated with pitta–kapha imbalance affecting the skin." id="khadirarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Khadirarishtam</h2>
+            <p>Khadirarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Khadira (Acacia catechu), a medicinal plant traditionally valued in Ayurveda for supporting skin health and blood purification (Rakta Prasadana).</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Khadirarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Khadira (Acacia catechu), a medicinal plant traditionally valued in Ayurveda for supporting skin health and blood purification (Rakta Prasadana).</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Kushtha (various chronic skin disorders)</li>
+<li>Kandu (persistent itching of the skin)</li>
+<li>Pama, Dadru and other skin eruptions</li>
+<li>Acne, boils, and recurrent skin infections</li>
+<li>Raktadushti conditions affecting skin quality</li>
+<li>Allergic skin reactions and urticaria</li>
+<li>Supportive management of vitiligo-like conditions</li>
+<li>Worm infestations associated with skin disturbances</li>
+<li>General skin detoxification and improvement of complexion</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Kushtaghna (traditionally used in skin disorders)</li>
+<li>Raktaprasadana (supports purification and quality of blood)</li>
+<li>Kandughna (supports relief from itching)</li>
+<li>Pittahara and Kaphahara (supports balance of Pitta and Kapha)</li>
+<li>Krimighna (traditionally used against parasites and microbes)</li>
+<li>Shothahara (supports reduction of inflammatory swelling)</li>
+<li>Twachya (supports skin health)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Khadira (Acacia catechu) – The principal ingredient traditionally used for supporting skin health and blood purification.</li>
+<li>Devadaru (Cedrus deodara) – Traditionally used to support reduction of inflammation and balance Vata in skin conditions.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – A classical combination used to support digestion, detoxification, and liver health.</li>
+<li>Daruharidra (Berberis aristata) – Traditionally used in formulations supporting skin and metabolic balance.</li>
+<li>Bakuchi (Psoralea corylifolia) – Traditionally included in formulations supporting skin pigmentation and health.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Guda (Jaggery) and Madhu (Honey) – Serve as the fermenting medium and carrier in the formulation.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Khadirarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for maintaining skin health, purifying the blood, and managing conditions associated with Pitta–Kapha imbalance affecting the skin.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="L" data-search="lohasavam lohasavam is a classical ayurvedic formulation belonging to the category of asava, which are naturally fermented herbal preparations. the formulation derives its name from loha (purified iron), the principal ingredient traditionally used in ayurveda for supporting healthy blood formation and improving vitality. pandu (conditions associated with reduced haemoglobin or anemia-like symptoms) general fatigue, weakness, and pallor hepatomegaly and splenomegaly – supportive care digestive weakness and loss of appetite (aruchi) mandagni (low digestive fire) chronic low-grade fever associated with weakness skin conditions associated with impaired blood quality metabolic disorders associated with kapha imbalance raktavardhaka (supports healthy blood formation) deepana (stimulates digestive fire) pachana (supports digestion of ama) yakrit–pliha support (supports liver and spleen function) lekhana (supports metabolic regulation and reduction of excess kapha) rasayana (supports rejuvenation and vitality) balya (supports strength and recovery) loha bhasma (purified iron) – the principal ingredient traditionally used for supporting healthy blood formation and vitality. triphala (haritaki, bibhitaki, amalaki) – a classical combination used to support digestion, detoxification, and bowel regulation. trikatu (shunthi, maricha, pippali) – traditionally used to stimulate digestion and improve bioavailability of other ingredients. vidanga (embelia ribes) – traditionally used in formulations supporting intestinal health and parasite management. chitraka (plumbago zeylanica) – traditionally used to support appetite and metabolic activity. musta (cyperus rotundus) – traditionally included for digestive and metabolic balance. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in asava preparations. madhu (honey) and guda (jaggery) – serve as the fermenting medium and carrier in the formulation. lohasavam is administered internally as a fermented liquid preparation (asava) in ayurvedic practice. it is traditionally used as a supportive formulation for improving blood quality, enhancing digestion, and supporting overall vitality and metabolic balance." id="lohasavam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Lohasavam</h2>
+            <p>Lohasavam is a classical Ayurvedic formulation belonging to the category of Asava, which are naturally fermented herbal preparations. The formulation derives its name from Loha (purified iron), the principal ingredient traditionally used in Ayurveda for supporting healthy blood formation and improving vitality.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Lohasavam is a classical Ayurvedic formulation belonging to the category of Asava, which are naturally fermented herbal preparations. The formulation derives its name from Loha (purified iron), the principal ingredient traditionally used in Ayurveda for supporting healthy blood formation and improving vitality.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Pandu (conditions associated with reduced haemoglobin or anemia-like symptoms)</li>
+<li>General fatigue, weakness, and pallor</li>
+<li>Hepatomegaly and splenomegaly – supportive care</li>
+<li>Digestive weakness and loss of appetite (Aruchi)</li>
+<li>Mandagni (low digestive fire)</li>
+<li>Chronic low-grade fever associated with weakness</li>
+<li>Skin conditions associated with impaired blood quality</li>
+<li>Metabolic disorders associated with Kapha imbalance</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Raktavardhaka (supports healthy blood formation)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Yakrit–Pliha support (supports liver and spleen function)</li>
+<li>Lekhana (supports metabolic regulation and reduction of excess Kapha)</li>
+<li>Rasayana (supports rejuvenation and vitality)</li>
+<li>Balya (supports strength and recovery)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Loha Bhasma (Purified Iron) – The principal ingredient traditionally used for supporting healthy blood formation and vitality.</li>
+<li>Triphala (Haritaki, Bibhitaki, Amalaki) – A classical combination used to support digestion, detoxification, and bowel regulation.</li>
+<li>Trikatu (Shunthi, Maricha, Pippali) – Traditionally used to stimulate digestion and improve bioavailability of other ingredients.</li>
+<li>Vidanga (Embelia ribes) – Traditionally used in formulations supporting intestinal health and parasite management.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally used to support appetite and metabolic activity.</li>
+<li>Musta (Cyperus rotundus) – Traditionally included for digestive and metabolic balance.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Asava preparations.</li>
+<li>Madhu (Honey) and Guda (Jaggery) – Serve as the fermenting medium and carrier in the formulation.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Lohasavam is administered internally as a fermented liquid preparation (Asava) in Ayurvedic practice. It is traditionally used as a supportive formulation for improving blood quality, enhancing digestion, and supporting overall vitality and metabolic balance.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="M" data-search="mustharishtam mustharishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from mustha (cyperus rotundus), a medicinal herb traditionally valued for supporting digestive health and regulating bowel function. ajirna (indigestion and digestive upset) atisara (acute or chronic diarrhea) pravahika (dysentery) grahani disorders (digestive irregularities including ibs-like conditions) aruchi (loss of appetite) anaha (abdominal bloating and gas) digestive disturbances in children – supportive use gastrointestinal discomfort associated with infection or toxin accumulation fever associated with digestive distress deepana (stimulates digestive fire) pachana (supports digestion of ama) grahi (supports regulation of bowel movements and absorption) pittahara and kaphahara (supports balance of pitta and kapha in the gut) krimighna (traditionally used against intestinal parasites) shoolahara (supports relief from abdominal discomfort) jvarahara (traditionally used in fever associated with digestive disturbances) mustha (cyperus rotundus) – the principal ingredient traditionally used to support digestive balance and intestinal health. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. yavani (trachyspermum ammi / ajwain) – traditionally used to relieve abdominal colic and digestive discomfort. shunthi (zingiber officinale – dry ginger) – traditionally included to support digestion and metabolism. maricha (piper nigrum – black pepper) – traditionally used to enhance digestion and improve bioavailability. jeeraka (cuminum cyminum – cumin) – traditionally used to relieve abdominal gas and support digestion. methi (trigonella foenum-graecum – fenugreek) – traditionally included to support digestive balance. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. mustharishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for maintaining digestive balance, regulating bowel function, and managing gastrointestinal disturbances associated with pitta–kapha imbalance." id="mustharishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Mustharishtam</h2>
+            <p>Mustharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Mustha (Cyperus rotundus), a medicinal herb traditionally valued for supporting digestive health and regulating bowel function.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Mustharishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Mustha (Cyperus rotundus), a medicinal herb traditionally valued for supporting digestive health and regulating bowel function.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Ajirna (indigestion and digestive upset)</li>
+<li>Atisara (acute or chronic diarrhea)</li>
+<li>Pravahika (dysentery)</li>
+<li>Grahani disorders (digestive irregularities including IBS-like conditions)</li>
+<li>Aruchi (loss of appetite)</li>
+<li>Anaha (abdominal bloating and gas)</li>
+<li>Digestive disturbances in children – supportive use</li>
+<li>Gastrointestinal discomfort associated with infection or toxin accumulation</li>
+<li>Fever associated with digestive distress</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Grahi (supports regulation of bowel movements and absorption)</li>
+<li>Pittahara and Kaphahara (supports balance of Pitta and Kapha in the gut)</li>
+<li>Krimighna (traditionally used against intestinal parasites)</li>
+<li>Shoolahara (supports relief from abdominal discomfort)</li>
+<li>Jvarahara (traditionally used in fever associated with digestive disturbances)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Mustha (Cyperus rotundus) – The principal ingredient traditionally used to support digestive balance and intestinal health.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Yavani (Trachyspermum ammi / Ajwain) – Traditionally used to relieve abdominal colic and digestive discomfort.</li>
+<li>Shunthi (Zingiber officinale – Dry Ginger) – Traditionally included to support digestion and metabolism.</li>
+<li>Maricha (Piper nigrum – Black Pepper) – Traditionally used to enhance digestion and improve bioavailability.</li>
+<li>Jeeraka (Cuminum cyminum – Cumin) – Traditionally used to relieve abdominal gas and support digestion.</li>
+<li>Methi (Trigonella foenum-graecum – Fenugreek) – Traditionally included to support digestive balance.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Mustharishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for maintaining digestive balance, regulating bowel function, and managing gastrointestinal disturbances associated with Pitta–Kapha imbalance.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="T" data-search="triphalarishtam triphalarishtam is a classical ayurvedic formulation belonging to the category of arishta, which are naturally fermented herbal preparations. the formulation derives its name from triphala, a renowned ayurvedic combination of three fruits—haritaki (terminalia chebula), bibhitaki (terminalia bellirica), and amalaki (emblica officinalis). this combination has been traditionally valued in ayurveda for supporting digestive health, detoxification, and overall systemic balance. vibandha (chronic constipation) digestive disturbances and sluggish bowel movements arsha (hemorrhoids) and anorectal discomfort – supportive care skin disorders associated with impaired blood quality metabolic imbalance and obesity-like conditions reduced digestive fire (mandagni) eye health support in conditions associated with systemic imbalance liver and digestive detoxification support rechana (supports gentle bowel evacuation) deepana and pachana (supports digestive fire and digestion of ama) raktaprasadana (supports purification and quality of blood) rasayana (supports rejuvenation and systemic vitality) chakshushya (traditionally regarded as supportive for eye health) lekhana (supports metabolic regulation and reduction of excess kapha) tridosha shamana (supports balance of vata, pitta, and kapha) haritaki (terminalia chebula) – traditionally used for supporting colon health and regulating bowel movements. bibhitaki (terminalia bellirica) – traditionally included for supporting respiratory and metabolic balance. amalaki (emblica officinalis) – a rejuvenative fruit traditionally used to support skin, digestion, and vitality. dhataki (woodfordia fruticosa) – flowers used as the natural fermenting agent in arishta preparations. guda (jaggery) – serves as the fermenting medium in the preparation of the arishta. triphalarishtam is administered internally as a fermented liquid preparation (arishta) in ayurvedic practice. it is traditionally used as a supportive formulation for maintaining digestive health, promoting bowel regularity, supporting detoxification, and improving overall systemic balance." id="triphalarishtam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Triphalarishtam</h2>
+            <p>Triphalarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Triphala, a renowned Ayurvedic combination of three fruits—Haritaki (Terminalia chebula), Bibhitaki (Terminalia bellirica), and Amalaki (Emblica officinalis). This combination has been traditionally valued in Ayurveda for supporting digestive health, detoxification, and overall systemic balance.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Triphalarishtam is a classical Ayurvedic formulation belonging to the category of Arishta, which are naturally fermented herbal preparations. The formulation derives its name from Triphala, a renowned Ayurvedic combination of three fruits—Haritaki (Terminalia chebula), Bibhitaki (Terminalia bellirica), and Amalaki (Emblica officinalis). This combination has been traditionally valued in Ayurveda for supporting digestive health, detoxification, and overall systemic balance.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul><li>Vibandha (chronic constipation)</li>
+<li>Digestive disturbances and sluggish bowel movements</li>
+<li>Arsha (hemorrhoids) and anorectal discomfort – supportive care</li>
+<li>Skin disorders associated with impaired blood quality</li>
+<li>Metabolic imbalance and obesity-like conditions</li>
+<li>Reduced digestive fire (Mandagni)</li>
+<li>Eye health support in conditions associated with systemic imbalance</li>
+<li>Liver and digestive detoxification support</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul><li>Rechana (supports gentle bowel evacuation)</li>
+<li>Deepana and Pachana (supports digestive fire and digestion of Ama)</li>
+<li>Raktaprasadana (supports purification and quality of blood)</li>
+<li>Rasayana (supports rejuvenation and systemic vitality)</li>
+<li>Chakshushya (traditionally regarded as supportive for eye health)</li>
+<li>Lekhana (supports metabolic regulation and reduction of excess Kapha)</li>
+<li>Tridosha shamana (supports balance of Vata, Pitta, and Kapha)</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul><li>Haritaki (Terminalia chebula) – Traditionally used for supporting colon health and regulating bowel movements.</li>
+<li>Bibhitaki (Terminalia bellirica) – Traditionally included for supporting respiratory and metabolic balance.</li>
+<li>Amalaki (Emblica officinalis) – A rejuvenative fruit traditionally used to support skin, digestion, and vitality.</li>
+<li>Dhataki (Woodfordia fruticosa) – Flowers used as the natural fermenting agent in Arishta preparations.</li>
+<li>Guda (Jaggery) – Serves as the fermenting medium in the preparation of the Arishta.</li></ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Triphalarishtam is administered internally as a fermented liquid preparation (Arishta) in Ayurvedic practice. It is traditionally used as a supportive formulation for maintaining digestive health, promoting bowel regularity, supporting detoxification, and improving overall systemic balance.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    </section>
+
+    <div class="no-results" id="noResults">No medicines matched your search.</div>
+
+    <div class="note">These descriptions are presented for educational and informational purposes based on traditional Ayurvedic usage. Medicines should be selected and used only under qualified professional guidance.</div>
+  </main>
+
+  <footer class="footer">
+    <strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>
+    Traditional Ayurvedic care and in-house medicine preparation.
+  </footer>
+
+<script>
+const searchInput = document.getElementById('medicineSearch');
+const cards = Array.from(document.querySelectorAll('.medicine-card'));
+const chips = Array.from(document.querySelectorAll('.letter-chip'));
+const showAll = document.getElementById('showAll');
+const noResults = document.getElementById('noResults');
+let activeLetter = '';
+
+function filterCards() {
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  cards.forEach(card => {
+    const matchesText = !q || card.dataset.search.includes(q);
+    const matchesLetter = !activeLetter || card.dataset.letter === activeLetter;
+    const show = matchesText && matchesLetter;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  noResults.style.display = visible ? 'none' : 'block';
+}
+
+searchInput.addEventListener('input', filterCards);
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    const val = chip.dataset.letter;
+    activeLetter = (activeLetter === val) ? '' : val;
+    chips.forEach(c => c.classList.toggle('active', c.dataset.letter === activeLetter));
+    filterCards();
+  });
+});
+showAll.addEventListener('click', () => {
+  activeLetter = '';
+  chips.forEach(c => c.classList.remove('active'));
+  searchInput.value = '';
+  filterCards();
+});
+</script>
+</body>
+</html>

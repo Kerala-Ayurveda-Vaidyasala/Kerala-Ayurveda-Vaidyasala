@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lehyams | Kerala Ayurveda Vaidyasala</title>
+<meta name="description" content="Classical Lehyams prepared in-house at Kerala Ayurveda Vaidyasala, Changaramkulam.">
+<style>
+
+
+:root{
+  --bg:#f6ede0;
+  --paper:#fdf8f0;
+  --ink:#182e22;
+  --muted:#5d7263;
+  --gold:#a8820a;
+  --gold-soft:#e7d9b5;
+  --line:#e8d8c2;
+  --green:#2a5038;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(24,46,34,.96);
+  border-bottom:1px solid rgba(168,130,10,.18);
+  backdrop-filter:blur(10px);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{
+  text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem;
+}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;
+  transition:.25s ease;
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.04)}
+
+.hero{
+  padding:4.5rem 1.25rem 2.25rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(168,130,10,.08), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(42,80,56,.08), transparent 30%),
+    linear-gradient(180deg, #f8f0e6 0%, #f6ede0 100%);
+  border-bottom:1px solid rgba(168,130,10,.12);
+}
+.hero-inner{max-width:1180px;margin:0 auto}
+.eyebrow{display:inline-block;color:var(--gold);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-style:italic;margin-bottom:.85rem}
+.hero h1{margin:.2rem 0 .8rem;font-weight:400;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08}
+.hero p.lead{max-width:800px;margin:0;color:#35503f;font-size:1.03rem}
+.quick-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;
+  margin-top:2rem;max-width:820px;
+}
+.stat{
+  background:rgba(253,248,240,.82);border:1px solid rgba(168,130,10,.18);
+  padding:1rem 1rem .9rem;border-radius:16px;
+}
+.stat strong{display:block;font-size:1.4rem;font-weight:400;color:var(--green)}
+.stat span{display:block;color:var(--muted);font-size:.88rem}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.toolbar{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;
+  padding:1.1rem;margin-bottom:1.4rem;box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.toolbar-top{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.searchbox{flex:1 1 320px;position:relative}
+.searchbox input{
+  width:100%;padding:.95rem 1rem .95rem 2.85rem;border-radius:14px;border:1px solid #dbc8ad;
+  background:#fff;font:inherit;color:var(--ink);outline:none;
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.toolbar-note{color:var(--muted);font-size:.92rem}
+.letter-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+.letter-chip, .clear-chip{
+  border:1px solid #dbc8ad;background:#fff;color:var(--ink);border-radius:999px;
+  padding:.45rem .78rem;font:inherit;font-size:.83rem;cursor:pointer;transition:.2s ease;
+}
+.letter-chip:hover, .clear-chip:hover, .letter-chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+.clear-chip{color:var(--gold)}
+
+.grid{display:grid;gap:1rem}
+.medicine-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.medicine-card details{display:block}
+.medicine-card details[open]{background:linear-gradient(180deg,rgba(168,130,10,.03),transparent 34%), var(--paper)}
+.medicine-card summary{
+  list-style:none;cursor:pointer;padding:1.25rem 1.25rem 1.15rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+}
+.medicine-card summary::-webkit-details-marker{display:none}
+.summary-text h2{margin:0 0 .4rem;font-weight:400;font-size:1.33rem;color:var(--ink)}
+.summary-text p{margin:0;color:#45614f;font-size:.98rem;max-width:860px}
+.summary-tag{
+  flex-shrink:0;border:1px solid rgba(168,130,10,.28);color:var(--gold);
+  border-radius:999px;padding:.45rem .78rem;font-size:.78rem;letter-spacing:.04em;margin-top:.1rem;
+}
+.medicine-body{
+  padding:0 1.25rem 1.35rem;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;
+}
+.detail-block{
+  background:#fff;border:1px solid #eee1cf;border-radius:16px;padding:1rem 1rem .9rem;
+}
+.detail-block h3{margin:0 0 .6rem;font-size:.93rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.detail-block p{margin:0;color:#35503f}
+.detail-block ul{margin:.2rem 0 0 1rem;padding:0}
+.detail-block li{margin:.15rem 0;color:#35503f}
+.detail-block:first-child{grid-column:1/-1}
+
+.note{
+  margin-top:2rem;padding:1rem 1.15rem;border-radius:16px;
+  background:rgba(42,80,56,.06);border:1px solid rgba(42,80,56,.12);color:#315040;
+}
+.no-results{display:none;text-align:center;padding:2rem 1rem;color:#6a7d70}
+
+.footer{
+  padding:2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem
+}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:900px){
+  .quick-stats{grid-template-columns:1fr}
+  .medicine-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.25rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}
+  .brand span{font-size:.66rem}
+  .medicine-card summary{flex-direction:column}
+}
+
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong>
+        <span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span>
+      </a>
+      <a class="back-link" href="index.html#preparations">← Back to Main Site</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">In-House Preparations</span>
+      <h1>Lehyams Prepared In-House</h1>
+      <p class="lead">
+        Our Lehyams are prepared in-house in the classical Ayurvedic tradition as nourishing and traditionally indicated internal formulations. Each entry below presents a clear traditional overview of its uses, actions, key ingredients, and important note in the same easy-to-browse format used across our preparation catalogue.
+      </p>
+    </div>
+  </section>
+
+  <main class="page-wrap">
+    <section class="toolbar">
+      <div class="toolbar-top">
+        <div class="searchbox">
+          <span class="icon">⌕</span>
+          <input id="medicineSearch" type="search" placeholder="Search Lehyam name, use, action, or ingredient...">
+        </div>
+        <div class="toolbar-note">Tap any medicine card to open its full details.</div>
+      </div>
+      <div class="letter-row">
+        <button type="button" class="clear-chip" id="showAll">Show all</button>
+        <button type="button" class="letter-chip" data-letter="A">A</button>
+        <button type="button" class="letter-chip" data-letter="C">C</button>
+        <button type="button" class="letter-chip" data-letter="D">D</button>
+        <button type="button" class="letter-chip" data-letter="K">K</button>
+        <button type="button" class="letter-chip" data-letter="S">S</button>
+        <button type="button" class="letter-chip" data-letter="T">T</button>
+        <button type="button" class="letter-chip" data-letter="V">V</button>
+      </div>
+    </section>
+
+    <section class="grid" id="medicineGrid">
+      
+    <article class="medicine-card" data-letter="A" data-search="agastya rasayanam agastya rasayanam is a classical ayurvedic formulation belonging to the rasayana category, traditionally used for promoting respiratory health and rejuvenation of body tissues. the formulation is named after sage agastya, who is traditionally associated with its origin. shwasa (difficulty in breathing) kasa (various types of cough) peenasa (chronic nasal congestion and sinus conditions) kaphaja disorders affecting the respiratory tract kshaya associated with weakness of respiratory tissues recurrent seasonal respiratory discomfort general debility following prolonged illness support for respiratory strength and endurance rasayana (supports rejuvenation and vitality of tissues) kasa-hara (helps in relieving cough) shwasa-hara (supports respiratory function) kapha-vata shamana (helps balance kapha and vata doshas) deepana (supports digestive fire) pachana (helps in proper metabolism and removal of metabolic toxins) hareetaki (terminalia chebula) – the principal ingredient traditionally known for its rejuvenating and detoxifying properties. dashamoola – the classical group of ten roots used in many ayurvedic formulations for balancing vata and supporting respiratory health. bala (sida cordifolia) – traditionally used for strengthening body tissues and improving vitality. atmagupta (mucuna pruriens) – included for its nourishing and vata-balancing properties. yava (barley) – used in the preparation of the decoction to support digestive and metabolic functions. chitraka (plumbago zeylanica) – traditionally used to stimulate digestive fire. pippali (piper longum) – a classical herb used in respiratory formulations to support proper respiratory function. guda (jaggery) – used as the base in avaleha preparation. madhu (honey) – traditionally added to enhance palatability and facilitate absorption. agastya rasayanam is traditionally administered internally as an avaleha preparation. in ayurvedic practice it is commonly used as a long-term supportive formulation for maintaining respiratory health and strengthening the body, particularly in individuals prone to recurrent respiratory disorders." id="agastya-rasayanam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Agastya Rasayanam</h2>
+            <p>Agastya Rasayanam is a classical Ayurvedic formulation belonging to the Rasayana category, traditionally used for promoting respiratory health and rejuvenation of body tissues. The formulation is named after Sage Agastya, who is traditionally associated with its origin.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Agastya Rasayanam is a classical Ayurvedic formulation belonging to the Rasayana category, traditionally used for promoting respiratory health and rejuvenation of body tissues. The formulation is named after Sage Agastya, who is traditionally associated with its origin.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Shwasa (difficulty in breathing)</li>
+<li>Kasa (various types of cough)</li>
+<li>Peenasa (chronic nasal congestion and sinus conditions)</li>
+<li>Kaphaja disorders affecting the respiratory tract</li>
+<li>Kshaya associated with weakness of respiratory tissues</li>
+<li>Recurrent seasonal respiratory discomfort</li>
+<li>General debility following prolonged illness</li>
+<li>Support for respiratory strength and endurance</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Rasayana (supports rejuvenation and vitality of tissues)</li>
+<li>Kasa-hara (helps in relieving cough)</li>
+<li>Shwasa-hara (supports respiratory function)</li>
+<li>Kapha-vata shamana (helps balance Kapha and Vata doshas)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps in proper metabolism and removal of metabolic toxins)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Hareetaki (Terminalia chebula) – The principal ingredient traditionally known for its rejuvenating and detoxifying properties.</li>
+<li>Dashamoola – The classical group of ten roots used in many Ayurvedic formulations for balancing Vata and supporting respiratory health.</li>
+<li>Bala (Sida cordifolia) – Traditionally used for strengthening body tissues and improving vitality.</li>
+<li>Atmagupta (Mucuna pruriens) – Included for its nourishing and Vata-balancing properties.</li>
+<li>Yava (Barley) – Used in the preparation of the decoction to support digestive and metabolic functions.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally used to stimulate digestive fire.</li>
+<li>Pippali (Piper longum) – A classical herb used in respiratory formulations to support proper respiratory function.</li>
+<li>Guda (Jaggery) – Used as the base in Avaleha preparation.</li>
+<li>Madhu (Honey) – Traditionally added to enhance palatability and facilitate absorption.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Agastya Rasayanam is traditionally administered internally as an Avaleha preparation. In Ayurvedic practice it is commonly used as a long-term supportive formulation for maintaining respiratory health and strengthening the body, particularly in individuals prone to recurrent respiratory disorders.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="C" data-search="chyavanaprasham chyavanaprasham is one of the most well-known classical rasayana formulations in ayurveda. traditionally described in ayurvedic texts, the formulation is associated with the rejuvenation of sage chyavana, from whom it derives its name. kasa (various forms of cough) shwasa (respiratory discomfort) recurrent seasonal respiratory disturbances kshaya associated with weakness or tissue depletion bala kshaya (loss of strength or vitality) smriti and medha support (memory and cognitive function) general debility and fatigue rasayana use for maintaining longevity and vitality rasayana (supports rejuvenation and longevity) balya (helps improve strength and vitality) medhya (supports cognitive functions) kasa-hara (supports relief from cough) shwasa-hara (supports respiratory function) deepana and pachana (supports digestive function and metabolism) ojas-vardhaka (supports overall vitality and immunity) amalaki (emblica officinalis) – the principal ingredient of the formulation, traditionally valued for its rejuvenating and nourishing properties. dashamoola – the classical group of ten roots used in ayurvedic formulations for balancing vata and supporting respiratory health. asvagandha (withania somnifera) – traditionally used to nourish body tissues and support strength. shatavari (asparagus racemosus) – a rejuvenative herb used for nourishment and tissue support. pippali (piper longum) – traditionally used in respiratory formulations and to support digestive fire. bala (sida cordifolia) – known for supporting strength and vitality. vidari (pueraria tuberosa / ipomoea digitata group) – traditionally used for nourishing body tissues. guduchi (tinospora cordifolia) – included for supporting general health and vitality. ghrita (ghee) – used in preparation to nourish tissues and carry the medicinal properties of herbs. tila taila (sesame oil) – used in classical processing to facilitate deeper tissue penetration of the formulation. madhu (honey) – traditionally added to enhance palatability and assist absorption. chyavanaprasham is traditionally taken internally as a rasayana preparation. in ayurvedic practice it is commonly used for daily health maintenance, rejuvenation, and strengthening of the respiratory system and body tissues." id="chyavanaprasham">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Chyavanaprasham</h2>
+            <p>Chyavanaprasham is one of the most well-known classical Rasayana formulations in Ayurveda. Traditionally described in Ayurvedic texts, the formulation is associated with the rejuvenation of Sage Chyavana, from whom it derives its name.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Chyavanaprasham is one of the most well-known classical Rasayana formulations in Ayurveda. Traditionally described in Ayurvedic texts, the formulation is associated with the rejuvenation of Sage Chyavana, from whom it derives its name.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kasa (various forms of cough)</li>
+<li>Shwasa (respiratory discomfort)</li>
+<li>Recurrent seasonal respiratory disturbances</li>
+<li>Kshaya associated with weakness or tissue depletion</li>
+<li>Bala kshaya (loss of strength or vitality)</li>
+<li>Smriti and medha support (memory and cognitive function)</li>
+<li>General debility and fatigue</li>
+<li>Rasayana use for maintaining longevity and vitality</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Rasayana (supports rejuvenation and longevity)</li>
+<li>Balya (helps improve strength and vitality)</li>
+<li>Medhya (supports cognitive functions)</li>
+<li>Kasa-hara (supports relief from cough)</li>
+<li>Shwasa-hara (supports respiratory function)</li>
+<li>Deepana and Pachana (supports digestive function and metabolism)</li>
+<li>Ojas-vardhaka (supports overall vitality and immunity)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Amalaki (Emblica officinalis) – The principal ingredient of the formulation, traditionally valued for its rejuvenating and nourishing properties.</li>
+<li>Dashamoola – The classical group of ten roots used in Ayurvedic formulations for balancing Vata and supporting respiratory health.</li>
+<li>Asvagandha (Withania somnifera) – Traditionally used to nourish body tissues and support strength.</li>
+<li>Shatavari (Asparagus racemosus) – A rejuvenative herb used for nourishment and tissue support.</li>
+<li>Pippali (Piper longum) – Traditionally used in respiratory formulations and to support digestive fire.</li>
+<li>Bala (Sida cordifolia) – Known for supporting strength and vitality.</li>
+<li>Vidari (Pueraria tuberosa / Ipomoea digitata group) – Traditionally used for nourishing body tissues.</li>
+<li>Guduchi (Tinospora cordifolia) – Included for supporting general health and vitality.</li>
+<li>Ghrita (Ghee) – Used in preparation to nourish tissues and carry the medicinal properties of herbs.</li>
+<li>Tila Taila (Sesame Oil) – Used in classical processing to facilitate deeper tissue penetration of the formulation.</li>
+<li>Madhu (Honey) – Traditionally added to enhance palatability and assist absorption.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Chyavanaprasham is traditionally taken internally as a Rasayana preparation. In Ayurvedic practice it is commonly used for daily health maintenance, rejuvenation, and strengthening of the respiratory system and body tissues.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="D" data-search="dashamoola rasayanam dashamoola rasayanam is a classical ayurvedic formulation prepared in the form of an avaleha (herbal electuary). the formulation derives its name from dashamoola, the well-known group of ten medicinal roots widely used in ayurveda for balancing vata and kapha doshas. kasa (various forms of cough) shwasa (difficulty in breathing) kaphaja respiratory disorders with chest congestion vata-related body pain and joint discomfort agnimandya (reduced digestive fire) aruchi (loss of appetite) hikka (hiccough) conditions associated with weakness following prolonged illness general debility and fatigue rasayana (supports rejuvenation and vitality) kasa-hara (supports relief from cough) shwasa-hara (supports respiratory function) kapha-vata shamana (helps balance kapha and vata) deepana (stimulates digestive fire) pachana (supports proper metabolism and digestion of ama) balya (supports physical strength and endurance) dashamoola – the classical group of ten roots: bilva, agnimantha, shyonaka, patala, gambhari, brihati, kantakari, shaliparni, prishniparni, and gokshura. these herbs are traditionally used for balancing vata and supporting respiratory and musculoskeletal health. pippali (piper longum) – traditionally used in respiratory formulations and to support digestive fire. sunthi (zingiber officinale – dry ginger) – included to stimulate digestion and support metabolism. chitraka (plumbago zeylanica) – traditionally used for improving appetite and digestive strength. amalaki (emblica officinalis) – a rejuvenative fruit traditionally included for supporting overall health and balancing pitta. haritaki (terminalia chebula) – known in ayurveda for supporting digestive and eliminative functions. guda (jaggery) – used as the base in avaleha preparation. madhu (honey) – traditionally added to enhance palatability and facilitate absorption. dashamoola rasayanam is administered internally as an avaleha preparation in traditional ayurvedic practice. it is commonly used as a supportive rasayana formulation for respiratory health, digestive strength, and general rejuvenation." id="dashamoola-rasayanam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Dashamoola Rasayanam</h2>
+            <p>Dashamoola Rasayanam is a classical Ayurvedic formulation prepared in the form of an Avaleha (herbal electuary). The formulation derives its name from Dashamoola, the well-known group of ten medicinal roots widely used in Ayurveda for balancing Vata and Kapha doshas.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Dashamoola Rasayanam is a classical Ayurvedic formulation prepared in the form of an Avaleha (herbal electuary). The formulation derives its name from Dashamoola, the well-known group of ten medicinal roots widely used in Ayurveda for balancing Vata and Kapha doshas.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kasa (various forms of cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Kaphaja respiratory disorders with chest congestion</li>
+<li>Vata-related body pain and joint discomfort</li>
+<li>Agnimandya (reduced digestive fire)</li>
+<li>Aruchi (loss of appetite)</li>
+<li>Hikka (hiccough)</li>
+<li>Conditions associated with weakness following prolonged illness</li>
+<li>General debility and fatigue</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Rasayana (supports rejuvenation and vitality)</li>
+<li>Kasa-hara (supports relief from cough)</li>
+<li>Shwasa-hara (supports respiratory function)</li>
+<li>Kapha-vata shamana (helps balance Kapha and Vata)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports proper metabolism and digestion of Ama)</li>
+<li>Balya (supports physical strength and endurance)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Dashamoola – The classical group of ten roots: Bilva, Agnimantha, Shyonaka, Patala, Gambhari, Brihati, Kantakari, Shaliparni, Prishniparni, and Gokshura. These herbs are traditionally used for balancing Vata and supporting respiratory and musculoskeletal health.</li>
+<li>Pippali (Piper longum) – Traditionally used in respiratory formulations and to support digestive fire.</li>
+<li>Sunthi (Zingiber officinale – dry ginger) – Included to stimulate digestion and support metabolism.</li>
+<li>Chitraka (Plumbago zeylanica) – Traditionally used for improving appetite and digestive strength.</li>
+<li>Amalaki (Emblica officinalis) – A rejuvenative fruit traditionally included for supporting overall health and balancing Pitta.</li>
+<li>Haritaki (Terminalia chebula) – Known in Ayurveda for supporting digestive and eliminative functions.</li>
+<li>Guda (Jaggery) – Used as the base in Avaleha preparation.</li>
+<li>Madhu (Honey) – Traditionally added to enhance palatability and facilitate absorption.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Dashamoola Rasayanam is administered internally as an Avaleha preparation in traditional Ayurvedic practice. It is commonly used as a supportive Rasayana formulation for respiratory health, digestive strength, and general rejuvenation.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="D" data-search="dashamoola haritaki lehyam dashamoola haritaki lehyam is a classical ayurvedic formulation prepared in the form of lehyam (avaleha). the formulation combines the therapeutic properties of dashamoola, the well-known group of ten medicinal roots, with haritaki, a highly valued fruit in ayurvedic medicine traditionally used for supporting digestive and eliminative functions. shopha (generalized swelling and inflammatory edema) kasa (various forms of cough) shwasa (difficulty in breathing) kaphaja respiratory disorders with mucus accumulation vibandha (constipation) mutrakricchra (difficulty or discomfort in urination) gulma (abdominal distension or masses related to vata imbalance) pandu (conditions associated with pallor and weakness) agnimandya (reduced digestive fire) kapha-vata shamana (helps balance kapha and vata doshas) shothahara (helps reduce swelling and inflammatory conditions) kasa-hara (supports relief from cough) shwasa-hara (supports respiratory function) mridu virechana (promotes gentle bowel evacuation) deepana (stimulates digestive fire) pachana (supports proper metabolism and digestion of ama) lekhana (supports the clearing of excess accumulations in the body) haritaki (terminalia chebula) – the principal ingredient traditionally used for supporting digestion, elimination, and tissue rejuvenation. dashamoola – the classical group of ten roots: bilva, agnimantha, shyonaka, patala, gambhari, brihati, kantakari, shaliparni, prishniparni, and gokshura. these herbs are widely used for balancing vata and kapha. trijata – a group of aromatic spices traditionally including tvak (cinnamon), ela (cardamom), and tamalapatra (indian bay leaf), used to improve digestion and aroma of the preparation. trikatu – the classical combination of sunthi (dry ginger), maricha (black pepper), and pippali (long pepper), known for stimulating digestive fire and supporting respiratory health. guda (jaggery) – used as the base in the preparation of lehyam. madhu (honey) – traditionally added after preparation to enhance palatability and assist in absorption. dashamoola haritaki lehyam is administered internally as a lehyam preparation in traditional ayurvedic practice. it is commonly used as a supportive formulation for respiratory health, digestive balance, and conditions associated with swelling and kapha-vata imbalance." id="dashamoola-haritaki-lehyam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Dashamoola Haritaki Lehyam</h2>
+            <p>Dashamoola Haritaki Lehyam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation combines the therapeutic properties of Dashamoola, the well-known group of ten medicinal roots, with Haritaki, a highly valued fruit in Ayurvedic medicine traditionally used for supporting digestive and eliminative functions.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Dashamoola Haritaki Lehyam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation combines the therapeutic properties of Dashamoola, the well-known group of ten medicinal roots, with Haritaki, a highly valued fruit in Ayurvedic medicine traditionally used for supporting digestive and eliminative functions.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Shopha (generalized swelling and inflammatory edema)</li>
+<li>Kasa (various forms of cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Kaphaja respiratory disorders with mucus accumulation</li>
+<li>Vibandha (constipation)</li>
+<li>Mutrakricchra (difficulty or discomfort in urination)</li>
+<li>Gulma (abdominal distension or masses related to Vata imbalance)</li>
+<li>Pandu (conditions associated with pallor and weakness)</li>
+<li>Agnimandya (reduced digestive fire)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kapha-vata shamana (helps balance Kapha and Vata doshas)</li>
+<li>Shothahara (helps reduce swelling and inflammatory conditions)</li>
+<li>Kasa-hara (supports relief from cough)</li>
+<li>Shwasa-hara (supports respiratory function)</li>
+<li>Mridu virechana (promotes gentle bowel evacuation)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports proper metabolism and digestion of Ama)</li>
+<li>Lekhana (supports the clearing of excess accumulations in the body)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Haritaki (Terminalia chebula) – The principal ingredient traditionally used for supporting digestion, elimination, and tissue rejuvenation.</li>
+<li>Dashamoola – The classical group of ten roots: Bilva, Agnimantha, Shyonaka, Patala, Gambhari, Brihati, Kantakari, Shaliparni, Prishniparni, and Gokshura. These herbs are widely used for balancing Vata and Kapha.</li>
+<li>Trijata – A group of aromatic spices traditionally including Tvak (Cinnamon), Ela (Cardamom), and Tamalapatra (Indian Bay Leaf), used to improve digestion and aroma of the preparation.</li>
+<li>Trikatu – The classical combination of Sunthi (Dry Ginger), Maricha (Black Pepper), and Pippali (Long Pepper), known for stimulating digestive fire and supporting respiratory health.</li>
+<li>Guda (Jaggery) – Used as the base in the preparation of Lehyam.</li>
+<li>Madhu (Honey) – Traditionally added after preparation to enhance palatability and assist in absorption.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Dashamoola Haritaki Lehyam is administered internally as a Lehyam preparation in traditional Ayurvedic practice. It is commonly used as a supportive formulation for respiratory health, digestive balance, and conditions associated with swelling and Kapha-Vata imbalance.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="D" data-search="drakshadi lehyam drakshadi lehyam is a classical ayurvedic formulation prepared in the form of lehyam (avaleha). the formulation derives its name from draksha (dry grapes/raisins), which serves as the principal ingredient and provides the preparation with its nourishing and cooling qualities. pandu (conditions associated with pallor and weakness) kamala (conditions affecting liver function) amlapitta (hyperacidity and burning sensation in the stomach) daha (internal burning sensation) trishna (excessive thirst) raktapitta conditions involving heat in the blood general debility and fatigue loss of appetite associated with weakness supportive nourishment during convalescence pittashamana (helps pacify aggravated pitta) raktaprasadana (supports the health and quality of blood) balya (supports strength and nourishment of tissues) deepana (supports digestive fire) pachana (helps proper metabolism) brimhana (supports nourishment and tissue building) dahahara (helps relieve burning sensations) draksha (vitis vinifera) – the principal ingredient, traditionally valued for its nourishing and cooling properties. pippali (piper longum) – included to support digestion and enhance the action of other ingredients. yashtimadhu (glycyrrhiza glabra) – traditionally used for its soothing and cooling properties. shunthi (zingiber officinale – dry ginger) – included to support digestion and metabolism. amalaki (emblica officinalis) – a rejuvenative fruit used to support overall health and balance pitta. guda (jaggery) – used as the base in the preparation of the lehyam. madhu (honey) – traditionally added to improve palatability and assist in absorption. drakshadi lehyam is administered internally as a lehyam preparation in ayurvedic practice. it is traditionally used as a supportive tonic for conditions involving pitta imbalance, weakness, and disorders affecting blood and digestion." id="drakshadi-lehyam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Drakshadi Lehyam</h2>
+            <p>Drakshadi Lehyam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Draksha (dry grapes/raisins), which serves as the principal ingredient and provides the preparation with its nourishing and cooling qualities.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Drakshadi Lehyam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Draksha (dry grapes/raisins), which serves as the principal ingredient and provides the preparation with its nourishing and cooling qualities.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Pandu (conditions associated with pallor and weakness)</li>
+<li>Kamala (conditions affecting liver function)</li>
+<li>Amlapitta (hyperacidity and burning sensation in the stomach)</li>
+<li>Daha (internal burning sensation)</li>
+<li>Trishna (excessive thirst)</li>
+<li>Raktapitta conditions involving heat in the blood</li>
+<li>General debility and fatigue</li>
+<li>Loss of appetite associated with weakness</li>
+<li>Supportive nourishment during convalescence</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Pittashamana (helps pacify aggravated Pitta)</li>
+<li>Raktaprasadana (supports the health and quality of blood)</li>
+<li>Balya (supports strength and nourishment of tissues)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (helps proper metabolism)</li>
+<li>Brimhana (supports nourishment and tissue building)</li>
+<li>Dahahara (helps relieve burning sensations)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Draksha (Vitis vinifera) – The principal ingredient, traditionally valued for its nourishing and cooling properties.</li>
+<li>Pippali (Piper longum) – Included to support digestion and enhance the action of other ingredients.</li>
+<li>Yashtimadhu (Glycyrrhiza glabra) – Traditionally used for its soothing and cooling properties.</li>
+<li>Shunthi (Zingiber officinale – dry ginger) – Included to support digestion and metabolism.</li>
+<li>Amalaki (Emblica officinalis) – A rejuvenative fruit used to support overall health and balance Pitta.</li>
+<li>Guda (Jaggery) – Used as the base in the preparation of the Lehyam.</li>
+<li>Madhu (Honey) – Traditionally added to improve palatability and assist in absorption.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Drakshadi Lehyam is administered internally as a Lehyam preparation in Ayurvedic practice. It is traditionally used as a supportive tonic for conditions involving Pitta imbalance, weakness, and disorders affecting blood and digestion.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="K" data-search="kalyanaka gulam kalyanaka gulam is a classical ayurvedic formulation prepared in the form of lehyam (avaleha). the name “kalyanaka” signifies something beneficial or auspicious, indicating its traditional use as a formulation that supports systemic cleansing while nourishing body tissues. kushtha (various skin disorders) vibandha (chronic constipation) arsha (piles) bhagandara (fistula-in-ano) – supportive use kamala (conditions affecting liver function) gulma (abdominal distension and gaseous masses) pandu (conditions associated with pallor and weakness) prameha (metabolic and urinary disorders) agnimandya (reduced digestive fire) mridu virechana (supports gentle bowel evacuation) deepana (stimulates digestive fire) pachana (helps in digestion of ama) kapha-pitta shamana (helps balance kapha and pitta) raktaprasadana (supports the health and quality of blood) kushtha-hara (traditionally used in skin disorders) lekhana (supports clearing of metabolic accumulations) vidanga (embelia ribes) – traditionally used in digestive formulations and for supporting intestinal health. triphala – the classical combination of haritaki (terminalia chebula), bibhitaki (terminalia bellirica), and amalaki (emblica officinalis) used for supporting digestion and elimination. chitraka (plumbago zeylanica) – included to stimulate digestive fire and improve metabolism. trikatu – the classical combination of sunthi (dry ginger), maricha (black pepper), and pippali (long pepper) used for enhancing digestion and metabolic activity. danti (baliospermum montanum) – traditionally included for its mild purgative properties. guda (jaggery) – used as the base in the preparation of the lehyam. tila taila (sesame oil) – used during preparation to support absorption of the medicinal components. kalyanaka gulam is administered internally as a lehyam preparation in ayurvedic practice. because the formulation may have mild purgative effects, dosage is traditionally adjusted according to individual digestive capacity and physician guidance." id="kalyanaka-gulam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Kalyanaka Gulam</h2>
+            <p>Kalyanaka Gulam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The name “Kalyanaka” signifies something beneficial or auspicious, indicating its traditional use as a formulation that supports systemic cleansing while nourishing body tissues.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Kalyanaka Gulam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The name “Kalyanaka” signifies something beneficial or auspicious, indicating its traditional use as a formulation that supports systemic cleansing while nourishing body tissues.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kushtha (various skin disorders)</li>
+<li>Vibandha (chronic constipation)</li>
+<li>Arsha (piles)</li>
+<li>Bhagandara (fistula-in-ano) – supportive use</li>
+<li>Kamala (conditions affecting liver function)</li>
+<li>Gulma (abdominal distension and gaseous masses)</li>
+<li>Pandu (conditions associated with pallor and weakness)</li>
+<li>Prameha (metabolic and urinary disorders)</li>
+<li>Agnimandya (reduced digestive fire)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Mridu virechana (supports gentle bowel evacuation)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (helps in digestion of Ama)</li>
+<li>Kapha-pitta shamana (helps balance Kapha and Pitta)</li>
+<li>Raktaprasadana (supports the health and quality of blood)</li>
+<li>Kushtha-hara (traditionally used in skin disorders)</li>
+<li>Lekhana (supports clearing of metabolic accumulations)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Vidanga (Embelia ribes) – Traditionally used in digestive formulations and for supporting intestinal health.</li>
+<li>Triphala – The classical combination of Haritaki (Terminalia chebula), Bibhitaki (Terminalia bellirica), and Amalaki (Emblica officinalis) used for supporting digestion and elimination.</li>
+<li>Chitraka (Plumbago zeylanica) – Included to stimulate digestive fire and improve metabolism.</li>
+<li>Trikatu – The classical combination of Sunthi (Dry Ginger), Maricha (Black Pepper), and Pippali (Long Pepper) used for enhancing digestion and metabolic activity.</li>
+<li>Danti (Baliospermum montanum) – Traditionally included for its mild purgative properties.</li>
+<li>Guda (Jaggery) – Used as the base in the preparation of the Lehyam.</li>
+<li>Tila Taila (Sesame Oil) – Used during preparation to support absorption of the medicinal components.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Kalyanaka Gulam is administered internally as a Lehyam preparation in Ayurvedic practice. Because the formulation may have mild purgative effects, dosage is traditionally adjusted according to individual digestive capacity and physician guidance.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="C" data-search="cheriya madhusnuhi rasayanam cheriya madhusnuhi rasayanam is a classical ayurvedic formulation prepared in the form of lehyam (avaleha). the formulation derives its name from its principal ingredient madhusnuhi (smilax china), which is traditionally valued in ayurveda for supporting purification of the blood and maintaining healthy skin. kushtha (various skin disorders) kandu (itching of the skin) twak vikara associated with scaling and eruptions visarpa-like inflammatory skin conditions pama and dadru-type skin lesions arsha (piles) bhagandara (fistula-in-ano) – supportive use raktadushti conditions affecting skin quality prameha-associated skin complications raktaprasadana (supports purification and quality of blood) kushtha-hara (traditionally used in skin disorders) kapha-pitta shamana (helps balance kapha and pitta) deepana (supports digestive fire) pachana (supports digestion of ama) rasayana (supports tissue rejuvenation and vitality) kandu-hara (helps relieve itching) madhusnuhi (smilax china) – the principal ingredient traditionally used in formulations for supporting healthy skin and blood purification. trikatu – the classical combination of sunthi (dry ginger), maricha (black pepper), and pippali (long pepper) used to stimulate digestion and metabolism. triphala – the combination of haritaki, bibhitaki, and amalaki, traditionally used for supporting detoxification and digestive balance. chaturjata – a group of aromatic herbs including tvak (cinnamon), ela (cardamom), tamalapatra (indian bay leaf), and nagakeshara, used to enhance digestion and aroma of the preparation. vidanga (embelia ribes) – traditionally included in digestive formulations for supporting intestinal health. chitraka (plumbago zeylanica) – included to stimulate digestive fire and improve metabolism. ghrita (ghee) – used in preparation to nourish tissues and support absorption of herbal components. guda (jaggery) – used as the base in the preparation of the lehyam. cheriya madhusnuhi rasayanam is administered internally as a lehyam preparation in ayurvedic practice. it is traditionally used as a supportive formulation for skin health, blood purification, and conditions associated with kapha–pitta imbalance." id="cheriya-madhusnuhi-rasayanam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Cheriya Madhusnuhi Rasayanam</h2>
+            <p>Cheriya Madhusnuhi Rasayanam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from its principal ingredient Madhusnuhi (Smilax china), which is traditionally valued in Ayurveda for supporting purification of the blood and maintaining healthy skin.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Cheriya Madhusnuhi Rasayanam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from its principal ingredient Madhusnuhi (Smilax china), which is traditionally valued in Ayurveda for supporting purification of the blood and maintaining healthy skin.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kushtha (various skin disorders)</li>
+<li>Kandu (itching of the skin)</li>
+<li>Twak vikara associated with scaling and eruptions</li>
+<li>Visarpa-like inflammatory skin conditions</li>
+<li>Pama and Dadru-type skin lesions</li>
+<li>Arsha (piles)</li>
+<li>Bhagandara (fistula-in-ano) – supportive use</li>
+<li>Raktadushti conditions affecting skin quality</li>
+<li>Prameha-associated skin complications</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Raktaprasadana (supports purification and quality of blood)</li>
+<li>Kushtha-hara (traditionally used in skin disorders)</li>
+<li>Kapha-pitta shamana (helps balance Kapha and Pitta)</li>
+<li>Deepana (supports digestive fire)</li>
+<li>Pachana (supports digestion of Ama)</li>
+<li>Rasayana (supports tissue rejuvenation and vitality)</li>
+<li>Kandu-hara (helps relieve itching)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Madhusnuhi (Smilax china) – The principal ingredient traditionally used in formulations for supporting healthy skin and blood purification.</li>
+<li>Trikatu – The classical combination of Sunthi (Dry Ginger), Maricha (Black Pepper), and Pippali (Long Pepper) used to stimulate digestion and metabolism.</li>
+<li>Triphala – The combination of Haritaki, Bibhitaki, and Amalaki, traditionally used for supporting detoxification and digestive balance.</li>
+<li>Chaturjata – A group of aromatic herbs including Tvak (Cinnamon), Ela (Cardamom), Tamalapatra (Indian Bay Leaf), and Nagakeshara, used to enhance digestion and aroma of the preparation.</li>
+<li>Vidanga (Embelia ribes) – Traditionally included in digestive formulations for supporting intestinal health.</li>
+<li>Chitraka (Plumbago zeylanica) – Included to stimulate digestive fire and improve metabolism.</li>
+<li>Ghrita (Ghee) – Used in preparation to nourish tissues and support absorption of herbal components.</li>
+<li>Guda (Jaggery) – Used as the base in the preparation of the Lehyam.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Cheriya Madhusnuhi Rasayanam is administered internally as a Lehyam preparation in Ayurvedic practice. It is traditionally used as a supportive formulation for skin health, blood purification, and conditions associated with Kapha–Pitta imbalance.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="S" data-search="shatavari gulam shatavari gulam is a classical ayurvedic formulation prepared in the form of lehyam (avaleha). the formulation derives its name from shatavari (asparagus racemosus), the principal ingredient traditionally regarded in ayurveda as an important herb for nourishing the female reproductive system and supporting hormonal balance. artava dushti (menstrual irregularities) kashtartava (painful menstruation) asrigdara (excessive menstrual bleeding) shweta pradara (leucorrhoea) conditions affecting female fertility mutrakricchra (painful or difficult urination) daha (burning sensation in the body) menopausal discomforts associated with pitta aggravation support for lactation in nursing mothers pittashamana (helps pacify aggravated pitta) balya (supports strength and nourishment of tissues) brimhana (promotes nourishment and tissue building) rasayana (supports rejuvenation and vitality) stanyajanana (supports lactation) mutrala (supports urinary function) artava vardhaka (supports healthy menstrual function) shatavari (asparagus racemosus) – the principal ingredient traditionally used for nourishing reproductive tissues and balancing pitta. guda (jaggery) – used as the base in the preparation of the lehyam. ghrita (ghee) – added to support nourishment and facilitate absorption of the medicinal components. ela (cardamom) – included for its digestive and aromatic properties. mushali (chlorophytum borivilianum) – traditionally used to support vitality and reproductive health. vidari (pueraria tuberosa / ipomoea digitata group) – included for its nourishing and strengthening properties. trijata – a group of aromatic herbs including tvak (cinnamon), ela (cardamom), and tamalapatra (indian bay leaf), used to improve digestion and palatability. shatavari gulam is administered internally as a lehyam preparation in ayurvedic practice. it is traditionally used as a supportive tonic for women’s reproductive health, urinary comfort, and conditions associated with pitta imbalance." id="shatavari-gulam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Shatavari Gulam</h2>
+            <p>Shatavari Gulam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Shatavari (Asparagus racemosus), the principal ingredient traditionally regarded in Ayurveda as an important herb for nourishing the female reproductive system and supporting hormonal balance.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Shatavari Gulam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Shatavari (Asparagus racemosus), the principal ingredient traditionally regarded in Ayurveda as an important herb for nourishing the female reproductive system and supporting hormonal balance.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Artava dushti (menstrual irregularities)</li>
+<li>Kashtartava (painful menstruation)</li>
+<li>Asrigdara (excessive menstrual bleeding)</li>
+<li>Shweta pradara (leucorrhoea)</li>
+<li>Conditions affecting female fertility</li>
+<li>Mutrakricchra (painful or difficult urination)</li>
+<li>Daha (burning sensation in the body)</li>
+<li>Menopausal discomforts associated with Pitta aggravation</li>
+<li>Support for lactation in nursing mothers</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Pittashamana (helps pacify aggravated Pitta)</li>
+<li>Balya (supports strength and nourishment of tissues)</li>
+<li>Brimhana (promotes nourishment and tissue building)</li>
+<li>Rasayana (supports rejuvenation and vitality)</li>
+<li>Stanyajanana (supports lactation)</li>
+<li>Mutrala (supports urinary function)</li>
+<li>Artava vardhaka (supports healthy menstrual function)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Shatavari (Asparagus racemosus) – The principal ingredient traditionally used for nourishing reproductive tissues and balancing Pitta.</li>
+<li>Guda (Jaggery) – Used as the base in the preparation of the Lehyam.</li>
+<li>Ghrita (Ghee) – Added to support nourishment and facilitate absorption of the medicinal components.</li>
+<li>Ela (Cardamom) – Included for its digestive and aromatic properties.</li>
+<li>Mushali (Chlorophytum borivilianum) – Traditionally used to support vitality and reproductive health.</li>
+<li>Vidari (Pueraria tuberosa / Ipomoea digitata group) – Included for its nourishing and strengthening properties.</li>
+<li>Trijata – A group of aromatic herbs including Tvak (Cinnamon), Ela (Cardamom), and Tamalapatra (Indian Bay Leaf), used to improve digestion and palatability.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Shatavari Gulam is administered internally as a Lehyam preparation in Ayurvedic practice. It is traditionally used as a supportive tonic for women’s reproductive health, urinary comfort, and conditions associated with Pitta imbalance.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="T" data-search="thamboola rasayanam thamboola rasayanam is a classical ayurvedic formulation prepared in the form of lehyam (avaleha). the formulation derives its name from thamboola (piper betle – betel leaf), which serves as the principal ingredient. kasa (various forms of cough) shwasa (difficulty in breathing) peenasa (nasal congestion and allergic rhinitis) hikka (hiccough) aruchi (loss of appetite or tastelessness) agnimandya (reduced digestive fire) adhmana (abdominal bloating and gaseous distension) swarabheda (hoarseness of voice) kapha accumulation in the throat and respiratory passages kapha-vata shamana (helps balance kapha and vata doshas) kasa-hara (supports relief from cough) shwasa-hara (supports respiratory function) deepana (stimulates digestive fire) pachana (supports digestion and metabolism) kanthya (supports throat and voice health) kapha-lekhana (supports the clearing of excess mucus) thamboola (piper betle) – the principal ingredient traditionally valued for its warming and digestive properties. guda / khandasari (jaggery or sugar) – used as the base in the preparation of the lehyam. madhu (honey) – traditionally added to enhance palatability and support absorption. trikatu – the classical combination of sunthi (dry ginger), maricha (black pepper), and pippali (long pepper) used to stimulate digestion and support respiratory health. chaturjata – a group of aromatic herbs including tvak (cinnamon), ela (cardamom), tamalapatra (indian bay leaf), and nagakeshara, used to improve aroma and digestion. jiraka (cumin) – included to support digestion and reduce abdominal discomfort. thamboola rasayanam is administered internally as a lehyam preparation in ayurvedic practice. it is traditionally used as a supportive formulation for respiratory health, digestive strength, and throat comfort, particularly in conditions involving kapha–vata imbalance." id="thamboola-rasayanam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Thamboola Rasayanam</h2>
+            <p>Thamboola Rasayanam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Thamboola (Piper betle – Betel leaf), which serves as the principal ingredient.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Thamboola Rasayanam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Thamboola (Piper betle – Betel leaf), which serves as the principal ingredient.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kasa (various forms of cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Peenasa (nasal congestion and allergic rhinitis)</li>
+<li>Hikka (hiccough)</li>
+<li>Aruchi (loss of appetite or tastelessness)</li>
+<li>Agnimandya (reduced digestive fire)</li>
+<li>Adhmana (abdominal bloating and gaseous distension)</li>
+<li>Swarabheda (hoarseness of voice)</li>
+<li>Kapha accumulation in the throat and respiratory passages</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kapha-vata shamana (helps balance Kapha and Vata doshas)</li>
+<li>Kasa-hara (supports relief from cough)</li>
+<li>Shwasa-hara (supports respiratory function)</li>
+<li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion and metabolism)</li>
+<li>Kanthya (supports throat and voice health)</li>
+<li>Kapha-lekhana (supports the clearing of excess mucus)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Thamboola (Piper betle) – The principal ingredient traditionally valued for its warming and digestive properties.</li>
+<li>Guda / Khandasari (Jaggery or sugar) – Used as the base in the preparation of the Lehyam.</li>
+<li>Madhu (Honey) – Traditionally added to enhance palatability and support absorption.</li>
+<li>Trikatu – The classical combination of Sunthi (Dry Ginger), Maricha (Black Pepper), and Pippali (Long Pepper) used to stimulate digestion and support respiratory health.</li>
+<li>Chaturjata – A group of aromatic herbs including Tvak (Cinnamon), Ela (Cardamom), Tamalapatra (Indian Bay Leaf), and Nagakeshara, used to improve aroma and digestion.</li>
+<li>Jiraka (Cumin) – Included to support digestion and reduce abdominal discomfort.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Thamboola Rasayanam is administered internally as a Lehyam preparation in Ayurvedic practice. It is traditionally used as a supportive formulation for respiratory health, digestive strength, and throat comfort, particularly in conditions involving Kapha–Vata imbalance.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    <article class="medicine-card" data-letter="V" data-search="vilwadi lehyam vilwadi lehyam is a classical ayurvedic formulation prepared in the form of lehyam (avaleha). the formulation derives its name from vilwa (aegle marmelos), a well-known medicinal plant traditionally valued for supporting digestive health. chardi (nausea and vomiting) aruchi (loss of appetite or tastelessness) agnimandya (reduced digestive fire) adhmana (abdominal bloating and gaseous distension) grahani-related digestive disturbances kasa (various forms of cough) shwasa (difficulty in breathing) hikka (hiccough) recurrent respiratory discomfort associated with kapha accumulation deepana (stimulates digestive fire) pachana (supports digestion and metabolism of ama) vata-kapha shamana (helps balance vata and kapha doshas) chardi-hara (supports relief from nausea and vomiting) kasa-hara (supports relief from cough) shwasa-hara (supports respiratory function) balya (supports strength and nourishment) vilwa (aegle marmelos) – the principal ingredient traditionally used for supporting digestive function and stabilizing bowel activity. musta (cyperus rotundus) – traditionally included in digestive formulations for managing digestive disturbances and supporting metabolism. trikatu – the classical combination of sunthi (dry ginger), maricha (black pepper), and pippali (long pepper) used to stimulate digestion and clear kapha. trijata – a group of aromatic herbs including tvak (cinnamon), ela (cardamom), and tamalapatra (indian bay leaf) used to enhance digestion and aroma. jiraka (cumin) – included to support digestion and reduce abdominal discomfort. guda (jaggery) – used as the base in the preparation of the lehyam. madhu (honey) – traditionally added to enhance palatability and facilitate absorption. vilwadi lehyam is administered internally as a lehyam preparation in ayurvedic practice. it is traditionally used as a supportive formulation for digestive balance, respiratory comfort, and conditions associated with vata–kapha imbalance." id="vilwadi-lehyam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Vilwadi Lehyam</h2>
+            <p>Vilwadi Lehyam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Vilwa (Aegle marmelos), a well-known medicinal plant traditionally valued for supporting digestive health.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Vilwadi Lehyam is a classical Ayurvedic formulation prepared in the form of Lehyam (Avaleha). The formulation derives its name from Vilwa (Aegle marmelos), a well-known medicinal plant traditionally valued for supporting digestive health.</p>
+          </section>
+
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Chardi (nausea and vomiting)</li>
+<li>Aruchi (loss of appetite or tastelessness)</li>
+<li>Agnimandya (reduced digestive fire)</li>
+<li>Adhmana (abdominal bloating and gaseous distension)</li>
+<li>Grahani-related digestive disturbances</li>
+<li>Kasa (various forms of cough)</li>
+<li>Shwasa (difficulty in breathing)</li>
+<li>Hikka (hiccough)</li>
+<li>Recurrent respiratory discomfort associated with Kapha accumulation</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Deepana (stimulates digestive fire)</li>
+<li>Pachana (supports digestion and metabolism of Ama)</li>
+<li>Vata-kapha shamana (helps balance Vata and Kapha doshas)</li>
+<li>Chardi-hara (supports relief from nausea and vomiting)</li>
+<li>Kasa-hara (supports relief from cough)</li>
+<li>Shwasa-hara (supports respiratory function)</li>
+<li>Balya (supports strength and nourishment)</li>
+            </ul>
+          </section>
+
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Vilwa (Aegle marmelos) – The principal ingredient traditionally used for supporting digestive function and stabilizing bowel activity.</li>
+<li>Musta (Cyperus rotundus) – Traditionally included in digestive formulations for managing digestive disturbances and supporting metabolism.</li>
+<li>Trikatu – The classical combination of Sunthi (Dry Ginger), Maricha (Black Pepper), and Pippali (Long Pepper) used to stimulate digestion and clear Kapha.</li>
+<li>Trijata – A group of aromatic herbs including Tvak (Cinnamon), Ela (Cardamom), and Tamalapatra (Indian Bay Leaf) used to enhance digestion and aroma.</li>
+<li>Jiraka (Cumin) – Included to support digestion and reduce abdominal discomfort.</li>
+<li>Guda (Jaggery) – Used as the base in the preparation of the Lehyam.</li>
+<li>Madhu (Honey) – Traditionally added to enhance palatability and facilitate absorption.</li>
+            </ul>
+          </section>
+          
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Vilwadi Lehyam is administered internally as a Lehyam preparation in Ayurvedic practice. It is traditionally used as a supportive formulation for digestive balance, respiratory comfort, and conditions associated with Vata–Kapha imbalance.</p>
+          </section>
+    
+        </div>
+      </details>
+    </article>
+    
+    </section>
+
+    <div class="no-results" id="noResults">No medicines matched your search.</div>
+
+    <div class="note">
+      These descriptions are presented for educational and informational purposes based on traditional Ayurvedic usage. Medicines should be selected and used only under qualified professional guidance.
+    </div>
+  </main>
+
+  <footer class="footer">
+    <strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>
+    Traditional Ayurvedic care and in-house medicine preparation.
+  </footer>
+
+<script>
+const searchInput = document.getElementById('medicineSearch');
+const cards = Array.from(document.querySelectorAll('.medicine-card'));
+const chips = Array.from(document.querySelectorAll('.letter-chip'));
+const showAll = document.getElementById('showAll');
+const noResults = document.getElementById('noResults');
+let activeLetter = '';
+
+function filterCards() {
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  cards.forEach(card => {
+    const matchesText = !q || card.dataset.search.includes(q);
+    const matchesLetter = !activeLetter || card.dataset.letter === activeLetter;
+    const show = matchesText && matchesLetter;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  noResults.style.display = visible ? 'none' : 'block';
+}
+
+searchInput.addEventListener('input', filterCards);
+
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    const val = chip.dataset.letter;
+    activeLetter = (activeLetter === val) ? '' : val;
+    chips.forEach(c => c.classList.toggle('active', c.dataset.letter === activeLetter));
+    filterCards();
+  });
+});
+
+showAll.addEventListener('click', () => {
+  activeLetter = '';
+  chips.forEach(c => c.classList.remove('active'));
+  searchInput.value = '';
+  filterCards();
+});
+</script>
+</body>
+</html>

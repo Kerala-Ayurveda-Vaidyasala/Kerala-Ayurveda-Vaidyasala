@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churnams | Kerala Ayurveda Vaidyasala</title>
+<meta name="description" content="Classical Churnam formulations prepared in-house at Kerala Ayurveda Vaidyasala, Changaramkulam.">
+<style>
+
+
+
+:root{
+  --bg:#f6ede0;
+  --paper:#fdf8f0;
+  --ink:#182e22;
+  --muted:#5d7263;
+  --gold:#a8820a;
+  --gold-soft:#e7d9b5;
+  --line:#e8d8c2;
+  --green:#2a5038;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:rgba(24,46,34,.96);
+  border-bottom:1px solid rgba(168,130,10,.18);
+  backdrop-filter:blur(10px);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{
+  text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem;
+}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;
+  transition:.25s ease;
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.04)}
+
+.hero{
+  padding:4.5rem 1.25rem 2.25rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(168,130,10,.08), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(42,80,56,.08), transparent 30%),
+    linear-gradient(180deg, #f8f0e6 0%, #f6ede0 100%);
+  border-bottom:1px solid rgba(168,130,10,.12);
+}
+.hero-inner{max-width:1180px;margin:0 auto}
+.eyebrow{display:inline-block;color:var(--gold);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-style:italic;margin-bottom:.85rem}
+.hero h1{margin:.2rem 0 .8rem;font-weight:400;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08}
+.hero p.lead{max-width:800px;margin:0;color:#35503f;font-size:1.03rem}
+.quick-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;
+  margin-top:2rem;max-width:820px;
+}
+.stat{
+  background:rgba(253,248,240,.82);border:1px solid rgba(168,130,10,.18);
+  padding:1rem 1rem .9rem;border-radius:16px;
+}
+.stat strong{display:block;font-size:1.4rem;font-weight:400;color:var(--green)}
+.stat span{display:block;color:var(--muted);font-size:.88rem}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.toolbar{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;
+  padding:1.1rem;margin-bottom:1.4rem;box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.toolbar-top{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.searchbox{flex:1 1 320px;position:relative}
+.searchbox input{
+  width:100%;padding:.95rem 1rem .95rem 2.85rem;border-radius:14px;border:1px solid #dbc8ad;
+  background:#fff;font:inherit;color:var(--ink);outline:none;
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.toolbar-note{color:var(--muted);font-size:.92rem}
+.letter-row{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+.letter-chip, .clear-chip{
+  border:1px solid #dbc8ad;background:#fff;color:var(--ink);border-radius:999px;
+  padding:.45rem .78rem;font:inherit;font-size:.83rem;cursor:pointer;transition:.2s ease;
+}
+.letter-chip:hover, .clear-chip:hover, .letter-chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+.clear-chip{color:var(--gold)}
+
+.grid{display:grid;gap:1rem}
+.medicine-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:0 10px 24px rgba(24,46,34,.04);
+}
+.medicine-card details{display:block}
+.medicine-card details[open]{background:linear-gradient(180deg,rgba(168,130,10,.03),transparent 34%), var(--paper)}
+.medicine-card summary{
+  list-style:none;cursor:pointer;padding:1.25rem 1.25rem 1.15rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+}
+.medicine-card summary::-webkit-details-marker{display:none}
+.summary-text h2{margin:0 0 .4rem;font-weight:400;font-size:1.33rem;color:var(--ink)}
+.summary-text p{margin:0;color:#45614f;font-size:.98rem;max-width:860px}
+.summary-tag{
+  flex-shrink:0;border:1px solid rgba(168,130,10,.28);color:var(--gold);
+  border-radius:999px;padding:.45rem .78rem;font-size:.78rem;letter-spacing:.04em;margin-top:.1rem;
+}
+.medicine-body{
+  padding:0 1.25rem 1.35rem;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;
+}
+.detail-block{
+  background:#fff;border:1px solid #eee1cf;border-radius:16px;padding:1rem 1rem .9rem;
+}
+.detail-block h3{margin:0 0 .6rem;font-size:.93rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.detail-block p{margin:0;color:#35503f}
+.detail-block ul{margin:.2rem 0 0 1rem;padding:0}
+.detail-block li{margin:.15rem 0;color:#35503f}
+.detail-block:first-child{grid-column:1/-1}
+
+.note{
+  margin-top:2rem;padding:1rem 1.15rem;border-radius:16px;
+  background:rgba(42,80,56,.06);border:1px solid rgba(42,80,56,.12);color:#315040;
+}
+.no-results{display:none;text-align:center;padding:2rem 1rem;color:#6a7d70}
+
+.footer{
+  padding:2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem
+}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:900px){
+  .quick-stats{grid-template-columns:1fr}
+  .medicine-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.25rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}
+  .brand span{font-size:.66rem}
+  .medicine-card summary{flex-direction:column}
+}
+
+
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong>
+        <span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span>
+      </a>
+      <a class="back-link" href="index.html#preparations">← Back to Main Site</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">In-House Preparations</span>
+      <h1>Churnams Prepared In-House</h1>
+      <p class="lead">Our Churnams are prepared in the classical Ayurvedic tradition as carefully composed herbal powders for internal and external use. Each entry below presents a clear traditional overview of its uses, actions, key ingredients, and important note in the same easy-to-browse format used across our preparation catalogue.</p>
+    </div>
+  </section>
+
+  <main class="page-wrap">
+    <section class="toolbar">
+      <div class="toolbar-top">
+        <div class="searchbox">
+          <span class="icon">⌕</span>
+          <input id="medicineSearch" type="search" placeholder="Search Churnam name, use, action, or ingredient...">
+        </div>
+        <div class="toolbar-note">Tap any medicine card to open its full details.</div>
+      </div>
+      <div class="letter-row">
+        <button type="button" class="clear-chip" id="showAll">Show all</button>
+        <button type="button" class="letter-chip" data-letter="A">A</button>
+        <button type="button" class="letter-chip" data-letter="E">E</button>
+        <button type="button" class="letter-chip" data-letter="G">G</button>
+        <button type="button" class="letter-chip" data-letter="H">H</button>
+        <button type="button" class="letter-chip" data-letter="J">J</button>
+        <button type="button" class="letter-chip" data-letter="K">K</button>
+        <button type="button" class="letter-chip" data-letter="M">M</button>
+        <button type="button" class="letter-chip" data-letter="R">R</button>
+        <button type="button" class="letter-chip" data-letter="S">S</button>
+        <button type="button" class="letter-chip" data-letter="T">T</button>
+        <button type="button" class="letter-chip" data-letter="V">V</button>
+      </div>
+    </section>
+
+    <section class="grid" id="medicineGrid">
+      
+    <article class="medicine-card" data-letter="A" data-search="ashta churnam ashta churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the formulation derives its name from its composition of eight (“ashta”) key ingredients, primarily selected for their ability to support digestion and regulate gastrointestinal function. it is widely used in ayurvedic practice as a deepana–pachana formulation, meaning it helps stimulate the digestive fire (agni) and aids in the proper digestion of food and metabolic toxins (ama). ashta churnam is particularly valued for balancing vata and kapha doshas in the digestive tract, making it a staple household remedy in kerala ayurveda. ajirna (indigestion and dyspepsia)
+• anaha (abdominal bloating and gas)
+• aruchi (loss of appetite and tastelessness)
+• shoola (abdominal colic and cramps)
+• grahani (digestive irregularities including ibs-like conditions)
+• vibandha (constipation associated with vata imbalance)
+• ama-related digestive disturbances
+• heaviness after meals
+• metabolic sluggishness deepana (stimulates digestive fire)
+• pachana (supports digestion of ama)
+• vatanulomana (supports proper downward movement of vata)
+• shoolahara (supports relief from abdominal pain)
+• kaphahara (helps reduce kapha accumulation in the gut)
+• anulomana (supports bowel movement regulation)
+• agni vardhaka (enhances metabolic activity) trikatu (shunthi, maricha, pippali) – a classical combination traditionally used to stimulate digestion and improve metabolism.
+• ajmoda (apium graveolens / caraway) – traditionally used to relieve abdominal discomfort and intestinal spasms.
+• saindhava lavana (rock salt) – traditionally used to enhance digestion and improve taste perception.
+• jeeraka (cuminum cyminum) – traditionally used to relieve abdominal gas and support digestion.
+• krishna jeeraka (nigella sativa / black cumin) – traditionally included for digestive balance and carminative action.
+• hingu (ferula asafoetida) – traditionally used to relieve flatulence and support vata regulation in the gut. ashta churnam is administered internally as a powdered formulation (churna), usually taken before or after food with suitable adjuvants like warm water or ghee as advised in practice. it is traditionally used as a supportive formulation for improving digestion, relieving abdominal discomfort, and maintaining gastrointestinal balance." id="ashta-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Ashta Churnam</h2>
+            <p>Ashta Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from its composition of eight (“Ashta”) key ingredients, primarily selected for their ability to support digestion and regulate gastrointestinal function. It is widely used in Ayurvedic practice as a Deepana–Pachana formulation, meaning it helps stimulate the digestive fire (Agni) and aids in the proper digestion of food and metabolic toxins (Ama). Ashta Churnam is particularly valued for balancing Vata and Kapha doshas in the digestive tract, making it a staple household remedy in Kerala Ayurveda.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Ashta Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from its composition of eight (“Ashta”) key ingredients, primarily selected for their ability to support digestion and regulate gastrointestinal function. It is widely used in Ayurvedic practice as a Deepana–Pachana formulation, meaning it helps stimulate the digestive fire (Agni) and aids in the proper digestion of food and metabolic toxins (Ama). Ashta Churnam is particularly valued for balancing Vata and Kapha doshas in the digestive tract, making it a staple household remedy in Kerala Ayurveda.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Ajirna (indigestion and dyspepsia)
+• Anaha (abdominal bloating and gas)
+• Aruchi (loss of appetite and tastelessness)
+• Shoola (abdominal colic and cramps)
+• Grahani (digestive irregularities including IBS-like conditions)
+• Vibandha (constipation associated with Vata imbalance)
+• Ama-related digestive disturbances
+• Heaviness after meals
+• Metabolic sluggishness</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Deepana (stimulates digestive fire)
+• Pachana (supports digestion of Ama)
+• Vatanulomana (supports proper downward movement of Vata)
+• Shoolahara (supports relief from abdominal pain)
+• Kaphahara (helps reduce Kapha accumulation in the gut)
+• Anulomana (supports bowel movement regulation)
+• Agni vardhaka (enhances metabolic activity)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Trikatu (Shunthi, Maricha, Pippali) – A classical combination traditionally used to stimulate digestion and improve metabolism.
+• Ajmoda (Apium graveolens / Caraway) – Traditionally used to relieve abdominal discomfort and intestinal spasms.
+• Saindhava Lavana (Rock Salt) – Traditionally used to enhance digestion and improve taste perception.
+• Jeeraka (Cuminum cyminum) – Traditionally used to relieve abdominal gas and support digestion.
+• Krishna Jeeraka (Nigella sativa / Black cumin) – Traditionally included for digestive balance and carminative action.
+• Hingu (Ferula asafoetida) – Traditionally used to relieve flatulence and support Vata regulation in the gut.</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Ashta Churnam is administered internally as a powdered formulation (Churna), usually taken before or after food with suitable adjuvants like warm water or ghee as advised in practice. It is traditionally used as a supportive formulation for improving digestion, relieving abdominal discomfort, and maintaining gastrointestinal balance.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="A" data-search="avipathi churnam (avipathikar churna) avipathi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the formulation derives its name from “avipathi,” which traditionally signifies a remedy that helps relieve distress, particularly that arising from pitta imbalance. it is widely used in ayurvedic practice as a virechana (mild purgative) and pitta-shamana formulation, helping to eliminate excess heat and toxins (ama) from the gastrointestinal tract. avipathi churnam is especially valued for managing conditions related to amlapitta (acid-peptic disorders), digestive irritation, and heat-related systemic imbalance. amlapitta (hyperacidity, acid reflux, heartburn)
+• urdhwaga amlapitta (acid regurgitation and burning sensation)
+• vibandha (constipation associated with pitta imbalance)
+• burning sensation in the abdomen or chest
+• pitta-related skin conditions such as itching and rashes
+• mutrakricchra (burning urination)
+• digestive disturbances with excess heat
+• liver and gallbladder functional imbalance – supportive use
+• seasonal detoxification (virechana support) virechana (supports gentle bowel evacuation)
+• pitta shamana (helps pacify aggravated pitta)
+• deepana (supports digestive fire in a balanced manner)
+• pachana (supports digestion of ama)
+• daha shamana (helps relieve burning sensations)
+• mridu rechana (mild laxative action)
+• raktaprasadana (supports purification and quality of blood) trivrit (operculina turpethum) – the principal ingredient traditionally used for gentle purgation and pitta elimination.
+• triphala (haritaki, bibhitaki, amalaki) – a classical combination supporting digestion, detoxification, and bowel regulation.
+• trikatu (shunthi, maricha, pippali) – traditionally used to enhance digestion and improve bioavailability without excessive aggravation when balanced.
+• mustha (cyperus rotundus) – traditionally included to support digestive balance and reduce inflammation.
+• ela (elettaria cardamomum) – traditionally used for its cooling, digestive, and anti-nausea properties.
+• vidanga (embelia ribes) – traditionally used for digestive support and intestinal balance.
+• khanda / sharkara (sugar) – included to balance the heating nature of other ingredients and provide a soothing effect on the stomach. avipathi churnam is administered internally as a powdered formulation (churna), usually taken with suitable adjuvants like warm water, milk, or ghee as per traditional practice. it is traditionally used as a supportive formulation for managing acidity, promoting gentle detoxification, and balancing pitta in the digestive system." id="avipathi-churnam-avipathikar-churna">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Avipathi Churnam (Avipathikar Churna)</h2>
+            <p>Avipathi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from “Avipathi,” which traditionally signifies a remedy that helps relieve distress, particularly that arising from Pitta imbalance. It is widely used in Ayurvedic practice as a Virechana (mild purgative) and Pitta-shamana formulation, helping to eliminate excess heat and toxins (Ama) from the gastrointestinal tract. Avipathi Churnam is especially valued for managing conditions related to Amlapitta (acid-peptic disorders), digestive irritation, and heat-related systemic imbalance.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Avipathi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from “Avipathi,” which traditionally signifies a remedy that helps relieve distress, particularly that arising from Pitta imbalance. It is widely used in Ayurvedic practice as a Virechana (mild purgative) and Pitta-shamana formulation, helping to eliminate excess heat and toxins (Ama) from the gastrointestinal tract. Avipathi Churnam is especially valued for managing conditions related to Amlapitta (acid-peptic disorders), digestive irritation, and heat-related systemic imbalance.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Amlapitta (hyperacidity, acid reflux, heartburn)
+• Urdhwaga Amlapitta (acid regurgitation and burning sensation)
+• Vibandha (constipation associated with Pitta imbalance)
+• Burning sensation in the abdomen or chest
+• Pitta-related skin conditions such as itching and rashes
+• Mutrakricchra (burning urination)
+• Digestive disturbances with excess heat
+• Liver and gallbladder functional imbalance – supportive use
+• Seasonal detoxification (Virechana support)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Virechana (supports gentle bowel evacuation)
+• Pitta shamana (helps pacify aggravated Pitta)
+• Deepana (supports digestive fire in a balanced manner)
+• Pachana (supports digestion of Ama)
+• Daha shamana (helps relieve burning sensations)
+• Mridu rechana (mild laxative action)
+• Raktaprasadana (supports purification and quality of blood)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Trivrit (Operculina turpethum) – The principal ingredient traditionally used for gentle purgation and Pitta elimination.
+• Triphala (Haritaki, Bibhitaki, Amalaki) – A classical combination supporting digestion, detoxification, and bowel regulation.
+• Trikatu (Shunthi, Maricha, Pippali) – Traditionally used to enhance digestion and improve bioavailability without excessive aggravation when balanced.
+• Mustha (Cyperus rotundus) – Traditionally included to support digestive balance and reduce inflammation.
+• Ela (Elettaria cardamomum) – Traditionally used for its cooling, digestive, and anti-nausea properties.
+• Vidanga (Embelia ribes) – Traditionally used for digestive support and intestinal balance.
+• Khanda / Sharkara (Sugar) – Included to balance the heating nature of other ingredients and provide a soothing effect on the stomach.</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Avipathi Churnam is administered internally as a powdered formulation (Churna), usually taken with suitable adjuvants like warm water, milk, or ghee as per traditional practice. It is traditionally used as a supportive formulation for managing acidity, promoting gentle detoxification, and balancing Pitta in the digestive system.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="E" data-search="eladi churnam eladi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the formulation derives its name from ela (elettaria cardamomum – cardamom), the principal ingredient, along with a group of aromatic herbs collectively known as eladi gana. it is traditionally used in ayurvedic practice as an external application (lepa / dusting powder) for maintaining skin health. eladi churnam is valued for its varnya (complexion-supporting) and kandughna (anti-itching) properties, and is commonly used to balance kapha and vata doshas in the skin. kandu (itching and skin irritation)
+• sheetapitta / urticaria-like skin reactions
+• twak vikara (various skin disorders)
+• acne and blemishes – external application
+• fungal and parasitic skin conditions – supportive care
+• excess sweating and body odor
+• scalp conditions such as dandruff – supportive use
+• skin dullness and uneven complexion
+• localized inflammatory skin conditions kandughna (supports relief from itching)
+• varnya (supports complexion and skin clarity)
+• kaphahara and vatahara (supports balance of kapha and vata in skin)
+• krimighna (traditionally used against microbial and parasitic factors)
+• shothahara (supports reduction of inflammation and swelling)
+• twachya (supports skin health and texture)
+• ropanam (supports healing of minor skin lesions) ela (elettaria cardamomum) – the principal ingredient traditionally used for its soothing and aromatic properties.
+• sthoola ela (amomum subulatum) – traditionally included for its cleansing and pore-opening effects.
+• turushka (liquidambar orientalis resin) – traditionally used for its aromatic and protective properties.
+• kushtha (saussurea lappa) – traditionally used in formulations supporting skin health and inflammatory conditions.
+• jatamansi (nardostachys jatamansi) – traditionally included for its cooling and calming effects on the skin.
+• chandana (santalum album – sandalwood) – traditionally used for its cooling and soothing properties.
+• devadaru (cedrus deodara) – traditionally used for supporting skin balance and reducing kapha-related conditions. eladi churnam is intended for external use only. it is traditionally applied as a paste (lepa) mixed with suitable media such as water, milk, or oil, or used as a dusting powder. it is used as a supportive formulation for maintaining skin health, reducing itching, and improving complexion." id="eladi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Eladi Churnam</h2>
+            <p>Eladi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from Ela (Elettaria cardamomum – cardamom), the principal ingredient, along with a group of aromatic herbs collectively known as Eladi Gana. It is traditionally used in Ayurvedic practice as an external application (Lepa / dusting powder) for maintaining skin health. Eladi Churnam is valued for its Varnya (complexion-supporting) and Kandughna (anti-itching) properties, and is commonly used to balance Kapha and Vata doshas in the skin.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Eladi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from Ela (Elettaria cardamomum – cardamom), the principal ingredient, along with a group of aromatic herbs collectively known as Eladi Gana. It is traditionally used in Ayurvedic practice as an external application (Lepa / dusting powder) for maintaining skin health. Eladi Churnam is valued for its Varnya (complexion-supporting) and Kandughna (anti-itching) properties, and is commonly used to balance Kapha and Vata doshas in the skin.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kandu (itching and skin irritation)
+• Sheetapitta / urticaria-like skin reactions
+• Twak vikara (various skin disorders)
+• Acne and blemishes – external application
+• Fungal and parasitic skin conditions – supportive care
+• Excess sweating and body odor
+• Scalp conditions such as dandruff – supportive use
+• Skin dullness and uneven complexion
+• Localized inflammatory skin conditions</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kandughna (supports relief from itching)
+• Varnya (supports complexion and skin clarity)
+• Kaphahara and Vatahara (supports balance of Kapha and Vata in skin)
+• Krimighna (traditionally used against microbial and parasitic factors)
+• Shothahara (supports reduction of inflammation and swelling)
+• Twachya (supports skin health and texture)
+• Ropanam (supports healing of minor skin lesions)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Ela (Elettaria cardamomum) – The principal ingredient traditionally used for its soothing and aromatic properties.
+• Sthoola Ela (Amomum subulatum) – Traditionally included for its cleansing and pore-opening effects.
+• Turushka (Liquidambar orientalis resin) – Traditionally used for its aromatic and protective properties.
+• Kushtha (Saussurea lappa) – Traditionally used in formulations supporting skin health and inflammatory conditions.
+• Jatamansi (Nardostachys jatamansi) – Traditionally included for its cooling and calming effects on the skin.
+• Chandana (Santalum album – Sandalwood) – Traditionally used for its cooling and soothing properties.
+• Devadaru (Cedrus deodara) – Traditionally used for supporting skin balance and reducing Kapha-related conditions.</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Eladi Churnam is intended for external use only. It is traditionally applied as a paste (Lepa) mixed with suitable media such as water, milk, or oil, or used as a dusting powder. It is used as a supportive formulation for maintaining skin health, reducing itching, and improving complexion.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="G" data-search="guggulu panchapala churnam guggulu panchapala churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the formulation derives its name from its composition of five key herbal components (“pancha”) processed with guggulu (commiphora mukul), a resin traditionally valued for its role in detoxification and tissue healing. it is widely used in ayurvedic practice as a raktashodhaka (blood-purifying) and kushtaghna (skin-supporting) formulation. guggulu panchapala churnam is particularly valued for conditions involving rakta dushti (impurities of blood), chronic skin disorders, and non-healing wounds, often associated with kapha–pitta imbalance and ama accumulation. kushtha (chronic skin disorders such as eczema-like conditions)
+• kandu (itching and inflammatory skin irritation)
+• dushta vrana (non-healing or infected wounds)
+• bhagandara (fistula-in-ano) – supportive care
+• arsha (hemorrhoids) – supportive use
+• recurrent boils and skin eruptions
+• krimi (intestinal worm infestations)
+• sinus-related discharge and inflammation – supportive use
+• skin conditions associated with metabolic imbalance raktashodhaka (supports purification and quality of blood)
+• kushtaghna (traditionally used in skin disorders)
+• lekhana (supports reduction of excess tissue accumulation and toxins)
+• krimighna (traditionally used against parasites and microbes)
+• shothahara (supports reduction of inflammation and swelling)
+• vranaropana (supports healing of wounds)
+• kaphahara and pittahara (supports balance of kapha and pitta) guggulu (commiphora mukul) – the principal ingredient traditionally used for detoxification, reducing inflammatory growths, and supporting tissue healing.
+• pippali (piper longum / magadhika) – traditionally used to enhance digestion and improve bioavailability of other ingredients.
+• maricha (piper nigrum) – traditionally included for supporting metabolism and antimicrobial action.
+• haritaki (terminalia chebula / pathya) – traditionally used for supporting digestion and elimination.
+• bibhitaki (terminalia bellirica / aksha) – traditionally used for its astringent and balancing properties.
+• amalaki (emblica officinalis / dhatri) – a rejuvenative fruit traditionally used to support blood quality and tissue nourishment. guggulu panchapala churnam is administered internally as a powdered formulation (churna) in ayurvedic practice. it is traditionally used as a supportive formulation for skin health, blood purification, and promoting healing in chronic inflammatory and wound-related conditions." id="guggulu-panchapala-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Guggulu Panchapala Churnam</h2>
+            <p>Guggulu Panchapala Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from its composition of five key herbal components (“Pancha”) processed with Guggulu (Commiphora mukul), a resin traditionally valued for its role in detoxification and tissue healing. It is widely used in Ayurvedic practice as a Raktashodhaka (blood-purifying) and Kushtaghna (skin-supporting) formulation. Guggulu Panchapala Churnam is particularly valued for conditions involving Rakta dushti (impurities of blood), chronic skin disorders, and non-healing wounds, often associated with Kapha–Pitta imbalance and Ama accumulation.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Guggulu Panchapala Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from its composition of five key herbal components (“Pancha”) processed with Guggulu (Commiphora mukul), a resin traditionally valued for its role in detoxification and tissue healing. It is widely used in Ayurvedic practice as a Raktashodhaka (blood-purifying) and Kushtaghna (skin-supporting) formulation. Guggulu Panchapala Churnam is particularly valued for conditions involving Rakta dushti (impurities of blood), chronic skin disorders, and non-healing wounds, often associated with Kapha–Pitta imbalance and Ama accumulation.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kushtha (chronic skin disorders such as eczema-like conditions)
+• Kandu (itching and inflammatory skin irritation)
+• Dushta vrana (non-healing or infected wounds)
+• Bhagandara (fistula-in-ano) – supportive care
+• Arsha (hemorrhoids) – supportive use
+• Recurrent boils and skin eruptions
+• Krimi (intestinal worm infestations)
+• Sinus-related discharge and inflammation – supportive use
+• Skin conditions associated with metabolic imbalance</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Raktashodhaka (supports purification and quality of blood)
+• Kushtaghna (traditionally used in skin disorders)
+• Lekhana (supports reduction of excess tissue accumulation and toxins)
+• Krimighna (traditionally used against parasites and microbes)
+• Shothahara (supports reduction of inflammation and swelling)
+• Vranaropana (supports healing of wounds)
+• Kaphahara and Pittahara (supports balance of Kapha and Pitta)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Guggulu (Commiphora mukul) – The principal ingredient traditionally used for detoxification, reducing inflammatory growths, and supporting tissue healing.
+• Pippali (Piper longum / Magadhika) – Traditionally used to enhance digestion and improve bioavailability of other ingredients.
+• Maricha (Piper nigrum) – Traditionally included for supporting metabolism and antimicrobial action.
+• Haritaki (Terminalia chebula / Pathya) – Traditionally used for supporting digestion and elimination.
+• Bibhitaki (Terminalia bellirica / Aksha) – Traditionally used for its astringent and balancing properties.
+• Amalaki (Emblica officinalis / Dhatri) – A rejuvenative fruit traditionally used to support blood quality and tissue nourishment.</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Guggulu Panchapala Churnam is administered internally as a powdered formulation (Churna) in Ayurvedic practice. It is traditionally used as a supportive formulation for skin health, blood purification, and promoting healing in chronic inflammatory and wound-related conditions.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="H" data-search="hinguvachadi churnam hinguvachadi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the formulation derives its name from its principal ingredients hingu (ferula asafoetida) and vacha (acorus calamus), both traditionally valued for their role in digestive health and regulation of vata. it is widely used in ayurvedic practice as a deepana–pachana and vatanulomana formulation, meaning it helps stimulate digestive fire (agni), digest metabolic toxins (ama), and promote the proper downward movement of vata. hinguvachadi churnam is particularly valued for managing abdominal discomfort, gas, and spasmodic pain, especially in conditions involving vata–kapha imbalance in the gastrointestinal tract. anaha (abdominal bloating and gas)
+• shoola (abdominal colic and spasmodic pain)
+• ajirna (indigestion and dyspepsia)
+• aruchi (loss of appetite and tastelessness)
+• gulma (abdominal distension or gas accumulations)
+• dysmenorrhea (painful menstruation) – supportive use
+• urinary and pelvic discomfort – supportive care
+• hikka (hiccups) and mild respiratory congestion
+• ama-related digestive disturbances deepana (stimulates digestive fire)
+• pachana (supports digestion of ama)
+• vatanulomana (promotes proper downward movement of vata)
+• shoolahara (supports relief from abdominal pain)
+• kaphahara (helps reduce kapha accumulation in the gut)
+• anulomana (supports bowel movement regulation)
+• gulmahara (supports relief from abdominal distension) hingu (ferula asafoetida) – the principal ingredient traditionally used for relieving gas, bloating, and abdominal cramps.
+• vacha (acorus calamus) – traditionally used to enhance digestion and support gastrointestinal function.
+• haritaki (terminalia chebula / pathya) – traditionally used for supporting bowel regulation and detoxification.
+• trikatu (shunthi, maricha, pippali) – a classical combination used to stimulate digestion and improve bioavailability.
+• saindhava, souvarchala, and samudra lavana (three salts) – traditionally used to aid digestion and support electrolyte balance.
+• dadima (punica granatum) – traditionally included to improve taste and support digestion.
+• yavani (trachyspermum ammi / ajwain) – traditionally used to relieve abdominal colic and digestive discomfort. hinguvachadi churnam is administered internally as a powdered formulation (churna), usually taken with warm water, ghee, or other suitable adjuvants as per traditional practice. it is traditionally used as a supportive formulation for improving digestion, relieving abdominal discomfort, and balancing vata in the gastrointestinal system." id="hinguvachadi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Hinguvachadi Churnam</h2>
+            <p>Hinguvachadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from its principal ingredients Hingu (Ferula asafoetida) and Vacha (Acorus calamus), both traditionally valued for their role in digestive health and regulation of Vata. It is widely used in Ayurvedic practice as a Deepana–Pachana and Vatanulomana formulation, meaning it helps stimulate digestive fire (Agni), digest metabolic toxins (Ama), and promote the proper downward movement of Vata. Hinguvachadi Churnam is particularly valued for managing abdominal discomfort, gas, and spasmodic pain, especially in conditions involving Vata–Kapha imbalance in the gastrointestinal tract.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Hinguvachadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from its principal ingredients Hingu (Ferula asafoetida) and Vacha (Acorus calamus), both traditionally valued for their role in digestive health and regulation of Vata. It is widely used in Ayurvedic practice as a Deepana–Pachana and Vatanulomana formulation, meaning it helps stimulate digestive fire (Agni), digest metabolic toxins (Ama), and promote the proper downward movement of Vata. Hinguvachadi Churnam is particularly valued for managing abdominal discomfort, gas, and spasmodic pain, especially in conditions involving Vata–Kapha imbalance in the gastrointestinal tract.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Anaha (abdominal bloating and gas)
+• Shoola (abdominal colic and spasmodic pain)
+• Ajirna (indigestion and dyspepsia)
+• Aruchi (loss of appetite and tastelessness)
+• Gulma (abdominal distension or gas accumulations)
+• Dysmenorrhea (painful menstruation) – supportive use
+• Urinary and pelvic discomfort – supportive care
+• Hikka (hiccups) and mild respiratory congestion
+• Ama-related digestive disturbances</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Deepana (stimulates digestive fire)
+• Pachana (supports digestion of Ama)
+• Vatanulomana (promotes proper downward movement of Vata)
+• Shoolahara (supports relief from abdominal pain)
+• Kaphahara (helps reduce Kapha accumulation in the gut)
+• Anulomana (supports bowel movement regulation)
+• Gulmahara (supports relief from abdominal distension)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Hingu (Ferula asafoetida) – The principal ingredient traditionally used for relieving gas, bloating, and abdominal cramps.
+• Vacha (Acorus calamus) – Traditionally used to enhance digestion and support gastrointestinal function.
+• Haritaki (Terminalia chebula / Pathya) – Traditionally used for supporting bowel regulation and detoxification.
+• Trikatu (Shunthi, Maricha, Pippali) – A classical combination used to stimulate digestion and improve bioavailability.
+• Saindhava, Souvarchala, and Samudra Lavana (Three salts) – Traditionally used to aid digestion and support electrolyte balance.
+• Dadima (Punica granatum) – Traditionally included to improve taste and support digestion.
+• Yavani (Trachyspermum ammi / Ajwain) – Traditionally used to relieve abdominal colic and digestive discomfort.</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Hinguvachadi Churnam is administered internally as a powdered formulation (Churna), usually taken with warm water, ghee, or other suitable adjuvants as per traditional practice. It is traditionally used as a supportive formulation for improving digestion, relieving abdominal discomfort, and balancing Vata in the gastrointestinal system.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="J" data-search="jadamayadi churnam jadamayadi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders), primarily intended for external application (lepa). the formulation derives its name from jata / jatamansi (nardostachys jatamansi), a herb traditionally valued for its cooling and soothing properties. it is widely used in ayurvedic practice as a vata–pitta shamana formulation, particularly for conditions involving inflammation, swelling, heat, and pain. jadamayadi churnam is especially valued in kerala ayurveda for its role in managing acute inflammatory conditions of joints, muscles, and soft tissues. vatarakta (gout-like inflammatory joint conditions)
+• shotha (localized swelling and edema)
+• daha (burning sensation in joints or skin)
+• sandhishoola (joint pain with inflammation)
+• muscle sprains and ligament injuries
+• varicose vein discomfort – supportive application
+• inflammatory flare-ups in joint disorders
+• body ache associated with febrile conditions
+• localized inflammatory skin conditions vata–pitta shamana (helps pacify vata and pitta)
+• dahahara (supports relief from burning sensation)
+• shothahara (supports reduction of swelling and inflammation)
+• shoolahara (supports relief from pain)
+• vedanasthapana (supports analgesic effect)
+• srotoshodhana (supports clearing of channels at the local level)
+• ropanam (supports healing of affected tissues) jatamansi (nardostachys jatamansi) – the principal ingredient traditionally used for its cooling and calming effects on inflammation.
+• kushtha (saussurea lappa) – traditionally used for penetrating action and relief of pain and inflammation.
+• chandana (santalum album – sandalwood) – traditionally used for its cooling and soothing properties.
+• natam (valeriana wallichii) – traditionally included for its calming and muscle-relaxing properties.
+• ashwagandha (withania somnifera) – traditionally used to support tissue strength and reduce inflammation.
+• rasna (pluchea lanceolata) – traditionally used in formulations for joint disorders and vata imbalance.
+• sarala (pinus roxburghii) – traditionally used to support circulation and reduce localized inflammation. jadamayadi churnam is intended for external use only. it is traditionally applied as a paste (lepa) mixed with suitable media such as water, rice water (kanjivellam), or medicated oils. it is used as a supportive formulation for relieving inflammation, swelling, burning sensation, and pain in musculoskeletal and inflammatory conditions." id="jadamayadi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Jadamayadi Churnam</h2>
+            <p>Jadamayadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), primarily intended for external application (Lepa). The formulation derives its name from Jata / Jatamansi (Nardostachys jatamansi), a herb traditionally valued for its cooling and soothing properties. It is widely used in Ayurvedic practice as a Vata–Pitta shamana formulation, particularly for conditions involving inflammation, swelling, heat, and pain. Jadamayadi Churnam is especially valued in Kerala Ayurveda for its role in managing acute inflammatory conditions of joints, muscles, and soft tissues.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Jadamayadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), primarily intended for external application (Lepa). The formulation derives its name from Jata / Jatamansi (Nardostachys jatamansi), a herb traditionally valued for its cooling and soothing properties. It is widely used in Ayurvedic practice as a Vata–Pitta shamana formulation, particularly for conditions involving inflammation, swelling, heat, and pain. Jadamayadi Churnam is especially valued in Kerala Ayurveda for its role in managing acute inflammatory conditions of joints, muscles, and soft tissues.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Vatarakta (gout-like inflammatory joint conditions)
+• Shotha (localized swelling and edema)
+• Daha (burning sensation in joints or skin)
+• Sandhishoola (joint pain with inflammation)
+• Muscle sprains and ligament injuries
+• Varicose vein discomfort – supportive application
+• Inflammatory flare-ups in joint disorders
+• Body ache associated with febrile conditions
+• Localized inflammatory skin conditions</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Vata–Pitta shamana (helps pacify Vata and Pitta)
+• Dahahara (supports relief from burning sensation)
+• Shothahara (supports reduction of swelling and inflammation)
+• Shoolahara (supports relief from pain)
+• Vedanasthapana (supports analgesic effect)
+• Srotoshodhana (supports clearing of channels at the local level)
+• Ropanam (supports healing of affected tissues)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Jatamansi (Nardostachys jatamansi) – The principal ingredient traditionally used for its cooling and calming effects on inflammation.
+• Kushtha (Saussurea lappa) – Traditionally used for penetrating action and relief of pain and inflammation.
+• Chandana (Santalum album – Sandalwood) – Traditionally used for its cooling and soothing properties.
+• Natam (Valeriana wallichii) – Traditionally included for its calming and muscle-relaxing properties.
+• Ashwagandha (Withania somnifera) – Traditionally used to support tissue strength and reduce inflammation.
+• Rasna (Pluchea lanceolata) – Traditionally used in formulations for joint disorders and Vata imbalance.
+• Sarala (Pinus roxburghii) – Traditionally used to support circulation and reduce localized inflammation.</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Jadamayadi Churnam is intended for external use only. It is traditionally applied as a paste (Lepa) mixed with suitable media such as water, rice water (Kanjivellam), or medicated oils. It is used as a supportive formulation for relieving inflammation, swelling, burning sensation, and pain in musculoskeletal and inflammatory conditions.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="K" data-search="kachuradi churnam kachuradi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders), primarily intended for external application. the formulation derives its name from kachura (curcuma zedoaria – white turmeric), a herb traditionally valued for its cooling and anti-inflammatory properties. it is widely used in ayurvedic practice as a siro-rogahara (head disorder-supporting) and pitta-shamana formulation, especially in the traditional kerala therapy known as “thalam”, where a medicated paste is applied on the vertex of the head. kachuradi churnam is particularly valued for managing conditions associated with excess heat (pitta) and vata disturbances in the head and nervous system. shirashoola (headache, including pitta-type headaches)
+• ardhavabhedaka (migraine-like conditions)
+• nidranasha (difficulty in sleep)
+• manasika stress and mental fatigue
+• bhrama (giddiness and vertigo)
+• jwara-related head discomfort and heat
+• allergic rhinitis and sinus congestion – supportive use
+• burning sensation in eyes and head region
+• sensory organ irritation associated with pitta imbalance pitta shamana (helps pacify aggravated pitta)
+• vata shamana (supports balance of vata in the head region)
+• dahahara (supports relief from burning sensation)
+• shiro-rogahara (supports relief from head-related disorders)
+• manas shamak (supports calming of mind and nervous system)
+• shothahara (supports reduction of local inflammation)
+• srotoshodhana (supports clearing of channels in head region) kachura (curcuma zedoaria) – the principal ingredient traditionally used for cooling, anti-inflammatory, and head-related conditions.
+• chandana (santalum album – sandalwood) – traditionally used for its cooling and soothing effects.
+• amalaki (emblica officinalis) – a rejuvenative fruit traditionally used to support cooling and sensory organ health.
+• yashtimadhu (glycyrrhiza glabra) – traditionally used for its soothing and anti-inflammatory properties.
+• bala (sida cordifolia) – traditionally used to support strength and balance vata.
+• dhyamaka (cymbopogon spp. – lemongrass) – traditionally included for its aromatic and channel-clearing properties.
+• kamala (nelumbo nucifera – lotus) – traditionally used for its cooling and calming effects. kachuradi churnam is intended for external use only. it is traditionally applied as a paste (thalam or lepa) mixed with suitable media such as water, milk, or medicated oils. it is used as a supportive formulation for relieving headaches, calming the mind, reducing heat, and balancing pitta in the head and sensory system." id="kachuradi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Kachuradi Churnam</h2>
+            <p>Kachuradi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), primarily intended for external application. The formulation derives its name from Kachura (Curcuma zedoaria – white turmeric), a herb traditionally valued for its cooling and anti-inflammatory properties. It is widely used in Ayurvedic practice as a Siro-rogahara (head disorder-supporting) and Pitta-shamana formulation, especially in the traditional Kerala therapy known as “Thalam”, where a medicated paste is applied on the vertex of the head. Kachuradi Churnam is particularly valued for managing conditions associated with excess heat (Pitta) and Vata disturbances in the head and nervous system.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Kachuradi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), primarily intended for external application. The formulation derives its name from Kachura (Curcuma zedoaria – white turmeric), a herb traditionally valued for its cooling and anti-inflammatory properties. It is widely used in Ayurvedic practice as a Siro-rogahara (head disorder-supporting) and Pitta-shamana formulation, especially in the traditional Kerala therapy known as “Thalam”, where a medicated paste is applied on the vertex of the head. Kachuradi Churnam is particularly valued for managing conditions associated with excess heat (Pitta) and Vata disturbances in the head and nervous system.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Shirashoola (headache, including Pitta-type headaches)
+• Ardhavabhedaka (migraine-like conditions)
+• Nidranasha (difficulty in sleep)
+• Manasika stress and mental fatigue
+• Bhrama (giddiness and vertigo)
+• Jwara-related head discomfort and heat
+• Allergic rhinitis and sinus congestion – supportive use
+• Burning sensation in eyes and head region
+• Sensory organ irritation associated with Pitta imbalance</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Pitta shamana (helps pacify aggravated Pitta)
+• Vata shamana (supports balance of Vata in the head region)
+• Dahahara (supports relief from burning sensation)
+• Shiro-rogahara (supports relief from head-related disorders)
+• Manas shamak (supports calming of mind and nervous system)
+• Shothahara (supports reduction of local inflammation)
+• Srotoshodhana (supports clearing of channels in head region)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Kachura (Curcuma zedoaria) – The principal ingredient traditionally used for cooling, anti-inflammatory, and head-related conditions.
+• Chandana (Santalum album – Sandalwood) – Traditionally used for its cooling and soothing effects.
+• Amalaki (Emblica officinalis) – A rejuvenative fruit traditionally used to support cooling and sensory organ health.
+• Yashtimadhu (Glycyrrhiza glabra) – Traditionally used for its soothing and anti-inflammatory properties.
+• Bala (Sida cordifolia) – Traditionally used to support strength and balance Vata.
+• Dhyamaka (Cymbopogon spp. – Lemongrass) – Traditionally included for its aromatic and channel-clearing properties.
+• Kamala (Nelumbo nucifera – Lotus) – Traditionally used for its cooling and calming effects.</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Kachuradi Churnam is intended for external use only. It is traditionally applied as a paste (Thalam or Lepa) mixed with suitable media such as water, milk, or medicated oils. It is used as a supportive formulation for relieving headaches, calming the mind, reducing heat, and balancing Pitta in the head and sensory system.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="K" data-search="karpooradi churnam karpooradi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). it is named after karpoora (natural camphor), a key ingredient known for its aromatic and kapha-reducing properties. this formulation is primarily used as a kaphahara (kapha-pacifying) and deepana–pachana (digestive stimulant and metabolic corrector) medicine. it is widely used in ayurvedic practice for managing respiratory disorders, loss of taste, and kapha-related digestive disturbances. kasa (productive cough with mucus)
+• shwasa (breathing difficulty and chest congestion) – supportive use
+• aruchi (loss of taste and appetite)
+• hikka (persistent hiccups)
+• nausea associated with kapha imbalance
+• indigestion with heaviness and mucus accumulation
+• throat discomfort associated with kapha
+• respiratory congestion affecting upper airways kaphahara (reduces kapha accumulation)
+• deepana (stimulates digestive fire – agni)
+• pachana (helps digest ama/toxins)
+• kasahara (supports relief from cough)
+• shwasahara (supports respiratory function)
+• srotoshodhana (clears bodily channels, especially respiratory pathways) karpoora (cinnamomum camphora) – clears respiratory channels and reduces kapha
+• tvak / cinnamon (cinnamomum verum) – improves circulation and reduces mucus
+• pippali (piper longum) – rejuvenative for lungs, enhances bioavailability
+• shunthi (dry ginger) – stimulates digestion and reduces inflammation
+• maricha (black pepper) – clears channels and improves metabolism
+• ela (cardamom) – aromatic, digestive, and balances the formulation
+• jatiphala (nutmeg) – supports digestion and reduces spasmodic symptoms it is traditionally administered with suitable adjuvants such as honey or sugar, depending on the condition. it is best used under proper ayurvedic guidance, especially in respiratory and digestive conditions." id="karpooradi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Karpooradi Churnam</h2>
+            <p>Karpooradi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). It is named after Karpoora (natural camphor), a key ingredient known for its aromatic and Kapha-reducing properties. This formulation is primarily used as a Kaphahara (Kapha-pacifying) and Deepana–Pachana (digestive stimulant and metabolic corrector) medicine. It is widely used in Ayurvedic practice for managing respiratory disorders, loss of taste, and Kapha-related digestive disturbances.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Karpooradi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). It is named after Karpoora (natural camphor), a key ingredient known for its aromatic and Kapha-reducing properties. This formulation is primarily used as a Kaphahara (Kapha-pacifying) and Deepana–Pachana (digestive stimulant and metabolic corrector) medicine. It is widely used in Ayurvedic practice for managing respiratory disorders, loss of taste, and Kapha-related digestive disturbances.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kasa (productive cough with mucus)
+• Shwasa (breathing difficulty and chest congestion) – supportive use
+• Aruchi (loss of taste and appetite)
+• Hikka (persistent hiccups)
+• Nausea associated with Kapha imbalance
+• Indigestion with heaviness and mucus accumulation
+• Throat discomfort associated with Kapha
+• Respiratory congestion affecting upper airways</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kaphahara (reduces Kapha accumulation)
+• Deepana (stimulates digestive fire – Agni)
+• Pachana (helps digest Ama/toxins)
+• Kasahara (supports relief from cough)
+• Shwasahara (supports respiratory function)
+• Srotoshodhana (clears bodily channels, especially respiratory pathways)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Karpoora (Cinnamomum camphora) – Clears respiratory channels and reduces Kapha
+• Tvak / Cinnamon (Cinnamomum verum) – Improves circulation and reduces mucus
+• Pippali (Piper longum) – Rejuvenative for lungs, enhances bioavailability
+• Shunthi (Dry Ginger) – Stimulates digestion and reduces inflammation
+• Maricha (Black Pepper) – Clears channels and improves metabolism
+• Ela (Cardamom) – Aromatic, digestive, and balances the formulation
+• Jatiphala (Nutmeg) – Supports digestion and reduces spasmodic symptoms</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>It is traditionally administered with suitable adjuvants such as honey or sugar, depending on the condition. It is best used under proper Ayurvedic guidance, especially in respiratory and digestive conditions.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="K" data-search="kalyanakam churnam kalyanakam churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the name “kalyanaka” signifies well-being, auspiciousness, and holistic balance, reflecting its broad therapeutic scope. it is widely regarded as a medhya rasayana (nootropic rejuvenator) and smritivardhaka (memory-enhancing formulation). this medicine is particularly valued for its action on the mind, nervous system, and metabolic functions, while also maintaining tridosha balance (vata, pitta, kapha). kalyanakam churnam is traditionally used to support mental clarity, emotional stability, and systemic detoxification, making it a versatile formulation in ayurvedic practice. anxiety, stress, and emotional imbalance
+• depression (as supportive care)
+• memory decline and poor concentration
+• learning difficulties and cognitive fatigue
+• apasmara (epilepsy) – supportive use
+• unmada (psychological disturbances) – supportive use
+• pandu (anemia) and general debility
+• liver disorders including jaundice
+• chronic skin conditions associated with blood impurities
+• infertility and reproductive weakness – supportive use
+• speech difficulties such as stammering
+• general rasayana use for mental and physical rejuvenation medhya (supports intellect and cognitive function)
+• smritivardhaka (enhances memory and recall)
+• rasayana (rejuvenative and restorative)
+• tridoshashamana (balances all three doshas)
+• rakta shodhaka (supports blood purification)
+• deepana–pachana (improves digestion and metabolism)
+• manas shamak (calms the mind and nervous system)
+• srotoshodhana (clears bodily channels) triphala (haritaki, bibhitaki, amalaki) – supports detoxification, digestion, and antioxidant activity
+• vishala (citrullus colocynthis / bitter apple) – traditionally used for deep cleansing and channel purification
+• bhadra ela (large cardamom) – aromatic digestive and calming agent
+• devadaru (cedrus deodara) – anti-inflammatory and nervine supportive herb
+• haridra (curcuma longa) – anti-inflammatory and blood-purifying
+• daruharidra (berberis aristata) – supports liver and skin health
+• sariva (hemidesmus indicus) – cooling, blood-purifying, and skin-supportive
+• saindhava lavana (rock salt) – enhances digestion and bioavailability (note: classical formulations may include a larger group of herbs depending on the reference text and regional practice.) it is usually administered with suitable adjuvants such as honey, ghee, or warm water, depending on the condition and physician’s advice. this formulation is traditionally used as a supportive medicine for mental health, cognitive enhancement, and systemic balance, and should ideally be taken under proper ayurvedic supervision." id="kalyanakam-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Kalyanakam Churnam</h2>
+            <p>Kalyanakam Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The name “Kalyanaka” signifies well-being, auspiciousness, and holistic balance, reflecting its broad therapeutic scope. It is widely regarded as a Medhya Rasayana (nootropic rejuvenator) and Smritivardhaka (memory-enhancing formulation). This medicine is particularly valued for its action on the mind, nervous system, and metabolic functions, while also maintaining Tridosha balance (Vata, Pitta, Kapha). Kalyanakam Churnam is traditionally used to support mental clarity, emotional stability, and systemic detoxification, making it a versatile formulation in Ayurvedic practice.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Kalyanakam Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The name “Kalyanaka” signifies well-being, auspiciousness, and holistic balance, reflecting its broad therapeutic scope. It is widely regarded as a Medhya Rasayana (nootropic rejuvenator) and Smritivardhaka (memory-enhancing formulation). This medicine is particularly valued for its action on the mind, nervous system, and metabolic functions, while also maintaining Tridosha balance (Vata, Pitta, Kapha). Kalyanakam Churnam is traditionally used to support mental clarity, emotional stability, and systemic detoxification, making it a versatile formulation in Ayurvedic practice.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Anxiety, stress, and emotional imbalance
+• Depression (as supportive care)
+• Memory decline and poor concentration
+• Learning difficulties and cognitive fatigue
+• Apasmara (epilepsy) – supportive use
+• Unmada (psychological disturbances) – supportive use
+• Pandu (anemia) and general debility
+• Liver disorders including jaundice
+• Chronic skin conditions associated with blood impurities
+• Infertility and reproductive weakness – supportive use
+• Speech difficulties such as stammering
+• General Rasayana use for mental and physical rejuvenation</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Medhya (supports intellect and cognitive function)
+• Smritivardhaka (enhances memory and recall)
+• Rasayana (rejuvenative and restorative)
+• Tridoshashamana (balances all three doshas)
+• Rakta shodhaka (supports blood purification)
+• Deepana–Pachana (improves digestion and metabolism)
+• Manas shamak (calms the mind and nervous system)
+• Srotoshodhana (clears bodily channels)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Triphala (Haritaki, Bibhitaki, Amalaki) – Supports detoxification, digestion, and antioxidant activity
+• Vishala (Citrullus colocynthis / Bitter Apple) – Traditionally used for deep cleansing and channel purification
+• Bhadra Ela (Large Cardamom) – Aromatic digestive and calming agent
+• Devadaru (Cedrus deodara) – Anti-inflammatory and nervine supportive herb
+• Haridra (Curcuma longa) – Anti-inflammatory and blood-purifying
+• Daruharidra (Berberis aristata) – Supports liver and skin health
+• Sariva (Hemidesmus indicus) – Cooling, blood-purifying, and skin-supportive
+• Saindhava Lavana (Rock Salt) – Enhances digestion and bioavailability</li>
+<li>(Note: Classical formulations may include a larger group of herbs depending on the reference text and regional practice.)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>It is usually administered with suitable adjuvants such as honey, ghee, or warm water, depending on the condition and physician’s advice. This formulation is traditionally used as a supportive medicine for mental health, cognitive enhancement, and systemic balance, and should ideally be taken under proper Ayurvedic supervision.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="M" data-search="mukkudi churnam mukkudi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders), traditionally administered along with takra (buttermilk). the term “mukkudi” refers to this kerala-specific therapeutic method of combining the herbal powder with medicated buttermilk, enhancing both digestive and absorptive functions. it is widely used in ayurvedic practice as a grahi (absorbent), deepana (digestive stimulant), and shothahara (anti-inflammatory) formulation. mukkudi churnam is particularly valued for managing chronic intestinal disorders, gut inflammation, and malabsorption, especially conditions involving imbalance of samana vata and pachaka pitta. grahani (malabsorption syndrome)
+• irritable bowel syndrome (especially ibs-d and ibs-m)
+• pravahika (chronic diarrhea and dysentery)
+• inflammatory bowel conditions – supportive use
+• arsha (hemorrhoids) associated with poor digestion
+• post-infectious gut weakness
+• recovery after antibiotic use
+• food poisoning recovery and gut detoxification
+• loss of digestive strength (mandagni)
+• excess intestinal mucus and ama accumulation grahi (absorbs excess fluid and stabilizes stool)
+• deepana (stimulates digestive fire – agni)
+• pachana (digests ama/toxic metabolites)
+• shothahara (reduces intestinal inflammation)
+• vata–pitta shamana (balances samana vata and pachaka pitta)
+• grahani balya (strengthens intestinal function)
+• srotoshodhana (clears channels in the gastrointestinal tract) haritaki (terminalia chebula) – supports bowel regulation and intestinal strength
+• shunthi (zingiber officinale – dry ginger / nagara) – enhances digestion and reduces ama
+• mustha (cyperus rotundus) – premier herb for diarrhea and intestinal absorption
+• jeeraka (cuminum cyminum – cumin) – carminative and digestive support
+• krishna jeeraka (carum carvi / nigella spp.) – enhances digestion and reduces gas
+• takra (buttermilk) – the essential adjuvant, providing probiotic support and improving gut function mukkudi churnam is traditionally administered along with freshly prepared buttermilk (takra). its effectiveness depends significantly on the correct preparation of buttermilk and proper dosage, and it is best used under ayurvedic supervision. this formulation is considered a key remedy for strengthening the gut, restoring digestive balance, and managing chronic intestinal disorders." id="mukkudi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Mukkudi Churnam</h2>
+            <p>Mukkudi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), traditionally administered along with Takra (buttermilk). The term “Mukkudi” refers to this Kerala-specific therapeutic method of combining the herbal powder with medicated buttermilk, enhancing both digestive and absorptive functions. It is widely used in Ayurvedic practice as a Grahi (absorbent), Deepana (digestive stimulant), and Shothahara (anti-inflammatory) formulation. Mukkudi Churnam is particularly valued for managing chronic intestinal disorders, gut inflammation, and malabsorption, especially conditions involving imbalance of Samana Vata and Pachaka Pitta.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Mukkudi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), traditionally administered along with Takra (buttermilk). The term “Mukkudi” refers to this Kerala-specific therapeutic method of combining the herbal powder with medicated buttermilk, enhancing both digestive and absorptive functions. It is widely used in Ayurvedic practice as a Grahi (absorbent), Deepana (digestive stimulant), and Shothahara (anti-inflammatory) formulation. Mukkudi Churnam is particularly valued for managing chronic intestinal disorders, gut inflammation, and malabsorption, especially conditions involving imbalance of Samana Vata and Pachaka Pitta.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Grahani (malabsorption syndrome)
+• Irritable Bowel Syndrome (especially IBS-D and IBS-M)
+• Pravahika (chronic diarrhea and dysentery)
+• Inflammatory bowel conditions – supportive use
+• Arsha (hemorrhoids) associated with poor digestion
+• Post-infectious gut weakness
+• Recovery after antibiotic use
+• Food poisoning recovery and gut detoxification
+• Loss of digestive strength (Mandagni)
+• Excess intestinal mucus and Ama accumulation</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Grahi (absorbs excess fluid and stabilizes stool)
+• Deepana (stimulates digestive fire – Agni)
+• Pachana (digests Ama/toxic metabolites)
+• Shothahara (reduces intestinal inflammation)
+• Vata–Pitta shamana (balances Samana Vata and Pachaka Pitta)
+• Grahani balya (strengthens intestinal function)
+• Srotoshodhana (clears channels in the gastrointestinal tract)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Haritaki (Terminalia chebula) – Supports bowel regulation and intestinal strength
+• Shunthi (Zingiber officinale – Dry Ginger / Nagara) – Enhances digestion and reduces Ama
+• Mustha (Cyperus rotundus) – Premier herb for diarrhea and intestinal absorption
+• Jeeraka (Cuminum cyminum – Cumin) – Carminative and digestive support
+• Krishna Jeeraka (Carum carvi / Nigella spp.) – Enhances digestion and reduces gas
+• Takra (Buttermilk) – The essential adjuvant, providing probiotic support and improving gut function</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Mukkudi Churnam is traditionally administered along with freshly prepared buttermilk (Takra). Its effectiveness depends significantly on the correct preparation of buttermilk and proper dosage, and it is best used under Ayurvedic supervision. This formulation is considered a key remedy for strengthening the gut, restoring digestive balance, and managing chronic intestinal disorders.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="R" data-search="rasnadi churnam rasnadi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders), primarily intended for external application. the formulation derives its name from rasna (pluchea lanceolata), a herb traditionally valued for its ability to relieve vata-related pain and kapha-related congestion. it is widely used in ayurvedic practice as a kapha–vata hara (balancer of kapha and vata) and sirovirechana (head-clearing) formulation. rasnadi churnam is especially renowned in kerala ayurveda for its daily use after bath, applied over the vertex of the head, to prevent respiratory congestion and head-related disorders. peenasa (chronic sinusitis and allergic rhinitis)
+• prevention of cold and head heaviness after bath
+• kaphaja shirashoola (kapha-type headache with heaviness)
+• ear discomfort related to congestion or fluid retention
+• recurrent upper respiratory tract issues
+• head heaviness due to damp exposure or cold climate
+• supportive use in facial paralysis (bell’s palsy)
+• migraine triggered by sinus congestion or weather changes kapha–vata hara (balances kapha and vata in head region)
+• sirovirechana (clears accumulated kapha from head channels)
+• shiro-rogahara (supports relief from head-related disorders)
+• lekhana (scraping action on excess kapha/moisture)
+• srotoshodhana (clears channels, especially in head and sinuses)
+• shothahara (reduces localized swelling and congestion) rasna (pluchea lanceolata) – supports vata balance and relieves pain and congestion
+• kushtha (saussurea lappa / amaya) – deep-acting herb that clears blockages and reduces swelling
+• shunthi (zingiber officinale – dry ginger / nagara) – helps in drying excess kapha and improving circulation
+• vacha (acorus calamus) – known for its scraping and channel-clearing action in the head
+• gairika (red ochre / gavirola) – mineral component that soothes and balances pitta
+• chandana (sandalwood) – cooling agent that prevents irritation and provides balance
+• aguru (aquilaria agallocha) – aromatic, warming, and supports respiratory channel clarity rasnadi churnam is intended for external use only.
+it is traditionally applied as: dry powder rubbed over the crown (vertex) of the head after bath
+• or as a paste (lepa) mixed with water or oil for application on the forehead regular use is considered beneficial for preventing sinus congestion, maintaining clarity of the head, and reducing kapha accumulation in the upper body." id="rasnadi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Rasnadi Churnam</h2>
+            <p>Rasnadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), primarily intended for external application. The formulation derives its name from Rasna (Pluchea lanceolata), a herb traditionally valued for its ability to relieve Vata-related pain and Kapha-related congestion. It is widely used in Ayurvedic practice as a Kapha–Vata Hara (balancer of Kapha and Vata) and Sirovirechana (head-clearing) formulation. Rasnadi Churnam is especially renowned in Kerala Ayurveda for its daily use after bath, applied over the vertex of the head, to prevent respiratory congestion and head-related disorders.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Rasnadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders), primarily intended for external application. The formulation derives its name from Rasna (Pluchea lanceolata), a herb traditionally valued for its ability to relieve Vata-related pain and Kapha-related congestion. It is widely used in Ayurvedic practice as a Kapha–Vata Hara (balancer of Kapha and Vata) and Sirovirechana (head-clearing) formulation. Rasnadi Churnam is especially renowned in Kerala Ayurveda for its daily use after bath, applied over the vertex of the head, to prevent respiratory congestion and head-related disorders.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Peenasa (chronic sinusitis and allergic rhinitis)
+• Prevention of cold and head heaviness after bath
+• Kaphaja Shirashoola (Kapha-type headache with heaviness)
+• Ear discomfort related to congestion or fluid retention
+• Recurrent upper respiratory tract issues
+• Head heaviness due to damp exposure or cold climate
+• Supportive use in facial paralysis (Bell’s palsy)
+• Migraine triggered by sinus congestion or weather changes</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kapha–Vata hara (balances Kapha and Vata in head region)
+• Sirovirechana (clears accumulated Kapha from head channels)
+• Shiro-rogahara (supports relief from head-related disorders)
+• Lekhana (scraping action on excess Kapha/moisture)
+• Srotoshodhana (clears channels, especially in head and sinuses)
+• Shothahara (reduces localized swelling and congestion)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Rasna (Pluchea lanceolata) – Supports Vata balance and relieves pain and congestion
+• Kushtha (Saussurea lappa / Amaya) – Deep-acting herb that clears blockages and reduces swelling
+• Shunthi (Zingiber officinale – Dry Ginger / Nagara) – Helps in drying excess Kapha and improving circulation
+• Vacha (Acorus calamus) – Known for its scraping and channel-clearing action in the head
+• Gairika (Red Ochre / Gavirola) – Mineral component that soothes and balances Pitta
+• Chandana (Sandalwood) – Cooling agent that prevents irritation and provides balance
+• Aguru (Aquilaria agallocha) – Aromatic, warming, and supports respiratory channel clarity</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Rasnadi Churnam is intended for external use only.
+It is traditionally applied as: Dry powder rubbed over the crown (vertex) of the head after bath
+• Or as a paste (Lepa) mixed with water or oil for application on the forehead Regular use is considered beneficial for preventing sinus congestion, maintaining clarity of the head, and reducing Kapha accumulation in the upper body.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="R" data-search="rajanyadi churnam rajanyadi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the formulation derives its name from rajani (curcuma longa – turmeric), a herb traditionally valued for its anti-inflammatory, antimicrobial, and detoxifying properties. it is widely used in ayurvedic practice as a deepana (appetizer), pachana (digestive), and vishaghna (detoxifying) formulation. rajanyadi churnam is especially renowned in kerala ayurveda as a trusted pediatric formulation, supporting digestion, immunity, and overall growth by maintaining tridosha balance. pediatric indigestion, bloating, and diarrhea
+• aruchi (loss of appetite) and poor weight gain in children
+• recurrent fever and mild respiratory infections
+• intestinal worms (krimi)
+• kamala (jaundice) and mild liver dysfunction
+• chardi (vomiting) and nausea in children
+• teething-related disturbances (loose motions, irritability, mild fever)
+• general immune support in children
+• digestive weakness and ama accumulation deepana (stimulates digestive fire – agni)
+• pachana (digests ama/toxic metabolites)
+• vishaghna (detoxifying and antimicrobial action)
+• krimighna (helps in managing intestinal worms)
+• rasayana (supports growth and immunity)
+• tridoshashamana (balances vata, pitta, and kapha)
+• yakrituttejaka (supports liver function) rajani (curcuma longa – turmeric) – anti-inflammatory, antimicrobial, and blood-purifying
+• daruharidra (berberis aristata) – supports liver health and acts against infections
+• triphala (haritaki, bibhitaki, amalaki) – promotes digestion and gentle detoxification
+• ajaji (cuminum cyminum – cumin) – carminative and improves nutrient absorption
+• brihati (solanum indicum) – supports respiratory health and reduces mild fever
+• prishniparni (uraria picta) – strengthens tissues and supports growth
+• kantakari (solanum xanthocarpum) – helps clear phlegm and respiratory congestion
+• chitraka (plumbago zeylanica) – strong digestive stimulant enhancing agni it is usually administered with suitable adjuvants such as honey, ghee, or warm water, depending on age and condition. this formulation is widely used as a supportive remedy in pediatric care, particularly for improving digestion, immunity, and overall development. it should ideally be used under proper ayurvedic guidance, especially in infants and young children." id="rajanyadi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Rajanyadi Churnam</h2>
+            <p>Rajanyadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from Rajani (Curcuma longa – Turmeric), a herb traditionally valued for its anti-inflammatory, antimicrobial, and detoxifying properties. It is widely used in Ayurvedic practice as a Deepana (appetizer), Pachana (digestive), and Vishaghna (detoxifying) formulation. Rajanyadi Churnam is especially renowned in Kerala Ayurveda as a trusted pediatric formulation, supporting digestion, immunity, and overall growth by maintaining Tridosha balance.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Rajanyadi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The formulation derives its name from Rajani (Curcuma longa – Turmeric), a herb traditionally valued for its anti-inflammatory, antimicrobial, and detoxifying properties. It is widely used in Ayurvedic practice as a Deepana (appetizer), Pachana (digestive), and Vishaghna (detoxifying) formulation. Rajanyadi Churnam is especially renowned in Kerala Ayurveda as a trusted pediatric formulation, supporting digestion, immunity, and overall growth by maintaining Tridosha balance.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Pediatric indigestion, bloating, and diarrhea
+• Aruchi (loss of appetite) and poor weight gain in children
+• Recurrent fever and mild respiratory infections
+• Intestinal worms (Krimi)
+• Kamala (jaundice) and mild liver dysfunction
+• Chardi (vomiting) and nausea in children
+• Teething-related disturbances (loose motions, irritability, mild fever)
+• General immune support in children
+• Digestive weakness and Ama accumulation</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Deepana (stimulates digestive fire – Agni)
+• Pachana (digests Ama/toxic metabolites)
+• Vishaghna (detoxifying and antimicrobial action)
+• Krimighna (helps in managing intestinal worms)
+• Rasayana (supports growth and immunity)
+• Tridoshashamana (balances Vata, Pitta, and Kapha)
+• Yakrituttejaka (supports liver function)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Rajani (Curcuma longa – Turmeric) – Anti-inflammatory, antimicrobial, and blood-purifying
+• Daruharidra (Berberis aristata) – Supports liver health and acts against infections
+• Triphala (Haritaki, Bibhitaki, Amalaki) – Promotes digestion and gentle detoxification
+• Ajaji (Cuminum cyminum – Cumin) – Carminative and improves nutrient absorption
+• Brihati (Solanum indicum) – Supports respiratory health and reduces mild fever
+• Prishniparni (Uraria picta) – Strengthens tissues and supports growth
+• Kantakari (Solanum xanthocarpum) – Helps clear phlegm and respiratory congestion
+• Chitraka (Plumbago zeylanica) – Strong digestive stimulant enhancing Agni</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>It is usually administered with suitable adjuvants such as honey, ghee, or warm water, depending on age and condition. This formulation is widely used as a supportive remedy in pediatric care, particularly for improving digestion, immunity, and overall development. It should ideally be used under proper Ayurvedic guidance, especially in infants and young children.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="S" data-search="shaddharanam churnam shaddharanam churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the name “shaddharana” refers to its composition of six core herbs, each contributing to deep metabolic correction and detoxification. it is widely used in ayurvedic practice as an amapachana (toxin-digesting) and vata–kapha shamana (balancer of vata and kapha) formulation. this medicine is particularly valued for conditions arising from ama accumulation, impaired digestion (mandagni), and blocked channels (srotorodha). shaddharanam churnam plays a key role in managing chronic inflammatory and metabolic disorders, especially those involving joints, skin, and digestion. amavata (rheumatoid arthritis – early stages)
+• joint pain, stiffness, and inflammatory musculoskeletal conditions
+• chronic skin diseases (psoriasis, eczema) associated with ama
+• medoroga (obesity and lipid imbalance)
+• gallbladder and renal calculi – supportive use
+• vibandha (chronic constipation) and bloating
+• type 2 diabetes – supportive metabolic regulation
+• arsha (hemorrhoids) associated with poor digestion
+• liver sluggishness and impaired bile flow amapachana (digests metabolic toxins)
+• deepana (stimulates digestive fire – agni)
+• pachana (enhances metabolic transformation)
+• vata–kapha shamana (balances vata and kapha)
+• lekhana (scraping action on fat and toxins)
+• srotoshodhana (clears obstructed channels)
+• shothahara (reduces inflammation)
+• medohara (supports fat metabolism) chitraka (plumbago zeylanica) – powerful digestive stimulant and ama-digesting agent
+• indrayava (holarrhena antidysenterica seeds) – intestinal detoxifier and anti-inflammatory
+• patha (cyclea peltata) – blood purifier and inflammation modulator
+• katuka (picrorhiza kurroa) – supports liver function and bile secretion
+• ativisha (aconitum heterophyllum) – balances doshas and aids in digestive correction
+• abhaya (haritaki / terminalia chebula) – regulates bowel movements and prevents toxin accumulation it is usually administered with suitable adjuvants such as warm water, honey, or buttermilk, depending on the condition and physician’s guidance. this formulation is traditionally used as a core medicine for metabolic detoxification and inflammatory disorders, and should be taken under proper ayurvedic supervision." id="shaddharanam-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Shaddharanam Churnam</h2>
+            <p>Shaddharanam Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The name “Shaddharana” refers to its composition of six core herbs, each contributing to deep metabolic correction and detoxification. It is widely used in Ayurvedic practice as an Amapachana (toxin-digesting) and Vata–Kapha Shamana (balancer of Vata and Kapha) formulation. This medicine is particularly valued for conditions arising from Ama accumulation, impaired digestion (Mandagni), and blocked channels (Srotorodha). Shaddharanam Churnam plays a key role in managing chronic inflammatory and metabolic disorders, especially those involving joints, skin, and digestion.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Shaddharanam Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The name “Shaddharana” refers to its composition of six core herbs, each contributing to deep metabolic correction and detoxification. It is widely used in Ayurvedic practice as an Amapachana (toxin-digesting) and Vata–Kapha Shamana (balancer of Vata and Kapha) formulation. This medicine is particularly valued for conditions arising from Ama accumulation, impaired digestion (Mandagni), and blocked channels (Srotorodha). Shaddharanam Churnam plays a key role in managing chronic inflammatory and metabolic disorders, especially those involving joints, skin, and digestion.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Amavata (Rheumatoid arthritis – early stages)
+• Joint pain, stiffness, and inflammatory musculoskeletal conditions
+• Chronic skin diseases (psoriasis, eczema) associated with Ama
+• Medoroga (obesity and lipid imbalance)
+• Gallbladder and renal calculi – supportive use
+• Vibandha (chronic constipation) and bloating
+• Type 2 Diabetes – supportive metabolic regulation
+• Arsha (hemorrhoids) associated with poor digestion
+• Liver sluggishness and impaired bile flow</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Amapachana (digests metabolic toxins)
+• Deepana (stimulates digestive fire – Agni)
+• Pachana (enhances metabolic transformation)
+• Vata–Kapha shamana (balances Vata and Kapha)
+• Lekhana (scraping action on fat and toxins)
+• Srotoshodhana (clears obstructed channels)
+• Shothahara (reduces inflammation)
+• Medohara (supports fat metabolism)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Chitraka (Plumbago zeylanica) – Powerful digestive stimulant and Ama-digesting agent
+• Indrayava (Holarrhena antidysenterica seeds) – Intestinal detoxifier and anti-inflammatory
+• Patha (Cyclea peltata) – Blood purifier and inflammation modulator
+• Katuka (Picrorhiza kurroa) – Supports liver function and bile secretion
+• Ativisha (Aconitum heterophyllum) – Balances doshas and aids in digestive correction
+• Abhaya (Haritaki / Terminalia chebula) – Regulates bowel movements and prevents toxin accumulation</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>It is usually administered with suitable adjuvants such as warm water, honey, or buttermilk, depending on the condition and physician’s guidance. This formulation is traditionally used as a core medicine for metabolic detoxification and inflammatory disorders, and should be taken under proper Ayurvedic supervision.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="T" data-search="thalisapatra vatakam thalisapatra vatakam is a classical ayurvedic formulation belonging to the category of vatakam. it is named after its key ingredient thalisapatra (abies webbiana – himalayan silver fir), traditionally valued for its action on the respiratory system and upper digestive tract. this formulation is widely used as a kaphahara (kapha-pacifying) and vatanulomana (normalizing vata movement) medicine. it is especially known for its dual action—clearing respiratory congestion while simultaneously improving digestion (agni). thalisapatra vatakam is particularly useful in conditions where kapha accumulation in the lungs is associated with weak digestion and ama formation. kasa (chronic cough and productive bronchitis)
+• shwasa (breathing difficulty, asthma – supportive use)
+• aruchi (loss of taste and appetite)
+• agnimandya (weak digestion) and bloating
+• chardi (nausea and vomiting associated with kapha)
+• sinus congestion and head heaviness
+• kapha-related headaches
+• respiratory congestion with digestive sluggishness
+• mild chest discomfort due to mucus accumulation kaphahara (reduces excess kapha and mucus)
+• vatanulomana (regulates movement of vata, relieves gas)
+• deepana (stimulates digestive fire – agni)
+• pachana (digests ama/toxins)
+• kasahara (supports relief from cough)
+• shwasahara (supports respiratory function)
+• srotoshodhana (clears respiratory and digestive channels) thalisapatra (abies webbiana) – supports respiratory function and reduces congestion
+• maricha (piper nigrum – black pepper) – clears kapha and enhances bioavailability
+• shunthi (zingiber officinale – dry ginger / nagara) – improves digestion and relieves inflammation
+• pippali (piper longum) – lung rejuvenator and enhances absorption
+• ela (cardamom) – aromatic digestive and breath freshener
+• tvak (cinnamon) – improves circulation and supports metabolism
+• khanda (sugar candy) – acts as the base, making the formulation palatable and soothing to the throat important note 
+it is typically taken in small quantities, often allowed to dissolve slowly in the mouth, which enhances its action on the throat and respiratory tract. this formulation is traditionally used as a supportive remedy for respiratory congestion associated with digestive weakness, and should be used under proper ayurvedic guidance. " id="thalisapatra-vatakam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Thalisapatra Vatakam</h2>
+            <p>Thalisapatra Vatakam is a classical Ayurvedic formulation belonging to the category of Vatakam. It is named after its key ingredient Thalisapatra (Abies webbiana – Himalayan Silver Fir), traditionally valued for its action on the respiratory system and upper digestive tract. This formulation is widely used as a Kaphahara (Kapha-pacifying) and Vatanulomana (normalizing Vata movement) medicine. It is especially known for its dual action—clearing respiratory congestion while simultaneously improving digestion (Agni). Thalisapatra Vatakam is particularly useful in conditions where Kapha accumulation in the lungs is associated with weak digestion and Ama formation.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Thalisapatra Vatakam is a classical Ayurvedic formulation belonging to the category of Vatakam. It is named after its key ingredient Thalisapatra (Abies webbiana – Himalayan Silver Fir), traditionally valued for its action on the respiratory system and upper digestive tract. This formulation is widely used as a Kaphahara (Kapha-pacifying) and Vatanulomana (normalizing Vata movement) medicine. It is especially known for its dual action—clearing respiratory congestion while simultaneously improving digestion (Agni). Thalisapatra Vatakam is particularly useful in conditions where Kapha accumulation in the lungs is associated with weak digestion and Ama formation.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Kasa (chronic cough and productive bronchitis)
+• Shwasa (breathing difficulty, asthma – supportive use)
+• Aruchi (loss of taste and appetite)
+• Agnimandya (weak digestion) and bloating
+• Chardi (nausea and vomiting associated with Kapha)
+• Sinus congestion and head heaviness
+• Kapha-related headaches
+• Respiratory congestion with digestive sluggishness
+• Mild chest discomfort due to mucus accumulation</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Kaphahara (reduces excess Kapha and mucus)
+• Vatanulomana (regulates movement of Vata, relieves gas)
+• Deepana (stimulates digestive fire – Agni)
+• Pachana (digests Ama/toxins)
+• Kasahara (supports relief from cough)
+• Shwasahara (supports respiratory function)
+• Srotoshodhana (clears respiratory and digestive channels)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Thalisapatra (Abies webbiana) – Supports respiratory function and reduces congestion
+• Maricha (Piper nigrum – Black Pepper) – Clears Kapha and enhances bioavailability
+• Shunthi (Zingiber officinale – Dry Ginger / Nagara) – Improves digestion and relieves inflammation
+• Pippali (Piper longum) – Lung rejuvenator and enhances absorption
+• Ela (Cardamom) – Aromatic digestive and breath freshener
+• Tvak (Cinnamon) – Improves circulation and supports metabolism
+• Khanda (Sugar candy) – Acts as the base, making the formulation palatable and soothing to the throat</li>
+<li>Important Note 
+It is typically taken in small quantities, often allowed to dissolve slowly in the mouth, which enhances its action on the throat and respiratory tract.</li>
+<li>This formulation is traditionally used as a supportive remedy for respiratory congestion associated with digestive weakness, and should be used under proper Ayurvedic guidance.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="T" data-search="triphaladi churnam triphaladi churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). it is centered around triphala (the three fruits)—a foundational ayurvedic combination known for its detoxifying, rejuvenative, and balancing properties. this formulation is widely regarded as a rasayana (rejuvenative) and tridoshahara (balancer of vata, pitta, and kapha). it is especially valued for its systemic action on digestion, eyes, skin, and metabolism, making it one of the most versatile formulations in ayurvedic practice. triphaladi churnam is commonly used both as a daily health-supporting formulation and as a therapeutic medicine for detoxification and regulation of bodily functions. vibandha (chronic constipation)
+• mandagni (weak digestion) and bloating
+• netra roga (eye disorders) – supportive use
+• chakshushya (vision support and eye strain)
+• medoroga (obesity and metabolic imbalance)
+• skin disorders (acne, eczema, pigmentation)
+• mukha roga (oral conditions like ulcers, gum issues)
+• hair fall and premature greying – supportive care
+• general detoxification and daily wellness support rasayana (rejuvenative and longevity-supporting)
+• tridoshahara (balances vata, pitta, and kapha)
+• anulomana (regulates bowel movement)
+• deepana–pachana (enhances digestion and metabolism)
+• rakta shodhaka (supports blood purification)
+• chakshushya (supports eye health and vision)
+• lekhana (scraping action on excess fat and toxins)
+• srotoshodhana (clears bodily channels) haritaki (terminalia chebula) – supports bowel regulation and vata balance
+• bibhitaki (terminalia bellirica) – reduces kapha and supports respiratory and digestive health
+• amalaki (emblica officinalis) – rich in antioxidants, balances pitta and supports immunity
+• yashtimadhu (glycyrrhiza glabra) (in specific variants) – soothes mucosa and enhances eye-supporting effects triphaladi churnam can be used internally and externally, depending on indication: internal use – taken with warm water, honey, or ghee
+• external use – as filtered decoction for eye wash, gargle, or skin cleansing it is traditionally considered a safe, long-term supportive formulation for detoxification and systemic balance, but should ideally be used under ayurvedic guidance for therapeutic purposes." id="triphaladi-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Triphaladi Churnam</h2>
+            <p>Triphaladi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). It is centered around Triphala (the three fruits)—a foundational Ayurvedic combination known for its detoxifying, rejuvenative, and balancing properties. This formulation is widely regarded as a Rasayana (rejuvenative) and Tridoshahara (balancer of Vata, Pitta, and Kapha). It is especially valued for its systemic action on digestion, eyes, skin, and metabolism, making it one of the most versatile formulations in Ayurvedic practice. Triphaladi Churnam is commonly used both as a daily health-supporting formulation and as a therapeutic medicine for detoxification and regulation of bodily functions.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Triphaladi Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). It is centered around Triphala (the three fruits)—a foundational Ayurvedic combination known for its detoxifying, rejuvenative, and balancing properties. This formulation is widely regarded as a Rasayana (rejuvenative) and Tridoshahara (balancer of Vata, Pitta, and Kapha). It is especially valued for its systemic action on digestion, eyes, skin, and metabolism, making it one of the most versatile formulations in Ayurvedic practice. Triphaladi Churnam is commonly used both as a daily health-supporting formulation and as a therapeutic medicine for detoxification and regulation of bodily functions.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Vibandha (chronic constipation)
+• Mandagni (weak digestion) and bloating
+• Netra roga (eye disorders) – supportive use
+• Chakshushya (vision support and eye strain)
+• Medoroga (obesity and metabolic imbalance)
+• Skin disorders (acne, eczema, pigmentation)
+• Mukha roga (oral conditions like ulcers, gum issues)
+• Hair fall and premature greying – supportive care
+• General detoxification and daily wellness support</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Rasayana (rejuvenative and longevity-supporting)
+• Tridoshahara (balances Vata, Pitta, and Kapha)
+• Anulomana (regulates bowel movement)
+• Deepana–Pachana (enhances digestion and metabolism)
+• Rakta shodhaka (supports blood purification)
+• Chakshushya (supports eye health and vision)
+• Lekhana (scraping action on excess fat and toxins)
+• Srotoshodhana (clears bodily channels)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Haritaki (Terminalia chebula) – Supports bowel regulation and Vata balance
+• Bibhitaki (Terminalia bellirica) – Reduces Kapha and supports respiratory and digestive health
+• Amalaki (Emblica officinalis) – Rich in antioxidants, balances Pitta and supports immunity
+• Yashtimadhu (Glycyrrhiza glabra) (in specific variants) – Soothes mucosa and enhances eye-supporting effects</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Important Note</h3>
+            <p>Triphaladi Churnam can be used internally and externally, depending on indication: Internal use – taken with warm water, honey, or ghee
+• External use – as filtered decoction for eye wash, gargle, or skin cleansing It is traditionally considered a safe, long-term supportive formulation for detoxification and systemic balance, but should ideally be used under Ayurvedic guidance for therapeutic purposes.</p>
+          </section>
+        </div>
+      </details>
+    </article>
+    <article class="medicine-card" data-letter="V" data-search="vaiswanaram churnam vaiswanaram churnam is a classical ayurvedic formulation belonging to the category of churna (herbal powders). the name “vaishvanara” refers to agni—the primordial digestive fire—highlighting its primary action on digestive strength and metabolic correction. it is widely used in ayurvedic practice as a deepana (appetizer) and pachana (digestive) formulation. this medicine is particularly valued for its ability to digest ama (metabolic toxins) and restore normal movement of vata, making it highly effective in vata–kapha disorders involving the gut and joints. vaiswanaram churnam plays a key role in conditions where impaired digestion leads to systemic symptoms, especially joint pain, bloating, and constipation. amavata (rheumatoid arthritis – early stages)
+• vibandha (chronic constipation)
+• adhmana (abdominal bloating and gas)
+• aruchi (loss of appetite)
+• arsha (non-bleeding piles) associated with poor digestion
+• shoola (abdominal colic and spasmodic pain)
+• post-fever digestive weakness
+• indigestion with ama accumulation
+• gut-related vata imbalance deepana (stimulates digestive fire – agni)
+• pachana (digests ama/toxins)
+• vatanulomana (regulates downward movement of vata)
+• anulomana (facilitates smooth bowel movement)
+• kaphahara (reduces kapha accumulation in gut)
+• srotoshodhana (clears channels, especially gastrointestinal)
+• shoolahara (relieves abdominal pain) saindhava lavana (rock salt / manimantha) – enhances digestion, improves taste perception, and balances doshas
+• shunthi (zingiber officinale – dry ginger / nagara) – stimulates digestion and reduces ama
+• yavani (trachyspermum ammi – ajwain) – relieves gas, spasms, and intestinal discomfort
+• ajamoda (apium leptophyllum / celery seeds) – supports digestion and expels gas
+• haritaki (terminalia chebula) – regulates bowel movement and supports colon health important note 
+it is usually administered with warm water or buttermilk, depending on the condition and physician’s guidance. this formulation is traditionally used as a core digestive corrective medicine, especially in conditions where ama accumulation leads to systemic issues like joint pain and metabolic sluggishness. " id="vaiswanaram-churnam">
+      <details>
+        <summary>
+          <div class="summary-text">
+            <h2>Vaiswanaram Churnam</h2>
+            <p>Vaiswanaram Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The name “Vaishvanara” refers to Agni—the primordial digestive fire—highlighting its primary action on digestive strength and metabolic correction. It is widely used in Ayurvedic practice as a Deepana (appetizer) and Pachana (digestive) formulation. This medicine is particularly valued for its ability to digest Ama (metabolic toxins) and restore normal movement of Vata, making it highly effective in Vata–Kapha disorders involving the gut and joints. Vaiswanaram Churnam plays a key role in conditions where impaired digestion leads to systemic symptoms, especially joint pain, bloating, and constipation.</p>
+          </div>
+          <span class="summary-tag">View details</span>
+        </summary>
+        <div class="medicine-body">
+          <section class="detail-block">
+            <h3>Description</h3>
+            <p>Vaiswanaram Churnam is a classical Ayurvedic formulation belonging to the category of Churna (herbal powders). The name “Vaishvanara” refers to Agni—the primordial digestive fire—highlighting its primary action on digestive strength and metabolic correction. It is widely used in Ayurvedic practice as a Deepana (appetizer) and Pachana (digestive) formulation. This medicine is particularly valued for its ability to digest Ama (metabolic toxins) and restore normal movement of Vata, making it highly effective in Vata–Kapha disorders involving the gut and joints. Vaiswanaram Churnam plays a key role in conditions where impaired digestion leads to systemic symptoms, especially joint pain, bloating, and constipation.</p>
+          </section>
+          <section class="detail-block">
+            <h3>Common Traditional Uses</h3>
+            <ul>
+              <li>Amavata (Rheumatoid arthritis – early stages)
+• Vibandha (chronic constipation)
+• Adhmana (abdominal bloating and gas)
+• Aruchi (loss of appetite)
+• Arsha (non-bleeding piles) associated with poor digestion
+• Shoola (abdominal colic and spasmodic pain)
+• Post-fever digestive weakness
+• Indigestion with Ama accumulation
+• Gut-related Vata imbalance</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Ayurvedic Actions</h3>
+            <ul>
+              <li>Deepana (stimulates digestive fire – Agni)
+• Pachana (digests Ama/toxins)
+• Vatanulomana (regulates downward movement of Vata)
+• Anulomana (facilitates smooth bowel movement)
+• Kaphahara (reduces Kapha accumulation in gut)
+• Srotoshodhana (clears channels, especially gastrointestinal)
+• Shoolahara (relieves abdominal pain)</li>
+            </ul>
+          </section>
+          <section class="detail-block">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li>Saindhava Lavana (Rock Salt / Manimantha) – Enhances digestion, improves taste perception, and balances doshas
+• Shunthi (Zingiber officinale – Dry Ginger / Nagara) – Stimulates digestion and reduces Ama
+• Yavani (Trachyspermum ammi – Ajwain) – Relieves gas, spasms, and intestinal discomfort
+• Ajamoda (Apium leptophyllum / Celery seeds) – Supports digestion and expels gas
+• Haritaki (Terminalia chebula) – Regulates bowel movement and supports colon health</li>
+<li>Important Note 
+It is usually administered with warm water or buttermilk, depending on the condition and physician’s guidance.</li>
+<li>This formulation is traditionally used as a core digestive corrective medicine, especially in conditions where Ama accumulation leads to systemic issues like joint pain and metabolic sluggishness.</li>
+            </ul>
+          </section>
+        </div>
+      </details>
+    </article>
+    </section>
+
+    <div class="no-results" id="noResults">No medicines matched your search.</div>
+
+    <div class="note">These descriptions are presented for educational and informational purposes based on traditional Ayurvedic usage. Medicines should be selected and used only under qualified professional guidance.</div>
+  </main>
+
+  <footer class="footer">
+    <strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>
+    Traditional Ayurvedic care and in-house medicine preparation.
+  </footer>
+
+<script>
+const searchInput = document.getElementById('medicineSearch');
+const cards = Array.from(document.querySelectorAll('.medicine-card'));
+const chips = Array.from(document.querySelectorAll('.letter-chip'));
+const showAll = document.getElementById('showAll');
+const noResults = document.getElementById('noResults');
+let activeLetter = '';
+
+function filterCards() {
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  cards.forEach(card => {
+    const matchesText = !q || card.dataset.search.includes(q);
+    const matchesLetter = !activeLetter || card.dataset.letter === activeLetter;
+    const show = matchesText && matchesLetter;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  noResults.style.display = visible ? 'none' : 'block';
+}
+
+searchInput.addEventListener('input', filterCards);
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    const val = chip.dataset.letter;
+    activeLetter = (activeLetter === val) ? '' : val;
+    chips.forEach(c => c.classList.toggle('active', c.dataset.letter === activeLetter));
+    filterCards();
+  });
+});
+showAll.addEventListener('click', () => {
+  activeLetter = '';
+  chips.forEach(c => c.classList.remove('active'));
+  searchInput.value = '';
+  filterCards();
+});
+</script>
+</body>
+</html>

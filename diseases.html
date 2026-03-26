@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Understanding | Insight Library</title>
+<meta name="description" content="Patient-friendly Ayurvedic perspectives on common disease patterns, their underlying logic, and broad ways of understanding disturbance presented in a calm, readable format inside the Insight Library.">
+
+<style>
+:root{
+  --bg:#f4ecdf;
+  --paper:#fbf7ef;
+  --paper-2:#fffdf8;
+  --ink:#1c2f24;
+  --muted:#617464;
+  --gold:#a8820a;
+  --gold-soft:#e7d6b5;
+  --line:#e3d3bb;
+  --green:#2f5a44;
+  --deep:#182e22;
+  --shadow:0 16px 34px rgba(24,46,34,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--ink);
+  line-height:1.82;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168,130,10,.09), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(47,90,68,.08), transparent 18%),
+    linear-gradient(180deg,#f7f0e6 0%, #f4ecdf 24%, #f2e8da 100%);
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,33,25,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,130,10,.18)
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.brand{text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;transition:.25s ease
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.05)}
+
+.hero{
+  padding:4.8rem 1.25rem 2.8rem;
+  border-bottom:1px solid rgba(168,130,10,.1);
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(circle at 16% 18%, rgba(168,130,10,.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(47,90,68,.12), transparent 24%),
+    linear-gradient(180deg,#f8f1e7 0%, #f3e9da 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(28,47,36,.035) 39px 40px),
+    linear-gradient(90deg, transparent, rgba(168,130,10,.05), transparent);
+}
+.hero::after{
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(900px,92%);height:1px;background:linear-gradient(90deg, transparent, rgba(168,130,10,.55), transparent);
+}
+.hero-inner{max-width:1180px;margin:0 auto;position:relative}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-size:.76rem;letter-spacing:.26em;
+  text-transform:uppercase;font-style:italic;margin-bottom:.9rem
+}
+.hero h1{margin:.15rem 0 .7rem;font-weight:400;font-size:clamp(2.2rem,4vw,4rem);line-height:1.06}
+.hero p.lead{max-width:860px;margin:0;color:#3f5647;font-size:1.05rem}
+.hero-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.meta-pill{
+  background:rgba(255,253,248,.84);
+  border:1px solid rgba(168,130,10,.16);
+  padding:.74rem 1rem;border-radius:999px;color:#51685a;font-size:.88rem;
+  box-shadow:0 8px 18px rgba(24,46,34,.04)
+}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.search-panel,.section-panel,.topic-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(251,247,239,.96));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.search-panel{padding:1.15rem;border-radius:24px;margin:-1.1rem auto 1.1rem;position:relative;z-index:2}
+.search-top{display:flex;gap:.9rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.searchbox{flex:1 1 340px;position:relative}
+.searchbox input{
+  width:100%;padding:1rem 1rem 1rem 2.95rem;border-radius:15px;border:1px solid #dbc8ad;
+  background:#fff;color:var(--ink);font:inherit;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.search-note{color:var(--muted);font-size:.92rem}
+
+.topic-strip{
+  padding:1rem 1rem .9rem;border-radius:22px;margin-bottom:1.4rem;
+}
+.topic-strip h3{
+  margin:0 0 .75rem;font-size:.9rem;font-weight:400;color:var(--gold);
+  letter-spacing:.16em;text-transform:uppercase
+}
+.topic-links{display:flex;gap:.65rem;flex-wrap:wrap}
+.topic-links a{
+  text-decoration:none;
+  padding:.55rem .85rem;border-radius:999px;
+  border:1px solid #e4d3bb;background:#fff;
+  color:#42584a;font-size:.9rem;transition:.2s ease;
+}
+.topic-links a:hover{transform:translateY(-2px);border-color:#caa55c;color:var(--deep);box-shadow:0 8px 16px rgba(24,46,34,.06)}
+
+.section-panel{padding:1.55rem 1.35rem;border-radius:28px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.section-head h2{margin:0;font-weight:400;font-size:1.65rem}
+.section-head p{margin:.2rem 0 0;color:#5a7161;max-width:760px}
+
+.article-list{display:grid;gap:1.35rem}
+.article{
+  background:
+    linear-gradient(180deg,rgba(168,130,10,.045),transparent 120px),
+    #fff;
+  border:1px solid #eadcc9;border-radius:26px;overflow:hidden;box-shadow:0 12px 24px rgba(24,46,34,.05);
+  position:relative;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.article:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px rgba(24,46,34,.07);
+}
+.article::before{
+  content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;
+  background:linear-gradient(180deg,#caa55c,#7f9b87);
+  opacity:.8;
+}
+.article::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:-14px;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.28), transparent);
+}
+.article:last-child::after{display:none}
+.article details{display:block}
+.article details[open]{
+  background:
+    radial-gradient(circle at 12% 10%, rgba(168,130,10,.08), transparent 22%),
+    linear-gradient(180deg,rgba(168,130,10,.08),rgba(168,130,10,.025) 28%,transparent 70%),
+    linear-gradient(180deg,#fffefb,#fff);
+  box-shadow:inset 0 0 0 1px rgba(168,130,10,.06);
+}
+.article summary{
+  list-style:none;cursor:pointer;padding:1.22rem 1.15rem 1.02rem 1.35rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem
+}
+.article summary::-webkit-details-marker{display:none}
+.summary-copy{max-width:900px}
+.kicker{
+  display:inline-block;font-size:.71rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.38rem;padding:.28rem .55rem;border-radius:999px;background:rgba(168,130,10,.08);border:1px solid rgba(168,130,10,.12)
+}
+.summary-copy h3{margin:.1rem 0 .38rem;font-weight:400;font-size:1.26rem;color:var(--ink)}
+.summary-copy p{margin:0;color:#4b6253;font-size:.96rem}
+.chevron{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:1px solid #e5d4bb;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1.02rem;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  background:#fff;box-shadow:0 6px 14px rgba(24,46,34,.04)
+}
+details[open] .chevron{transform:rotate(180deg);background:rgba(168,130,10,.08);box-shadow:none}
+details[open] summary{
+  border-bottom:1px solid rgba(168,130,10,.14);
+  background:
+    linear-gradient(180deg,rgba(255,248,236,.92),rgba(255,255,255,0)),
+    repeating-linear-gradient(90deg, transparent 0 36px, rgba(168,130,10,.018) 36px 37px);
+}
+details[open] .summary-copy h3{
+  font-size:1.42rem;
+}
+details[open] .summary-copy p{
+  color:#415b4c;
+}
+.article-body{
+  padding:1.05rem 1.2rem 1.3rem 1.4rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;
+  position:relative;
+}
+.article-body::before{
+  content:"";position:absolute;left:1.02rem;top:.35rem;bottom:.7rem;width:3px;border-radius:4px;
+  background:linear-gradient(180deg,rgba(168,130,10,.55),rgba(127,155,135,.5));
+  opacity:.7;
+}
+.body-block{
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.96),rgba(251,247,238,.96)),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(28,47,36,.028) 34px 35px);
+  border:1px solid #eadbc4;border-radius:20px;padding:1.08rem 1.08rem 1rem 1.12rem;
+  box-shadow:0 10px 18px rgba(24,46,34,.025);
+  position:relative;
+}
+.body-block::before{
+  content:"";position:absolute;left:16px;right:16px;top:0;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.26), transparent);
+}
+.body-block h4{
+  margin:0 0 .7rem;font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;position:relative;padding-bottom:.4rem
+}
+.body-block h4::after{
+  content:"";position:absolute;left:0;bottom:0;width:64px;height:1px;
+  background:linear-gradient(90deg, rgba(168,130,10,.6), transparent);
+}
+.body-block p{margin:0;color:#385243}
+.body-block.full p:first-of-type::first-letter{
+  float:left;font-size:2.8rem;line-height:.86;padding-right:.16rem;margin-top:.08rem;
+  color:#2f5a44;font-family:'Palatino Linotype', Georgia, serif;
+}
+.body-block ul{margin:.2rem 0 0 1.15rem;padding:0}
+.body-block li{margin:.22rem 0;color:#385243}
+.body-block.full{grid-column:1/-1}
+.article-end{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:center;gap:.85rem;
+  margin-top:.25rem;padding:.25rem 0 .25rem;
+  color:#8a7a58;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.article-end::before,.article-end::after{
+  content:"";height:1px;flex:1;max-width:150px;
+  background:linear-gradient(90deg,transparent,rgba(168,130,10,.42),transparent);
+}
+.article-end span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(168,130,10,.22);
+  background:linear-gradient(180deg,rgba(255,252,246,.96),rgba(249,241,225,.92));
+  font-size:.74rem;letter-spacing:0;color:var(--gold);
+}
+
+.no-results{display:none;padding:1rem 0 .1rem;color:#7a877f;font-style:italic}
+.footer{padding:2.2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:800px){
+  .article-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.3rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}.brand span{font-size:.66rem}
+  .search-panel{margin-top:-.8rem}
+  .article summary{padding:1rem 1rem .9rem 1.15rem}
+  .article-body{padding:0 1rem 1rem 1.15rem}
+  .section-panel{padding:1.2rem 1rem}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index_insight_updated.html"><strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong><span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span></a>
+    <a class="back-link" href="insight-library.html">← Back to Insight Library</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Insight Library Shelf</span>
+    <h1>Disease Understanding</h1>
+    <p class="lead">Foundational Ayurvedic ideas presented in a calm, readable format. Open any topic below to read within the same page.</p>
+    <div class="hero-meta">
+      <div class="meta-pill">Expandable reading format</div>
+      <div class="meta-pill">Foundational concepts</div>
+      <div class="meta-pill">Single-page category reading</div>
+    </div>
+  </div>
+</section>
+<main class="page-wrap">
+  <section class="search-panel">
+    <div class="search-top">
+      <div class="searchbox"><span class="icon">⌕</span><input id="articleSearch" type="search" placeholder="Search topics within Disease Understanding..."></div>
+      <div class="search-note">Open any topic to read it here. No separate article pages needed.</div>
+    </div>
+  </section>
+
+  <section class="topic-strip">
+    <h3>Quick Topic Access</h3>
+    <div class="topic-links">
+      <a href="#amlapitta">Amlapitta</a>
+      <a href="#amavata">Amavata</a>
+      <a href="#kasa-shwasa">Kasa &amp; Shwasa</a>
+      <a href="#twak-vikara">Twak Vikara</a>
+      <a href="#grahani">Grahani</a>
+      <a href="#nidana-thinking">Pattern Thinking</a>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="section-head">
+      <div>
+        <h2>Topics on this Shelf</h2>
+        <p>This shelf now presents fuller, carefully structured disease articles based on the material you provided, preserving depth while improving flow, headings, and readability.</p>
+      </div>
+    </div>
+    <div class="no-results" id="noResults">No topics match that search.</div>
+    <div class="article-list" id="articleList">
+
+      <article id="amlapitta" class="article" data-search="gerd acid reflux amlapeetta amlapitta acidity burning sour belching lower esophageal sphincter pitta digestive system">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Digestive System</span>
+              <h3>GERD / Acid Reflux and the Ayurvedic View of Amlapitta</h3>
+              <p>A clear look at reflux through modern explanation and the Ayurvedic logic of heat, sourness, and disturbed upper digestion.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>Think of the esophagus as a one-way street leading down to the stomach. At the bottom of this pipe is a muscular “trapdoor” — the lower esophageal sphincter. In GERD (Gastroesophageal Reflux Disease), this trapdoor weakens or stays open when it should not. As a result, stomach acid splashes upward into the food pipe, producing the familiar burning sensation of reflux.</p>
+              <p>From an Ayurvedic perspective, this pattern is often understood through <strong>Amlapitta</strong> — a disturbance of digestion in which sourness, heat, and instability become dominant.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Lifestyle:</strong> overeating, lying down soon after meals, and tight clothing around the abdomen.</li>
+                <li><strong>Diet:</strong> excessive caffeine, alcohol, spicy foods, sour foods, or citrus.</li>
+                <li><strong>Physical factors:</strong> obesity, pregnancy, or hiatal hernia.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>When the lower esophageal sphincter loses tone, the lining of the esophagus — which is not built to tolerate acid — becomes repeatedly irritated and inflamed. Over time, this repeated “acid bath” may lead to erosions, ulceration, scarring, or tissue change.</p>
+              <p>Ayurvedically, this reflects an Agni that is no longer balanced: instead of proper transformation, digestion becomes excessively sharp, sour, or unstable.</p>
+            </section>
+            <section class="body-block">
+              <h4>Types</h4>
+              <ul>
+                <li><strong>Non-Erosive GERD:</strong> burning is present, but no visible structural damage yet.</li>
+                <li><strong>Erosive GERD:</strong> acid has begun to produce ulcers or erosions in the esophageal lining.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda would not stop at naming the problem. It would ask: Is there excess Pitta? Is meal timing irregular? Is stress intensifying the digestive fire? Is sourness being driven upward? This is why treatment often includes more than symptom suppression — routine, diet, and digestive correction become central.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="amavata" class="article" data-search="osteoarthritis amavata osteoarthritis wear tear cartilage synovial fluid joints pain stiffness bone spurs musculoskeletal">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Musculoskeletal System</span>
+              <h3>Osteoarthritis and the Ayurvedic Reading of Joint Degeneration</h3>
+              <p>Understanding joint wear, stiffness, and structural decline through both mechanical and Ayurvedic logic.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>Imagine your joints as door hinges. To move smoothly, they need a layer of cushioning “rubber” (cartilage) and a lubricating “grease” (synovial fluid). Osteoarthritis is the classic wear-and-tear process in which cartilage thins, lubrication becomes less effective, and eventually bone begins to rub against bone. The result is pain, stiffness, and gradual loss of movement.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Aging:</strong> the natural wear of many years.</li>
+                <li><strong>Past injury:</strong> damage that changed the way the joint moves.</li>
+                <li><strong>Overuse:</strong> repetitive strain from work, sport, or habit.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>The process begins with small cracks in cartilage. As cushioning is lost, the body tries to “repair” the joint by laying down extra bone at the edges — bone spurs. These can make the joint look knobby and can further reduce smooth movement.</p>
+            </section>
+            <section class="body-block">
+              <h4>Types</h4>
+              <ul>
+                <li><strong>Primary:</strong> related to general aging and wear.</li>
+                <li><strong>Secondary:</strong> resulting from specific factors such as obesity, injury, or previous fracture.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>While classic osteoarthritis is not identical to Amavata in every case, Ayurveda would read such joint disease through qualities: dryness, roughness, depletion, impaired lubrication, and altered movement. In some people Vata predominates strongly; in others inflammatory burden and metabolic residue also contribute. The clinical question therefore becomes deeper than “joint pain” — what quality has increased, and what structural support has been lost?</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="hypertension" class="article" data-search="hypertension high blood pressure arteries stress salt plaque pressure circulatory system pitta vata">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Circulatory System</span>
+              <h3>Hypertension (High Blood Pressure)</h3>
+              <p>A simple understanding of pressure in the vessels and the long-term cycle of vascular strain.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>Think of blood vessels as garden hoses. Hypertension is like turning the faucet on hard while the hose is slightly narrowed. Blood pushes too strongly against the vessel walls. Over time, this constant pressure damages the “hose” and overburdens the “pump” — the heart.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Diet:</strong> excess salt, which holds water inside the vascular system.</li>
+                <li><strong>Stress:</strong> persistent fight-or-flight activation tightens the vessels.</li>
+                <li><strong>Genetics:</strong> family history and inherited tendency.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>Persistently high pressure creates tiny injuries in the arterial wall. As the body attempts repair, cholesterol and plaque may deposit there, making vessels stiffer and narrower. This creates a self-reinforcing cycle of rising resistance and rising pressure.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda would assess not only the number on the machine, but the underlying pattern: Is there heat and irritability? Is stress driving an overactive Vata–Pitta state? Is heaviness and vessel burden contributing? This pattern-based reasoning helps explain why two people with “the same blood pressure” may not have the same internal story.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="twak-vikara" class="article" data-search="psoriasis twak vikara skin scales immune system t cells rash itching redness kapha pitta rakta">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Integumentary System</span>
+              <h3>Psoriasis and the Ayurvedic Understanding of Twak Vikara</h3>
+              <p>A clearer look at rapid skin turnover, inflammation, and the deeper internal patterns reflected through the skin.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>Imagine your skin as a factory that continuously produces new cells. Normally, it takes roughly a month to create a fresh layer. In psoriasis, the factory goes into overdrive and starts producing cells in just a few days. Because they cannot shed properly, these cells pile up and form thick, silvery scales that may itch, crack, or hurt.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Immune dysregulation:</strong> the body’s defense system mistakenly attacks healthy skin cells.</li>
+                <li><strong>Triggers:</strong> stress, cold weather, infections, or certain medications.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>Overactive T-cells trigger inflammation, widen local blood vessels, and drive skin cells to multiply too quickly. The result is both visible scaling and deeper inflammatory activity.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda would examine whether the skin picture is hot, dry, itchy, thickened, or oozing, and would often think in terms of Pitta, Rakta, Kapha, and channel disturbance. The skin is seen not as an isolated surface, but as an external expression of deeper internal imbalance.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="sciatica" class="article" data-search="sciatica nerve pain slipped disc herniated disc bone spurs numbness burning leg nervous system vata">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Nervous System</span>
+              <h3>Sciatica</h3>
+              <p>How pressure on the body’s largest nerve creates radiating pain, numbness, and weakness — and how Ayurveda reads the pattern.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>The sciatic nerve is the longest and thickest nerve in the body, running from the lower back down each leg. Sciatica occurs when something — often a herniated disc — pinches or presses on this nerve. The pain may feel like electricity, burning, numbness, or shooting discomfort running down the leg.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Herniated disc:</strong> the jelly-like center of a spinal disc leaks and presses on the nerve.</li>
+                <li><strong>Bone spurs:</strong> bony overgrowth along the spine.</li>
+                <li><strong>Prolonged sitting:</strong> especially on hard surfaces or in poor posture.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>Pressure on the nerve creates inflammation and interferes with electrical signaling to the leg. If not relieved, prolonged compression may weaken muscles and alter gait and posture.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda would often read such pain through aggravated Vata — especially when symptoms are radiating, variable, sharp, or associated with dryness and degeneration. The deeper question is not simply “where is the pain?” but “what quality is moving abnormally through the channel?”</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="hypothyroidism" class="article" data-search="hypothyroidism thyroid battery metabolism tired cold weight gain hashimoto iodine selenium endocrine system kapha">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Endocrine System</span>
+              <h3>Hypothyroidism</h3>
+              <p>A simple way to understand low thyroid function as slowing of the body’s metabolic engine.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>The thyroid gland is a small butterfly-shaped organ in the neck that acts like a thermostat or battery for the body. In hypothyroidism, the battery runs low. Metabolism slows, leaving the person tired, cold, slowed down, and often prone to weight gain even without excessive intake.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Autoimmune:</strong> Hashimoto’s thyroiditis, in which the body attacks the gland.</li>
+                <li><strong>Nutritional:</strong> lack of iodine or selenium.</li>
+                <li><strong>Stress:</strong> high cortisol may interfere with hormonal production and regulation.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>The gland fails to produce enough thyroxine (T4). Because thyroid hormones help regulate how every cell uses energy, the whole system begins to lag — from heart rate to digestion to mental pace.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda would observe slowness, heaviness, low digestive fire, edema tendency, coldness, and reduced drive, often suggesting Kapha increase with weakened Agni. Yet every case still requires individual pattern reading rather than one fixed formula.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="tonsillitis" class="article" data-search="chronic tonsillitis tonsils infection immunity swollen sore pockets bacteria lymphatic immune system kapha">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Lymphatic &amp; Immune System</span>
+              <h3>Chronic Tonsillitis</h3>
+              <p>Understanding persistently inflamed tonsils as repeated battle at the throat’s gate of defense.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>The tonsils are like security guards at the entrance of the throat. Their job is to trap and respond to germs. In chronic tonsillitis, these guards become overwhelmed and remain swollen, sore, and repeatedly inflamed. Instead of protecting cleanly, they begin to harbor debris and bacteria.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Repeated infections:</strong> viral or bacterial episodes that never fully clear.</li>
+                <li><strong>Low immunity:</strong> an immune system that cannot complete the response effectively.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>Repeated infection leads to small pockets and crypts in the tonsils. Debris and bacteria collect there, producing persistent inflammation, bad breath, recurrent throat pain, and difficulty swallowing.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda might explore Kapha accumulation, inflammatory heat, repeated immune strain, and local tissue congestion. It would also consider digestion and resilience because chronic throat vulnerability rarely exists in isolation from the person’s wider terrain.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="kidney-stones" class="article" data-search="kidney stones nephrolithiasis minerals crystals urine dehydration oxalates urinary system pain">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Urinary System</span>
+              <h3>Kidney Stones (Nephrolithiasis)</h3>
+              <p>How concentrated minerals crystallize into hard stones — and why obstruction becomes so painful.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>Kidney stones are hard pebbles formed from salts and minerals that crystallize in urine. If they remain in the kidney they may be silent. But if they begin to travel down the narrow tubes toward the bladder, they can produce some of the most intense pain experienced in medicine.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Dehydration:</strong> urine becomes too concentrated.</li>
+                <li><strong>Diet:</strong> too much salt, sugar, or certain stone-forming minerals such as oxalates.</li>
+                <li><strong>Metabolic tendency:</strong> inherited or biochemical predisposition to crystallization.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>When minerals such as calcium or uric acid become highly concentrated in urine, they begin to stick together. Over time, these crystals enlarge into stones that may obstruct urine flow.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda would focus on concentration, obstruction, heat, pain pattern, hydration state, and the involved channels. The question is not only “what stone?” but “what internal terrain allowed crystallization and blockage to occur?”</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="pcos" class="article" data-search="pcos polycystic ovary syndrome insulin resistance irregular periods testosterone cysts reproductive system kapha pitta">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Reproductive System</span>
+              <h3>PCOS (Polycystic Ovary Syndrome)</h3>
+              <p>A simple understanding of hormonal imbalance, ovulatory disturbance, and the metabolic tangle behind PCOS.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>What is it?</h4>
+              <p>PCOS is a kind of hormonal tangle. Instead of releasing an egg regularly, the ovaries may develop many small fluid-filled sacs. Hormonal rhythms become disrupted, leading to irregular periods, acne, weight gain, and other metabolic or reproductive symptoms.</p>
+            </section>
+            <section class="body-block">
+              <h4>Causes</h4>
+              <ul>
+                <li><strong>Insulin resistance:</strong> poor sugar handling triggers excess androgen production.</li>
+                <li><strong>Inflammation:</strong> low-grade chronic inflammation may contribute.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Pathogenesis: How it develops</h4>
+              <p>Excess insulin stimulates the ovaries to produce too much testosterone. This interferes with normal ovulation and contributes to the characteristic “string of pearls” appearance of multiple small cysts.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Ayurvedic Pattern Understanding</h4>
+              <p>Ayurveda would assess menstrual rhythm, weight, digestion, Kapha accumulation, inflammatory signs, stress, and reproductive channel function. Pattern-based treatment becomes especially important because PCOS presents very differently from one person to another.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="nidana-thinking" class="article" data-search="pattern thinking detective work ayurveda samprapti gunas qualities darshana prashna sparshana nadi vigyan whole person">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Clinical Approach</span>
+              <h3>Pattern Thinking: The “Detective Work” of Ayurveda</h3>
+              <p>Why Ayurveda asks what is disturbed, what caused it, and how it is being sustained — not only what the disease is called.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In modern medicine, we are often treated like a collection of parts. If you have a headache, you take a pill for the head. If you have a stomach ache, you take a pill for the stomach. Ayurveda uses a different logic called <strong>pattern thinking</strong>.</p>
+              <p>Ayurveda does not just look at the “fire” — the symptom. It also looks at the “wind” blowing it and the “fuel” feeding it. By identifying the underlying pattern, treatment can address the root before the imbalance shifts into another organ or form.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. The Wholeness Principle</h4>
+              <p>Ayurveda believes that nothing in the body happens in isolation. A skin rash, indigestion, and irritability may not be three separate diseases — they may be three expressions of one underlying pattern, such as rising Pitta.</p>
+              <div class="compare-dual">
+                <div class="compare-panel">
+                  <h5>Modern Symptom Thinking</h5>
+                  <ul>
+                    <li>“I have a migraine.”</li>
+                    <li>“I have acid reflux.”</li>
+                    <li>“I have dry skin.”</li>
+                  </ul>
+                </div>
+                <div class="compare-panel">
+                  <h5>Ayurvedic Pattern Thinking</h5>
+                  <ul>
+                    <li>“There is upward-moving Vata and heat in my head.”</li>
+                    <li>“My digestive fire is too intense and sour.”</li>
+                    <li>“My body is lacking oil and has too much air.”</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section class="body-block">
+              <h4>2. Reading the Biological Codes: Gunas and Qualities</h4>
+              <p>To find the pattern, the Ayurvedic practitioner looks for <strong>Gunas</strong> — qualities. Everything in nature carries qualities, and qualities suggest remedies through opposites.</p>
+              <ul>
+                <li><strong>The pattern of Dryness (Vata):</strong> dry skin, constipation, scattered mind → needs oily and stable support.</li>
+                <li><strong>The pattern of Heat (Pitta):</strong> red rash, acid reflux, short temper → needs cooling and gentle support.</li>
+                <li><strong>The pattern of Heaviness (Kapha):</strong> congestion, weight gain, lethargy → needs light and warming support.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>3. The Chain Reaction of Disease (Samprapti)</h4>
+              <p>Pattern thinking also allows Ayurveda to see where disease is going. Classical thought describes six broad stages:</p>
+              <ul>
+                <li><strong>Accumulation:</strong> the Dosha begins to build in its home site.</li>
+                <li><strong>Provocation:</strong> it becomes aggravated and unstable.</li>
+                <li><strong>Spread:</strong> it leaves its site and travels through the system.</li>
+                <li><strong>Localization:</strong> it finds a weak spot and lodges there.</li>
+                <li><strong>Manifestation:</strong> recognizable symptoms appear.</li>
+                <li><strong>Diversification:</strong> the disease becomes chronic or structurally established.</li>
+              </ul>
+              <p>The ideal is to identify the imbalance in early stages, long before it hardens into a named disorder.</p>
+            </section>
+            <section class="body-block full">
+              <h4>4. How We Find the Pattern</h4>
+              <p>When you visit an Ayurvedic clinic, the practitioner acts like a biological detective. Three classical methods are especially important:</p>
+              <ul>
+                <li><strong>Darshana (Observation):</strong> examining the tongue, eyes, skin, posture, and movement.</li>
+                <li><strong>Prashna (Questioning):</strong> asking about cravings, elimination, sleep, weather sensitivity, and emotional habits.</li>
+                <li><strong>Sparshana (Touch):</strong> especially <em>Nadi Vigyan</em> or pulse examination, which is used to understand how Doshas move and where they may be blocked.</li>
+              </ul>
+              <p>The beauty of pattern thinking is that patients can learn from it too. Once you understand your own tendencies, symptoms stop feeling random. You begin to see how routine, food, weather, and emotion are shaping your state day by day.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+    </div></div>
+  </section>
+</main>
+<footer class="footer"><strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>Basics of Ayurveda · Insight Library category</footer>
+<script>
+const search = document.getElementById('articleSearch');
+const articles = [...document.querySelectorAll('.article')];
+const noResults = document.getElementById('noResults');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let shown = 0;
+  articles.forEach(card => {
+    const hit = card.dataset.search.includes(q);
+    card.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  });
+  noResults.style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind & Mental Health | Insight Library</title>
+<meta name="description" content="Ayurvedic perspectives on mind, emotional patterns, steadiness, stress, and mental balance presented in a calm, readable format inside the Insight Library.">
+
+<style>
+:root{
+  --bg:#f4ecdf;
+  --paper:#fbf7ef;
+  --paper-2:#fffdf8;
+  --ink:#1c2f24;
+  --muted:#617464;
+  --gold:#a8820a;
+  --gold-soft:#e7d6b5;
+  --line:#e3d3bb;
+  --green:#2f5a44;
+  --deep:#182e22;
+  --shadow:0 16px 34px rgba(24,46,34,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--ink);
+  line-height:1.82;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168,130,10,.09), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(47,90,68,.08), transparent 18%),
+    linear-gradient(180deg,#f7f0e6 0%, #f4ecdf 24%, #f2e8da 100%);
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,33,25,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,130,10,.18)
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.brand{text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;transition:.25s ease
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.05)}
+
+.hero{
+  padding:4.8rem 1.25rem 2.8rem;
+  border-bottom:1px solid rgba(168,130,10,.1);
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(circle at 16% 18%, rgba(168,130,10,.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(47,90,68,.12), transparent 24%),
+    linear-gradient(180deg,#f8f1e7 0%, #f3e9da 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(28,47,36,.035) 39px 40px),
+    linear-gradient(90deg, transparent, rgba(168,130,10,.05), transparent);
+}
+.hero::after{
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(900px,92%);height:1px;background:linear-gradient(90deg, transparent, rgba(168,130,10,.55), transparent);
+}
+.hero-inner{max-width:1180px;margin:0 auto;position:relative}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-size:.76rem;letter-spacing:.26em;
+  text-transform:uppercase;font-style:italic;margin-bottom:.9rem
+}
+.hero h1{margin:.15rem 0 .7rem;font-weight:400;font-size:clamp(2.2rem,4vw,4rem);line-height:1.06}
+.hero p.lead{max-width:860px;margin:0;color:#3f5647;font-size:1.05rem}
+.hero-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.meta-pill{
+  background:rgba(255,253,248,.84);
+  border:1px solid rgba(168,130,10,.16);
+  padding:.74rem 1rem;border-radius:999px;color:#51685a;font-size:.88rem;
+  box-shadow:0 8px 18px rgba(24,46,34,.04)
+}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.search-panel,.section-panel,.topic-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(251,247,239,.96));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.search-panel{padding:1.15rem;border-radius:24px;margin:-1.1rem auto 1.1rem;position:relative;z-index:2}
+.search-top{display:flex;gap:.9rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.searchbox{flex:1 1 340px;position:relative}
+.searchbox input{
+  width:100%;padding:1rem 1rem 1rem 2.95rem;border-radius:15px;border:1px solid #dbc8ad;
+  background:#fff;color:var(--ink);font:inherit;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.search-note{color:var(--muted);font-size:.92rem}
+
+.topic-strip{
+  padding:1rem 1rem .9rem;border-radius:22px;margin-bottom:1.4rem;
+}
+.topic-strip h3{
+  margin:0 0 .75rem;font-size:.9rem;font-weight:400;color:var(--gold);
+  letter-spacing:.16em;text-transform:uppercase
+}
+.topic-links{display:flex;gap:.65rem;flex-wrap:wrap}
+.topic-links a{
+  text-decoration:none;
+  padding:.55rem .85rem;border-radius:999px;
+  border:1px solid #e4d3bb;background:#fff;
+  color:#42584a;font-size:.9rem;transition:.2s ease;
+}
+.topic-links a:hover{transform:translateY(-2px);border-color:#caa55c;color:var(--deep);box-shadow:0 8px 16px rgba(24,46,34,.06)}
+
+.section-panel{padding:1.55rem 1.35rem;border-radius:28px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.section-head h2{margin:0;font-weight:400;font-size:1.65rem}
+.section-head p{margin:.2rem 0 0;color:#5a7161;max-width:760px}
+
+.article-list{display:grid;gap:1.35rem}
+.article{
+  background:
+    linear-gradient(180deg,rgba(168,130,10,.045),transparent 120px),
+    #fff;
+  border:1px solid #eadcc9;border-radius:26px;overflow:hidden;box-shadow:0 12px 24px rgba(24,46,34,.05);
+  position:relative;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.article:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px rgba(24,46,34,.07);
+}
+.article::before{
+  content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;
+  background:linear-gradient(180deg,#caa55c,#7f9b87);
+  opacity:.8;
+}
+.article::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:-14px;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.28), transparent);
+}
+.article:last-child::after{display:none}
+.article details{display:block}
+.article details[open]{
+  background:
+    radial-gradient(circle at 12% 10%, rgba(168,130,10,.08), transparent 22%),
+    linear-gradient(180deg,rgba(168,130,10,.08),rgba(168,130,10,.025) 28%,transparent 70%),
+    linear-gradient(180deg,#fffefb,#fff);
+  box-shadow:inset 0 0 0 1px rgba(168,130,10,.06);
+}
+.article summary{
+  list-style:none;cursor:pointer;padding:1.22rem 1.15rem 1.02rem 1.35rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem
+}
+.article summary::-webkit-details-marker{display:none}
+.summary-copy{max-width:900px}
+.kicker{
+  display:inline-block;font-size:.71rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.38rem;padding:.28rem .55rem;border-radius:999px;background:rgba(168,130,10,.08);border:1px solid rgba(168,130,10,.12)
+}
+.summary-copy h3{margin:.1rem 0 .38rem;font-weight:400;font-size:1.26rem;color:var(--ink)}
+.summary-copy p{margin:0;color:#4b6253;font-size:.96rem}
+.chevron{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:1px solid #e5d4bb;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1.02rem;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  background:#fff;box-shadow:0 6px 14px rgba(24,46,34,.04)
+}
+details[open] .chevron{transform:rotate(180deg);background:rgba(168,130,10,.08);box-shadow:none}
+details[open] summary{
+  border-bottom:1px solid rgba(168,130,10,.14);
+  background:
+    linear-gradient(180deg,rgba(255,248,236,.92),rgba(255,255,255,0)),
+    repeating-linear-gradient(90deg, transparent 0 36px, rgba(168,130,10,.018) 36px 37px);
+}
+details[open] .summary-copy h3{
+  font-size:1.42rem;
+}
+details[open] .summary-copy p{
+  color:#415b4c;
+}
+.article-body{
+  padding:1.05rem 1.2rem 1.3rem 1.4rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;
+  position:relative;
+}
+.article-body::before{
+  content:"";position:absolute;left:1.02rem;top:.35rem;bottom:.7rem;width:3px;border-radius:4px;
+  background:linear-gradient(180deg,rgba(168,130,10,.55),rgba(127,155,135,.5));
+  opacity:.7;
+}
+.body-block{
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.96),rgba(251,247,238,.96)),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(28,47,36,.028) 34px 35px);
+  border:1px solid #eadbc4;border-radius:20px;padding:1.08rem 1.08rem 1rem 1.12rem;
+  box-shadow:0 10px 18px rgba(24,46,34,.025);
+  position:relative;
+}
+.body-block::before{
+  content:"";position:absolute;left:16px;right:16px;top:0;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.26), transparent);
+}
+.body-block h4{
+  margin:0 0 .7rem;font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;position:relative;padding-bottom:.4rem
+}
+.body-block h4::after{
+  content:"";position:absolute;left:0;bottom:0;width:64px;height:1px;
+  background:linear-gradient(90deg, rgba(168,130,10,.6), transparent);
+}
+.body-block p{margin:0;color:#385243}
+.body-block.full p:first-of-type::first-letter{
+  float:left;font-size:2.8rem;line-height:.86;padding-right:.16rem;margin-top:.08rem;
+  color:#2f5a44;font-family:'Palatino Linotype', Georgia, serif;
+}
+.body-block ul{margin:.2rem 0 0 1.15rem;padding:0}
+.body-block li{margin:.22rem 0;color:#385243}
+.body-block.full{grid-column:1/-1}
+.article-end{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:center;gap:.85rem;
+  margin-top:.25rem;padding:.25rem 0 .25rem;
+  color:#8a7a58;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.article-end::before,.article-end::after{
+  content:"";height:1px;flex:1;max-width:150px;
+  background:linear-gradient(90deg,transparent,rgba(168,130,10,.42),transparent);
+}
+.article-end span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(168,130,10,.22);
+  background:linear-gradient(180deg,rgba(255,252,246,.96),rgba(249,241,225,.92));
+  font-size:.74rem;letter-spacing:0;color:var(--gold);
+}
+
+.no-results{display:none;padding:1rem 0 .1rem;color:#7a877f;font-style:italic}
+.footer{padding:2.2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:800px){
+  .article-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.3rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}.brand span{font-size:.66rem}
+  .search-panel{margin-top:-.8rem}
+  .article summary{padding:1rem 1rem .9rem 1.15rem}
+  .article-body{padding:0 1rem 1rem 1.15rem}
+  .section-panel{padding:1.2rem 1rem}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index_insight_updated.html"><strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong><span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span></a>
+    <a class="back-link" href="insight-library.html">← Back to Insight Library</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Insight Library Shelf</span>
+    <h1>Mind &amp; Mental Health</h1>
+    <p class="lead">Foundational Ayurvedic ideas presented in a calm, readable format. Open any topic below to read within the same page.</p>
+    <div class="hero-meta">
+      <div class="meta-pill">Expandable reading format</div>
+      <div class="meta-pill">Foundational concepts</div>
+      <div class="meta-pill">Single-page category reading</div>
+    </div>
+  </div>
+</section>
+<main class="page-wrap">
+  <section class="search-panel">
+    <div class="search-top">
+      <div class="searchbox"><span class="icon">⌕</span><input id="articleSearch" type="search" placeholder="Search topics within Mind & Mental Health..."></div>
+      <div class="search-note">Open any topic to read it here. No separate article pages needed.</div>
+    </div>
+  </section>
+
+  <section class="topic-strip">
+    <h3>Quick Topic Access</h3>
+    <div class="topic-links">
+      <a href="#mind-ayurveda">Mind in Ayurveda</a>
+      <a href="#satva-rajas-tamas">Satva, Rajas, Tamas</a>
+      <a href="#stress">Stress</a>
+      <a href="#anxiety">Anxiety</a>
+      <a href="#emotions-body">Mind–Body Link</a>
+      <a href="#mental-routine">Mental Hygiene</a>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="section-head">
+      <div>
+        <h2>Topics on this Shelf</h2>
+        <p>This shelf now presents fuller, carefully structured mental health articles based on the material you provided, preserving depth while improving flow, headings, and readability.</p>
+      </div>
+    </div>
+    <div class="no-results" id="noResults">No topics match that search.</div>
+    <div class="article-list" id="articleList">
+
+      <article id="mind-ayurveda" class="article" data-search="mind ayurveda manas gunas sattva rajas tamas gut brain axis mental doshas medhya rasayana prana tejas ojas">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Foundations</span>
+              <h3>The Mind in Ayurveda: Cultivating Clarity and Emotional Balance</h3>
+              <p>A fuller introduction to Manas, the Gunas, the gut–mind link, mental Doshas, subtle essences, and the tools Ayurveda uses to support inner balance.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>While modern psychology often treats the mind in isolation, Ayurveda views the mind (<em>Manas</em>) as an integral part of physical health. There is no physical ailment without a mental component, and no mental stress that does not eventually affect the tissues.</p>
+              <p>To understand the mind, Ayurveda looks beyond the Doshas and introduces the <strong>three Gunas</strong> — the fundamental universal qualities of nature that govern consciousness itself.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. The Three Gunas: The Colors of the Mind</h4>
+              <p>Just as the body is governed by the Doshas, the mind is shaped by three primary energies: <strong>Sattva</strong>, <strong>Rajas</strong>, and <strong>Tamas</strong>.</p>
+              <ul>
+                <li><strong>Sattva (Clarity and Balance):</strong> harmony, light, intelligence, compassion, creativity, steadiness. The goal is to increase Sattva through pure food, meditation, and ethical living.</li>
+                <li><strong>Rajas (Activity and Passion):</strong> movement, ambition, attachment, externalization. Necessary for achievement, but in excess leads to anxiety, anger, perfectionism, and an overactive mind that cannot rest.</li>
+                <li><strong>Tamas (Inertia and Stability):</strong> heaviness, darkness, sleep, resistance. Healthy Tamas allows rest and stability, but in excess leads to depression, lethargy, brain fog, and loss of motivation.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>2. The Gut–Mind Connection</h4>
+              <p>Ayurveda was the first science to describe what modern language now calls the gut–brain axis. According to Ayurvedic pathology, the mind resides in the heart but communicates deeply through the digestive system.</p>
+              <ul>
+                <li><strong>Agni and emotions:</strong> if Agni is weak, Ama is produced. This physical sludge can become “mental Ama,” creating cloudy thoughts and emotional stagnation.</li>
+                <li><strong>The Vata connection:</strong> the colon is the seat of Vata. When the colon is dry or bloated, it sends signals of fear and anxiety to the nervous system.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>3. The Mental Doshas</h4>
+              <p>Your physical constitution also influences how you handle stress and psychological strain:</p>
+              <ul>
+                <li><strong>Vata mind:</strong> fear, anxiety, restlessness, overthinking.</li>
+                <li><strong>Pitta mind:</strong> anger, judgment, impatience, intensity, perfectionism.</li>
+                <li><strong>Kapha mind:</strong> attachment, greed, procrastination, heaviness, depressive slowing.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>4. Ayurvedic Tools for Mental Vitality</h4>
+              <p>In a traditional setting, mental health is addressed through both physical and subtle supports:</p>
+              <ul>
+                <li><strong>Medhya Rasayanas (brain tonics):</strong> Brahmi for memory and stress reduction; Shankhapushpi for calming and sleep; Jatamansi for stabilizing a racing Vata mind.</li>
+                <li><strong>Subtle therapies:</strong> Shirodhara, Pranayama, and Sattvic diet all shift the Gunas in meaningful ways.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>5. Prana, Tejas, and Ojas</h4>
+              <p>Just as the body has three Doshas, the mind has three subtle essences:</p>
+              <ul>
+                <li><strong>Prana:</strong> vital breath and creative energy (subtle Vata)</li>
+                <li><strong>Tejas:</strong> inner radiance and discernment (subtle Pitta)</li>
+                <li><strong>Ojas:</strong> inner peace and psychological immunity (subtle Kapha)</li>
+              </ul>
+              <p>When these are high, the person develops mental resilience — the capacity to face challenge without losing inner peace.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion: Healing the Whole Self</h4>
+              <p>True health is the ability to maintain a Sattvic mind even when the world around us is chaotic. In Ayurveda, mental health is supported by healing the gut, balancing the nervous system, and cultivating practices that restore clarity, steadiness, and emotional balance.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="satva-rajas-tamas" class="article" data-search="sattva rajas tamas three gunas qualities of mind sattvic rajasic tamasic diet self awareness witness">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Mental Qualities</span>
+              <h3>Sattva, Rajas, and Tamas: The Three Gunas of the Mind</h3>
+              <p>A deeper look at the three Gunas as the threads that shape personality, perception, motivation, and mental balance.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In Ayurveda, physical health is governed by the three Doshas, but psychological and spiritual health is governed by the <strong>three Gunas</strong>. The word <em>Guna</em> translates to “string” or “thread,” suggesting that these three forces weave together personality, choice, and perception of reality.</p>
+              <p>Understanding the Gunas is a powerful tool for self-awareness. It allows us to see a mental state — anger, laziness, peace, clarity — not as a permanent identity, but as a shifting energy that can be balanced.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. Sattva: The Quality of Light and Harmony</h4>
+              <p>Sattva is the energy of purity, peace, and clarity. When Sattva predominates, the mind is steady, the heart is open, and the intellect is sharp.</p>
+              <ul>
+                <li><strong>Characteristics:</strong> compassion, selflessness, truthfulness, fearlessness, wisdom.</li>
+                <li><strong>Daily life expression:</strong> lightness, clarity, connectedness, healthier choices made effortlessly.</li>
+                <li><strong>How to increase it:</strong> fresh food, nature, meditation, and <em>Svadhyaya</em> (self-study).</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>2. Rajas: The Quality of Movement and Passion</h4>
+              <p>Rajas is the energy of action, change, ambition, and stimulation. It gets us out of bed and helps us pursue goals.</p>
+              <ul>
+                <li><strong>Characteristics:</strong> ambition, sensory desire, restlessness, busyness.</li>
+                <li><strong>When excessive:</strong> anxiety, irritability, perfectionism, and inability to stop doing.</li>
+                <li><strong>How to calm excess Rajas:</strong> gentle yoga, cooling foods, less caffeine and stimulants, and time in silence.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>3. Tamas: The Quality of Inertia and Stability</h4>
+              <p>Tamas is the energy of darkness, heaviness, and resistance. In its healthy form it permits rest and sleep; in excess it creates stagnation.</p>
+              <ul>
+                <li><strong>Characteristics:</strong> heaviness, sleep, dullness, attachment.</li>
+                <li><strong>When excessive:</strong> depression, laziness, brain fog, and feeling stuck.</li>
+                <li><strong>How to reduce excess Tamas:</strong> vigorous movement, waking before sunrise, light and spicy foods, clearing clutter.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>The Dynamic Interplay</h4>
+              <p>The Gunas are never static. They are constantly shifting. Mornings are usually more Sattvic; mid-day tends to be Rajasic and active; evening ideally transitions from Rajas into healthy Tamas for rest.</p>
+            </section>
+            <section class="body-block full">
+              <h4>The Path to Mental Healing</h4>
+              <p>A practical three-step approach may be understood as:</p>
+              <ul>
+                <li><strong>Step 1: Break the Tamas</strong> — when the person is deeply stuck, begin with movement and stimulation.</li>
+                <li><strong>Step 2: Calm the Rajas</strong> — once motion returns, prevent overstimulation from turning into anxiety or burnout.</li>
+                <li><strong>Step 3: Cultivate Sattva</strong> — through food, breathwork, meditation, nature, and ethical clarity.</li>
+              </ul>
+              <p>The ultimate goal is to become a witness to your own mind. Instead of saying, “I am depressed,” one learns to observe: “There is a lot of Tamas present right now.” That small shift creates room for change.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="stress" class="article" data-search="stress burnout adhi vyadhi prana tejas ojas vata pitta kapha stress types abhyanga shirodhara pranayama">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Modern Disturbance</span>
+              <h3>Stress: The Ayurvedic Perspective on Modern Burnout</h3>
+              <p>Stress in Ayurveda is not just mental pressure; it is wear and tear caused by the disturbance of Prana, Tejas, and Ojas.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Modern medicine often sees stress as a psychological reaction to external pressure. Ayurveda goes further and describes stress as <em>Adhi</em> (mental disturbance) that leads to <em>Vyadhi</em> (physical disease). It is a breakdown in the body–mind system’s ability to adapt.</p>
+              <p>When stress persists, inner intelligence becomes clouded, Agni flickers, and Ojas — the essence of resilience and immunity — begins to leak away.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. How the Three Doshas “Stress Out”</h4>
+              <ul>
+                <li><strong>Vata stress:</strong> racing thoughts, insomnia, worry, tremors, bloating. The feeling: “I can’t cope; I’m overwhelmed.”</li>
+                <li><strong>Pitta stress:</strong> irritability, anger, rashes, acid reflux, sharp headaches. The feeling: “I have to do everything myself.”</li>
+                <li><strong>Kapha stress:</strong> lethargy, oversleeping, emotional eating, mental fog. The feeling: “I don’t want to deal with this.”</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>2. The Anatomy of Burnout: Prana, Tejas, and Ojas</h4>
+              <ul>
+                <li><strong>Prana:</strong> stress scatters Prana, leading to shallow breath and nervous agitation.</li>
+                <li><strong>Tejas:</strong> chronic pressure makes Tejas burn too brightly, eventually scorching tissues and causing inflammatory burnout.</li>
+                <li><strong>Ojas:</strong> as Tejas burns out, Ojas is depleted — which is why prolonged stress is often followed by sickness or flare-ups.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>3. The Ayurvedic Anti-Stress Protocol</h4>
+              <p>Ayurveda resets the nervous system biologically, not just conceptually:</p>
+              <ul>
+                <li><strong>Snehana (oleation):</strong> Abhyanga and Shirodhara reduce dryness and brittleness in the stressed nervous system.</li>
+                <li><strong>Pranayama:</strong> especially Nadi Shodhana, which balances the hemispheres and calms Vata/Pitta stress.</li>
+                <li><strong>Adaptogenic herbs:</strong> Ashwagandha, Brahmi, and Shatavari help the body adapt without draining Ojas.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>4. Lifestyle as Medicine</h4>
+              <ul>
+                <li><strong>Eat in silence:</strong> because digestion needs a calm nervous system.</li>
+                <li><strong>Sleep early:</strong> Ojas is replenished most deeply during natural sleep.</li>
+                <li><strong>Grounding:</strong> time on earth or near water helps discharge excess internal charge from a stressed mind.</li>
+              </ul>
+              <p>Stress may be unavoidable in modern life, but suffering from stress is not inevitable. The Ayurvedic aim is to rebuild Ojas so that the person can remain centered even while life remains demanding.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="anxiety" class="article" data-search="anxiety restlessness vata prana vayu colon gut constipation nasya shiro abhyanga grounding foods digital fasting">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Emotional Pattern</span>
+              <h3>Understanding Anxiety &amp; Restlessness: Calming the Internal Wind</h3>
+              <p>Anxiety in Ayurveda is understood primarily as excess Vata — a storm of movement in mind, nerves, breath, and gut.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In the modern era, anxiety is often explained as a chemical imbalance. Ayurveda looks deeper, describing anxiety and restlessness primarily as an imbalance of <strong>Vata Dosha</strong> — the energy of Air and Space. When Vata becomes excessive, thoughts move too quickly, the nervous system becomes brittle, and stillness feels impossible.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. The Anatomy of Restlessness: Prana Vayu</h4>
+              <p>Within Vata, <strong>Prana Vayu</strong> resides in the head and governs the nervous system.</p>
+              <ul>
+                <li>Overstimulation by caffeine, screens, rush, and irregularity makes Prana Vayu too mobile and too dry.</li>
+                <li>The result is hypersensitivity to noise, light, stimulation, and even the emotions of others.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>2. Why Anxiety Starts in the Gut</h4>
+              <p>Ayurveda teaches that the seat of Vata is the colon. When there is constipation or bloating, the lower gut can send a form of “nervous gas” upward to the head, increasing fear, agitation, and unstable thought.</p>
+              <p>This is one reason digestive treatment often reduces anxiety significantly.</p>
+            </section>
+            <section class="body-block">
+              <h4>3. Identifying Anxiety Types</h4>
+              <ul>
+                <li><strong>Vata-anxiety:</strong> fear, tremors, insomnia, spinning thoughts.</li>
+                <li><strong>Pitta-anxiety:</strong> performance anxiety, fear of failure, frustration, irritability.</li>
+                <li><strong>Kapha-anxiety:</strong> heavy, stuck worry or fear of change.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>4. Ayurvedic Anchors for a Restless Mind</h4>
+              <p>To calm the wind, Ayurveda brings in weight, warmth, and oil:</p>
+              <ul>
+                <li><strong>Oil as medicine:</strong> Nasya, Shiro-Abhyanga, and warm oil applications directly calm the central nervous system.</li>
+                <li><strong>Heavy, grounding foods:</strong> root vegetables, warm grains, ghee, and meals taken quietly and regularly.</li>
+                <li><strong>Vata-pacifying herbs:</strong> Ashwagandha, Brahmi / Gotu Kola, and Jatamansi.</li>
+                <li><strong>Grounding practices:</strong> weighted blankets, digital fasting, and warm sesame oil self-massage.</li>
+              </ul>
+              <p>The essential insight is this: anxiety is not a permanent identity. It is a sign that the internal wind is blowing too hard — and wind can be calmed.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="emotions-body" class="article" data-search="mind body link heart consciousness emotions physical symptoms suppressed anger fear grief agni prana panchakarma marma">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Interconnection</span>
+              <h3>The Mind–Body Link: The Seamless Flow of Consciousness</h3>
+              <p>Ayurveda sees body and mind as different branches of the same tree, joined by Doshas, Prana, Agni, Ojas, and emotional experience.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In modern healthcare, different organ systems are often separated into specialties. Ayurveda sees body and mind as inseparable. The mind–body link is not merely philosophical; it is physiological. To heal the body, the mind must be settled. To clear the mind, the body must be balanced.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. The Heart: The Seat of Consciousness</h4>
+              <p>Ayurveda teaches that the <strong>Hridaya</strong> (heart) is the seat of consciousness (<em>Chetana</em>). From it arise major vessels carrying nourishment and life-force throughout the body. This is why emotional heartache can lead to exhaustion, and why physical vitality is felt as a “light heart.”</p>
+            </section>
+            <section class="body-block">
+              <h4>2. How Emotions Become Physical Symptoms</h4>
+              <p>When an emotion is not properly processed, it may leave the mind and lodge in the tissues:</p>
+              <ul>
+                <li><strong>Suppressed anger (Pitta):</strong> may move toward liver/gallbladder patterns such as acidity, skin inflammation, or pressure.</li>
+                <li><strong>Chronic fear (Vata):</strong> may settle in colon and bones, leading to gas, tremors, constipation, or back pain.</li>
+                <li><strong>Grief and attachment (Kapha):</strong> may accumulate in lungs and chest, creating heaviness, congestion, or emotional stagnation.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>3. The Gut–Brain Axis</h4>
+              <p>Long before modern science named the enteric nervous system, Ayurveda identified the digestive tract as a major influencer of mental state. If Agni is weak, Ama circulates and may cross into mental and cognitive functioning, resulting in brain fog, indecision, and heaviness.</p>
+            </section>
+            <section class="body-block full">
+              <h4>4. Prana: The Bridge Between Body and Mind</h4>
+              <p>If the body is the hardware and the mind is the software, <strong>Prana</strong> is the electricity linking them. Breath is therefore a direct access point to the nervous system. By altering breath rhythm, one changes internal chemistry.</p>
+              <ul>
+                <li>Deep diaphragmatic breathing helps shift the body from fight-or-flight toward rest-and-digest.</li>
+                <li>Panchakarma, Marma Therapy, and mindful diet are all used as dual-action approaches that affect both body and mind simultaneously.</li>
+              </ul>
+              <p>The aim is not symptom management alone, but harmony of the whole person.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="mental-routine" class="article" data-search="mental hygiene inner routine psychological detox pratyahara sankalpa gratitude digital sunset emotional digestion satsang nasya shirodhara">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Daily Protection</span>
+              <h3>Mental Hygiene &amp; Inner Routine: The Art of Psychological Detox</h3>
+              <p>Ayurveda teaches that just as the body needs hygiene, the mind too needs regular cleansing, filtering, and protection.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Every day, the mind is bombarded with sensory data, news, impressions, unfinished emotions, and overstimulation. Without an intentional inner routine, this “sensory indigestion” produces mental heaviness, anxiety, and loss of Sattva. Mental hygiene is the practice of filtering what enters consciousness and regularly flushing what no longer serves.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. Sensory Fasting (Pratyahara)</h4>
+              <p>The mind feeds on the senses. In modern life, we are often overfed and undernourished at the same time.</p>
+              <ul>
+                <li><strong>Pratyahara:</strong> the conscious withdrawal of the senses.</li>
+                <li><strong>Digital sunset:</strong> just as one stops eating before bed, one stops consuming digital data before bed to allow the mind to settle.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>2. Morning Mental Priming</h4>
+              <p>The first minutes after waking are highly influential.</p>
+              <ul>
+                <li><strong>The mistake:</strong> immediately reaching for the phone and entering a reactive mind-state.</li>
+                <li><strong>The inner routine:</strong> begin with <em>Mauna</em> (silence), <em>Sankalpa</em> (clear intention), and gratitude before the world begins speaking into your mind.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>3. Digesting Emotions in Real Time</h4>
+              <p>Just as food is digested by Agni, emotions must be processed by Prana and Tejas. Suppression creates “mental Ama.” A simple first intervention is three conscious breaths when difficult emotion arises, allowing awareness to metabolize the feeling before it lodges in the tissues.</p>
+            </section>
+            <section class="body-block">
+              <h4>4. The Evening Mental Flush</h4>
+              <ul>
+                <li><strong>Review of the day:</strong> mentally retrace the day in reverse, observing without judgment.</li>
+                <li><strong>Release:</strong> consciously put the day down before sleep so unfinished business does not become dream-disturbance or insomnia.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>5. Clinical Support and Satsang</h4>
+              <p>Sometimes mental Ama is too deep for routine alone. Ayurvedic care may then include:</p>
+              <ul>
+                <li><strong>Shirodhara:</strong> a deep cleansing and releasing therapy for the subconscious mind.</li>
+                <li><strong>Nasya:</strong> medicated oils through the nose to clear Tamasic heaviness and Rajasic restlessness from the mental channels.</li>
+                <li><strong>Sattvic counseling:</strong> helping the person understand the root of their patterns and replace them with life-affirming habits.</li>
+              </ul>
+              <p>Ayurveda also emphasizes <strong>Satsang</strong> — the company one keeps. Mental hygiene includes choosing people, books, sounds, and environments that increase Sattva rather than disturb it.</p>
+              <p>A clear mind is not an accident. It is the result of daily inner care.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+    </div></div>
+  </section>
+</main>
+<footer class="footer"><strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>Basics of Ayurveda · Insight Library category</footer>
+<script>
+const search = document.getElementById('articleSearch');
+const articles = [...document.querySelectorAll('.article')];
+const noResults = document.getElementById('noResults');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let shown = 0;
+  articles.forEach(card => {
+    const hit = card.dataset.search.includes(q);
+    card.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  });
+  noResults.style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>

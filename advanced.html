@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Concepts | Insight Library</title>
+<meta name="description" content="A calm, structured introduction to deeper Ayurvedic ideas and frameworks, presented in a readable format inside the Insight Library.">
+
+<style>
+:root{
+  --bg:#f4ecdf;
+  --paper:#fbf7ef;
+  --paper-2:#fffdf8;
+  --ink:#1c2f24;
+  --muted:#617464;
+  --gold:#a8820a;
+  --gold-soft:#e7d6b5;
+  --line:#e3d3bb;
+  --green:#2f5a44;
+  --deep:#182e22;
+  --shadow:0 16px 34px rgba(24,46,34,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--ink);
+  line-height:1.82;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168,130,10,.09), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(47,90,68,.08), transparent 18%),
+    linear-gradient(180deg,#f7f0e6 0%, #f4ecdf 24%, #f2e8da 100%);
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,33,25,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,130,10,.18)
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.brand{text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;transition:.25s ease
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.05)}
+
+.hero{
+  padding:4.8rem 1.25rem 2.8rem;
+  border-bottom:1px solid rgba(168,130,10,.1);
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(circle at 16% 18%, rgba(168,130,10,.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(47,90,68,.12), transparent 24%),
+    linear-gradient(180deg,#f8f1e7 0%, #f3e9da 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(28,47,36,.035) 39px 40px),
+    linear-gradient(90deg, transparent, rgba(168,130,10,.05), transparent);
+}
+.hero::after{
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(900px,92%);height:1px;background:linear-gradient(90deg, transparent, rgba(168,130,10,.55), transparent);
+}
+.hero-inner{max-width:1180px;margin:0 auto;position:relative}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-size:.76rem;letter-spacing:.26em;
+  text-transform:uppercase;font-style:italic;margin-bottom:.9rem
+}
+.hero h1{margin:.15rem 0 .7rem;font-weight:400;font-size:clamp(2.2rem,4vw,4rem);line-height:1.06}
+.hero p.lead{max-width:860px;margin:0;color:#3f5647;font-size:1.05rem}
+.hero-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.meta-pill{
+  background:rgba(255,253,248,.84);
+  border:1px solid rgba(168,130,10,.16);
+  padding:.74rem 1rem;border-radius:999px;color:#51685a;font-size:.88rem;
+  box-shadow:0 8px 18px rgba(24,46,34,.04)
+}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.search-panel,.section-panel,.topic-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(251,247,239,.96));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.search-panel{padding:1.15rem;border-radius:24px;margin:-1.1rem auto 1.1rem;position:relative;z-index:2}
+.search-top{display:flex;gap:.9rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.searchbox{flex:1 1 340px;position:relative}
+.searchbox input{
+  width:100%;padding:1rem 1rem 1rem 2.95rem;border-radius:15px;border:1px solid #dbc8ad;
+  background:#fff;color:var(--ink);font:inherit;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.search-note{color:var(--muted);font-size:.92rem}
+
+.topic-strip{
+  padding:1rem 1rem .9rem;border-radius:22px;margin-bottom:1.4rem;
+}
+.topic-strip h3{
+  margin:0 0 .75rem;font-size:.9rem;font-weight:400;color:var(--gold);
+  letter-spacing:.16em;text-transform:uppercase
+}
+.topic-links{display:flex;gap:.65rem;flex-wrap:wrap}
+.topic-links a{
+  text-decoration:none;
+  padding:.55rem .85rem;border-radius:999px;
+  border:1px solid #e4d3bb;background:#fff;
+  color:#42584a;font-size:.9rem;transition:.2s ease;
+}
+.topic-links a:hover{transform:translateY(-2px);border-color:#caa55c;color:var(--deep);box-shadow:0 8px 16px rgba(24,46,34,.06)}
+
+.section-panel{padding:1.55rem 1.35rem;border-radius:28px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.section-head h2{margin:0;font-weight:400;font-size:1.65rem}
+.section-head p{margin:.2rem 0 0;color:#5a7161;max-width:760px}
+
+.article-list{display:grid;gap:1.35rem}
+.article{
+  background:
+    linear-gradient(180deg,rgba(168,130,10,.045),transparent 120px),
+    #fff;
+  border:1px solid #eadcc9;border-radius:26px;overflow:hidden;box-shadow:0 12px 24px rgba(24,46,34,.05);
+  position:relative;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.article:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px rgba(24,46,34,.07);
+}
+.article::before{
+  content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;
+  background:linear-gradient(180deg,#caa55c,#7f9b87);
+  opacity:.8;
+}
+.article::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:-14px;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.28), transparent);
+}
+.article:last-child::after{display:none}
+.article details{display:block}
+.article details[open]{
+  background:
+    radial-gradient(circle at 12% 10%, rgba(168,130,10,.08), transparent 22%),
+    linear-gradient(180deg,rgba(168,130,10,.08),rgba(168,130,10,.025) 28%,transparent 70%),
+    linear-gradient(180deg,#fffefb,#fff);
+  box-shadow:inset 0 0 0 1px rgba(168,130,10,.06);
+}
+.article summary{
+  list-style:none;cursor:pointer;padding:1.22rem 1.15rem 1.02rem 1.35rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem
+}
+.article summary::-webkit-details-marker{display:none}
+.summary-copy{max-width:900px}
+.kicker{
+  display:inline-block;font-size:.71rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.38rem;padding:.28rem .55rem;border-radius:999px;background:rgba(168,130,10,.08);border:1px solid rgba(168,130,10,.12)
+}
+.summary-copy h3{margin:.1rem 0 .38rem;font-weight:400;font-size:1.26rem;color:var(--ink)}
+.summary-copy p{margin:0;color:#4b6253;font-size:.96rem}
+.chevron{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:1px solid #e5d4bb;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1.02rem;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  background:#fff;box-shadow:0 6px 14px rgba(24,46,34,.04)
+}
+details[open] .chevron{transform:rotate(180deg);background:rgba(168,130,10,.08);box-shadow:none}
+details[open] summary{
+  border-bottom:1px solid rgba(168,130,10,.14);
+  background:
+    linear-gradient(180deg,rgba(255,248,236,.92),rgba(255,255,255,0)),
+    repeating-linear-gradient(90deg, transparent 0 36px, rgba(168,130,10,.018) 36px 37px);
+}
+details[open] .summary-copy h3{
+  font-size:1.42rem;
+}
+details[open] .summary-copy p{
+  color:#415b4c;
+}
+.article-body{
+  padding:1.05rem 1.2rem 1.3rem 1.4rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;
+  position:relative;
+}
+.article-body::before{
+  content:"";position:absolute;left:1.02rem;top:.35rem;bottom:.7rem;width:3px;border-radius:4px;
+  background:linear-gradient(180deg,rgba(168,130,10,.55),rgba(127,155,135,.5));
+  opacity:.7;
+}
+.body-block{
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.96),rgba(251,247,238,.96)),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(28,47,36,.028) 34px 35px);
+  border:1px solid #eadbc4;border-radius:20px;padding:1.08rem 1.08rem 1rem 1.12rem;
+  box-shadow:0 10px 18px rgba(24,46,34,.025);
+  position:relative;
+}
+.body-block::before{
+  content:"";position:absolute;left:16px;right:16px;top:0;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.26), transparent);
+}
+.body-block h4{
+  margin:0 0 .7rem;font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;position:relative;padding-bottom:.4rem
+}
+.body-block h4::after{
+  content:"";position:absolute;left:0;bottom:0;width:64px;height:1px;
+  background:linear-gradient(90deg, rgba(168,130,10,.6), transparent);
+}
+.body-block p{margin:0;color:#385243}
+.body-block.full p:first-of-type::first-letter{
+  float:left;font-size:2.8rem;line-height:.86;padding-right:.16rem;margin-top:.08rem;
+  color:#2f5a44;font-family:'Palatino Linotype', Georgia, serif;
+}
+.body-block ul{margin:.2rem 0 0 1.15rem;padding:0}
+.body-block li{margin:.22rem 0;color:#385243}
+.body-block.full{grid-column:1/-1}
+.article-end{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:center;gap:.85rem;
+  margin-top:.25rem;padding:.25rem 0 .25rem;
+  color:#8a7a58;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.article-end::before,.article-end::after{
+  content:"";height:1px;flex:1;max-width:150px;
+  background:linear-gradient(90deg,transparent,rgba(168,130,10,.42),transparent);
+}
+.article-end span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(168,130,10,.22);
+  background:linear-gradient(180deg,rgba(255,252,246,.96),rgba(249,241,225,.92));
+  font-size:.74rem;letter-spacing:0;color:var(--gold);
+}
+
+.no-results{display:none;padding:1rem 0 .1rem;color:#7a877f;font-style:italic}
+.footer{padding:2.2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:800px){
+  .article-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.3rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}.brand span{font-size:.66rem}
+  .search-panel{margin-top:-.8rem}
+  .article summary{padding:1rem 1rem .9rem 1.15rem}
+  .article-body{padding:0 1rem 1rem 1.15rem}
+  .section-panel{padding:1.2rem 1rem}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index_insight_updated.html"><strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong><span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span></a>
+    <a class="back-link" href="insight-library.html">← Back to Insight Library</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Insight Library Shelf</span>
+    <h1>Advanced Concepts</h1>
+    <p class="lead">Foundational Ayurvedic ideas presented in a calm, readable format. Open any topic below to read within the same page.</p>
+    <div class="hero-meta">
+      <div class="meta-pill">Expandable reading format</div>
+      <div class="meta-pill">Foundational concepts</div>
+      <div class="meta-pill">Single-page category reading</div>
+    </div>
+  </div>
+</section>
+<main class="page-wrap">
+  <section class="search-panel">
+    <div class="search-top">
+      <div class="searchbox"><span class="icon">⌕</span><input id="articleSearch" type="search" placeholder="Search topics within Advanced Concepts..."></div>
+      <div class="search-note">Open any topic to read it here. No separate article pages needed.</div>
+    </div>
+  </section>
+
+  <section class="topic-strip">
+    <h3>Quick Topic Access</h3>
+    <div class="topic-links">
+      <a href="#srotas">Srotas</a>
+      <a href="#samprapti">Samprapti</a>
+      <a href="#panchamahabhuta">Panchamahabhuta</a>
+      <a href="#agni-depth">Agni in Depth</a>
+      <a href="#prakriti-vikriti">Prakriti &amp; Vikriti</a>
+      <a href="#ayurvedic-logic">How Ayurvedic Logic Works</a>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="section-head">
+      <div>
+        <h2>Topics on this Shelf</h2>
+        <p>This shelf now presents fuller, carefully structured advanced-concept articles based on the material you provided, preserving depth while improving flow, headings, and readability.</p>
+      </div>
+    </div>
+    <div class="no-results" id="noResults">No topics match that search.</div>
+    <div class="article-list" id="articleList">
+
+      <article id="srotas" class="article" data-search="srotas living channels sru flow srotomoola srotomarga srotomukha 13 major srotas atipravrutti sanga siragranthi vimarga gamana">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Functional Channels</span>
+              <h3>Srotas: The Living Channels of the Body</h3>
+              <p>An expanded look at the intelligent pathways through which nutrients, energy, wastes, and life-force move.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In Ayurveda, the human body is described as a vast network of countless channels called <strong>Srotas</strong>. They are not just static “pipes”; they are intelligent pathways that transport nutrients, energy, and waste. From the microscopic pores in your cells to the long tract of your digestive system, everything in your body can be understood through the lens of Srotas.</p>
+              <p>The word <em>Srotas</em> comes from the root “<em>Sru</em>,” meaning “to flow.” When this natural flow is interrupted, the body begins to accumulate <strong>Ama</strong>, and disease starts to take shape.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. The Anatomy of a Channel</h4>
+              <p>Every Srotas has three main parts that a practitioner evaluates:</p>
+              <ul>
+                <li><strong>Srotomoola (The Root):</strong> the headquarters or origin of the channel, usually an organ such as the heart, stomach, or liver.</li>
+                <li><strong>Srotomarga (The Passage):</strong> the path through which the substance flows.</li>
+                <li><strong>Srotomukha (The Opening):</strong> the point of entry or exit into the next tissue or system.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>2. The 13 Major Srotas Systems</h4>
+              <p>While there are countless subtle channels, Ayurveda classifies 13 major systems into three broad groups:</p>
+              <div class="compare-matrix">
+                <div class="matrix-head">
+                  <div>Group</div>
+                  <div>Examples</div>
+                  <div>Meaning</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="feature">Input Channels</div>
+                  <div>Pranavaha, Annavaha, Udakavaha</div>
+                  <div>What we take in: breath, food, fluids</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="feature">Tissue Channels</div>
+                  <div>Rasavaha, Raktavaha, Mamsavaha, Medovaha, Asthivaha, Majjavaha, Shukravaha</div>
+                  <div>What builds and nourishes the seven Dhatus</div>
+                </div>
+                <div class="matrix-row">
+                  <div class="feature">Output Channels</div>
+                  <div>Purishavaha, Mutravaha, Swedavaha</div>
+                  <div>What we eliminate: stool, urine, sweat</div>
+                </div>
+              </div>
+            </section>
+            <section class="body-block">
+              <h4>3. The Four Types of Channel Dysfunction</h4>
+              <p>When a person comes with a symptom, Ayurveda asks what kind of flow problem is happening in the channels:</p>
+              <ul>
+                <li><strong>Atipravrutti (Overflow):</strong> excessive flow, such as diarrhea, heavy sweating, or frequent urination.</li>
+                <li><strong>Sanga (Blockage / Stagnation):</strong> the most common problem — constipation, clots, or blocked passages.</li>
+                <li><strong>Siragranthi (Growth / Knot):</strong> a physical obstruction such as a cyst or tumor.</li>
+                <li><strong>Vimarga Gamana (False Flow):</strong> movement in the wrong direction, such as reflux or internal bleeding.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>4. How Ayurveda Restores Flow</h4>
+              <ul>
+                <li><strong>Snehana (Oiling):</strong> lubricates the channels so toxins can loosen and move.</li>
+                <li><strong>Swedana (Steaming):</strong> heat opens the passages and helps Ama be flushed.</li>
+                <li><strong>Pranayama:</strong> specifically clears respiratory and mind-related channels.</li>
+                <li><strong>Herbs:</strong> certain herbs like Guggulu are known as <em>Srotoshodhana</em> — channel cleansers.</li>
+              </ul>
+              <p>A healthy person is one whose Srotas are open, clean, and functioning at the right speed. Health, in this sense, is flow.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="samprapti" class="article" data-search="samprapti six stages sanchaya prakopa prasara sthana samshraya vyakti bheda progression disease development">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Disease Logic</span>
+              <h3>Samprapti: The Six Stages of Disease</h3>
+              <p>A fuller explanation of how disease gradually develops, spreads, localizes, manifests, and becomes chronic.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In Ayurveda, disease does not “happen” overnight. It is a slow, predictable process of physiological decline. <strong>Samprapti</strong> is the study of this progression. By understanding these six stages, imbalance can be recognized in its infancy, long before it requires aggressive treatment or structural repair.</p>
+              <p>You can think of health as a river. Samprapti helps identify where the dam is beginning to form, rather than waiting for the river to flood the valley.</p>
+            </section>
+            <section class="body-block full">
+              <h4>The Six Stages</h4>
+              <ul>
+                <li><strong>1. Sanchaya (Accumulation):</strong> one Dosha begins to increase in its home site — Vata in the colon, Pitta in the small intestine, Kapha in the stomach. Signs are mild and often ignored.</li>
+                <li><strong>2. Prakopa (Provocation):</strong> the Dosha reaches a tipping point and becomes unstable in its own site. Symptoms become more consistent.</li>
+                <li><strong>3. Prasara (Spread):</strong> the aggravated Dosha overflows and begins circulating through the channels, producing more generalized unease.</li>
+                <li><strong>4. Sthana Samshraya (Localization):</strong> the moving Dosha finds a weak spot (<em>Khavaigunya</em>) and lodges there. The “seed” of a specific disease is planted.</li>
+                <li><strong>5. Vyakti (Manifestation):</strong> the disease becomes clinically recognizable. This is often the stage at which modern diagnosis is made.</li>
+                <li><strong>6. Bheda (Complication / Differentiation):</strong> the disorder becomes chronic, structurally damaging, or complicated.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Why Samprapti Matters in Treatment</h4>
+              <p>At the clinic level, treatment is not just about naming the disease but reversing the path of disease formation — <em>Samprapti Vighatana</em>. It is much easier to “drain the cup” in accumulation and provocation than to repair chronic complications later.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion</h4>
+              <p>The beauty of knowing Samprapti is that it puts prevention back in the hands of the patient. The first whisper of imbalance becomes meaningful. Adjustments made early may stop a future diagnosis before it takes physical shape.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="panchamahabhuta" class="article" data-search="pancha maha bhuta five great elements akasha vayu tejas agni jala prithvi like increases like opposites balance">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Foundational Principle</span>
+              <h3>Pancha Maha Bhuta: The Five Great Elements</h3>
+              <p>The fundamental building blocks of the Ayurvedic universe — and of the human body itself.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>This is one of the deepest building blocks of Ayurvedic science. Ayurveda teaches that everything in the universe — from stars in the sky to cells in the body — is composed of five great elements: <strong>Space, Air, Fire, Water, and Earth</strong>. These are not merely substances, but energetic states of matter and experience.</p>
+            </section>
+            <section class="body-block">
+              <h4>The Five Elements</h4>
+              <ul>
+                <li><strong>Akasha (Space / Ether):</strong> found in openings and hollow spaces. Quality: clear, subtle, expansive. Function: communication and self-expression.</li>
+                <li><strong>Vayu (Air):</strong> governs movement, nerve impulses, breath, and motion. Quality: mobile, dry, cold, rough.</li>
+                <li><strong>Tejas / Agni (Fire):</strong> transformation, body heat, digestion, intelligence. Quality: hot, sharp, light, spreading.</li>
+                <li><strong>Jala (Water):</strong> lubrication, nutrition, cohesion, cooling. Quality: liquid, soft, cohesive.</li>
+                <li><strong>Prithvi (Earth):</strong> structure, support, groundedness. Quality: heavy, dense, stable.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>How the Elements Form the Doshas</h4>
+              <ul>
+                <li><strong>Space + Air = Vata</strong> (Movement)</li>
+                <li><strong>Fire + Water = Pitta</strong> (Transformation)</li>
+                <li><strong>Water + Earth = Kapha</strong> (Structure)</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>The Clinical Rule: Like Increases Like</h4>
+              <p>This is one of the most practical laws in Ayurveda. If too much Fire is present, adding more Fire worsens the condition. If too much Air is present, more dryness and irregularity worsen it further. Healing therefore uses the opposite quality to restore balance. Understanding the elements allows one to see a dry cough as excess Air, or heaviness and congestion as excess Earth and Water.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="agni-depth" class="article" data-search="agni sacred fire transformation 13 agnis jatharagni bhutagni dhatvagni vishamagni tikshnagni mandagni samagni deepana">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Central Principle</span>
+              <h3>Agni: The Sacred Fire of Transformation</h3>
+              <p>A deeper look at Agni beyond simple digestion — as the fire that powers metabolism, tissue formation, immunity, and clarity.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In Western medicine, metabolism is often viewed as a chain of chemical reactions. In Ayurveda, metabolism is governed by <strong>Agni</strong> — the biological fire. Agni is responsible for digestion, absorption, assimilation, tissue transformation, and even perception. When Agni is balanced, there is energy, immunity, and clarity. When Agni is disturbed, the system becomes a breeding ground for disease.</p>
+            </section>
+            <section class="body-block">
+              <h4>The 13 Types of Agni</h4>
+              <ul>
+                <li><strong>Jatharagni (1):</strong> the master digestive fire in the stomach and small intestine.</li>
+                <li><strong>Bhutagni (5):</strong> subtle elemental fires that process the five elements in food into usable form.</li>
+                <li><strong>Dhatvagni (7):</strong> one tissue fire for each Dhatu, transforming nourishment into that specific tissue.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>The Four States of Agni</h4>
+              <div class="compare-dual">
+                <div class="compare-panel">
+                  <h5>Balanced &amp; Disturbed States</h5>
+                  <ul>
+                    <li><strong>Samagni:</strong> balanced fire; effortless digestion and stable mind.</li>
+                    <li><strong>Vishamagni:</strong> irregular fire; gas, bloating, variable appetite.</li>
+                    <li><strong>Tikshnagni:</strong> sharp fire; acidity, burning, excessive hunger.</li>
+                    <li><strong>Mandagni:</strong> low fire; heaviness, sluggishness, mucus, poor appetite.</li>
+                  </ul>
+                </div>
+                <div class="compare-panel">
+                  <h5>Associated Mental Tone</h5>
+                  <ul>
+                    <li><strong>Samagni:</strong> clarity, joy, resilience.</li>
+                    <li><strong>Vishamagni:</strong> anxiety, insecurity.</li>
+                    <li><strong>Tikshnagni:</strong> irritability, impatience.</li>
+                    <li><strong>Mandagni:</strong> lethargy, mental fog.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section class="body-block">
+              <h4>Ama: When Fire Fails</h4>
+              <p>When Agni is weak or unstable, food is not fully “cooked” and turns into <strong>Ama</strong> — a cold, sticky residue that coats the tongue, clogs the channels, and underlies many inflammatory and chronic disorders.</p>
+            </section>
+            <section class="body-block full">
+              <h4>How Agni is Kindled</h4>
+              <ul>
+                <li>Appropriate Deepana herbs (Agni-kindling herbs)</li>
+                <li>A slice of fresh ginger with rock salt before meals</li>
+                <li>Warm or room-temperature water instead of ice-cold drinks</li>
+                <li>Making lunch the largest meal, when the sun is strongest</li>
+              </ul>
+              <p>To protect Agni is to protect life itself.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="prakriti-vikriti" class="article" data-search="prakriti vikriti blueprint balance constitution current imbalance mirror test static dynamic healing return to self">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Constitution & State</span>
+              <h3>Prakriti &amp; Vikriti: Your Blueprint vs. Your Balance</h3>
+              <p>Why Ayurveda distinguishes your natural constitution from your current disturbance — and why this distinction changes treatment.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Modern medicine often defines “normal” by an average. Ayurveda believes that normal is unique to you. What is healthy for a high-energy, muscular person is not the same as what is healthy for a slim, delicate one. This is the difference between <strong>Prakriti</strong> and <strong>Vikriti</strong>.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. Prakriti: Your Genetic Blueprint</h4>
+              <p>Prakriti is the original ratio of the three Doshas set at conception. It is your inherent constitution — your body type, tendencies, strengths, and vulnerabilities. It does not fundamentally change across life.</p>
+            </section>
+            <section class="body-block">
+              <h4>2. Vikriti: Your Current State of Imbalance</h4>
+              <p>Vikriti is the present state of the Doshas. It changes with stress, food, climate, age, and lifestyle. In Ayurveda, disease can be understood as a Vikriti that has drifted away from the original Prakriti.</p>
+            </section>
+            <section class="body-block">
+              <h4>3. The Mirror Test</h4>
+              <p>When a person comes for consultation, the practitioner looks at permanent features to understand Prakriti, and present symptoms to understand Vikriti. The gap between the two helps guide treatment.</p>
+            </section>
+            <section class="body-block full">
+              <h4>4. Why the Distinction Matters</h4>
+              <p>If only Prakriti is considered, a temporary crisis may be missed. If only Vikriti is treated, the problem may keep returning because the deeper constitutional needs were ignored. Ayurvedic strategy therefore often moves in two phases:</p>
+              <ul>
+                <li><strong>Phase 1:</strong> clear the Vikriti — remove the immediate imbalance.</li>
+                <li><strong>Phase 2:</strong> support the Prakriti — teach the person how to live in a way that protects their original nature.</li>
+              </ul>
+              <p>Healing, in this sense, is a return to oneself.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="ayurvedic-logic" class="article" data-search="ayurvedic logic samanya vishesha law of opposites like increases like 20 gunas root cause logic">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Mode of Thought</span>
+              <h3>How Ayurvedic Logic Works: The Science of Opposites</h3>
+              <p>A deeper explanation of why Ayurvedic reasoning is relational, quality-based, and rooted in the laws of similarity and opposition.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Most people are used to a linear model: bacteria cause infection, so antibiotics are given. Ayurveda uses a relational logic. It asks: What are the qualities of this imbalance, and what opposite qualities are needed to restore peace?</p>
+              <p>This logic is built on two pillars: <strong>Samanya</strong> (Similarity) and <strong>Vishesha</strong> (Difference / Opposition).</p>
+            </section>
+            <section class="body-block">
+              <h4>1. The Law of Similarity (Samanya)</h4>
+              <p>“Like increases like.” If a person already has excessive heat and consumes more heating inputs, the disturbance worsens. If an airy, dry, unstable person lives an overly mobile and overstimulated life, Vata rises further.</p>
+            </section>
+            <section class="body-block">
+              <h4>2. The Law of Opposites (Vishesha)</h4>
+              <p>“Opposites restore balance.” If the body is too cold, provide warmth. If too dry, provide oil. If too heavy, provide lightness and movement. This is the core therapeutic principle behind food, herb, and lifestyle selection.</p>
+            </section>
+            <section class="body-block">
+              <h4>3. The 20 Attributes (Gurvadi Gunas)</h4>
+              <p>To apply this logic, Ayurvedic practitioners use pairs of opposite qualities — heavy/light, hot/cold, dry/oily, stable/mobile, and so on. Symptoms, foods, medicines, climates, and emotional states can all be described through these Gunas.</p>
+            </section>
+            <section class="body-block">
+              <h4>4. The Root Cause Logic</h4>
+              <p>Ayurveda refuses to simply silence symptoms. If there is a headache, the question becomes: Is it cold and tight? Hot and throbbing? Heavy and congested? The answer changes the treatment because the underlying quality changes the logic.</p>
+            </section>
+            <section class="body-block full">
+              <h4>5. Why This Logic Never Goes Out of Date</h4>
+              <p>Because Ayurvedic reasoning is based on natural laws — heat, cold, dryness, moisture, movement, heaviness — it remains relevant across eras. A stress ulcer in a modern person is still a pattern of heat and sharpness in the stomach. The cooling and soothing logic remains the same even if the outer lifestyle has changed.</p>
+              <p>Once a person begins to see life in this way, they stop being a passive patient and become an active participant in balance.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+    </div></div>
+  </section>
+</main>
+<footer class="footer"><strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>Basics of Ayurveda · Insight Library category</footer>
+<script>
+const search = document.getElementById('articleSearch');
+const articles = [...document.querySelectorAll('.article')];
+const noResults = document.getElementById('noResults');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let shown = 0;
+  articles.forEach(card => {
+    const hit = card.dataset.search.includes(q);
+    card.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  });
+  noResults.style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>

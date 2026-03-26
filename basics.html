@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basics of Ayurveda | Insight Library</title>
+<meta name="description" content="Foundational Ayurvedic ideas presented in a calm, readable format inside the Insight Library.">
+
+<style>
+:root{
+  --bg:#f4ecdf;
+  --paper:#fbf7ef;
+  --paper-2:#fffdf8;
+  --ink:#1c2f24;
+  --muted:#617464;
+  --gold:#a8820a;
+  --gold-soft:#e7d6b5;
+  --line:#e3d3bb;
+  --green:#2f5a44;
+  --deep:#182e22;
+  --shadow:0 16px 34px rgba(24,46,34,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--ink);
+  line-height:1.82;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168,130,10,.09), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(47,90,68,.08), transparent 18%),
+    linear-gradient(180deg,#f7f0e6 0%, #f4ecdf 24%, #f2e8da 100%);
+}
+a{color:inherit}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(18,33,25,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,130,10,.18)
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem
+}
+.brand{text-decoration:none;color:#f4ead8;display:flex;flex-direction:column;gap:.12rem}
+.brand strong{font-weight:400;letter-spacing:.05em;font-size:1rem}
+.brand span{font-size:.72rem;color:#ccb27d;letter-spacing:.12em;font-style:italic}
+.back-link{
+  text-decoration:none;color:#e8d8c2;border:1px solid rgba(168,130,10,.28);
+  padding:.55rem .9rem;border-radius:999px;font-size:.82rem;letter-spacing:.04em;transition:.25s ease
+}
+.back-link:hover{color:#fff;border-color:rgba(168,130,10,.5);background:rgba(255,255,255,.05)}
+
+.hero{
+  padding:4.8rem 1.25rem 2.8rem;
+  border-bottom:1px solid rgba(168,130,10,.1);
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.45), transparent 70%),
+    radial-gradient(circle at 16% 18%, rgba(168,130,10,.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(47,90,68,.12), transparent 24%),
+    linear-gradient(180deg,#f8f1e7 0%, #f3e9da 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(28,47,36,.035) 39px 40px),
+    linear-gradient(90deg, transparent, rgba(168,130,10,.05), transparent);
+}
+.hero::after{
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(900px,92%);height:1px;background:linear-gradient(90deg, transparent, rgba(168,130,10,.55), transparent);
+}
+.hero-inner{max-width:1180px;margin:0 auto;position:relative}
+.eyebrow{
+  display:inline-block;color:var(--gold);font-size:.76rem;letter-spacing:.26em;
+  text-transform:uppercase;font-style:italic;margin-bottom:.9rem
+}
+.hero h1{margin:.15rem 0 .7rem;font-weight:400;font-size:clamp(2.2rem,4vw,4rem);line-height:1.06}
+.hero p.lead{max-width:860px;margin:0;color:#3f5647;font-size:1.05rem}
+.hero-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.meta-pill{
+  background:rgba(255,253,248,.84);
+  border:1px solid rgba(168,130,10,.16);
+  padding:.74rem 1rem;border-radius:999px;color:#51685a;font-size:.88rem;
+  box-shadow:0 8px 18px rgba(24,46,34,.04)
+}
+
+.page-wrap{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.search-panel,.section-panel,.topic-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(251,247,239,.96));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.search-panel{padding:1.15rem;border-radius:24px;margin:-1.1rem auto 1.1rem;position:relative;z-index:2}
+.search-top{display:flex;gap:.9rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.searchbox{flex:1 1 340px;position:relative}
+.searchbox input{
+  width:100%;padding:1rem 1rem 1rem 2.95rem;border-radius:15px;border:1px solid #dbc8ad;
+  background:#fff;color:var(--ink);font:inherit;outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)
+}
+.searchbox input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(168,130,10,.08)}
+.searchbox .icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--gold)}
+.search-note{color:var(--muted);font-size:.92rem}
+
+.topic-strip{
+  padding:1rem 1rem .9rem;border-radius:22px;margin-bottom:1.4rem;
+}
+.topic-strip h3{
+  margin:0 0 .75rem;font-size:.9rem;font-weight:400;color:var(--gold);
+  letter-spacing:.16em;text-transform:uppercase
+}
+.topic-links{display:flex;gap:.65rem;flex-wrap:wrap}
+.topic-links a{
+  text-decoration:none;
+  padding:.55rem .85rem;border-radius:999px;
+  border:1px solid #e4d3bb;background:#fff;
+  color:#42584a;font-size:.9rem;transition:.2s ease;
+}
+.topic-links a:hover{transform:translateY(-2px);border-color:#caa55c;color:var(--deep);box-shadow:0 8px 16px rgba(24,46,34,.06)}
+
+.section-panel{padding:1.55rem 1.35rem;border-radius:28px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.section-head h2{margin:0;font-weight:400;font-size:1.65rem}
+.section-head p{margin:.2rem 0 0;color:#5a7161;max-width:760px}
+
+.article-list{display:grid;gap:1.35rem}
+.article{
+  background:
+    linear-gradient(180deg,rgba(168,130,10,.045),transparent 120px),
+    #fff;
+  border:1px solid #eadcc9;border-radius:26px;overflow:hidden;box-shadow:0 12px 24px rgba(24,46,34,.05);
+  position:relative;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.article:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px rgba(24,46,34,.07);
+}
+.article::before{
+  content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;
+  background:linear-gradient(180deg,#caa55c,#7f9b87);
+  opacity:.8;
+}
+.article::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:-14px;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.28), transparent);
+}
+.article:last-child::after{display:none}
+.article details{display:block}
+.article details[open]{
+  background:
+    radial-gradient(circle at 12% 10%, rgba(168,130,10,.08), transparent 22%),
+    linear-gradient(180deg,rgba(168,130,10,.08),rgba(168,130,10,.025) 28%,transparent 70%),
+    linear-gradient(180deg,#fffefb,#fff);
+  box-shadow:inset 0 0 0 1px rgba(168,130,10,.06);
+}
+.article summary{
+  list-style:none;cursor:pointer;padding:1.22rem 1.15rem 1.02rem 1.35rem;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem
+}
+.article summary::-webkit-details-marker{display:none}
+.summary-copy{max-width:900px}
+.kicker{
+  display:inline-block;font-size:.71rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:.38rem;padding:.28rem .55rem;border-radius:999px;background:rgba(168,130,10,.08);border:1px solid rgba(168,130,10,.12)
+}
+.summary-copy h3{margin:.1rem 0 .38rem;font-weight:400;font-size:1.26rem;color:var(--ink)}
+.summary-copy p{margin:0;color:#4b6253;font-size:.96rem}
+.chevron{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:1px solid #e5d4bb;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1.02rem;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  background:#fff;box-shadow:0 6px 14px rgba(24,46,34,.04)
+}
+details[open] .chevron{transform:rotate(180deg);background:rgba(168,130,10,.08);box-shadow:none}
+details[open] summary{
+  border-bottom:1px solid rgba(168,130,10,.14);
+  background:
+    linear-gradient(180deg,rgba(255,248,236,.92),rgba(255,255,255,0)),
+    repeating-linear-gradient(90deg, transparent 0 36px, rgba(168,130,10,.018) 36px 37px);
+}
+details[open] .summary-copy h3{
+  font-size:1.42rem;
+}
+details[open] .summary-copy p{
+  color:#415b4c;
+}
+.article-body{
+  padding:1.05rem 1.2rem 1.3rem 1.4rem;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1rem;
+  position:relative;
+}
+.article-body::before{
+  content:"";position:absolute;left:1.02rem;top:.35rem;bottom:.7rem;width:3px;border-radius:4px;
+  background:linear-gradient(180deg,rgba(168,130,10,.55),rgba(127,155,135,.5));
+  opacity:.7;
+}
+.body-block{
+  background:
+    linear-gradient(180deg,rgba(255,253,248,.96),rgba(251,247,238,.96)),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(28,47,36,.028) 34px 35px);
+  border:1px solid #eadbc4;border-radius:20px;padding:1.08rem 1.08rem 1rem 1.12rem;
+  box-shadow:0 10px 18px rgba(24,46,34,.025);
+  position:relative;
+}
+.body-block::before{
+  content:"";position:absolute;left:16px;right:16px;top:0;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(168,130,10,.26), transparent);
+}
+.body-block h4{
+  margin:0 0 .7rem;font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;position:relative;padding-bottom:.4rem
+}
+.body-block h4::after{
+  content:"";position:absolute;left:0;bottom:0;width:64px;height:1px;
+  background:linear-gradient(90deg, rgba(168,130,10,.6), transparent);
+}
+.body-block p{margin:0;color:#385243}
+.body-block.full p:first-of-type::first-letter{
+  float:left;font-size:2.8rem;line-height:.86;padding-right:.16rem;margin-top:.08rem;
+  color:#2f5a44;font-family:'Palatino Linotype', Georgia, serif;
+}
+.body-block ul{margin:.2rem 0 0 1.15rem;padding:0}
+.body-block li{margin:.22rem 0;color:#385243}
+.body-block.full{grid-column:1/-1}
+.article-end{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:center;gap:.85rem;
+  margin-top:.25rem;padding:.25rem 0 .25rem;
+  color:#8a7a58;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.article-end::before,.article-end::after{
+  content:"";height:1px;flex:1;max-width:150px;
+  background:linear-gradient(90deg,transparent,rgba(168,130,10,.42),transparent);
+}
+.article-end span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(168,130,10,.22);
+  background:linear-gradient(180deg,rgba(255,252,246,.96),rgba(249,241,225,.92));
+  font-size:.74rem;letter-spacing:0;color:var(--gold);
+}
+
+.no-results{display:none;padding:1rem 0 .1rem;color:#7a877f;font-style:italic}
+.footer{padding:2.2rem 1.25rem 3rem;text-align:center;color:#6b7d70;font-size:.9rem}
+.footer strong{display:block;color:var(--ink);font-weight:400;margin-bottom:.35rem}
+
+@media (max-width:800px){
+  .article-body{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:3.3rem}
+  .topbar-inner{padding:.9rem 1rem}
+  .brand strong{font-size:.93rem}.brand span{font-size:.66rem}
+  .search-panel{margin-top:-.8rem}
+  .article summary{padding:1rem 1rem .9rem 1.15rem}
+  .article-body{padding:0 1rem 1rem 1.15rem}
+  .section-panel{padding:1.2rem 1rem}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index_insight_updated.html"><strong>P.P. Namboodiri's Kerala Ayurveda Vaidyasala</strong><span>Traditional Ayurvedic Care Since 1945 · Changaramkulam</span></a>
+    <a class="back-link" href="insight-library.html">← Back to Insight Library</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Insight Library Shelf</span>
+    <h1>Basics of Ayurveda</h1>
+    <p class="lead">Foundational Ayurvedic ideas presented in a calm, readable format. Open any topic below to read within the same page.</p>
+    <div class="hero-meta">
+      <div class="meta-pill">Expandable reading format</div>
+      <div class="meta-pill">Foundational concepts</div>
+      <div class="meta-pill">Single-page category reading</div>
+    </div>
+  </div>
+</section>
+<main class="page-wrap">
+  <section class="search-panel">
+    <div class="search-top">
+      <div class="searchbox"><span class="icon">⌕</span><input id="articleSearch" type="search" placeholder="Search topics within Basics of Ayurveda..."></div>
+      <div class="search-note">Open any topic to read it here. No separate article pages needed.</div>
+    </div>
+  </section>
+
+  <section class="topic-strip">
+    <h3>Quick Topic Access</h3>
+    <div class="topic-links">
+      <a href="#what-is-ayurveda">What is Ayurveda?</a>
+      <a href="#tridosha">Tridosha</a>
+      <a href="#agni-ama">Agni & Ama</a>
+      <a href="#dhatus">Dhatus</a>
+      <a href="#ojas">Ojas</a>
+      <a href="#srotas">Srotas</a>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="section-head">
+      <div>
+        <h2>Topics on this Shelf</h2>
+        <p>This shelf now presents fuller, carefully structured articles based on the material you provided, with the aim of preserving depth while improving flow, clarity, and readability.</p>
+      </div>
+    </div>
+    <div class="no-results" id="noResults">No topics match that search.</div>
+    <div class="article-list" id="articleList">
+
+      <article id="what-is-ayurveda" class="article" data-search="what is ayurveda science of life longevity ayur life veda knowledge holistic healing five elements dosha prakriti vikriti diet lifestyle herbs panchakarma">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Foundations</span>
+              <h3>What is Ayurveda?</h3>
+              <p>The science of life and longevity — a holistic framework that looks at the person, not just the disease.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Derived from the Sanskrit words <em>Ayur</em> (Life) and <em>Veda</em> (Knowledge or Science), Ayurveda is one of the world’s oldest holistic healing systems. Developed in India more than 5,000 years ago, it is often described as a science of life because it is concerned not only with disease, but with how life is lived, sustained, protected, and understood.</p>
+              <p>Unlike modern medicine, which often focuses on treating the symptoms of disease, Ayurveda focuses on the individual rather than the illness. It aims to maintain health by balancing the mind, body, and spirit through diet, lifestyle, and herbal remedies.</p>
+            </section>
+            <section class="body-block">
+              <h4>The Core Philosophy: The Five Elements</h4>
+              <p>Ayurveda is based on the principle that everything in the universe — including our bodies — is composed of five basic elements (<em>Pancha Mahabhutas</em>):</p>
+              <ul>
+                <li><strong>Space (Akasha):</strong> the expansiveness within the body — ears, mouth, joints, and all openings.</li>
+                <li><strong>Air (Vayu):</strong> movement — breathing, heartbeat, circulation, nerve impulses.</li>
+                <li><strong>Fire (Tejas):</strong> transformation — digestion, metabolism, vision, intelligence.</li>
+                <li><strong>Water (Jala):</strong> fluidity and cohesion — blood, plasma, lubrication, cytoplasm.</li>
+                <li><strong>Earth (Prithvi):</strong> structure and stability — bones, teeth, muscles, form.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Understanding Your Constitution: The Three Doshas</h4>
+              <p>These five elements combine in the human body to form three life forces or energies known as <strong>Doshas</strong>. Every person has a unique ratio of these Doshas, which determines their physical constitution (<em>Prakriti</em>) and many aspects of personality and tendency.</p>
+              <ul>
+                <li><strong>Vata (Space + Air):</strong> governs movement; cold, light, dry, and irregular.</li>
+                <li><strong>Pitta (Fire + Water):</strong> governs transformation and metabolism; hot, sharp, and oily.</li>
+                <li><strong>Kapha (Water + Earth):</strong> governs structure and lubrication; heavy, cool, stable, and soft.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>The Ayurvedic Definition of Health</h4>
+              <p>In Ayurveda, health is not just the absence of disease. It is a state of total well-being described as <em>Svastha</em>. To be truly healthy, one must have:</p>
+              <ul>
+                <li>Balanced Doshas</li>
+                <li>Strong <strong>Agni</strong> (digestive fire) to process nutrients and eliminate toxins (<strong>Ama</strong>)</li>
+                <li>Healthy tissues (<strong>Dhatus</strong>)</li>
+                <li>A clear, peaceful mind and happy senses</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>How Ayurveda Works in a Clinical Setting</h4>
+              <p>When you visit an Ayurvedic clinic, the approach is deeply personalized. A practitioner does not just look at the current ailment; they look at your <strong>Vikriti</strong> (current state of imbalance) in relation to your <strong>Prakriti</strong> (your natural birth constitution).</p>
+              <p>The healing tools may include:</p>
+              <ul>
+                <li><strong>Ahara (Diet):</strong> food as medicine, tailored to your Dosha and condition.</li>
+                <li><strong>Vihara (Lifestyle):</strong> daily routines (<em>Dincharya</em>) aligned with natural rhythms.</li>
+                <li><strong>Aushadhi (Herbs):</strong> potent botanical formulations such as Ashwagandha, Turmeric, and Brahmi.</li>
+                <li><strong>Shodhana (Purification):</strong> detoxification treatments like Panchakarma to remove deep-seated toxins.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Why Choose Ayurveda Today?</h4>
+              <p>In our fast-paced, high-stress modern world, Ayurveda offers a path back to ourselves. It teaches that health is a choice we make every day through the way we eat, sleep, move, and think. By treating the root cause of imbalances, Ayurveda aims for long-term restoration rather than temporary control.</p>
+              <div class="note-quote">“Health is the soul’s relationship with the body. Ayurveda is the bridge that keeps that relationship harmonious.”</div>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="tridosha" class="article" data-search="tridosha vata pitta kapha dosha constitution prakriti vikriti movement transformation structure air fire water earth space">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Core Framework</span>
+              <h3>The Tridosha Framework</h3>
+              <p>Understanding Vata, Pitta, and Kapha as the three functional forces that shape body and mind.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In Ayurveda, the secret to health is not a “one size fits all” remedy; it is the balance of three fundamental biological energies known as the Doshas. These three forces — <strong>Vata</strong>, <strong>Pitta</strong>, and <strong>Kapha</strong> — govern every physical and mental process in the human body.</p>
+              <p>When these three are in equilibrium, we experience radiant health. When they fall out of balance, the seeds of disease are sown.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. Vata: The Principle of Movement</h4>
+              <p>Vata is composed of Space (Akasha) and Air (Vayu). It is the most powerful of the three Doshas because it moves the other two. Without Vata, Pitta and Kapha are “lame” — immobile.</p>
+              <ul>
+                <li><strong>Location in the body:</strong> colon, pelvis, bones, ears, and thighs</li>
+                <li><strong>Physical qualities:</strong> cold, light, dry, rough, subtle, and mobile</li>
+                <li><strong>Functions:</strong> breathing, heart pulsations, nerve impulses, movement of muscles and tissues</li>
+                <li><strong>Vata personality:</strong> thin-framed, quick-thinking, creative, enthusiastic, often “on the go”</li>
+                <li><strong>Signs of imbalance:</strong> constipation, bloating, joint pain, dry skin, insomnia, anxiety, fear, restlessness, racing thoughts</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>2. Pitta: The Principle of Transformation</h4>
+              <p>Pitta is composed of Fire (Tejas) and Water (Jala). It is the energy of digestion and metabolism.</p>
+              <ul>
+                <li><strong>Location in the body:</strong> small intestine, stomach, sweat glands, blood, and eyes</li>
+                <li><strong>Physical qualities:</strong> hot, sharp, light, liquid, and slightly oily</li>
+                <li><strong>Functions:</strong> digestion, body temperature, hormonal balance, and the “digestion” of sensory information and emotions</li>
+                <li><strong>Pitta personality:</strong> medium build, sharp intellect, courageous, highly organized, often natural leaders</li>
+                <li><strong>Signs of imbalance:</strong> acid reflux, skin inflammation, excessive heat, ulcers, anger, irritability, perfectionism, jealousy</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>3. Kapha: The Principle of Structure</h4>
+              <p>Kapha is composed of Earth (Prithvi) and Water (Jala). It provides the “glue” that holds the body together.</p>
+              <ul>
+                <li><strong>Location in the body:</strong> chest, throat, lungs, head, and fatty tissues</li>
+                <li><strong>Physical qualities:</strong> heavy, slow, cool, oily, smooth, and stable</li>
+                <li><strong>Functions:</strong> growth, lubrication of joints, immunity, and structural integrity</li>
+                <li><strong>Kapha personality:</strong> sturdy build, calm, patient, compassionate, physically strong, with good long-term memory</li>
+                <li><strong>Signs of imbalance:</strong> weight gain, lethargy, congestion, sinus issues, slow digestion, depression, stubbornness, attachment, greed</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Quick Comparative View</h4>
+              <div class="chapter-table-wrap">
+                <table class="chapter-table">
+                  <thead>
+                    <tr><th>Feature</th><th>Vata</th><th>Pitta</th><th>Kapha</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Elements</td><td>Air &amp; Space</td><td>Fire &amp; Water</td><td>Earth &amp; Water</td></tr>
+                    <tr><td>Main Site</td><td>Colon</td><td>Small Intestine</td><td>Chest / Lungs</td></tr>
+                    <tr><td>Action</td><td>Movement</td><td>Transformation</td><td>Structure</td></tr>
+                    <tr><td>Imbalance</td><td>Anxiety / Dryness</td><td>Anger / Inflammation</td><td>Lethargy / Congestion</td></tr>
+                    <tr><td>Healing Key</td><td>Warmth &amp; Routine</td><td>Cooling &amp; Moderation</td><td>Activity &amp; Warmth</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="body-block full">
+              <h4>Why the Framework Matters: Prakriti vs. Vikriti</h4>
+              <p>To achieve health, an Ayurvedic practitioner looks at two things:</p>
+              <ul>
+                <li><strong>Prakriti (Your Constitution):</strong> the specific balance of Doshas you were born with — your natural “normal.”</li>
+                <li><strong>Vikriti (Your Imbalance):</strong> the current state of your Doshas, influenced by diet, stress, season, age, and environment.</li>
+              </ul>
+              <p><strong>The goal of treatment</strong> is to bring your Vikriti back into better alignment with your Prakriti. For example, if you are a Pitta person suffering from acid reflux, cooling herbs and calming lifestyle changes help bring that fire back to its healthy level.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="agni-ama" class="article" data-search="agni ama digestive fire toxins metabolism immunity digestion sama vishama tikshna manda tongue coating brain fog">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Central Principle</span>
+              <h3>Agni and Ama</h3>
+              <p>The inner fire of transformation and the toxic residue of poor processing — one of Ayurveda’s deepest clinical ideas.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>While modern medicine often focuses on external pathogens like bacteria and viruses, Ayurveda looks inward at the internal environment. The cornerstone of this environment is the relationship between <strong>Agni</strong> (the biological fire) and <strong>Ama</strong> (the metabolic sludge or toxic residue).</p>
+              <p>Understanding these two concepts is key to understanding why two people can eat the same meal, yet one feels energized while the other feels bloated and tired.</p>
+            </section>
+            <section class="body-block">
+              <h4>1. Agni: The Sacred Fire of Life</h4>
+              <p>Agni is the Sanskrit word for fire. In the body, it represents the sequence of chemical reactions and metabolic processes. While Ayurveda describes 13 types of Agni, the most important is <strong>Jatharagni</strong> — the digestive fire located in the stomach and small intestine.</p>
+              <p><strong>The functions of a healthy Agni include:</strong></p>
+              <ul>
+                <li>Digestion — breaking down food into nutrients</li>
+                <li>Absorption — ensuring cells receive the energy they need</li>
+                <li>Discrimination — separating nutrients from waste products</li>
+                <li>Immunity — acting as a first line of defense</li>
+                <li>Mental clarity — providing the “fire” of intelligence and enthusiasm</li>
+              </ul>
+              <p><strong>The four states of Agni:</strong></p>
+              <ul>
+                <li><strong>Sama Agni (Balanced):</strong> digestion is easy, energy is high, elimination is regular.</li>
+                <li><strong>Vishama Agni (Irregular):</strong> linked to Vata; digestion is unpredictable, leading to bloating and constipation.</li>
+                <li><strong>Tikshna Agni (Sharp):</strong> linked to Pitta; digestion is too fast, leading to hyperacidity, hunger pangs, and inflammation.</li>
+                <li><strong>Manda Agni (Slow):</strong> linked to Kapha; digestion is sluggish, leading to weight gain, lethargy, and heaviness.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>2. Ama: The Root of All Disease</h4>
+              <p>When Agni is weak or overloaded, it cannot fully “cook” or digest the food we eat. This undigested, fermented residue remains in the digestive tract and turns into a cold, sticky, toxic substance called <strong>Ama</strong>.</p>
+              <p>In Ayurveda, Ama is considered the root cause of many chronic diseases because it clogs the <strong>Srotas</strong> (channels) of the body, preventing nutrients from reaching tissues and preventing waste from leaving.</p>
+              <p><strong>How to tell if you may have Ama:</strong></p>
+              <ul>
+                <li><strong>Physical signs:</strong> thick tongue coating (often white), foul breath, body odor, heavy limbs, chronic fatigue</li>
+                <li><strong>Digestive signs:</strong> constipation, diarrhea, unstable digestion, or complete lack of appetite</li>
+                <li><strong>Mental signs:</strong> brain fog, lack of motivation, and inner heaviness</li>
+              </ul>
+              <p>If left untreated, Ama may travel from the digestive tract into deeper tissues, where it can manifest as inflammation, high cholesterol, cysts, or autoimmune tendencies.</p>
+            </section>
+            <section class="body-block full">
+              <h4>3. The Cycle of Health: Strengthening Agni, Clearing Ama</h4>
+              <p>Ayurvedic treatment is largely the process of kindling Agni so that Ama can be burned away and proper transformation restored.</p>
+              <p><strong>Clinical tips to balance your fire:</strong></p>
+              <ul>
+                <li><strong>Eat with the Sun:</strong> Agni is strongest when the sun is highest. Lunch is often best as the main meal.</li>
+                <li><strong>Sip Warm Water:</strong> cold water dampens digestive fire; warm water or ginger tea often supports it.</li>
+                <li><strong>Wait for Hunger:</strong> do not eat unless the previous meal is digested. True hunger is a sign that Agni is ready.</li>
+                <li><strong>Spice Your Life:</strong> cumin, ginger, black pepper, and fennel are classical Agni-kindling spices.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>Conclusion: The Path to Vitality</h4>
+              <p>In an Ayurvedic clinic, the focus is not only on the symptoms of discomfort, but on the strength and stability of Agni itself. By clearing Ama through approaches such as <em>Deepana-Pachana</em> (herbal appetizers and digestives) and Panchakarma (detoxification), Ayurveda aims to restore the body’s natural ability to heal itself.</p>
+              <p><strong>Health Tip:</strong> check your tongue in the mirror tomorrow morning. A clear pink tongue suggests healthy Agni, while a coated tongue may be a signal that the system needs an Ayurvedic reset.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="dhatus" class="article" data-search="dhatus seven tissues rasa rakta mamsa meda asthi majja shukra nourishment sequential chain tissues vitality">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Tissue Theory</span>
+              <h3>Dhatus &amp; Nourishment</h3>
+              <p>The seven tissue layers through which nourishment is progressively refined in the body.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In modern medicine, we often look at organs in isolation. In Ayurveda, the body is viewed as a dynamic process of successive nourishment. This process is governed by the <strong>Saptadhatus</strong> — the seven fundamental tissues that form the physical pillar of our existence.</p>
+              <p>The health of your skin, the strength of your bones, and even the quality of reproductive vitality depend on how well your body converts food into these seven layers of tissue.</p>
+            </section>
+            <section class="body-block">
+              <h4>The Sequential Chain of Nourishment</h4>
+              <p>Ayurveda teaches that the Dhatus are formed in a specific sequence. Much like a river irrigating a series of fields, the essence of digested food (<em>Ahara Rasa</em>) flows from one tissue to the next. If nourishment is blocked, weakened, or toxic at the first field, every later field will suffer.</p>
+              <ul>
+                <li><strong>1. Rasa Dhatu (Plasma / Lymph):</strong> primary nourishment and satisfaction. <em>Imbalance signs:</em> dry skin, fatigue, dissatisfaction.</li>
+                <li><strong>2. Rakta Dhatu (Blood):</strong> vitality, color, oxygenation. <em>Imbalance signs:</em> skin eruptions, inflammation, excessive heat.</li>
+                <li><strong>3. Mamsa Dhatu (Muscle):</strong> coverage, form, physical strength. <em>Imbalance signs:</em> lack of tone, wasting, or heaviness.</li>
+                <li><strong>4. Meda Dhatu (Fat / Adipose):</strong> lubrication, reserve, softness. <em>Imbalance signs:</em> obesity, excessive sweating, brittle hair.</li>
+                <li><strong>5. Asthi Dhatu (Bone / Cartilage):</strong> structure and support. <em>Imbalance signs:</em> bone pain, hair loss, cracked nails.</li>
+                <li><strong>6. Majja Dhatu (Marrow / Nerve Tissue):</strong> filling, communication, nervous integrity. <em>Imbalance signs:</em> dizziness, thinning, feeling empty.</li>
+                <li><strong>7. Shukra Dhatu (Reproductive Tissue):</strong> the most refined tissue, linked with reproduction, creativity, and vitality. <em>Imbalance signs:</em> infertility, low libido, lack of creative drive.</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>Ojas: The Ultimate Essence of Health</h4>
+              <p>When all seven Dhatus are properly nourished and Agni is strong, the body produces a subtle substance called <strong>Ojas</strong>. Ojas is the “super-fine” essence of all Dhatus — the physical manifestation of immunity, radiance, and spiritual strength.</p>
+            </section>
+            <section class="body-block full">
+              <h4>Clinical Importance: Why Tissue Health Matters</h4>
+              <p>In clinical work, Ayurveda does not simply treat “pain” or “fatigue” in a superficial way. It asks which Dhatu is malnourished, burdened, or obstructed.</p>
+              <ul>
+                <li>If there is anemia, attention is given to the transition from Rasa to Rakta.</li>
+                <li>If there is osteoporosis, Asthi Dhatu becomes central.</li>
+                <li>If there is chronic fatigue, rebuilding Ojas becomes crucial.</li>
+              </ul>
+              <p><strong>How Ayurveda supports Dhatu nourishment:</strong></p>
+              <ul>
+                <li><strong>Ahara (Diet):</strong> Dhatu-specific nourishment, such as healthy fats for Meda or mineral-rich support for Asthi.</li>
+                <li><strong>Rasayana Therapy:</strong> rejuvenative tonics such as Chyawanprash or Ashwagandha for deeper tissue support.</li>
+                <li><strong>Abhyanga (Massage):</strong> medicated oils nourish through the skin and support deeper tissues.</li>
+              </ul>
+              <p>Your body is not a static object; it is a river of nourishment. When each Dhatu receives what it needs, vitality, strength, and immunity become more stable.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="ojas" class="article" data-search="ojas immunity radiance vitality essence seven dhatus para apara burnout resilience calm glow">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Vital Essence</span>
+              <h3>Ojas</h3>
+              <p>The golden essence of immunity, radiance, emotional steadiness, and deep resilience.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>Have you ever met someone who seems to glow from within — someone with unshakable calm, physical strength, and a bright complexion despite the stresses of life? In Ayurveda, such a person is said to have high <strong>Ojas</strong>.</p>
+              <p>Ojas is the subtle, vital essence that forms as the end product of perfect digestion and healthy tissue formation. It is the physical manifestation of immunity, vitality, and bliss.</p>
+            </section>
+            <section class="body-block">
+              <h4>What is Ojas?</h4>
+              <p>Think of Ojas as the “honey” of the body. Just as a bee visits thousands of flowers to create a single drop of honey, your body processes every meal, every breath, and every experience to produce Ojas. It is the superfine biological essence that results from successful nourishment of all seven Dhatus.</p>
+            </section>
+            <section class="body-block">
+              <h4>The Two Types of Ojas</h4>
+              <ul>
+                <li><strong>Para Ojas (Superior Ojas):</strong> only eight drops are said to exist, located in the heart, sustaining life itself.</li>
+                <li><strong>Apara Ojas (Processed Ojas):</strong> circulates throughout the body via blood and lymph. This is the form influenced by lifestyle, diet, and mental state.</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>High Ojas vs. Low Ojas</h4>
+              <div class="chapter-table-wrap">
+                <table class="chapter-table">
+                  <thead>
+                    <tr><th>High Ojas (Radiant Health)</th><th>Low Ojas (Ojakshaya)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Glowing, lustrous skin and bright eyes</td><td>Dull complexion and dark circles</td></tr>
+                    <tr><td>Strong immune system and fewer illnesses</td><td>Frequent infections, colds, and flus</td></tr>
+                    <tr><td>Mental clarity and emotional stability</td><td>Anxiety, brain fog, and irritability</td></tr>
+                    <tr><td>Feeling light, energetic, and optimistic</td><td>Chronic fatigue and heaviness</td></tr>
+                    <tr><td>High tolerance for physical and mental stress</td><td>Feeling burnt out or easily overwhelmed</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="body-block">
+              <h4>What “Steals” Your Ojas?</h4>
+              <p>Many people unknowingly leak Ojas in daily life. Common Ojas-depleters include:</p>
+              <ul>
+                <li>Chronic stress and overwork</li>
+                <li>Lack of sleep — Ojas is replenished during deep, natural sleep</li>
+                <li>Excessive sensory stimulation</li>
+                <li>Processed foods lacking Prana (life force)</li>
+                <li>Negative emotions such as prolonged anger, grief, or fear, which generate Ama and smother Ojas</li>
+              </ul>
+            </section>
+            <section class="body-block full">
+              <h4>How to Build and Protect Ojas</h4>
+              <p>The beauty of Ayurveda is that Ojas can be rebuilt. This is the realm of <strong>Rasayana</strong> — rejuvenation therapy.</p>
+              <p><strong>1. Ojas-building foods:</strong> naturally sweet, nourishing, cooling, and unctuous foods such as ghee, dates, milk (when suitable), soaked almonds, and well-cooked, wholesome meals.</p>
+              <p><strong>2. Herbs (Rasayanas):</strong> herbs classically remembered for building Ojas include Ashwagandha, Shatavari, Guduchi, and preparations like Chyawanprash.</p>
+              <p><strong>3. Lifestyle practices:</strong> rest, prayer, loving relationships, meditation, Abhyanga, gentle Pranayama, and activities that create genuine joy and peace all protect Ojas.</p>
+              <p>Ultimately, the goal of many Ayurvedic treatments — whether for digestive, mental, skin, or fatigue-related disorders — is to protect and enhance Ojas. When Ojas is full, one does not merely survive; one thrives.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+      <article id="srotas" class="article" data-search="srotas channels pathways health disease flow obstruction intake nourishment elimination pranavaha annavaha mutravaha">
+        <details>
+          <summary>
+            <div class="summary-copy">
+              <span class="kicker">Channel Theory</span>
+              <h3>Srotas</h3>
+              <p>The pathways through which nourishment, breath, fluids, wastes, and signals move — and why flow matters clinically.</p>
+            </div>
+            <span class="chevron">⌄</span>
+          </summary>
+          <div class="article-body">
+            <section class="body-block full">
+              <h4>Introduction</h4>
+              <p>In Ayurveda, the human body is described as <em>Srotomayam</em>, meaning “composed of channels.” These channels, called <strong>Srotas</strong>, are the internal pathways through which nutrients reach the tissues and waste products are carried out of the body.</p>
+              <p>Srotas are not only physical tubes like veins or intestines; they are also functional pathways. They range from the microscopic (such as cell membranes) to the macroscopic (such as the digestive tract). Everything in the body — from the food you eat to the thoughts you think — must travel through Srotas to reach its destination.</p>
+            </section>
+            <section class="body-block">
+              <h4>The 13 Major Channel Systems</h4>
+              <p>While there are countless minor channels, Ayurveda identifies 13 primary Srotas systems in the human body. Among the important examples are:</p>
+              <ul>
+                <li><strong>Pranavaha Srotas:</strong> channels of breath and life-force (respiratory system)</li>
+                <li><strong>Annavaha Srotas:</strong> channels of food (digestive system)</li>
+                <li><strong>Udakavaha Srotas:</strong> channels of water and fluid metabolism</li>
+                <li><strong>Raktavaha Srotas:</strong> blood channels</li>
+                <li><strong>Asthivaha Srotas:</strong> bone-nourishing channels</li>
+                <li><strong>Purishavaha Srotas:</strong> channels of feces</li>
+                <li><strong>Mutravaha Srotas:</strong> channels of urine</li>
+                <li><strong>Svedavaha Srotas:</strong> channels of sweat</li>
+              </ul>
+            </section>
+            <section class="body-block">
+              <h4>How Channels Become Impaired (Srotodushti)</h4>
+              <p>Disease occurs when flow within these channels is disturbed. Ayurveda broadly describes channel dysfunction through patterns such as blockage, excessive flow, abnormal growth within the pathway, or movement in the wrong direction.</p>
+            </section>
+            <section class="body-block full">
+              <h4>The Clinical Goal: Clearing the Path</h4>
+              <p>In clinical practice, Ayurveda does not simply treat an organ in isolation; it often thinks in terms of the affected channel system. If a patient has a skin condition, attention may turn toward the blood channels. If there is anxiety, the channels of breath and life-force become important.</p>
+              <p><strong>How Ayurveda restores flow:</strong></p>
+              <ul>
+                <li><strong>Panchakarma:</strong> deep cleansing — the body’s “plumbing service” — using specialized oils and treatments to loosen Ama and remove it from the channels.</li>
+                <li><strong>Herbs:</strong> channel-clearing and pattern-specific formulations.</li>
+                <li><strong>Vihara (Lifestyle):</strong> movement, yoga, and healthy routine help “massage” the Srotas and keep Prana and nutrients flowing.</li>
+              </ul>
+              <p>The secret to a long, disease-resistant life in Ayurveda is the maintenance of healthy flow. When the internal pathways are clear, the body functions with far greater grace and intelligence.</p>
+            </section>
+          </div>
+        </details>
+      </article>
+
+    </div></div>
+  </section>
+</main>
+<footer class="footer"><strong>Kerala Ayurveda Vaidyasala, Changaramkulam</strong>Basics of Ayurveda · Insight Library category</footer>
+<script>
+const search = document.getElementById('articleSearch');
+const articles = [...document.querySelectorAll('.article')];
+const noResults = document.getElementById('noResults');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let shown = 0;
+  articles.forEach(card => {
+    const hit = card.dataset.search.includes(q);
+    card.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  });
+  noResults.style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>
